@@ -98,6 +98,22 @@ function drawWorld(gameBoard, tileDictionnary, tileSize) {
 
 
 
+function keyPressed() {
+  if (key === 'q') {
+    heroX -= 5;
+  }
+  if (key === 'd') {
+    heroX += 5;
+  }
+  if (key === 'z') {
+    heroY -= 5;
+  }
+  if (key === 's') {
+    heroY += 5;
+  }
+}
+
+
 function draw() {
   drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
 
