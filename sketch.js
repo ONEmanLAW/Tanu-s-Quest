@@ -1,8 +1,3 @@
-// Variables pour mondes.
-let worlds = [];
-tileDictionnaries = [];
-let worldsTileSizes = [];
-
 // 1ST World.
 let world1TileDictionnary = {};
 let world1TileSize = 64;
@@ -41,6 +36,21 @@ let world2Board = [
 currentWorld = 0;
 
 
+// Variables pour mondes.
+let worlds = [];
+tileDictionnaries = [];
+let worldsTileSizes = [];
+
+// Variables pour Hero.
+let hero;
+let heroWidth = world1TileSize;
+let heroHeight = world1TileSize * 1;
+
+// Spawn of Hero.
+let heroX = 2 * world1TileSize;
+let heroY  = 6 * world1TileSize;
+
+
 
 function setup() {
   createCanvas(world1Board[0].length * world1TileSize, world1Board.length * world1TileSize);
@@ -65,10 +75,11 @@ function setup() {
     4: loadImage('assets/sand.png'),
   }
 
+  hero = loadImage('assets/idle_1.png');
+
   worlds = [world1Board, world2Board];
   tileDictionnaries = [world1TileDictionnary, world2TileDictionnary];
   worldsTileSizes = [world1TileSize, world2TileSize];
-  
 }
 
 
@@ -79,6 +90,7 @@ function drawWorld(gameBoard, tileDictionnary, tileSize) {
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
       let currentImageName = tileDictionnary[currentTileValue];
+
       image(currentImageName, x * tileSize, y * tileSize, tileSize, tileSize);
     }
   }
@@ -87,7 +99,7 @@ function drawWorld(gameBoard, tileDictionnary, tileSize) {
 
 
 function draw() {
-
   drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
 
+  image(hero, heroX, heroY, heroWidth, heroHeight);
 }
