@@ -1,3 +1,7 @@
+/////////////////////////////////////////////
+//////////////////WORLDS/////////////////////
+/////////////////////////////////////////////
+
 // 1ST World.
 let world1TileDictionnary = {};
 let world1TileSize = 64;
@@ -16,7 +20,7 @@ let world1Board = [
 ];
 
 
-// Seconde World.
+// 2ND World.
 let world2TileDictionnary = {};
 let world2TileSize = 64;
 
@@ -36,19 +40,31 @@ let world2Board = [
 currentWorld = 0;
 
 
-// Variables pour mondes.
+/////////////////////////////////////////////
+///////////VARIABLES FOR WORLDS//////////////
+/////////////////////////////////////////////
 let worlds = [];
 tileDictionnaries = [];
 let worldsTileSizes = [];
 
-// Variables pour Hero.
-let hero;
-let heroWidth = world1TileSize;
-let heroHeight = world1TileSize * 1;
+/////////////////////////////////////////////
+///////////VARIABLES FOR HERO////////////////
+/////////////////////////////////////////////
 
-// Spawn of Hero.
-let heroX = 2 * world1TileSize;
-let heroY  = 6 * world1TileSize;
+
+let xHero = 2 * world1TileSize;
+let yHero = 6 * world1TileSize;
+
+let wHero = world1TileSize;
+let hHero = world1TileSize * 1
+
+let heroSpeed = 5;
+let myHeroRight = [];
+let myHeroLeft = [];
+let currentIndex = 0;
+let movementCounter = 0;
+let currentHeroImage = 0;
+
 
 
 
@@ -63,7 +79,6 @@ function setup() {
     3: loadImage('assets/pavement.png'),
     4: loadImage('assets/sand.png'),
     5: loadImage('assets/sky.jpg'),
-    6: loadImage('assets/sun.png'),
   }
 
   // Tiles for 2nd World.
@@ -75,7 +90,29 @@ function setup() {
     4: loadImage('assets/sand.png'),
   }
 
-  hero = loadImage('assets/idle_1.png');
+  // Hero Images
+  // Right Images
+  hero0 = loadImage('assets/run_0.png');
+  myHeroRight.push(hero0);
+  hero1 = loadImage('assets/run_1.png');
+  myHeroRight.push(hero1);
+  hero2 = loadImage('assets/run_2.png');
+  myHeroRight.push(hero2);
+  hero3 = loadImage('assets/run_3.png');
+  myHeroRight.push(hero3);
+  hero4 = loadImage('assets/run_4.png');
+  myHeroRight.push(hero4);
+
+  currentHeroImage = hero0;
+
+  //Left Images
+  myHeroLeft.push(loadImage('assets/run_0left.png'));
+  myHeroLeft.push(loadImage('assets/run_1left.png')); 
+  myHeroLeft.push(loadImage('assets/run_2left.png')); 
+  myHeroLeft.push(loadImage('assets/run_3left.png'));
+  myHeroLeft.push(loadImage('assets/run_4left.png'));
+
+
 
   worlds = [world1Board, world2Board];
   tileDictionnaries = [world1TileDictionnary, world2TileDictionnary];
@@ -98,24 +135,58 @@ function drawWorld(gameBoard, tileDictionnary, tileSize) {
 
 
 
-function keyPressed() {
-  if (key === 'q') {
-    heroX -= 5;
+function keyReleased() {
+  if (keyCode === RIGHT_ARROW) {
+    currentIndex = 0;
   }
-  if (key === 'd') {
-    heroX += 5;
-  }
-  if (key === 'z') {
-    heroY -= 5;
-  }
-  if (key === 's') {
-    heroY += 5;
-  }
+  return false;
 }
+
+function getKeys() {
+  if (keyIsDown(UP_ARROW)) {
+    yHero -= heroSpeed;
+  }
+  
+  if (keyIsDown(DOWN_ARROW)) {
+    yHero += heroSpeed;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    xHero += heroSpeed;
+    
+    // For HERO Right Animation.
+    movementCounter += 1;
+    if (movementCounter >= 20 / heroSpeed) {
+      currentIndex +=1;
+      if (currentIndex === myHeroRight.length) {
+        currentIndex = 0;
+      }
+      currentHeroImage = myHeroRight[currentIndex];
+      movementCounter = 0;
+    }
+  }
+  
+  if (keyIsDown(LEFT_ARROW)) {
+    xHero -= heroSpeed;
+
+    // For HERO left Animation.
+    movementCounter += 1;
+    if (movementCounter >= 20 / heroSpeed) {
+      currentIndex +=1;
+      if (currentIndex === myHeroLeft.length) {
+        currentIndex = 0;
+      }
+      currentHeroImage = myHeroLeft[currentIndex];
+      movementCounter = 0;
+    }
+  }
+};
+
 
 
 function draw() {
   drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
 
-  image(hero, heroX, heroY, heroWidth, heroHeight);
+  getKeys();
+  image(currentHeroImage, xHero, yHero, wHero, hHero);
 }
