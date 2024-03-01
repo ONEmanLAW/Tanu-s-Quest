@@ -140,15 +140,19 @@ function keyReleased() {
     currentIndex = 0;
   }
   return false;
-}
+};
 
 function getKeys() {
   if (keyIsDown(UP_ARROW)) {
     yHero -= heroSpeed;
-  }
+  };
   
   if (keyIsDown(DOWN_ARROW)) {
     yHero += heroSpeed;
+  };
+
+  if (keyIsDown(RIGHT_ARROW) && keyIsDown(LEFT_ARROW)) {
+    return;
   }
 
   if (keyIsDown(RIGHT_ARROW)) {
@@ -164,7 +168,7 @@ function getKeys() {
       currentHeroImage = myHeroRight[currentIndex];
       movementCounter = 0;
     }
-  }
+  };
   
   if (keyIsDown(LEFT_ARROW)) {
     xHero -= heroSpeed;
