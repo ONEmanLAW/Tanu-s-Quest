@@ -145,11 +145,11 @@ function checkKeys(currentMap) {
 
   if (currentMap === 0) {
 
-    if (keyIsDown(RIGHT_ARROW) && keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(81) && keyIsDown(68)) {
       return;
     };
   
-    if (keyIsDown(RIGHT_ARROW)) {
+    if (keyIsDown(68)) {
       xHero += heroSpeed;
       if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
         xHero -= path;
@@ -166,7 +166,7 @@ function checkKeys(currentMap) {
       }
     };
     
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(81)) {
       xHero -= heroSpeed;
       if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
         xHero += path;
@@ -186,7 +186,7 @@ function checkKeys(currentMap) {
 
 
   if (currentMap === 1) {
-    if (keyIsDown(UP_ARROW)) {
+    if (keyIsDown(90)) {
       yHero -= heroSpeed;
       if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
         yHero += path;
@@ -194,7 +194,7 @@ function checkKeys(currentMap) {
     };
   
   
-    if (keyIsDown(DOWN_ARROW)) {
+    if (keyIsDown(83)) {
       yHero += heroSpeed;
       if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
         yHero -= path;
@@ -202,11 +202,11 @@ function checkKeys(currentMap) {
     };
     
     
-    if (keyIsDown(RIGHT_ARROW) && keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(68) && keyIsDown(81)) {
       return;
     };
     
-    if (keyIsDown(RIGHT_ARROW)) {
+    if (keyIsDown(68)) {
       xHero += heroSpeed;
       if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
         xHero -= path;
@@ -223,7 +223,7 @@ function checkKeys(currentMap) {
       }
     };
     
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(81)) {
       xHero -= heroSpeed;
       if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
         xHero += path;
