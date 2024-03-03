@@ -19,7 +19,6 @@ let world1Board = [
   [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 ];
 
-
 // 2ND World.
 let world2TileDictionnary = {};
 let world2TileSize = 64;
@@ -29,15 +28,16 @@ let world2Board = [
   [1,1,1,1,1,1,1,3,1,1,1,1,1,1,1],
   [1,2,2,1,1,1,1,3,1,1,1,1,1,1,1],
   [1,2,2,2,1,1,1,3,1,1,1,1,1,1,1],
-  [1,1,2,2,1,1,1,3,1,1,1,1,1,1,1],
-  [1,1,1,2,1,1,1,3,1,1,1,4,4,1,1],
+  [1,2,2,2,1,1,1,3,1,1,1,1,1,1,1],
+  [1,2,2,2,1,1,1,3,1,1,1,4,4,1,1],
   [1,1,2,2,1,1,1,3,1,1,1,4,4,1,1],
   [1,1,2,2,1,1,1,3,1,1,1,4,4,1,1],
   [1,1,2,2,1,1,1,3,1,1,1,1,1,1,1],
   [1,1,1,2,1,1,1,3,1,1,1,1,1,1,1],
 ];
 
-currentWorld = 0;
+
+currentWorld = 1;
 
 
 /////////////////////////////////////////////
@@ -48,19 +48,20 @@ let worlds = [];
 tileDictionnaries = [];
 let worldsTileSizes = [];
 
+
 /////////////////////////////////////////////
 ///////////VARIABLES FOR HERO////////////////
 /////////////////////////////////////////////
 
-//Spawn of Hero
+//Spawn of Hero.
 let xHero = 2 * world1TileSize;
 let yHero = 6 * world1TileSize;
 
-// Size of Hero
+// Size of Hero.
 let wHero = world1TileSize;
-let hHero = world1TileSize * 1
+let hHero = world1TileSize * 1;
 
-// Animation for Hero
+// Animation for Hero.
 let heroSpeed = 5;
 let myHeroRight = [];
 let myHeroLeft = [];
@@ -69,30 +70,31 @@ let movementCounter = 0;
 let currentHeroImage = 0;
 
 
+/////////////////////////////////////////////
+/////////FUNCTION LAUNCH ON SETUP////////////
+/////////////////////////////////////////////
 
 function setup() {
   createCanvas(world1Board[0].length * world1TileSize, world1Board.length * world1TileSize);
   
-  // Tiles for 1st World.
   world1TileDictionnary = {
 
     1: loadImage('assets/grass.png'),
     2: loadImage('assets/dirt.png'),
     3: loadImage('assets/pavement.png'),
     4: loadImage('assets/sand.png'),
-    5: loadImage('assets/sky.jpg'),
-  }
+    5: loadImage('assets/sky.jpg')
+  };
 
-  // Tiles for 2nd World.
   world2TileDictionnary = {
 
     1: loadImage('assets/grass.png'),
     2: loadImage('assets/dirt.png'),
     3: loadImage('assets/pavement.png'),
-    4: loadImage('assets/sand.png'),
-  }
+    4: loadImage('assets/sand.png')
+  };
 
-  // Right Hero Images
+  // Right Hero Images.
   hero0 = loadImage('assets/run_0.png');
   myHeroRight.push(hero0);
   hero1 = loadImage('assets/run_1.png');
@@ -104,7 +106,7 @@ function setup() {
   hero4 = loadImage('assets/run_4.png');
   myHeroRight.push(hero4);
 
-  //Left Hero Images
+  //Left Hero Images.
   myHeroLeft.push(loadImage('assets/run_0left.png'));
   myHeroLeft.push(loadImage('assets/run_1left.png')); 
   myHeroLeft.push(loadImage('assets/run_2left.png')); 
@@ -113,7 +115,7 @@ function setup() {
 
   currentHeroImage = hero0;
 
-  // Worlds Setups
+  // Worlds Setups.
   worlds = [world1Board, world2Board];
   tileDictionnaries = [world1TileDictionnary, world2TileDictionnary];
   worldsTileSizes = [world1TileSize, world2TileSize];
@@ -134,76 +136,116 @@ function drawWorld(gameBoard, tileDictionnary, tileSize) {
 };
 
 
+/////////////////////////////////////////////
+///////////FUNCTION KEYSBINDS////////////////
+/////////////////////////////////////////////
 
-// function keyReleased() {
-//   if (keyCode === RIGHT_ARROW) {
-//     currentIndex = 0;
-//   }
-//   return false;
-// };
-
-
-
-function getKeys() {
+function checkKeys(currentMap) {
   let path = 5;
-  
-  if (keyIsDown(UP_ARROW)) {
-    yHero -= heroSpeed;
-    if(checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])){
-      yHero += path;
-    }
-  };
 
+  if (currentMap === 0) {
 
-  if (keyIsDown(DOWN_ARROW)) {
-    yHero += heroSpeed;
-    if(checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])){
-      yHero -= path;
-    }
-  };
+    if (keyIsDown(RIGHT_ARROW) && keyIsDown(LEFT_ARROW)) {
+      return;
+    };
   
-  
-  if (keyIsDown(RIGHT_ARROW) && keyIsDown(LEFT_ARROW)) {
-    return;
-  };
-
-  
-  if (keyIsDown(RIGHT_ARROW)) {
-    xHero += heroSpeed;
-    if(checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])){
-      xHero -= path;
-    }
-    // For HERO Right Animation.
-    movementCounter += 1;
-    if (movementCounter >= 20 / heroSpeed) {
-      currentIndex +=1;
-      if (currentIndex === myHeroRight.length) {
-        currentIndex = 0;
+    if (keyIsDown(RIGHT_ARROW)) {
+      xHero += heroSpeed;
+      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+        xHero -= path;
       }
-      currentHeroImage = myHeroRight[currentIndex];
-      movementCounter = 0;
-    }
-  };
-  
-  if (keyIsDown(LEFT_ARROW)) {
-    xHero -= heroSpeed;
-    if(checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])){
-      xHero += path;
-    }
-    // For HERO left Animation.
-    movementCounter += 1;
-    if (movementCounter >= 20 / heroSpeed) {
-      currentIndex +=1;
-      if (currentIndex === myHeroLeft.length) {
-        currentIndex = 0;
+      // HERO Right Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
       }
-      currentHeroImage = myHeroLeft[currentIndex];
-      movementCounter = 0;
-    }
+    };
+    
+    if (keyIsDown(LEFT_ARROW)) {
+      xHero -= heroSpeed;
+      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+        xHero += path;
+      }
+      // HERO left Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroLeft.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroLeft[currentIndex];
+        movementCounter = 0;
+      }
+    };
+  };
+
+
+  if (currentMap === 1) {
+    if (keyIsDown(UP_ARROW)) {
+      yHero -= heroSpeed;
+      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+        yHero += path;
+      }
+    };
+  
+  
+    if (keyIsDown(DOWN_ARROW)) {
+      yHero += heroSpeed;
+      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+        yHero -= path;
+      }
+    };
+    
+    
+    if (keyIsDown(RIGHT_ARROW) && keyIsDown(LEFT_ARROW)) {
+      return;
+    };
+    
+    if (keyIsDown(RIGHT_ARROW)) {
+      xHero += heroSpeed;
+      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+        xHero -= path;
+      }
+      // HERO Right Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
+      }
+    };
+    
+    if (keyIsDown(LEFT_ARROW)) {
+      xHero -= heroSpeed;
+      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+        xHero += path;
+      }
+      // HERO left Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroLeft.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroLeft[currentIndex];
+        movementCounter = 0;
+      }
+    };
   };
 };
 
 
+/////////////////////////////////////////////
+/////////FUNCTIONS FOR COLLISION/////////////
+/////////////////////////////////////////////
 
 function checkCollision(gameBoard,tileSize) {
   for (let y = 0; y < gameBoard.length; y++) {
@@ -231,9 +273,10 @@ function pointIsInRect(xHero,yHero,xR,yR,wR,hR) {
 };
 
 
-function rectIsInRect(xHero, yHero, wHero ,hHero, xR, yR, wR, hR) {
 
-  // Arrivée par la droite
+function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+  // Arrivée par la droite.
   if (xHero < xR + wR) {
     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
       console.log("Par la droite et le centre");
@@ -251,7 +294,7 @@ function rectIsInRect(xHero, yHero, wHero ,hHero, xR, yR, wR, hR) {
     }  
   };
 
-  // Arrivée par la gauche
+  // Arrivée par la gauche.
   if (xHero + wHero > xR) {
     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
       console.log("Par la gauche et le centre");
@@ -269,7 +312,7 @@ function rectIsInRect(xHero, yHero, wHero ,hHero, xR, yR, wR, hR) {
     } 
   };
 
-  // Arrivée par le bas
+  // Arrivée par le bas.
   if (yHero < yR + hR) {
     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
       console.log("Par la bas et le centre");
@@ -287,7 +330,7 @@ function rectIsInRect(xHero, yHero, wHero ,hHero, xR, yR, wR, hR) {
     }
   };
 
-  // Arrivée par le haut
+  // Arrivée par le haut.
   if (yHero + hHero > yR) {
     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
       console.log("Par le haut et le centre");
@@ -311,6 +354,6 @@ function rectIsInRect(xHero, yHero, wHero ,hHero, xR, yR, wR, hR) {
 function draw() {
   drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
 
-  getKeys();
+  checkKeys(currentWorld);
   image(currentHeroImage, xHero, yHero, wHero, hHero);
 };
