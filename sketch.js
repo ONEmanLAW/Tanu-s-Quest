@@ -42,7 +42,7 @@ let world1CollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -83,7 +83,7 @@ let world2DecorationBoard = [
 ];
 
 let world2CollisionBoard = [
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -92,7 +92,7 @@ let world2CollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
 
@@ -105,12 +105,12 @@ let world3Board = [
   [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
   [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
   [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,1,1,1,1,1],
-  [5,5,5,5,5,5,5,5,1,1,2,2,2,2,2],
-  [5,5,5,5,5,5,5,1,1,2,2,2,2,2,2],
-  [1,1,4,4,4,4,4,4,4,4,4,4,4,4,4],
-  [2,2,4,4,2,2,2,2,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
+  [5,5,5,5,5,5,5,5,5,5,2,2,2,2,2],
+  [5,5,5,5,5,5,5,5,2,6,3,3,3,3,3],
+  [2,2,2,2,2,2,2,6,3,3,3,3,3,3,3],
+  [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
+  [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
 ];
 
 let world3DecorationTileDictionnary = {};
@@ -120,10 +120,10 @@ let world3DecorationBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,,11,0,0,0,0,0,0,0,0,0],
-  [0,0,0,11,11,11,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,10,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,10,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,2,0,0,0,0,0],
+  [0,0,0,3,0,3,0,2,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -136,14 +136,14 @@ let world3CollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
 
-currentWorld = 0;
+currentWorld = 2;
 
 
 /////////////////////////////////////////////
@@ -164,7 +164,7 @@ let worldsTileSizes = [];
 
 //Spawn of Hero.
 let xHero = 2 * world1TileSize;
-let yHero = 6 * world1TileSize;
+let yHero = 6 * world1TileSize ;
 
 // Size of Hero.
 let wHero = world1TileSize - 5;
@@ -220,15 +220,18 @@ function setup() {
   world3TileDictionnary = {
 
     1: loadImage('assets/grass.png'),
-    2: loadImage('assets/dirt.png'),
-    3: loadImage('assets/pavement.png'),
+    2: loadImage('assets/solHerbe1.png'),
+    3: loadImage('assets/sousSolNoir.png'),
     4: loadImage('assets/sand.png'),
+    5: loadImage('assets/sky.jpg'),
+    6: loadImage('assets/solBordDroit2.png')
   };
 
   world3DecorationTileDictionnary = {
     0: loadImage(''),
-    10: loadImage('assets/log.png'),
-    11: loadImage('assets/leaves.png')
+    1: loadImage('assets/solBordGauche1.png'),
+    2: loadImage('assets/solBordDroit1.png'),
+    3: loadImage('assets/champignonBleu.png')
   };
 
   // Right Hero Images.
@@ -261,7 +264,7 @@ function setup() {
   collisonWorlds = [world1CollisionBoard, world2CollisionBoard, world3CollisionBoard];
 
   
-  tileDictionnaries = [world1TileDictionnary, world2TileDictionnary, world1TileDictionnary];
+  tileDictionnaries = [world1TileDictionnary, world2TileDictionnary, world3TileDictionnary];
 
   tileDecorationDictionnaries = [ world1DecorationTileDictionnary, world2DecorationTileDictionnary, world3DecorationTileDictionnary];
 
@@ -351,7 +354,8 @@ function checkKeys(currentMap) {
   };
 
 
-  if (currentMap === 1 || currentMap === 2) {
+  if (currentMap === 1) {
+
     if (keyIsDown(90)) {
       yHero -= heroSpeed;
       if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
@@ -392,6 +396,47 @@ function checkKeys(currentMap) {
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
       if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
+        xHero += path;
+      }
+      // HERO left Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroLeft.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroLeft[currentIndex];
+        movementCounter = 0;
+      }
+    };
+  };
+
+  if (currentMap === 2) {
+
+    if (keyIsDown(68) && keyIsDown(81)) {
+      return;
+    };
+  
+    if (keyIsDown(68)) {
+      xHero += heroSpeed;
+      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+        xHero -= path;
+      }
+      // HERO Right Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
+      }
+    };
+    
+    if (keyIsDown(81)) {
+      xHero -= heroSpeed;
+      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
         xHero += path;
       }
       // HERO left Animation.
@@ -552,9 +597,14 @@ function draw() {
   if (currentWorld === 0) {
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
-  } else if (currentWorld === 1 || currentWorld === 2) {
+    
+  } else if (currentWorld === 1) {
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
-  };
+
+  } else if (currentWorld === 2) {
+    drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
+    image(currentHeroImage, xHero, yHero, wHero, hHero);
+  }
   changeWorldIfNeeded();
 };
