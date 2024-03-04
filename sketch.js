@@ -143,7 +143,7 @@ let world3CollisionBoard = [
 ];
 
 
-currentWorld = 2;
+currentWorld = 0;
 
 
 /////////////////////////////////////////////
