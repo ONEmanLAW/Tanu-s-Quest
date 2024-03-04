@@ -408,7 +408,9 @@ function checkKeys(currentMap) {
   };
 };
 
-
+/////////////////////////////////////////////
+////////FUNCTIONS FOR CHANGING WORLDS////////
+/////////////////////////////////////////////
 
 function checkWorldChange(worldCollisionBoard, tileSize) {
   for (let y = 0; y < worldCollisionBoard.length; y++) {
