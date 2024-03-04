@@ -38,9 +38,6 @@ let world1DecorationBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
-let world1CollisonTileDictionnary = {};
-let world1CollisonTileSize = 64;
-
 let world1CollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -459,6 +456,7 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
     }
   };
 };
+
 
 
 /////////////////////////////////////////////
