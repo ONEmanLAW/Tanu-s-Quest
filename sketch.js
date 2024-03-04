@@ -103,7 +103,7 @@ let world2CollisionBoard = [
 
 
 
-currentWorld = 1;
+currentWorld = 0;
 
 /////////////////////////////////////////////
 ///////////VARIABLES FOR WORLDS//////////////
@@ -341,9 +341,9 @@ function checkKeys(currentMap) {
 /////////FUNCTIONS FOR COLLISION/////////////
 /////////////////////////////////////////////
 
-function checkCollision(world2CollisionBoard,tileSize) {
-  for (let y = 0; y < world2CollisionBoard.length; y++) {
-    const currentLine = world2CollisionBoard[y];
+function checkCollision(worldCollisionBoard,tileSize) {
+  for (let y = 0; y < worldCollisionBoard.length; y++) {
+    const currentLine = worldCollisionBoard[y];
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
       if (currentTileValue === 1){
