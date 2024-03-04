@@ -1,3 +1,6 @@
+
+
+
 /////////////////////////////////////////////
 //////////////////WORLDS/////////////////////
 /////////////////////////////////////////////
@@ -26,10 +29,26 @@ let world1DecorationBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,12,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,12,12,12,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,11,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,11,11,11,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,10,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,10,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+let world1CollisonTileDictionnary = {};
+let world1CollisonTileSize = 64;
+
+let world1CollisionBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -61,13 +80,27 @@ let world2DecorationBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,12,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,12,12,12,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,11,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,11,11,11,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
+
+let world2CollisionBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
 
 
 currentWorld = 1;
@@ -121,9 +154,7 @@ function setup() {
   world1DecorationTileDictionnary = {
     0: loadImage(''),
     10: loadImage('assets/log.png'),
-    // 11: Colision of 10.
-    11: loadImage('assets/log.png'),
-    12: loadImage('assets/leaves.png')
+    11: loadImage('assets/leaves.png')
   };
 
   world2TileDictionnary = {
@@ -137,9 +168,7 @@ function setup() {
   world2DecorationTileDictionnary = {
     0: loadImage(''),
     10: loadImage('assets/log.png'),
-    // 11: Colision of 10.
-    11: loadImage('assets/log.png'),
-    12: loadImage('assets/leaves.png')
+    11: loadImage('assets/leaves.png')
   };
 
   // Right Hero Images.
@@ -164,10 +193,9 @@ function setup() {
   currentHeroImage = hero0;
 
   // Worlds Setups.
-  worlds = [world1Board, world2Board, world1DecorationBoard, world2DecorationBoard];
+  worlds = [world1Board, world2Board, world1DecorationBoard, world2DecorationBoard, world1CollisionBoard, world2CollisionBoard];
   tileDictionnaries = [world1TileDictionnary, world2TileDictionnary, world1DecorationTileDictionnary, world2DecorationTileDictionnary];
   worldsTileSizes = [world1TileSize, world2TileSize, world1DecorationTileSize, world2DecorationTileSize];
-
 };
 
 
@@ -217,7 +245,7 @@ function checkKeys(currentMap) {
   
     if (keyIsDown(68)) {
       xHero += heroSpeed;
-      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+      if (checkCollision(worlds[4],worldsTileSizes[currentWorld])) {
         xHero -= path;
       }
       // HERO Right Animation.
@@ -234,7 +262,7 @@ function checkKeys(currentMap) {
     
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
-      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld])) {
+      if (checkCollision(worlds[4],worldsTileSizes[currentWorld])) {
         xHero += path;
       }
       // HERO left Animation.
@@ -254,7 +282,7 @@ function checkKeys(currentMap) {
   if (currentMap === 1) {
     if (keyIsDown(90)) {
       yHero -= heroSpeed;
-      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
+      if (checkCollision(worlds[5],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
         yHero += path;
       }
     };
@@ -262,7 +290,7 @@ function checkKeys(currentMap) {
   
     if (keyIsDown(83)) {
       yHero += heroSpeed;
-      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
+      if (checkCollision(worlds[5],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
         yHero -= path;
       }
     };
@@ -274,7 +302,7 @@ function checkKeys(currentMap) {
     
     if (keyIsDown(68)) {
       xHero += heroSpeed;
-      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
+      if (checkCollision(worlds[5],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
         xHero -= path;
       }
       // HERO Right Animation.
@@ -291,7 +319,7 @@ function checkKeys(currentMap) {
     
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
-      if (checkCollision(worlds[currentWorld],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
+      if (checkCollision(worlds[5],worldsTileSizes[currentWorld]) || checkCollision(worlds[3],worldsTileSizes[3])) {
         xHero += path;
       }
       // HERO left Animation.
@@ -313,12 +341,12 @@ function checkKeys(currentMap) {
 /////////FUNCTIONS FOR COLLISION/////////////
 /////////////////////////////////////////////
 
-function checkCollision(gameBoard,tileSize) {
-  for (let y = 0; y < gameBoard.length; y++) {
-    const currentLine = gameBoard[y];
+function checkCollision(world2CollisionBoard,tileSize) {
+  for (let y = 0; y < world2CollisionBoard.length; y++) {
+    const currentLine = world2CollisionBoard[y];
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
-      if (currentTileValue === 1 || currentTileValue === 11){
+      if (currentTileValue === 1){
         if(rectIsInRect(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
