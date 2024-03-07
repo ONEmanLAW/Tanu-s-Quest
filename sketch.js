@@ -14,8 +14,8 @@ let world1Board = [
   [5,5,5,5,5,5,5,5,5,5,1,1,1,1,1],
   [5,5,5,5,5,5,5,5,1,1,2,2,2,2,2],
   [5,5,5,5,5,5,5,1,1,2,2,2,2,2,2],
-  [1,1,4,4,1,1,1,1,2,2,2,2,2,2,2],
-  [2,2,4,4,2,2,2,2,2,2,2,2,2,2,2],
+  [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2],
+  [2,2,1,1,2,2,2,2,2,2,2,2,2,2,2],
   [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 ];
 
@@ -42,8 +42,8 @@ let world1CollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
@@ -179,6 +179,19 @@ let movementCounter = 0;
 let currentHeroImage = 0;
 
 
+let jump = false;
+let direction = 1;
+let velocity = 4 ;
+let jumpPower =  10;
+let fallingSpeed = 4; // equal to velocity
+
+let minHeight = 385;
+let maxHeight = 300 ;
+
+let jumpCounter = 0;
+
+
+
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
@@ -305,6 +318,48 @@ function drawFront(gameBoard, tileDictionnary, tileSize) {
 };
 
 
+
+
+
+function gravity () {
+  if (yHero >= minHeight && jump === false) {
+    yHero = yHero;
+    jumpCounter = 0;
+  } else {
+    yHero = yHero + (direction * velocity); // For Gravity
+  }
+
+  if (jump === true) {
+    if (yHero <= maxHeight || jumpCounter >= jumpPower) {
+      if (yHero >= minHeight) {
+        yHero = minHeight;
+      } else {
+        velocity = fallingSpeed;
+      }
+      
+    } else {
+      velocity = -jumpPower;
+      jumpCounter = jumpCounter + 1;
+    }
+  } else {
+    velocity = fallingSpeed;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /////////////////////////////////////////////
 ///////////FUNCTION KEYSBINDS////////////////
 /////////////////////////////////////////////
@@ -354,6 +409,12 @@ function checkKeys(currentMap) {
         movementCounter = 0;
       }
     };
+
+    if (keyIsDown(32)) {
+      jump = true;
+    } else {
+      jump = false;
+    }
   };
 
 
@@ -616,4 +677,6 @@ function draw() {
     image(currentHeroImage, xHero, yHero, wHero, hHero);
   }
   changeWorldIfNeeded();
+
+  gravity();
 };
