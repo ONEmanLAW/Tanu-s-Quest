@@ -312,12 +312,14 @@ function drawFront(gameBoard, tileDictionnary, tileSize) {
 function checkKeys(currentMap) {
   let path = 5;
 
+
   if (currentMap === 0) {
 
     if (keyIsDown(68) && keyIsDown(81)) {
       return;
     };
   
+    // Right.
     if (keyIsDown(68)) {
       xHero += heroSpeed;
       if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
@@ -335,6 +337,7 @@ function checkKeys(currentMap) {
       }
     };
     
+    // Left.
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
       if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
@@ -356,6 +359,7 @@ function checkKeys(currentMap) {
 
   if (currentMap === 1) {
 
+    // Up.
     if (keyIsDown(90)) {
       yHero -= heroSpeed;
       if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
@@ -363,7 +367,7 @@ function checkKeys(currentMap) {
       }
     };
   
-  
+  // Down.
     if (keyIsDown(83)) {
       yHero += heroSpeed;
       if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
@@ -376,6 +380,7 @@ function checkKeys(currentMap) {
       return;
     };
     
+    // Right.
     if (keyIsDown(68)) {
       xHero += heroSpeed;
       if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
@@ -393,6 +398,7 @@ function checkKeys(currentMap) {
       }
     };
     
+    // Left.
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
       if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
@@ -411,12 +417,14 @@ function checkKeys(currentMap) {
     };
   };
 
+
   if (currentMap === 2) {
 
     if (keyIsDown(68) && keyIsDown(81)) {
       return;
     };
   
+    // Right.
     if (keyIsDown(68)) {
       xHero += heroSpeed;
       if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
@@ -434,6 +442,7 @@ function checkKeys(currentMap) {
       }
     };
     
+    //Left.
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
       if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
