@@ -42,7 +42,7 @@ let world1CollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
   [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -178,7 +178,7 @@ let currentIndex = 0;
 let movementCounter = 0;
 let currentHeroImage = 0;
 
-
+// Jump & Gravity.
 let jump = false;
 let direction = 1;
 let velocity = 4 ;
@@ -186,9 +186,37 @@ let jumpPower =  10;
 let fallingSpeed = 4; // equal to velocity
 
 let minHeight = 385;
-let maxHeight = 300 ;
-
+let maxHeight = 150 ;
 let jumpCounter = 0;
+
+
+/////////////////////////////////////////////
+///////////VARIABLES FOR NPC/////////////////
+/////////////////////////////////////////////
+
+let npcImage;
+
+let npcX = 5*world1TileSize; 
+let npcY = 6*world1TileSize ; 
+let npcWidth = world1TileSize -5; 
+let npcHeight= world1TileSize - 5; 
+
+
+function preload() {
+  // Charger l'image depuis le dossier assets
+  npcImage = loadImage('assets/run_1left.png');
+}
+
+
+let dialogues = [
+  "Bonjour, que puis-je faire pour vous ?",
+  "Je m'appelle Bob.",
+  "Je vends une épée pour 15 coins si tu veux!",
+  "Je suis désolé, je n'ai pas d'autre information à vous donner.",
+  "C'est bon, on a assez parlé maintenant."
+];
+
+let currentDialogueIndex = 0;
 
 
 
@@ -348,18 +376,6 @@ function gravity () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /////////////////////////////////////////////
 ///////////FUNCTION KEYSBINDS////////////////
 /////////////////////////////////////////////
@@ -415,6 +431,8 @@ function checkKeys(currentMap) {
     } else {
       jump = false;
     }
+
+    
   };
 
 
@@ -522,6 +540,36 @@ function checkKeys(currentMap) {
     };
   };
 };
+
+
+
+function keyPressed() {
+  if (key === 'n' || key === 'N') {
+    if (checkNPCInteraction()) {
+      currentDialogueIndex++;
+      if (currentDialogueIndex >= dialogues.length) {
+        currentDialogueIndex = dialogues.length - 1;
+      }
+    };
+  };
+};
+
+
+/////////////////////////////////////////////
+////////FUNCTION FOR NPC Interaction/////////
+/////////////////////////////////////////////
+
+function checkNPCInteraction() {
+  let playerXCenter = xHero + wHero ;
+  let playerYCenter = yHero + hHero;
+  let npcXCenter = npcX + npcWidth;
+  let npcYCenter = npcY + npcHeight;
+
+  let distance = dist(playerXCenter, playerYCenter, npcXCenter, npcYCenter);
+
+  return distance < wHero + npcWidth;
+};
+
 
 /////////////////////////////////////////////
 ////////FUNCTIONS FOR CHANGING WORLDS////////
@@ -668,6 +716,20 @@ function draw() {
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     
+    // NPC
+    image(npcImage, npcX, npcY, npcWidth, npcHeight);
+    if (checkNPCInteraction()) {
+      textSize(20);
+      textAlign(CENTER);
+      fill(255);
+      text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
+      textSize(16);
+      text(CENTER);
+      text("Appuyez sur la touche 'N' pour passer au prochain dialogue", 250, height - 80);
+    };
+
+    gravity();
+    
   } else if (currentWorld === 1) {
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
@@ -678,5 +740,4 @@ function draw() {
   }
   changeWorldIfNeeded();
 
-  gravity();
 };
