@@ -2,148 +2,197 @@
 //////////////////WORLDS/////////////////////
 /////////////////////////////////////////////
 
-// 1ST World.
-let world1TileDictionnary = {};
-let world1TileSize = 64;
+// Temple World.
+let worldTempleTileDictionnary = {};
+let worldTempleTileSize = 64;
 
-let world1Board = [
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,1,1,1,1,1],
-  [5,5,5,5,5,5,5,5,1,1,2,2,2,2,2],
-  [5,5,5,5,5,5,5,1,1,2,2,2,2,2,2],
-  [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2],
-  [2,2,1,1,2,2,2,2,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-];
-
-let world1DecorationTileDictionnary = {};
-let world1DecorationTileSize = 64;
-
-let world1DecorationBoard = [
+let worldTempleBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,11,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,11,11,11,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,10,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,10,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
-let world1CollisionBoard = [
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
-  [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-];
+let worldTempleDecorationTileDictionnary = {};
+let worldTempleDecorationTileSize = 64;
 
-
-// 2ND World.
-let world2TileDictionnary = {};
-let world2TileSize = 64;
-
-let world2Board = [
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,4,4,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,4,4,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,4,4,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-  [2,2,2,2,2,2,2,3,2,2,2,2,2,2,2],
-];
-
-let world2DecorationTileDictionnary = {};
-let world2DecorationTileSize = 64;
-
-let world2DecorationBoard = [
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,11,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,11,11,11,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,10,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-];
-
-let world2CollisionBoard = [
-  [0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
+let worldTempleDecorationBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-];
-
-
-// 3RD World.
-let world3TileDictionnary = {};
-let world3TileSize = 64;
-
-let world3Board = [
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],
-  [5,5,5,5,5,5,5,5,5,5,2,2,2,2,2],
-  [5,5,5,5,5,5,5,5,2,6,3,3,3,3,3],
-  [2,2,2,2,2,2,2,6,3,3,3,3,3,3,3],
-  [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
-  [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
-];
-
-let world3DecorationTileDictionnary = {};
-let world3DecorationTileSize = 64;
-
-let world3DecorationBoard = [
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,2,0,0,0,0,0],
-  [0,0,0,3,0,3,0,2,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
-let world3CollisionBoard = [
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+let worldTempleCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
 
-currentWorld = 0;
+// Village World.
+let worldVillageTileDictionnary = {};
+let worldVillageTileSize = 64;
+
+let worldVillageBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+let worldVillageDecorationTileDictionnary = {};
+let worldVillageDecorationTileSize = 64;
+
+let worldVillageDecorationBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+let worldVillageCollisionBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+
+// Foret World.
+let worldForetTileDictionnary = {};
+let worldForetTileSize = 64;
+
+let worldForetBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,21,19,20,22,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,8,2,1,2,12,0,0,0,0,0,0,0],
+  [1,1,2,6,3,3,3,5,2,1,1,10,0,7,2],
+  [3,3,3,4,3,3,3,3,3,4,3,16,14,15,3],
+  [3,3,3,3,4,4,3,3,3,3,4,4,3,3,3],
+];
+
+let worldForetDecorationTileDictionnary = {};
+let worldForetDecorationTileSize = 64;
+
+let worldForetDecorationBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,2,3,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,7,1,5,0,0,0,0,0,0,0,0],
+  [6,2,1,0,0,0,0,0,2,8,1,0,0,0,2],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+let worldForetCollisionBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+  [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1],
+  [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+  [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+];
+
+
+// Grotte World.
+let worldGrotteTileDictionnary = {};
+let worldGrotteTileSize = 64;
+
+let worldGrotteBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,21,19,20,22,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,8,2,1,2,12,0,0,0,0,0,0,0],
+  [1,1,2,6,3,3,3,5,2,1,1,10,0,7,2],
+  [3,3,3,4,3,3,3,3,3,4,3,16,14,15,3],
+  [3,3,3,3,4,4,3,3,3,3,4,4,3,3,3],
+];
+
+let worldGrotteDecorationTileDictionnary = {};
+let worldGrotteDecorationTileSize = 64;
+
+let worldGrotteDecorationBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,2,3,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,7,1,5,0,0,0,0,0,0,0,0],
+  [6,2,1,0,0,0,0,0,2,8,1,0,0,0,2],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+let worldGrotteCollisionBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+  [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1],
+  [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+  [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+];
+
+
+
+
+currentWorld = 2;
 
 
 /////////////////////////////////////////////
@@ -163,12 +212,12 @@ let worldsTileSizes = [];
 /////////////////////////////////////////////
 
 //Spawn of Hero.
-let xHero = 2 * world1TileSize;
-let yHero = 6 * world1TileSize ;
+let xHero = 2 * worldTempleTileSize;
+let yHero = 6 * worldTempleTileSize ;
 
 // Size of Hero.
-let wHero = world1TileSize - 5;
-let hHero = world1TileSize - 5;
+let wHero = worldTempleTileSize - 5;
+let hHero = worldTempleTileSize - 5;
 
 // Animation for Hero.
 let heroSpeed = 5;
@@ -196,14 +245,13 @@ let jumpCounter = 0;
 
 let npcImage;
 
-let npcX = 5*world1TileSize; 
-let npcY = 6*world1TileSize ; 
-let npcWidth = world1TileSize -5; 
-let npcHeight= world1TileSize - 5; 
+let npcX = 5* worldTempleTileSize; 
+let npcY = 6* worldTempleTileSize ; 
+let npcWidth = worldTempleTileSize -5; 
+let npcHeight= worldTempleTileSize - 5; 
 
 
 function preload() {
-  // Charger l'image depuis le dossier assets
   npcImage = loadImage('assets/run_1left.png');
 }
 
@@ -225,55 +273,93 @@ let currentDialogueIndex = 0;
 /////////////////////////////////////////////
 
 function setup() {
-  createCanvas(world1Board[0].length * world1TileSize, world1Board.length * world1TileSize);
+  createCanvas(worldTempleBoard[0].length * worldTempleTileSize, worldTempleBoard.length * worldTempleTileSize);
   
-  world1TileDictionnary = {
+  worldTempleTileDictionnary = {
 
-    1: loadImage('assets/grass.png'),
-    2: loadImage('assets/dirt.png'),
-    3: loadImage('assets/pavement.png'),
-    4: loadImage('assets/sand.png'),
-    5: loadImage('assets/sky.jpg')
-  };
-
-  world1DecorationTileDictionnary = {
     0: loadImage(''),
-    10: loadImage('assets/log.png'),
-    11: loadImage('assets/leaves.png')
   };
 
+  worldTempleDecorationTileDictionnary = {
 
-  world2TileDictionnary = {
-
-    1: loadImage('assets/grass.png'),
-    2: loadImage('assets/dirt.png'),
-    3: loadImage('assets/pavement.png'),
-    4: loadImage('assets/sand.png'),
-  };
-
-  world2DecorationTileDictionnary = {
     0: loadImage(''),
-    10: loadImage('assets/log.png'),
-    11: loadImage('assets/leaves.png')
   };
 
 
-  world3TileDictionnary = {
+  worldVillageTileDictionnary = {
 
-    1: loadImage('assets/grass.png'),
-    2: loadImage('assets/solHerbe1.png'),
-    3: loadImage('assets/sousSolNoir.png'),
-    4: loadImage('assets/sand.png'),
-    5: loadImage('assets/sky.jpg'),
-    6: loadImage('assets/solBordDroit2.png')
-  };
-
-  world3DecorationTileDictionnary = {
     0: loadImage(''),
-    1: loadImage('assets/solBordGauche1.png'),
-    2: loadImage('assets/solBordDroit1.png'),
-    3: loadImage('assets/champignonBleu.png')
   };
+
+  worldVillageDecorationTileDictionnary = {
+
+    0: loadImage(''),
+  };
+
+
+  worldForetTileDictionnary = {
+
+    0: loadImage(''),
+    // Sol et Sous Sol.
+    1: loadImage('assets/foretEnchanter/sol/solHerbe1.png'),
+    2: loadImage('assets/foretEnchanter/sol/solHerbe2.png'),
+    3: loadImage('assets/foretEnchanter/sol/sousSolNoir1.png'),
+    4: loadImage('assets/foretEnchanter/sol/sousSolNoir2.png'),
+
+    // Bordures Droite et Gauche.
+    5: loadImage('assets/foretEnchanter/sol/solBord1.png'),
+    6: loadImage('assets/foretEnchanter/sol/solBord2.png'),
+    7: loadImage('assets/foretEnchanter/sol/solBordDroite.png'),
+    8: loadImage('assets/foretEnchanter/sol/solBordDroiteChampignon1.png'),
+    9: loadImage('assets/foretEnchanter/sol/solBordDroiteChampignon2.png'),
+    10: loadImage('assets/foretEnchanter/sol/solBordGauche.png'),
+    11: loadImage('assets/foretEnchanter/sol/solBordGaucheChampignon1.png'),
+    12: loadImage('assets/foretEnchanter/sol/solBordGaucheChampignon2.png'),
+
+    // Piques.
+    13: loadImage('assets/foretEnchanter/sol/solPique1.png'),
+    14: loadImage('assets/foretEnchanter/sol/solPique2.png'),
+    15: loadImage('assets/foretEnchanter/sol/solPiqueBordDroite.png'),
+    16: loadImage('assets/foretEnchanter/sol/solPiqueBordGauche.png'),
+
+    // Bordures Quand Pronfondeur.
+    17: loadImage('assets/foretEnchanter/sol/dessousBordDroite.png'),
+    18: loadImage('assets/foretEnchanter/sol/dessousBordGauche.png'),
+
+    // Plateforme et Bordures des plateforme.
+    19: loadImage('assets/foretEnchanter/plateforme/plateformeHerbe1.png'),
+    20: loadImage('assets/foretEnchanter/plateforme/plateformeHerbe2.png'),
+    21: loadImage('assets/foretEnchanter/plateforme/plateformeBordDroite.png'),
+    22: loadImage('assets/foretEnchanter/plateforme/plateformeBordGauche.png'),
+  };
+
+  worldForetDecorationTileDictionnary = {
+
+    // Herbes.
+    0: loadImage(''),
+    1: loadImage('assets/foretEnchanter/herbes/herbeHaute1.png'),
+    2: loadImage('assets/foretEnchanter/herbes/herbeHaute2.png'),
+    3: loadImage('assets/foretEnchanter/herbes/herbeBordDroite.png'),
+    4: loadImage('assets/foretEnchanter/herbes/herbeBordGauche.png'),
+
+    // Champignon.
+    5: loadImage('assets/foretEnchanter/champignon/champignonOrange.png'),
+    6: loadImage('assets/foretEnchanter/champignon/champignonViolet.png'),
+    7: loadImage('assets/foretEnchanter/champignon/petitChampignon1.png'),
+    8: loadImage('assets/foretEnchanter/champignon/petitChampignon2.png'),
+  };
+
+
+  worldGrotteTileDictionnary = {
+
+    0: loadImage(''),
+  };
+
+  worldGrotteDecorationTileDictionnary = {
+
+    0: loadImage(''),
+  };
+
 
   // Right Hero Images.
   hero0 = loadImage('assets/run_0.png');
@@ -298,21 +384,26 @@ function setup() {
 
 
   // Worlds Setups.
-  worlds = [world1Board, world2Board, world3Board];
+  worlds = [worldTempleBoard, worldVillageBoard, worldForetBoard, worldGrotteBoard];
 
-  decorationWorlds = [world1DecorationBoard, world2DecorationBoard, world3DecorationBoard];
+  decorationWorlds = [worldTempleDecorationBoard, worldVillageDecorationBoard, worldForetDecorationBoard, worldGrotteDecorationBoard];
 
-  collisonWorlds = [world1CollisionBoard, world2CollisionBoard, world3CollisionBoard];
+  collisonWorlds = [worldTempleCollisionBoard, worldVillageCollisionBoard, worldForetCollisionBoard, worldGrotteCollisionBoard];
 
   
-  tileDictionnaries = [world1TileDictionnary, world2TileDictionnary, world3TileDictionnary];
+  tileDictionnaries = [worldTempleTileDictionnary, worldVillageTileDictionnary, worldForetTileDictionnary, worldGrotteTileDictionnary];
 
-  tileDecorationDictionnaries = [ world1DecorationTileDictionnary, world2DecorationTileDictionnary, world3DecorationTileDictionnary];
+  tileDecorationDictionnaries = [ worldTempleDecorationTileDictionnary, worldVillageDecorationTileDictionnary, worldForetDecorationTileDictionnary, worldGrotteDecorationTileDictionnary];
 
 
-  worldsTileSizes = [world1TileSize, world2TileSize, world3TileSize];
+  worldsTileSizes = [worldTempleTileSize, worldVillageTileSize, worldForetTileSize, worldGrotteTileSize];
 
-  worldsDecorationTileSizes = [ world1DecorationTileSize, world2DecorationTileSize, world3DecorationTileSize];
+  worldsDecorationTileSizes = [ worldTempleDecorationTileSize, worldVillageDecorationTileSize, worldForetDecorationTileSize, worldGrotteDecorationTileSize];
+
+
+  backgroundForetImage = loadImage('assets/foretEnchanter/fondForet.jpg',() => {
+    backgroundForetImage.resize(width, height);
+  });
 };
 
 
@@ -346,8 +437,9 @@ function drawFront(gameBoard, tileDictionnary, tileSize) {
 };
 
 
-
-
+/////////////////////////////////////////////
+///////////FUNCTION KEYSBINDS////////////////
+/////////////////////////////////////////////
 
 function gravity () {
   if (yHero >= minHeight && jump === false) {
@@ -431,8 +523,6 @@ function checkKeys(currentMap) {
     } else {
       jump = false;
     }
-
-    
   };
 
 
@@ -538,6 +628,12 @@ function checkKeys(currentMap) {
         movementCounter = 0;
       }
     };
+
+    if (keyIsDown(32)) {
+      jump = true;
+    } else {
+      jump = false;
+    }
   };
 };
 
@@ -709,10 +805,11 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 /////////////////////////////////////////////
 
 function draw() {
-  drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+  
   checkKeys(currentWorld);
 
   if (currentWorld === 0) {
+    drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     
@@ -725,19 +822,24 @@ function draw() {
       text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
       textSize(16);
       text(CENTER);
-      text("Appuyez sur la touche 'N' pour passer au prochain dialogue", 250, height - 80);
+      text("Appuyez sur 'N' pour passer au prochain text", 250, height - 80);
     };
 
-    gravity();
+    
     
   } else if (currentWorld === 1) {
+    drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
   } else if (currentWorld === 2) {
+    image(backgroundForetImage, 0, 0);
+    drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
-    image(currentHeroImage, xHero, yHero, wHero, hHero);
+    image(currentHeroImage, xHero, yHero, wHero, hHero); 
+    gravity();   
   }
   changeWorldIfNeeded();
+
 
 };
