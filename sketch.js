@@ -136,7 +136,7 @@ let worldForetCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+  [2,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
   [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
@@ -167,10 +167,10 @@ let worldGrotteDecorationBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,2,3,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,7,1,5,0,0,0,0,0,0,0,0],
-  [6,2,1,0,0,0,0,0,2,8,1,0,0,0,2],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -251,9 +251,7 @@ let npcWidth = worldTempleTileSize -5;
 let npcHeight= worldTempleTileSize - 5; 
 
 
-function preload() {
-  npcImage = loadImage('assets/run_1left.png');
-}
+
 
 
 let dialogues = [
@@ -443,7 +441,15 @@ function setup() {
   backgroundForetImage = loadImage('assets/foretEnchanter/fondForet.jpg',() => {
     backgroundForetImage.resize(width, height);
   });
+
+  backgroundGrotteImage = loadImage('assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
+    backgroundForetImage.resize(width, height);
+  });
 };
+
+function preload() {
+  npcImage = loadImage('assets/run_1left.png');
+}
 
 
 /////////////////////////////////////////////
@@ -683,6 +689,54 @@ function checkKeys(currentMap) {
       jump = false;
     }
   };
+
+  if (currentMap === 3) {
+    if (keyIsDown(68) && keyIsDown(81)) {
+      return;
+    };
+  
+    // Right.
+    if (keyIsDown(68)) {
+      xHero += heroSpeed;
+      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+        xHero -= path;
+      }
+      // HERO Right Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
+      }
+    };
+    
+    //Left.
+    if (keyIsDown(81)) {
+      xHero -= heroSpeed;
+      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+        xHero += path;
+      }
+      // HERO left Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroLeft.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroLeft[currentIndex];
+        movementCounter = 0;
+      }
+    };
+
+    if (keyIsDown(32)) {
+      jump = true;
+    } else {
+      jump = false;
+    }
+  }
 };
 
 
@@ -886,8 +940,11 @@ function draw() {
     drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
     image(currentHeroImage, xHero, yHero, wHero, hHero); 
     gravity();   
+  } else if (currentWorld === 3) {
+    image(backgroundGrotteImage, 0, 0);
+    drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+    drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
+    image(currentHeroImage, xHero, yHero, wHero, hHero);
   }
   changeWorldIfNeeded();
-
-
 };
