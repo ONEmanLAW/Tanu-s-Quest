@@ -213,11 +213,11 @@ let worldsTileSizes = [];
 
 //Spawn of Hero.
 let xHero = 2 * worldTempleTileSize;
-let yHero = 6 * worldTempleTileSize ;
+let yHero = 3 * worldTempleTileSize;
 
 // Size of Hero.
-let wHero = worldTempleTileSize - 5;
-let hHero = worldTempleTileSize - 5;
+let wHero = worldTempleTileSize;
+let hHero = worldTempleTileSize;
 
 // Animation for Hero.
 let heroSpeed = 5;
@@ -245,8 +245,8 @@ let jumpCounter = 0;
 
 let npcImage;
 
-let npcX = 5* worldTempleTileSize; 
-let npcY = 6* worldTempleTileSize ; 
+let npcX = 5 * worldTempleTileSize; 
+let npcY = 6 * worldTempleTileSize ; 
 let npcWidth = worldTempleTileSize -5; 
 let npcHeight= worldTempleTileSize - 5; 
 
@@ -353,11 +353,50 @@ function setup() {
   worldGrotteTileDictionnary = {
 
     0: loadImage(''),
+    // Sol et Sous Sol.
+    1: loadImage('assets/grotteTenebreuse/sol/solSurface.png'),
+    2: loadImage('assets/grotteTenebreuse/sol/sousSolTerre.png'),
+
+    // Tuile qui montent
+    3: loadImage('assets/grotteTenebreuse/tuilesQuiMontent/tuileQuiMonteDroite.png'),
+    4: loadImage('assets/grotteTenebreuse/tuilesQuiMontent/tuileQuiMonteGauche.png'),
+    5: loadImage('assets/grotteTenebreuse/tuilesQuiMontent/sousSolTuileQuiMonteDroite.png'),
+    6: loadImage('assets/grotteTenebreuse/tuilesQuiMontent/sousSolTuileQuiMonteGauche.png'),
+
+    // Plafond
+    7: loadImage('assets/grotteTenebreuse/plafond/plafond1.png'),
+    8: loadImage('assets/grotteTenebreuse/plafond/plafond2.png'),
+    9: loadImage('assets/grotteTenebreuse/plafond/plafond3.png'),
+    10: loadImage('assets/grotteTenebreuse/plafond/plafond4.png'),
+    11: loadImage('assets/grotteTenebreuse/plafond/plafond5.png'),
+    12: loadImage('assets/grotteTenebreuse/plafond/plafond6.png'),
+    13: loadImage('assets/grotteTenebreuse/plafond/plafond7.png'),
+    14: loadImage('assets/grotteTenebreuse/plafond/plafondAuDessus.png'),
+
+    //Trou & Eau.
+    15: loadImage('assets/grotteTenebreuse/trouEtEau/eauMilieu.png'),
+    16: loadImage('assets/grotteTenebreuse/trouEtEau/eauDroite.png'),
+    17: loadImage('assets/grotteTenebreuse/trouEtEau/eauGauche.png'),
+    18: loadImage('assets/grotteTenebreuse/trouEtEau/trouDroiteBas.png'),
+    19: loadImage('assets/grotteTenebreuse/trouEtEau/trouGaucheBas.png'),
+    20: loadImage('assets/grotteTenebreuse/trouEtEau/trouDroiteHaut.png'),
+    21: loadImage('assets/grotteTenebreuse/trouEtEau/trouGaucheHaut.png'),
+
+    // Platforme.
+    22: loadImage('assets/grotteTenebreuse/plateforme/plateformeDroite.png'),
+    22: loadImage('assets/grotteTenebreuse/plateforme/plateformeGauche.png'),
   };
 
   worldGrotteDecorationTileDictionnary = {
 
     0: loadImage(''),
+    // Herbes.
+    1: loadImage('assets/grotteTenebreuse/herbes/herbeSeule.png'),
+    2: loadImage('assets/grotteTenebreuse/herbes/herbeEtCristaux.png'),
+    3: loadImage('assets/grotteTenebreuse/herbes/herbeEtChampignon.png'),
+    
+    // Obstacles.
+    4: loadImage('assets/grotteTenebreuse/herbes/obstacleRocher.png'),
   };
 
 
@@ -441,30 +480,39 @@ function drawFront(gameBoard, tileDictionnary, tileSize) {
 ///////////FUNCTION KEYSBINDS////////////////
 /////////////////////////////////////////////
 
-function gravity () {
-  if (yHero >= minHeight && jump === false) {
-    yHero = yHero;
-    jumpCounter = 0;
-  } else {
-    yHero = yHero + (direction * velocity); // For Gravity
+function gravity() {
+  
+  const collision = checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld]);
+
+ 
+  if (jump || !collision) {
+    yHero += direction * velocity;
   }
 
-  if (jump === true) {
-    if (yHero <= maxHeight || jumpCounter >= jumpPower) {
-      if (yHero >= minHeight) {
-        yHero = minHeight;
-      } else {
-        velocity = fallingSpeed;
-      }
-      
+  
+  if (jump) {
+   
+    if (jumpCounter >= jumpPower) {
+      velocity = fallingSpeed;
     } else {
       velocity = -jumpPower;
-      jumpCounter = jumpCounter + 1;
+      jumpCounter++;
     }
   } else {
-    velocity = fallingSpeed;
+  
+    if (!collision) {
+      velocity = fallingSpeed;
+    }
+  }
+
+  if (collision) {
+    jump = false;
+    jumpCounter = 0;
   }
 }
+
+
+
 
 
 
