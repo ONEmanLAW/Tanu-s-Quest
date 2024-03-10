@@ -11,12 +11,12 @@ let worldTempleBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,2,14,8,6,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,8,2,1,2,14,0,0,0,0,0,0,0],
+  [1,1,2,6,3,3,3,5,2,1,1,10,0,7,2],
+  [3,3,3,4,3,3,3,3,3,4,3,16,14,15,3],
+  [3,3,3,3,4,4,3,3,3,3,4,4,3,3,3],
 ];
 
 let worldTempleDecorationTileDictionnary = {};
@@ -190,9 +190,55 @@ let worldGrotteCollisionBoard = [
 ];
 
 
+// Boss World.
+let worldBossTileDictionnary = {};
+let worldBossTileSize = 64;
+
+let worldBossBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,2,1,4,4,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,5,2,1,2,5,0,0,0,0,0,0,0],
+  [1,1,2,5,3,3,3,5,2,1,1,1,0,1,2],
+  [3,3,3,4,3,3,3,3,3,4,3,4,4,5,3],
+  [3,3,3,3,4,4,3,3,3,3,4,4,3,3,3],
+];
+
+let worldBossDecorationTileDictionnary = {};
+let worldBossDecorationTileSize = 64;
+
+let worldBossDecorationBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
+
+let worldBossCollisionBoard = [
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+];
 
 
-currentWorld = 2;
+
+currentWorld = 4;
 
 
 /////////////////////////////////////////////
@@ -251,9 +297,6 @@ let npcWidth = worldTempleTileSize -5;
 let npcHeight= worldTempleTileSize - 5; 
 
 
-
-
-
 let dialogues = [
   "Bonjour, que puis-je faire pour vous ?",
   "Je m'appelle Bob et je suis chanteur.",
@@ -263,7 +306,6 @@ let dialogues = [
 ];
 
 let currentDialogueIndex = 0;
-
 
 
 /////////////////////////////////////////////
@@ -424,6 +466,28 @@ function setup() {
   };
 
 
+  worldBossTileDictionnary = {
+
+    0: loadImage(''),
+    // Sol.
+    1: loadImage('assets/niveauBoss/sol/sol1.png'),
+    2: loadImage('assets/niveauBoss/sol/sol2.png'),
+    3: loadImage('assets/niveauBoss/sol/sol3.png'),
+
+    // Plafond.
+    4: loadImage('assets/niveauBoss/plafond/plafond.png'),
+    5: loadImage('assets/niveauBoss/plafond/plafondSansLumiere.png'),
+  };
+
+  worldBossDecorationTileDictionnary = {
+
+    0: loadImage(''),
+    // Plafond.
+    1: loadImage('assets/niveauBoss/plafond/plafondCorde.png'),
+    2: loadImage('assets/niveauBoss/plafond/lumierePlafond.png'),
+  };
+
+
   // Right Hero Images.
   hero0 = loadImage('assets/hero/run_0.png');
   myHeroRight.push(hero0);
@@ -447,22 +511,26 @@ function setup() {
 
 
   // Worlds Setups.
-  worlds = [worldTempleBoard, worldVillageBoard, worldForetBoard, worldGrotteBoard];
+  worlds = [worldTempleBoard, worldVillageBoard, worldForetBoard, worldGrotteBoard, worldBossBoard];
 
-  decorationWorlds = [worldTempleDecorationBoard, worldVillageDecorationBoard, worldForetDecorationBoard, worldGrotteDecorationBoard];
+  decorationWorlds = [worldTempleDecorationBoard, worldVillageDecorationBoard, worldForetDecorationBoard, worldGrotteDecorationBoard, worldBossDecorationBoard];
 
-  collisonWorlds = [worldTempleCollisionBoard, worldVillageCollisionBoard, worldForetCollisionBoard, worldGrotteCollisionBoard];
+  collisonWorlds = [worldTempleCollisionBoard, worldVillageCollisionBoard, worldForetCollisionBoard, worldGrotteCollisionBoard, worldBossCollisionBoard];
 
   
-  tileDictionnaries = [worldTempleTileDictionnary, worldVillageTileDictionnary, worldForetTileDictionnary, worldGrotteTileDictionnary];
+  tileDictionnaries = [worldTempleTileDictionnary, worldVillageTileDictionnary, worldForetTileDictionnary, worldGrotteTileDictionnary, worldBossTileDictionnary];
 
-  tileDecorationDictionnaries = [ worldTempleDecorationTileDictionnary, worldVillageDecorationTileDictionnary, worldForetDecorationTileDictionnary, worldGrotteDecorationTileDictionnary];
+  tileDecorationDictionnaries = [ worldTempleDecorationTileDictionnary, worldVillageDecorationTileDictionnary, worldForetDecorationTileDictionnary, worldGrotteDecorationTileDictionnary, worldBossDecorationTileDictionnary];
 
 
-  worldsTileSizes = [worldTempleTileSize, worldVillageTileSize, worldForetTileSize, worldGrotteTileSize];
+  worldsTileSizes = [worldTempleTileSize, worldVillageTileSize, worldForetTileSize, worldGrotteTileSize, worldBossTileSize];
 
-  worldsDecorationTileSizes = [ worldTempleDecorationTileSize, worldVillageDecorationTileSize, worldForetDecorationTileSize, worldGrotteDecorationTileSize];
+  worldsDecorationTileSizes = [ worldTempleDecorationTileSize, worldVillageDecorationTileSize, worldForetDecorationTileSize, worldGrotteDecorationTileSize, worldBossDecorationTileSize];
 
+
+  backgroundTutoImage = loadImage('assets/tuto/fondTutorielTest.jpg',() => {
+    backgroundForetImage.resize(width, height);
+  });
 
   backgroundForetImage = loadImage('assets/foretEnchanter/fondForet.jpg',() => {
     backgroundForetImage.resize(width, height);
@@ -470,7 +538,7 @@ function setup() {
 
   backgroundGrotteImage = loadImage('assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
     backgroundForetImage.resize(width, height);
-  });
+  });  
 };
 
 function preload() {
@@ -763,6 +831,102 @@ function checkKeys(currentMap) {
       jump = false;
     }
   }
+
+  if (currentMap === 4) {
+    if (keyIsDown(68) && keyIsDown(81)) {
+      return;
+    };
+  
+    // Right.
+    if (keyIsDown(68)) {
+      xHero += heroSpeed;
+      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
+        xHero -= path;
+      }
+      // HERO Right Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
+      }
+    };
+    
+    //Left.
+    if (keyIsDown(81)) {
+      xHero -= heroSpeed;
+      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
+        xHero += path;
+      }
+      // HERO left Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroLeft.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroLeft[currentIndex];
+        movementCounter = 0;
+      }
+    };
+
+    if (keyIsDown(32)) {
+      jump = true;
+    } else {
+      jump = false;
+    }
+  };
+
+  if (currentMap === 3) {
+    if (keyIsDown(68) && keyIsDown(81)) {
+      return;
+    };
+  
+    // Right.
+    if (keyIsDown(68)) {
+      xHero += heroSpeed;
+      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
+        xHero -= path;
+      }
+      // HERO Right Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
+      }
+    };
+    
+    //Left.
+    if (keyIsDown(81)) {
+      xHero -= heroSpeed;
+      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
+        xHero += path;
+      }
+      // HERO left Animation.
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroLeft.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroLeft[currentIndex];
+        movementCounter = 0;
+      }
+    };
+
+    if (keyIsDown(32)) {
+      jump = true;
+    } else {
+      jump = false;
+    }
+  }
 };
 
 
@@ -938,24 +1102,23 @@ function draw() {
   changeWorldIfNeeded();
 
   if (currentWorld === 0) {
+    image(backgroundTutoImage, 0, 0);
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     
-    // NPC
-    image(npcImage, npcX, npcY, npcWidth, npcHeight);
-    if (checkNPCInteraction()) {
-      textSize(20);
-      textAlign(CENTER);
-      fill(255);
-      text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
-      textSize(16);
-      text(CENTER);
-      text("Appuyez sur 'N' pour passer au prochain text", 250, height - 80);
-    };
+    // // NPC
+    // image(npcImage, npcX, npcY, npcWidth, npcHeight);
+    // if (checkNPCInteraction()) {
+    //   textSize(20);
+    //   textAlign(CENTER);
+    //   fill(255);
+    //   text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
+    //   textSize(16);
+    //   text(CENTER);
+    //   text("Appuyez sur 'N' pour passer au prochain text", 250, height - 80);
+    // };
 
-    
-    
   } else if (currentWorld === 1) {
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
@@ -972,12 +1135,11 @@ function draw() {
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
+    
   } else if (currentWorld === 4) {
     image(backgroundGrotteImage, 0, 0);
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-    drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
+    drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
   }
-
-  
 };
