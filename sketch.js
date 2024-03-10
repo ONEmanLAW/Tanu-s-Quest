@@ -213,11 +213,11 @@ let worldsTileSizes = [];
 
 //Spawn of Hero.
 let xHero = 2 * worldTempleTileSize;
-let yHero = 3 * worldTempleTileSize;
+let yHero = 6 * worldTempleTileSize;
 
 // Size of Hero.
-let wHero = worldTempleTileSize;
-let hHero = worldTempleTileSize;
+let wHero = worldTempleTileSize - 5;
+let hHero = worldTempleTileSize -5;
 
 // Animation for Hero.
 let heroSpeed = 5;
@@ -276,6 +276,32 @@ function setup() {
   worldTempleTileDictionnary = {
 
     0: loadImage(''),
+    // Sol et SousSol Neige.
+    1: loadImage('assets/tuto/neige/solNeige.png'),
+    2: loadImage('assets/tuto/neige/sousSolNeige.png'),
+
+    // Sol et SousSol Temple.
+    3: loadImage('assets/tuto/solEtSousSolTemple/solTemple.png'),
+    4: loadImage('assets/tuto/solEtSousSolTemple/solTempleEtNeige.png'),
+    5: loadImage('assets/tuto/solEtSousSolTemple/sousSolTemple.png'),
+    6: loadImage('assets/tuto/solEtSousSolTemple/sousSolTempleEtNeige.png'),
+
+    // Piliers du Temple.
+    7: loadImage('assets/tuto/piliersTemple/continuiterOmbrePilier.png'),
+    8: loadImage('assets/tuto/piliersTemple/continuiterPilierDroite.png'),
+    9: loadImage('assets/tuto/piliersTemple/continuiterPilierGauche.png'),
+    10: loadImage('assets/tuto/piliersTemple/ombrePilierDroite.png'),
+    11: loadImage('assets/tuto/piliersTemple/ombrePilierGauche.png'),
+    12: loadImage('assets/tuto/piliersTemple/pilierDroite.png'),
+    13: loadImage('assets/tuto/piliersTemple/pilierGauche.png'),
+    14: loadImage('assets/tuto/piliersTemple/pilierEtSolDroite.png'),
+    15: loadImage('assets/tuto/piliersTemple/pilierEtSolGauche.png'),
+
+    // Toit du Temple.
+    16: loadImage('assets/tuto/toitTemple/toitBasDroite.png'),
+    17: loadImage('assets/tuto/toitTemple/toitBasGauche.png'),
+    18: loadImage('assets/tuto/toitTemple/toitHautDroite.png'),
+    19: loadImage('assets/tuto/toitTemple/toitHautGauche.png'),
   };
 
   worldTempleDecorationTileDictionnary = {
@@ -399,23 +425,23 @@ function setup() {
 
 
   // Right Hero Images.
-  hero0 = loadImage('assets/run_0.png');
+  hero0 = loadImage('assets/hero/run_0.png');
   myHeroRight.push(hero0);
-  hero1 = loadImage('assets/run_1.png');
+  hero1 = loadImage('assets/hero/run_1.png');
   myHeroRight.push(hero1);
-  hero2 = loadImage('assets/run_2.png');
+  hero2 = loadImage('assets/hero/run_2.png');
   myHeroRight.push(hero2);
-  hero3 = loadImage('assets/run_3.png');
+  hero3 = loadImage('assets/hero/run_3.png');
   myHeroRight.push(hero3);
-  hero4 = loadImage('assets/run_4.png');
+  hero4 = loadImage('assets/hero/run_4.png');
   myHeroRight.push(hero4);
 
   //Left Hero Images.
-  myHeroLeft.push(loadImage('assets/run_0left.png'));
-  myHeroLeft.push(loadImage('assets/run_1left.png')); 
-  myHeroLeft.push(loadImage('assets/run_2left.png')); 
-  myHeroLeft.push(loadImage('assets/run_3left.png'));
-  myHeroLeft.push(loadImage('assets/run_4left.png'));
+  myHeroLeft.push(loadImage('assets/hero/run_0left.png'));
+  myHeroLeft.push(loadImage('assets/hero/run_1left.png')); 
+  myHeroLeft.push(loadImage('assets/hero/run_2left.png')); 
+  myHeroLeft.push(loadImage('assets/hero/run_3left.png'));
+  myHeroLeft.push(loadImage('assets/hero/run_4left.png'));
 
   currentHeroImage = hero0;
 
@@ -448,7 +474,7 @@ function setup() {
 };
 
 function preload() {
-  npcImage = loadImage('assets/run_1left.png');
+  npcImage = loadImage('assets/hero/run_1left.png');
 }
 
 
@@ -909,6 +935,7 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 function draw() {
   
   checkKeys(currentWorld);
+  changeWorldIfNeeded();
 
   if (currentWorld === 0) {
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -939,12 +966,18 @@ function draw() {
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
     image(currentHeroImage, xHero, yHero, wHero, hHero); 
-    gravity();   
+
   } else if (currentWorld === 3) {
     image(backgroundGrotteImage, 0, 0);
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
+  } else if (currentWorld === 4) {
+    image(backgroundGrotteImage, 0, 0);
+    drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+    drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
+    image(currentHeroImage, xHero, yHero, wHero, hHero);
   }
-  changeWorldIfNeeded();
+
+  
 };
