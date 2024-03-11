@@ -584,6 +584,10 @@ function setup() {
 
   backgroundGrotteImage = loadImage('assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
     backgroundForetImage.resize(width, height);
+  });
+  
+  backgroundBossImage = loadImage('assets/niveauBoss/fondBoss.jpg',() => {
+    backgroundForetImage.resize(width, height);
   });  
   
 
@@ -1173,7 +1177,7 @@ function draw() {
       image(currentHeroImage, xHero, yHero, wHero, hHero);
       
     } else if (currentWorld === 4) {
-      image(backgroundGrotteImage, 0, 0);
+      image(backgroundBossImage, 0, 0);
       drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
       drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
