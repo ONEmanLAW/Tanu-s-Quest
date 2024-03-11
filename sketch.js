@@ -253,6 +253,8 @@ let currentImageIndex = 0;
 let scrollCanvas;
 let gameStarted = false;
 
+let musicsOfStory = [];
+
 function preload() {
   images.push(loadImage('assets/images/image1.jpg'));
   images.push(loadImage('assets/images/image2.jpg'));
@@ -260,7 +262,17 @@ function preload() {
   images.push(loadImage('assets/images/image4.jpg'));
   images.push(loadImage('assets/images/image5.jpg'));
   images.push(loadImage('assets/images/image6.jpg'));
+
+  musicsOfStory.push(loadSound('assets/musics/Enterin The Skies.mp3'));
+  musicsOfStory.push(loadSound('assets/musics/Orbital Colossus.mp3'));
+  musicsOfStory.push(loadSound('assets/musics/Ove Melaa - Hero Within.mp3'));
+  musicsOfStory.push(loadSound('assets/musics/Ove Melaa - High Stakes,Low Chances.mp3'));
+  musicsOfStory.push(loadSound('assets/musics/Rise of spirit.mp3'));
+  musicsOfStory.push(loadSound('assets/musics/Woodland Fantasy.mp3'));
 };
+
+
+
 
 
 /////////////////////////////////////////////
@@ -581,6 +593,7 @@ function mouseClicked() {
 
   if (currentImageIndex >= images.length) {
     gameStarted = true;
+    musicsOfStory[currentImageIndex].play();
   };
 };
 
@@ -919,23 +932,6 @@ function checkKeys(currentMap) {
       jump = false;
     }
   };
-};
-
-
-function keyPressed() {
-  if (key === 'p' || key === 'P') { // Si la touche 'p' est enfoncée
-    currentImageIndex++; // Passage à l'image suivante
-    if (currentImageIndex >= images.length) {
-      currentImageIndex = 0; // Revenir à la première image si on dépasse le dernier
-    }
-    image(images[currentImageIndex], 0, 0, width, height);
-  } else if (key === 'b' || key === 'B') { // Si la touche 'b' est enfoncée
-    currentImageIndex--; // Revenir à l'image précédente
-    if (currentImageIndex < 0) {
-      currentImageIndex = images.length - 1; // Revenir à la dernière image si on est sur la première
-    }
-    image(images[currentImageIndex], 0, 0, width, height);
-  }
 };
 
 
