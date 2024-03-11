@@ -42,7 +42,7 @@ let worldTempleCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -89,7 +89,7 @@ let worldVillageCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -183,7 +183,7 @@ let worldGrotteCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+  [2,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
   [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
@@ -230,7 +230,7 @@ let worldBossCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -238,7 +238,7 @@ let worldBossCollisionBoard = [
 
 
 
-currentWorld = 4;
+currentWorld = 0;
 
 
 /////////////////////////////////////////////
@@ -623,7 +623,6 @@ function gravity() {
 function checkKeys(currentMap) {
   let path = 5;
 
-
   if (currentMap === 0) {
 
     if (keyIsDown(68) && keyIsDown(81)) {
@@ -672,6 +671,7 @@ function checkKeys(currentMap) {
       jump = false;
     }
   };
+
 
 
   if (currentMap === 1) {
@@ -735,6 +735,7 @@ function checkKeys(currentMap) {
   };
 
 
+
   if (currentMap === 2) {
 
     if (keyIsDown(68) && keyIsDown(81)) {
@@ -784,6 +785,8 @@ function checkKeys(currentMap) {
     }
   };
 
+
+
   if (currentMap === 3) {
     if (keyIsDown(68) && keyIsDown(81)) {
       return;
@@ -792,7 +795,7 @@ function checkKeys(currentMap) {
     // Right.
     if (keyIsDown(68)) {
       xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+      if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
         xHero -= path;
       }
       // HERO Right Animation.
@@ -810,7 +813,7 @@ function checkKeys(currentMap) {
     //Left.
     if (keyIsDown(81)) {
       xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+      if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
         xHero += path;
       }
       // HERO left Animation.
@@ -831,6 +834,8 @@ function checkKeys(currentMap) {
       jump = false;
     }
   }
+
+
 
   if (currentMap === 4) {
     if (keyIsDown(68) && keyIsDown(81)) {
@@ -879,54 +884,6 @@ function checkKeys(currentMap) {
       jump = false;
     }
   };
-
-  if (currentMap === 3) {
-    if (keyIsDown(68) && keyIsDown(81)) {
-      return;
-    };
-  
-    // Right.
-    if (keyIsDown(68)) {
-      xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
-        xHero -= path;
-      }
-      // HERO Right Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
-      }
-    };
-    
-    //Left.
-    if (keyIsDown(81)) {
-      xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
-        xHero += path;
-      }
-      // HERO left Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroLeft.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroLeft[currentIndex];
-        movementCounter = 0;
-      }
-    };
-
-    if (keyIsDown(32)) {
-      jump = true;
-    } else {
-      jump = false;
-    }
-  }
 };
 
 
@@ -1107,17 +1064,17 @@ function draw() {
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     
-    // // NPC
-    // image(npcImage, npcX, npcY, npcWidth, npcHeight);
-    // if (checkNPCInteraction()) {
-    //   textSize(20);
-    //   textAlign(CENTER);
-    //   fill(255);
-    //   text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
-    //   textSize(16);
-    //   text(CENTER);
-    //   text("Appuyez sur 'N' pour passer au prochain text", 250, height - 80);
-    // };
+    // NPC
+    image(npcImage, npcX, npcY, npcWidth, npcHeight);
+    if (checkNPCInteraction()) {
+      textSize(20);
+      textAlign(CENTER);
+      fill(255);
+      text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
+      textSize(16);
+      text(CENTER);
+      text("Appuyez sur 'N' pour passer au prochain text", 250, height - 80);
+    };
 
   } else if (currentWorld === 1) {
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
