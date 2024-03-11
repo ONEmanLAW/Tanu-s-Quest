@@ -254,6 +254,8 @@ let scrollCanvas;
 let gameStarted = false;
 
 let musicsOfStory = [];
+let currentMusic;
+let musicsOfStoryStarted = false;
 
 function preload() {
   images.push(loadImage('assets/images/image1.jpg'));
@@ -263,7 +265,13 @@ function preload() {
   images.push(loadImage('assets/images/image5.jpg'));
   images.push(loadImage('assets/images/image6.jpg'));
 
-  musicsOfStory.push(loadSound('assets/musics/Enterin The Skies.mp3'));
+  musicsOfStory.push(loadSound('assets/musics/Enterin The Skies.mp3', () => {
+    // Lecture automatique de la première musique une fois chargée
+    currentMusic = musicsOfStory[0];
+    if (currentMusic) {
+      currentMusic.play();
+    }
+  }));
   musicsOfStory.push(loadSound('assets/musics/Orbital Colossus.mp3'));
   musicsOfStory.push(loadSound('assets/musics/Ove Melaa - Hero Within.mp3'));
   musicsOfStory.push(loadSound('assets/musics/Ove Melaa - High Stakes,Low Chances.mp3'));
@@ -587,15 +595,32 @@ function setup() {
 ////////////FUNCTIONS MOUSECLICKED///////////
 /////////////////////////////////////////////
 
+
 function mouseClicked() {
   currentImageIndex++;
-
-
   if (currentImageIndex >= images.length) {
     gameStarted = true;
-    musicsOfStory[currentImageIndex].play();
-  };
+  } else {
+    if (currentMusic) {
+      currentMusic.stop();
+    }
+    currentMusic = musicsOfStory[currentImageIndex];
+    if (currentMusic) {
+      currentMusic.play();
+    }
+  }
 };
+
+
+function keyTyped() {
+  if (key === 'm' || key === 'M') {
+    if (musicsOfStory[currentImageIndex].isPlaying()) { 
+      musicsOfStory[currentImageIndex].stop();
+    }
+    musicsOfStory[currentImageIndex].play();
+  }
+};
+
 
 
 /////////////////////////////////////////////
@@ -1106,6 +1131,9 @@ function draw() {
     image(images[currentImageIndex], 0, 0, width, height);
     
   } else {
+    if (currentMusic && currentMusic.isPlaying()) {
+      currentMusic.stop();
+    };
     checkKeys(currentWorld);
     changeWorldIfNeeded();
 
