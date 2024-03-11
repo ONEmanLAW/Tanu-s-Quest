@@ -291,7 +291,7 @@ let worlds = [];
 let decorationWorlds = [];
 let collisonWorlds = []; 
 
-tileDictionnaries = [];
+let tileDictionnaries = [];
 let worldsTileSizes = [];
 
 
