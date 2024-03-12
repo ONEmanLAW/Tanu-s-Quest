@@ -620,8 +620,9 @@ function keyTyped() {
   if (key === 'm' || key === 'M') {
     if (musicsOfStory[currentImageIndex].isPlaying()) { 
       musicsOfStory[currentImageIndex].stop();
+    } else {
+      musicsOfStory[currentImageIndex].play();
     }
-    musicsOfStory[currentImageIndex].play();
   }
 };
 
