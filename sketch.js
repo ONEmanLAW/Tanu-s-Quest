@@ -327,6 +327,10 @@ let maxHeight = 150 ;
 let jumpCounter = 0;
 
 
+let prevCameraX;
+let prevCameraY;
+
+
 /////////////////////////////////////////////
 ///////////VARIABLES FOR NPC/////////////////
 /////////////////////////////////////////////
@@ -1138,6 +1142,27 @@ function draw() {
     if (currentMusic && currentMusic.isPlaying()) {
       currentMusic.stop();
     };
+
+
+
+
+    cameraX = xHero - width / 2;
+    cameraY = yHero - height / 2;
+    
+    if (prevCameraX !== undefined && prevCameraY !== undefined) {
+    cameraX = lerp(prevCameraX, cameraX, 0.1);
+    cameraY = lerp(prevCameraY, cameraY, 0.1);
+    }
+    prevCameraX = cameraX;
+    prevCameraY = cameraY;
+
+    translate(-cameraX, -cameraY);
+    
+
+
+
+
+
     checkKeys(currentWorld);
     changeWorldIfNeeded();
 
