@@ -43,7 +43,7 @@ let worldTempleCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
@@ -300,12 +300,12 @@ let worldsTileSizes = [];
 /////////////////////////////////////////////
 
 //Spawn of Hero.
-let xHero = 2 * worldTempleTileSize;
-let yHero = 6 * worldTempleTileSize;
+let xHero = 2 * worldTempleTileSize - 10;
+let yHero = 6 * worldTempleTileSize - 15;
 
 // Size of Hero.
-let wHero = worldTempleTileSize - 5;
-let hHero = worldTempleTileSize -5;
+let wHero = worldTempleTileSize * 1.05;
+let hHero = worldTempleTileSize * 1.25;
 
 // Animation for Hero.
 let heroSpeed = 5;
@@ -545,7 +545,7 @@ function setup() {
 
 
   // Right Hero Images.
-  hero0 = loadImage('assets/hero/run_0.png');
+  hero0 = loadImage('assets/hero_test.png');
   myHeroRight.push(hero0);
   hero1 = loadImage('assets/hero/run_1.png');
   myHeroRight.push(hero1);
@@ -1011,7 +1011,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
     const currentLine = worldCollisionBoard[y];
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
-      if (currentTileValue === 2 && pointIsInRect(xHero + wHero / 2, yHero + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
+      if (currentTileValue === 2 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
           return true;
       }
     }
@@ -1024,8 +1024,8 @@ function changeWorldIfNeeded() {
   if (checkWorldChange(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     currentWorld = (currentWorld + 1) % worlds.length;
     
-    xHero = 2 * worldsTileSizes[currentWorld];
-    yHero = 6 * worldsTileSizes[currentWorld];
+    xHero = 2 * worldsTileSizes[currentWorld] -10;
+    yHero = 6 * worldsTileSizes[currentWorld] -15;
   }
 };
 
@@ -1140,7 +1140,8 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 /////////////////////////////////////////////
 
 
-
+let textWidth = 400;
+let textHeight = 100;
 
 function draw() {
 
@@ -1181,6 +1182,7 @@ function draw() {
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
     
+    
     // Une Tuile = 20.
     if (animation && animationCounter < 80) {
       xHero += movementSpeed;
@@ -1202,15 +1204,24 @@ function draw() {
     
     // NPC
     image(npcImage, npcX, npcY, npcWidth, npcHeight);
+    let textX = (width - textWidth) / 2 + cameraX;
+    let textY = height - textHeight - 20 + cameraY;
+
     if (checkNPCInteraction()) {
+      
+      fill(0);
+      rect(textX, textY, textWidth, textHeight);
+
       textSize(20);
-      textAlign(CENTER);
+      textAlign(CENTER, CENTER);
       fill(255);
-      text(dialogues[currentDialogueIndex], npcX + npcWidth / 2, npcY - 20);
-      textSize(16);
-      text(CENTER);
-      text("Appuyez sur 'N' pour passer au prochain text", 250, height - 80);
-    };
+      text(dialogues[currentDialogueIndex], textX + textWidth / 2, textY + textHeight / 2);
+
+      // textSize(16);
+      // fill(255);
+      // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
+    } 
+   
 
     } else if (currentWorld === 1) {
       drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
