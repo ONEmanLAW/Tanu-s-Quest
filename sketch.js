@@ -326,9 +326,15 @@ let minHeight = 385;
 let maxHeight = 150 ;
 let jumpCounter = 0;
 
-
+// Caméra qui suit le personnage. 
 let prevCameraX;
 let prevCameraY;
+
+
+// Mouvement Automatique Peronnage.
+let animationCounter = 0;
+let animation = true;
+let movementSpeed = worldTempleTileSize / 20;
 
 
 /////////////////////////////////////////////
@@ -1133,6 +1139,9 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
 
+
+
+
 function draw() {
 
   if (!gameStarted) {
@@ -1171,6 +1180,25 @@ function draw() {
     drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
     drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
     image(currentHeroImage, xHero, yHero, wHero, hHero);
+    
+    // Une Tuile = 20.
+    if (animation && animationCounter < 80) {
+      xHero += movementSpeed;
+      animationCounter++;
+      
+      movementCounter += 1;
+      if (movementCounter >= 20 / heroSpeed) {
+        currentIndex +=1;
+        if (currentIndex === myHeroRight.length) {
+          currentIndex = 0;
+        }
+        currentHeroImage = myHeroRight[currentIndex];
+        movementCounter = 0;
+      }
+    } else {
+      animation = false;
+    }
+   
     
     // NPC
     image(npcImage, npcX, npcY, npcWidth, npcHeight);
