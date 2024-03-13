@@ -138,7 +138,7 @@ let worldForetCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
@@ -186,7 +186,7 @@ let worldGrotteCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,1,1,1,0,0,0,0,0,0,0,0],
+  [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [1,1,1,1,0,0,0,1,1,1,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
@@ -579,7 +579,7 @@ function setup() {
 
 
   backgroundTutoImage = loadImage('assets/tuto/fondTutorielTest.jpg',() => {
-    backgroundForetImage.resize(width, height);
+    backgroundTutoImage.resize(width, height);
   });
 
   backgroundForetImage = loadImage('assets/foretEnchanter/fondForet.jpg',() => {
@@ -587,11 +587,11 @@ function setup() {
   });
 
   backgroundGrotteImage = loadImage('assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
-    backgroundForetImage.resize(width, height);
+    backgroundGrotteImage.resize(width, height);
   });
   
   backgroundBossImage = loadImage('assets/niveauBoss/fondBoss.jpg',() => {
-    backgroundForetImage.resize(width, height);
+    backgroundBossImage.resize(width, height);
   });  
   
 
