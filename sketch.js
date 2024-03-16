@@ -306,7 +306,7 @@ function setup() {
   worldsDecorationTileSizes = [worldTempleDecorationTileSize, worldVillageDecorationTileSize, worldForetDecorationTileSize, worldGrotteDecorationTileSize, worldBossDecorationTileSize];
 
 
-  npcImage = loadImage('assets/hero/run_1left.png');
+  npcGrandSageImage = loadImage('assets/hero/run_1left.png');
 };
 
 
@@ -400,7 +400,7 @@ function draw() {
     
       
       // To Spawn NPC
-      image(npcImage, npcX, npcY, npcWidth, npcHeight);
+      image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
       let textX = (width - textWidth) / 2 + cameraX;
       let textY = height - textHeight - 20 + cameraY;
 
@@ -412,7 +412,7 @@ function draw() {
         textSize(20);
         textAlign(CENTER, CENTER);
         fill(255);
-        text(dialogues[currentDialogueIndex], textX + textWidth / 2, textY + textHeight / 2);
+        text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2, textY + textHeight / 2);
 
         // textSize(16);
         // fill(255);

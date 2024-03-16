@@ -274,9 +274,9 @@ function checkKeys(currentMap) {
 function keyPressed() {
   if (key === 'n' || key === 'N') {
     if (checkNPCInteraction()) {
-      currentDialogueIndex++;
-      if (currentDialogueIndex >= dialogues.length) {
-        currentDialogueIndex = dialogues.length - 1;
+      currentDialogueGrandSageIndex++;
+      if (currentDialogueGrandSageIndex >= dialoguesGrandSage.length) {
+        currentDialogueGrandSageIndex = dialoguesGrandSage.length - 1;
       }
     };
   };

@@ -2,14 +2,14 @@
 ///////////VARIABLES FOR NPC/////////////////
 /////////////////////////////////////////////
 
-let npcImage;
+let npcGrandSageImage;
 
-let npcX = 5 * worldTempleTileSize; 
-let npcY = 6 * worldTempleTileSize ; 
-let npcWidth = worldTempleTileSize -5; 
-let npcHeight= worldTempleTileSize - 5; 
+let npcGrandSageX = 5 * worldTempleTileSize; 
+let npcGrandSageY = 6 * worldTempleTileSize ; 
+let npcGrandSageWidth = worldTempleTileSize -5; 
+let npcGrandSageHeight= worldTempleTileSize - 5; 
 
-let dialogues = [
+let dialoguesGrandSage = [
   "Bonjour, que puis-je faire pour vous ?",
   "Je m'appelle Bob et je suis chanteur.",
   "Je vends une hache pour 15 coins si tu veux!",
@@ -17,7 +17,7 @@ let dialogues = [
   "C'est bon, on a assez parlé."
 ];
 
-let currentDialogueIndex = 0;
+let currentDialogueGrandSageIndex = 0;
 
 /////////////////////////////////////////////
 ////////FUNCTION FOR NPC Interaction/////////
@@ -26,10 +26,10 @@ let currentDialogueIndex = 0;
 function checkNPCInteraction() {
   let playerXCenter = xHero + wHero ;
   let playerYCenter = yHero + hHero;
-  let npcXCenter = npcX + npcWidth;
-  let npcYCenter = npcY + npcHeight;
+  let npcGrandSageXCenter = npcGrandSageX + npcGrandSageWidth;
+  let npcGrandSageYCenter = npcGrandSageY + npcGrandSageHeight;
 
-  let distance = dist(playerXCenter, playerYCenter, npcXCenter, npcYCenter);
+  let distance = dist(playerXCenter, playerYCenter, npcGrandSageXCenter, npcGrandSageYCenter);
 
-  return distance < wHero + npcWidth;
+  return distance < wHero + npcGrandSageWidth;
 };
