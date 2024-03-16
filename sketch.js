@@ -315,6 +315,9 @@ let currentIndex = 0;
 let movementCounter = 0;
 let currentHeroImage = 0;
 
+let hearts = 3;
+let gameOver = false;
+
 // Jump & Gravity.
 let jump = false;
 let direction = 1;
@@ -710,267 +713,271 @@ function gravity() {
 function checkKeys(currentMap) {
   let path = 5;
 
-  if (currentMap === 0) {
+  if(!gameOver) {
+    if (currentMap === 0) {
 
-    if (keyIsDown(68) && keyIsDown(81)) {
-      return;
+      if (keyIsDown(68) && keyIsDown(81)) {
+        return;
+      };
+    
+      // Right.
+      if (keyIsDown(68)) {
+        xHero += heroSpeed;
+        if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
+          xHero -= path;
+        }
+        // HERO Right Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroRight.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroRight[currentIndex];
+          movementCounter = 0;
+        }
+      };
+      
+      // Left.
+      if (keyIsDown(81)) {
+        xHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
+          xHero += path;
+        }
+        // HERO left Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroLeft.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroLeft[currentIndex];
+          movementCounter = 0;
+        }
+      };
+  
+      if (keyIsDown(32)) {
+        jump = true;
+      } else {
+        jump = false;
+      }
     };
   
-    // Right.
-    if (keyIsDown(68)) {
-      xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
-        xHero -= path;
-      }
-      // HERO Right Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
+  
+  
+    if (currentMap === 1) {
+  
+      // Up.
+      if (keyIsDown(90)) {
+        yHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
+          yHero += path;
         }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
-      }
-    };
+      };
     
-    // Left.
-    if (keyIsDown(81)) {
-      xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
-        xHero += path;
-      }
-      // HERO left Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroLeft.length) {
-          currentIndex = 0;
+    // Down.
+      if (keyIsDown(83)) {
+        yHero += heroSpeed;
+        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
+          yHero -= path;
         }
-        currentHeroImage = myHeroLeft[currentIndex];
-        movementCounter = 0;
+      };
+      
+      
+      if (keyIsDown(68) && keyIsDown(81)) {
+        return;
+      };
+      
+      // Right.
+      if (keyIsDown(68)) {
+        xHero += heroSpeed;
+        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
+          xHero -= path;
+        }
+        // HERO Right Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroRight.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroRight[currentIndex];
+          movementCounter = 0;
+        }
+      };
+      
+      // Left.
+      if (keyIsDown(81)) {
+        xHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
+          xHero += path;
+        }
+        // HERO left Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroLeft.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroLeft[currentIndex];
+          movementCounter = 0;
+        }
+      };
+    };
+  
+  
+  
+    if (currentMap === 2) {
+  
+      if (keyIsDown(68) && keyIsDown(81)) {
+        return;
+      };
+    
+      // Right.
+      if (keyIsDown(68)) {
+        xHero += heroSpeed;
+        if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+          xHero -= path;
+        }
+        // HERO Right Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroRight.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroRight[currentIndex];
+          movementCounter = 0;
+        }
+      };
+      
+      //Left.
+      if (keyIsDown(81)) {
+        xHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
+          xHero += path;
+        }
+        // HERO left Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroLeft.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroLeft[currentIndex];
+          movementCounter = 0;
+        }
+      };
+  
+      if (keyIsDown(32)) {
+        jump = true;
+      } else {
+        jump = false;
       }
     };
-
-    if (keyIsDown(32)) {
-      jump = true;
-    } else {
-      jump = false;
+  
+  
+  
+    if (currentMap === 3) {
+      if (keyIsDown(68) && keyIsDown(81)) {
+        return;
+      };
+    
+      // Right.
+      if (keyIsDown(68)) {
+        xHero += heroSpeed;
+        if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
+          xHero -= path;
+        }
+        // HERO Right Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroRight.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroRight[currentIndex];
+          movementCounter = 0;
+        }
+      };
+      
+      //Left.
+      if (keyIsDown(81)) {
+        xHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
+          xHero += path;
+        }
+        // HERO left Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroLeft.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroLeft[currentIndex];
+          movementCounter = 0;
+        }
+      };
+  
+      if (keyIsDown(32)) {
+        jump = true;
+      } else {
+        jump = false;
+      }
     }
-  };
-
-
-
-  if (currentMap === 1) {
-
-    // Up.
-    if (keyIsDown(90)) {
-      yHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-        yHero += path;
-      }
-    };
   
-  // Down.
-    if (keyIsDown(83)) {
-      yHero += heroSpeed;
-      if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-        yHero -= path;
-      }
-    };
-    
-    
-    if (keyIsDown(68) && keyIsDown(81)) {
-      return;
-    };
-    
-    // Right.
-    if (keyIsDown(68)) {
-      xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-        xHero -= path;
-      }
-      // HERO Right Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
-      }
-    };
-    
-    // Left.
-    if (keyIsDown(81)) {
-      xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-        xHero += path;
-      }
-      // HERO left Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroLeft.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroLeft[currentIndex];
-        movementCounter = 0;
-      }
-    };
-  };
-
-
-
-  if (currentMap === 2) {
-
-    if (keyIsDown(68) && keyIsDown(81)) {
-      return;
-    };
   
-    // Right.
-    if (keyIsDown(68)) {
-      xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
-        xHero -= path;
-      }
-      // HERO Right Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
-      }
-    };
-    
-    //Left.
-    if (keyIsDown(81)) {
-      xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
-        xHero += path;
-      }
-      // HERO left Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroLeft.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroLeft[currentIndex];
-        movementCounter = 0;
-      }
-    };
-
-    if (keyIsDown(32)) {
-      jump = true;
-    } else {
-      jump = false;
-    }
-  };
-
-
-
-  if (currentMap === 3) {
-    if (keyIsDown(68) && keyIsDown(81)) {
-      return;
-    };
   
-    // Right.
-    if (keyIsDown(68)) {
-      xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
-        xHero -= path;
-      }
-      // HERO Right Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
-      }
-    };
+    if (currentMap === 4) {
+      if (keyIsDown(68) && keyIsDown(81)) {
+        return;
+      };
     
-    //Left.
-    if (keyIsDown(81)) {
-      xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
-        xHero += path;
-      }
-      // HERO left Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroLeft.length) {
-          currentIndex = 0;
+      // Right.
+      if (keyIsDown(68)) {
+        xHero += heroSpeed;
+        if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
+          xHero -= path;
         }
-        currentHeroImage = myHeroLeft[currentIndex];
-        movementCounter = 0;
+        // HERO Right Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroRight.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroRight[currentIndex];
+          movementCounter = 0;
+        }
+      };
+      
+      //Left.
+      if (keyIsDown(81)) {
+        xHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
+          xHero += path;
+        }
+        // HERO left Animation.
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroLeft.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroLeft[currentIndex];
+          movementCounter = 0;
+        }
+      };
+  
+      if (keyIsDown(32)) {
+        jump = true;
+      } else {
+        jump = false;
       }
     };
-
-    if (keyIsDown(32)) {
-      jump = true;
-    } else {
-      jump = false;
-    }
   }
 
-
-
-  if (currentMap === 4) {
-    if (keyIsDown(68) && keyIsDown(81)) {
-      return;
-    };
   
-    // Right.
-    if (keyIsDown(68)) {
-      xHero += heroSpeed;
-      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
-        xHero -= path;
-      }
-      // HERO Right Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
-      }
-    };
-    
-    //Left.
-    if (keyIsDown(81)) {
-      xHero -= heroSpeed;
-      if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
-        xHero += path;
-      }
-      // HERO left Animation.
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroLeft.length) {
-          currentIndex = 0;
-        }
-        currentHeroImage = myHeroLeft[currentIndex];
-        movementCounter = 0;
-      }
-    };
-
-    if (keyIsDown(32)) {
-      jump = true;
-    } else {
-      jump = false;
-    }
-  };
 };
 
 
@@ -983,6 +990,19 @@ function keyPressed() {
       }
     };
   };
+
+  if (key === 'h' && !gameOver) {
+    hearts--;
+    
+    if (hearts <= 0) {
+      gameOver = true;
+    }
+  } else if (gameOver && key === 'r') {
+    hearts = 3;
+    gameOver = false;
+    xHero = initialX;
+    yHero = initialY;
+  }
 };
 
 
@@ -1143,6 +1163,9 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 let textWidth = 400;
 let textHeight = 100;
 
+let initialX = 2 * worldTempleTileSize - 10;
+let initialY = 6 * worldTempleTileSize - 15;
+
 function draw() {
 
   if (!gameStarted) {
@@ -1153,9 +1176,7 @@ function draw() {
       currentMusic.stop();
     };
 
-
-
-
+    if(!gameOver) {
     cameraX = xHero - width / 2;
     cameraY = yHero - height / 2;
     
@@ -1167,84 +1188,87 @@ function draw() {
     prevCameraY = cameraY;
 
     translate(-cameraX, -cameraY);
+    };
     
-
-
-
-
-
+    
     checkKeys(currentWorld);
     changeWorldIfNeeded();
 
-    if (currentWorld === 0) {
-    image(backgroundTutoImage, 0, 0);
-    drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-    drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
-    image(currentHeroImage, xHero, yHero, wHero, hHero);
-    
-    
-    // Une Tuile = 20.
-    if (animation && animationCounter < 80) {
-      xHero += movementSpeed;
-      animationCounter++;
+    if (hearts > 0) {
+      if (currentWorld === 0) {
+      image(backgroundTutoImage, 0, 0);
+      drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+      drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
+      image(currentHeroImage, xHero, yHero, wHero, hHero);
       
-      movementCounter += 1;
-      if (movementCounter >= 20 / heroSpeed) {
-        currentIndex +=1;
-        if (currentIndex === myHeroRight.length) {
-          currentIndex = 0;
+      
+      // Une Tuile = 20.
+      if (animation && animationCounter < 80) {
+        xHero += movementSpeed;
+        animationCounter++;
+        
+        movementCounter += 1;
+        if (movementCounter >= 20 / heroSpeed) {
+          currentIndex +=1;
+          if (currentIndex === myHeroRight.length) {
+            currentIndex = 0;
+          }
+          currentHeroImage = myHeroRight[currentIndex];
+          movementCounter = 0;
         }
-        currentHeroImage = myHeroRight[currentIndex];
-        movementCounter = 0;
+      } else {
+        animation = false;
       }
-    } else {
-      animation = false;
-    }
-   
     
-    // NPC
-    image(npcImage, npcX, npcY, npcWidth, npcHeight);
-    let textX = (width - textWidth) / 2 + cameraX;
-    let textY = height - textHeight - 20 + cameraY;
-
-    if (checkNPCInteraction()) {
       
-      fill(0);
-      rect(textX, textY, textWidth, textHeight);
+      // NPC
+      image(npcImage, npcX, npcY, npcWidth, npcHeight);
+      let textX = (width - textWidth) / 2 + cameraX;
+      let textY = height - textHeight - 20 + cameraY;
 
-      textSize(20);
-      textAlign(CENTER, CENTER);
-      fill(255);
-      text(dialogues[currentDialogueIndex], textX + textWidth / 2, textY + textHeight / 2);
+      if (checkNPCInteraction()) {
+        
+        fill(0);
+        rect(textX, textY, textWidth, textHeight);
 
-      // textSize(16);
-      // fill(255);
-      // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
-    } 
-   
+        textSize(20);
+        textAlign(CENTER, CENTER);
+        fill(255);
+        text(dialogues[currentDialogueIndex], textX + textWidth / 2, textY + textHeight / 2);
 
-    } else if (currentWorld === 1) {
-      drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-      image(currentHeroImage, xHero, yHero, wHero, hHero);
-      drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
+        // textSize(16);
+        // fill(255);
+        // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
+      } 
+    
 
-    } else if (currentWorld === 2) {
-      image(backgroundForetImage, 0, 0);
-      drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-      drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
-      image(currentHeroImage, xHero, yHero, wHero, hHero); 
+      } else if (currentWorld === 1) {
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
-    } else if (currentWorld === 3) {
-      image(backgroundGrotteImage, 0, 0);
-      drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-      drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
-      image(currentHeroImage, xHero, yHero, wHero, hHero);
-      
-    } else if (currentWorld === 4) {
-      image(backgroundBossImage, 0, 0);
-      drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-      drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
-      image(currentHeroImage, xHero, yHero, wHero, hHero);
-    }  
+      } else if (currentWorld === 2) {
+        image(backgroundForetImage, 0, 0);
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
+        image(currentHeroImage, xHero, yHero, wHero, hHero); 
+
+      } else if (currentWorld === 3) {
+        image(backgroundGrotteImage, 0, 0);
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        
+      } else if (currentWorld === 4) {
+        image(backgroundBossImage, 0, 0);
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
+      }  
+    } else {
+      textSize(32);
+      fill(255,0 ,0);
+      text("Game Over - Retry? Press 'r'", width/2, height/2);
+    }
   }
 };
