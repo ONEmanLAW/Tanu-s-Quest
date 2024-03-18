@@ -455,12 +455,9 @@ function draw() {
 
 
 function moveEnemy() {
-  // Déplacer l'ennemi uniquement sur l'axe des x
   enemy.x += speed * directionEnnemy;
   
-  // Vérifier si l'ennemi atteint le point A ou le point B
   if ((directionEnnemy === 1 && enemy.x >= pointB.x) || (directionEnnemy === -1 && enemy.x <= pointA.x)) {
-    // Changer la direction de déplacement
     directionEnnemy *= -1;
   }
 }
