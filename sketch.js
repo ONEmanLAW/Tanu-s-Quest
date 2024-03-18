@@ -353,7 +353,6 @@ let initialY = 6 * worldTempleTileSize - 15;
 
 
 
-
 function draw() {
 
   if (!gameStarted) {

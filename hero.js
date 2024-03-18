@@ -39,3 +39,12 @@ let jumpCounter = 0;
 let animationCounter = 0;
 let animation = true;
 let movementSpeed = worldTempleTileSize / 20;
+
+function loseHeart() {
+  if (hearts > 0) {
+    hearts--;
+    if (hearts === 0) {
+      gameOver = true;
+    }
+  }
+}

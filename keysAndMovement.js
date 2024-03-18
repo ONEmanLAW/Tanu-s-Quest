@@ -282,11 +282,7 @@ function keyPressed() {
   };
 
   if (key === 'h' && !gameOver) {
-    hearts--;
-    
-    if (hearts <= 0) {
-      gameOver = true;
-    }
+    loseHeart();
   } else if (gameOver && key === 'r') {
     hearts = 3;
     gameOver = false;
