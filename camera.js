@@ -18,3 +18,40 @@ function updateCamera() {
       translate(-cameraX, -cameraY);
   }
 };
+
+
+
+// let prevCameraX;
+// let prevCameraY;
+// let worldWidth; 
+// let worldHeight; 
+
+
+// function initWorldDimensions(width, height) {
+//   worldWidth = width;
+//   worldHeight = height;
+// }
+
+// function updateCamera() {
+//   if (!gameOver) {
+    
+//     let cameraLeft = width / 2; 
+//     let cameraRight = worldWidth - width / 2; 
+//     let cameraTop = height / 2; 
+//     let cameraBottom = worldHeight - height / 2;
+   
+//     let targetCameraX = constrain(xHero - width / 2, cameraLeft, cameraRight);
+//     let targetCameraY = constrain(yHero - height / 2, cameraTop, cameraBottom);
+
+    
+//     cameraX = lerp(prevCameraX, targetCameraX, 0.1);
+//     cameraY = lerp(prevCameraY, targetCameraY, 0.1);
+    
+    
+//     prevCameraX = cameraX;
+//     prevCameraY = cameraY;
+
+    
+//     translate(-cameraX, -cameraY);
+//   }
+// }

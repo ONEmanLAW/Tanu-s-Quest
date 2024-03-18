@@ -70,6 +70,7 @@ let worldsTileSizes = [];
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
+  
 
 
   backgroundTutoImage = loadImage('assets/tuto/fondTutorielTest.jpg',() => {
@@ -90,7 +91,7 @@ function setup() {
   
 
   // Canvas For Game.
-  createCanvas(worldTempleBoard[0].length * worldTempleTileSize, worldTempleBoard.length * worldTempleTileSize);
+  // createCanvas(worldTempleBoard[0].length * worldTempleTileSize, worldTempleBoard.length * worldTempleTileSize);
   
 
   worldTempleTileDictionnary = {
@@ -369,7 +370,6 @@ function draw() {
       drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
       drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
-      
       
       // Automatic Movement At Start.
       // One Tile = 20.
