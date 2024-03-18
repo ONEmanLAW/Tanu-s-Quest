@@ -62,12 +62,6 @@ let collisonWorlds = [];
 let tileDictionnaries = [];
 let worldsTileSizes = [];
 
-let enemy;
-let pointA;
-let pointB;
-let speed = 2;
-let directionEnnemy = 1;
-
 
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
@@ -106,7 +100,6 @@ function setup() {
   
 
   worldTempleTileDictionnary = {
-
     0: loadImage(''),
     // Sol et SousSol Neige.
     1: loadImage('assets/tuto/neige/solNeige.png'),
