@@ -2,274 +2,129 @@
 ///////////FUNCTION KEYSBINDS////////////////
 /////////////////////////////////////////////
 
+function moveLeft() {
+  xHero -= heroSpeed;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+    xHero += path;
+  }
+  // HERO left Animation.
+  updateAnimation(myHeroLeft);
+}
+
+function moveRight() {
+  xHero += heroSpeed;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+    xHero -= path;
+  }
+  // HERO Right Animation.
+  updateAnimation(myHeroRight);
+}
+
+function updateAnimation(animationArray) {
+  movementCounter += 1;
+  if (movementCounter >= 20 / heroSpeed) {
+    currentIndex += 1;
+    if (currentIndex === animationArray.length) {
+      currentIndex = 0;
+    }
+    currentHeroImage = animationArray[currentIndex];
+    movementCounter = 0;
+  }
+}
+
 function checkKeys(currentMap) {
   let path = 5;
 
-  if(!gameOver) {
-    if (currentMap === 0) {
+  if (!gameOver) {
+    if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
+      if (keyIsDown(68) && keyIsDown(81)) {
+        return;
+      }
 
-      if (keyIsDown(68) && keyIsDown(81)) {
-        return;
-      };
-    
-      // Right.
       if (keyIsDown(68)) {
-        xHero += heroSpeed;
-        if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
-          xHero -= path;
-        }
-        // HERO Right Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroRight.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroRight[currentIndex];
-          movementCounter = 0;
-        }
-      };
-      
-      // Left.
-      if (keyIsDown(81)) {
-        xHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[0],worldsTileSizes[currentWorld])) {
-          xHero += path;
-        }
-        // HERO left Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroLeft.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroLeft[currentIndex];
-          movementCounter = 0;
-        }
-      };
-  
-      if (keyIsDown(32)) {
-        jump = true;
-      } else {
-        jump = false;
+        moveRight();
       }
-    };
-  
-  
-  
-    if (currentMap === 1) {
-  
-      // Up.
-      if (keyIsDown(90)) {
-        yHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-          yHero += path;
-        }
-      };
-    
-    // Down.
-      if (keyIsDown(83)) {
-        yHero += heroSpeed;
-        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-          yHero -= path;
-        }
-      };
-      
-      
-      if (keyIsDown(68) && keyIsDown(81)) {
-        return;
-      };
-      
-      // Right.
-      if (keyIsDown(68)) {
-        xHero += heroSpeed;
-        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-          xHero -= path;
-        }
-        // HERO Right Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroRight.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroRight[currentIndex];
-          movementCounter = 0;
-        }
-      };
-      
-      // Left.
+
       if (keyIsDown(81)) {
-        xHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[1],worldsTileSizes[currentWorld])) {
-          xHero += path;
-        }
-        // HERO left Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroLeft.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroLeft[currentIndex];
-          movementCounter = 0;
-        }
-      };
-    };
-  
-  
-  
-    if (currentMap === 2) {
-  
-      if (keyIsDown(68) && keyIsDown(81)) {
-        return;
-      };
-    
-      // Right.
-      if (keyIsDown(68)) {
-        xHero += heroSpeed;
-        if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
-          xHero -= path;
-        }
-        // HERO Right Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroRight.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroRight[currentIndex];
-          movementCounter = 0;
-        }
-      };
-      
-      //Left.
-      if (keyIsDown(81)) {
-        xHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[2],worldsTileSizes[currentWorld])) {
-          xHero += path;
-        }
-        // HERO left Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroLeft.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroLeft[currentIndex];
-          movementCounter = 0;
-        }
-      };
-  
-      if (keyIsDown(32)) {
-        jump = true;
-      } else {
-        jump = false;
+        moveLeft();
       }
-    };
-  
-  
-  
-    if (currentMap === 3) {
-      if (keyIsDown(68) && keyIsDown(81)) {
-        return;
-      };
-    
-      // Right.
-      if (keyIsDown(68)) {
-        xHero += heroSpeed;
-        if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
-          xHero -= path;
-        }
-        // HERO Right Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroRight.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroRight[currentIndex];
-          movementCounter = 0;
-        }
-      };
-      
-      //Left.
-      if (keyIsDown(81)) {
-        xHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[3],worldsTileSizes[currentWorld])) {
-          xHero += path;
-        }
-        // HERO left Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroLeft.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroLeft[currentIndex];
-          movementCounter = 0;
-        }
-      };
-  
+    }
+
+    if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(32)) {
         jump = true;
       } else {
         jump = false;
       }
     }
-  
-  
-  
-    if (currentMap === 4) {
+
+    if (currentMap === 1) {
+      if (keyIsDown(90)) {
+        yHero -= heroSpeed;
+        if (checkCollision(collisonWorlds[currentMap], worldsTileSizes[currentWorld])) {
+          yHero += path;
+        }
+      }
+
+      if (keyIsDown(83)) {
+        yHero += heroSpeed;
+        if (checkCollision(collisonWorlds[currentMap], worldsTileSizes[currentWorld])) {
+          yHero -= path;
+        }
+      }
+
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
-      };
-    
-      // Right.
-      if (keyIsDown(68)) {
-        xHero += heroSpeed;
-        if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
-          xHero -= path;
-        }
-        // HERO Right Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroRight.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroRight[currentIndex];
-          movementCounter = 0;
-        }
-      };
-      
-      //Left.
-      if (keyIsDown(81)) {
-        xHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[4],worldsTileSizes[currentWorld])) {
-          xHero += path;
-        }
-        // HERO left Animation.
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroLeft.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroLeft[currentIndex];
-          movementCounter = 0;
-        }
-      };
-  
-      if (keyIsDown(32)) {
-        jump = true;
-      } else {
-        jump = false;
       }
-    };
-  }
-};
 
+      if (keyIsDown(68)) {
+        moveRight();
+      }
+
+      if (keyIsDown(81)) {
+        moveLeft();
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let initialX = 2 * worldTempleTileSize - 10;
+let initialY = 6 * worldTempleTileSize - 15;
 
 function keyPressed() {
   if (key === 'n' || key === 'N') {

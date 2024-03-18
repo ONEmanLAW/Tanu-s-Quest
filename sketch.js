@@ -344,27 +344,20 @@ function drawFront(gameBoard, tileDictionnary, tileSize) {
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
 
-
 let textWidth = 400;
 let textHeight = 100;
 
-let initialX = 2 * worldTempleTileSize - 10;
-let initialY = 6 * worldTempleTileSize - 15;
-
-
-
 function draw() {
-
   if (!gameStarted) {
     // Start Of Intro.
     image(images[currentImageIndex], 0, 0, width, height);
-    
   } else {
     // Music Stops Playing.
     if (currentMusic && currentMusic.isPlaying()) {
       currentMusic.stop();
     };
 
+    // Function For The Game.
     updateCamera();
     checkKeys(currentWorld);
     changeWorldIfNeeded();
@@ -383,28 +376,19 @@ function draw() {
       if (animation && animationCounter < 80) {
         xHero += movementSpeed;
         animationCounter++;
-        
-        movementCounter += 1;
-        if (movementCounter >= 20 / heroSpeed) {
-          currentIndex +=1;
-          if (currentIndex === myHeroRight.length) {
-            currentIndex = 0;
-          }
-          currentHeroImage = myHeroRight[currentIndex];
-          movementCounter = 0;
-        }
+        updateAnimation(myHeroRight);
       } else {
         animation = false;
-      }
+      };
     
-      
+
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
       let textX = (width - textWidth) / 2 + cameraX;
       let textY = height - textHeight - 20 + cameraY;
 
-      if (checkNPCInteraction()) {
-        
+
+      if (checkNPCInteraction()) {  
         fill(0);
         // Mettre une image a la place.
         rect(textX, textY, textWidth, textHeight);
@@ -416,7 +400,7 @@ function draw() {
         // textSize(16);
         // fill(255);
         // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
-      } 
+      }; 
     
 
       } else if (currentWorld === 1) {
