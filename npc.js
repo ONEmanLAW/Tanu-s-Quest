@@ -33,3 +33,4 @@ function checkNPCInteraction() {
 
   return distance < wHero + npcGrandSageWidth;
 };
+

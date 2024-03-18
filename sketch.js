@@ -62,6 +62,12 @@ let collisonWorlds = [];
 let tileDictionnaries = [];
 let worldsTileSizes = [];
 
+let enemy;
+let pointA;
+let pointB;
+let speed = 2;
+let directionEnnemy = 1;
+
 
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
@@ -70,6 +76,11 @@ let worldsTileSizes = [];
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
+
+  // Positions Initial.
+  enemy = createVector(7 * worldTempleTileSize, 6.5 * worldTempleTileSize); 
+  pointA = createVector(7 * worldTempleTileSize); 
+  pointB = createVector(10 * worldTempleTileSize);
   
 
 
@@ -359,7 +370,7 @@ function draw() {
     };
 
     // Function For The Game.
-    updateCamera();
+    //updateCamera();
     checkKeys(currentWorld);
     changeWorldIfNeeded();
 
@@ -371,6 +382,10 @@ function draw() {
       drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
       
+      fill(255, 0, 0); // Rouge
+      ellipse(enemy.x, enemy.y, 20, 20);
+      moveEnemy();
+      
       // Automatic Movement At Start.
       // One Tile = 20.
       if (animation && animationCounter < 80) {
@@ -380,12 +395,15 @@ function draw() {
       } else {
         animation = false;
       };
+
+
+      
     
 
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
-      let textX = (width - textWidth) / 2 + cameraX;
-      let textY = height - textHeight - 20 + cameraY;
+      let textX = (width - textWidth) / 2 //+ cameraX;
+      let textY = height - textHeight - 20 //+ cameraY;
 
 
       if (checkNPCInteraction()) {  
@@ -433,3 +451,16 @@ function draw() {
     }
   }
 };
+
+
+
+function moveEnemy() {
+  // Déplacer l'ennemi uniquement sur l'axe des x
+  enemy.x += speed * directionEnnemy;
+  
+  // Vérifier si l'ennemi atteint le point A ou le point B
+  if ((directionEnnemy === 1 && enemy.x >= pointB.x) || (directionEnnemy === -1 && enemy.x <= pointA.x)) {
+    // Changer la direction de déplacement
+    directionEnnemy *= -1;
+  }
+}
