@@ -369,6 +369,8 @@ function draw() {
     //updateCamera();
     checkKeys(currentWorld);
     changeWorldIfNeeded();
+    
+    
 
     // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
@@ -376,10 +378,17 @@ function draw() {
       image(backgroundTutoImage, 0, 0);
       drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
       drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
+      image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
+
+      // Pour voire le Collider
+      stroke(255, 0, 0);
+      noFill();
+      rect(xHero, yHero, wHero, hHero); 
+      rect(xEnemy, yEnemy, wEnemy, hEnemy); 
       
-      image(enemyImage, enemy.x, enemy.y, enemySize, enemySize);
-      moveEnemy();
+      
+      
       
       // Automatic Movement At Start.
       // One Tile = 20.
@@ -391,9 +400,10 @@ function draw() {
         animation = false;
       };
 
-
-      
-    
+      // For Enemy.
+      moveEnemy();
+      checkEnemyCollision();
+      handleCooldown();
 
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
@@ -421,10 +431,7 @@ function draw() {
 
 
         
-        if (rectIsInRect(xHero, yHero, wHero, hHero, enemy.x, enemy.y, enemySize, enemySize)) {
-          // Si la collision se produit, perdre une vie
-          loseHeart();
-        }
+        
       }; 
     
 

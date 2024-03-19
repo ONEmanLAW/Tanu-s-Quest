@@ -20,7 +20,7 @@ function changeWorldIfNeeded() {
   if (checkWorldChange(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     currentWorld = (currentWorld + 1) % worlds.length;
     
-    xHero = 2 * worldsTileSizes[currentWorld] -10;
-    yHero = 6 * worldsTileSizes[currentWorld] -15;
+    xHero = 2 * worldsTileSizes[currentWorld];
+    yHero = 6 * worldsTileSizes[currentWorld];
   }
 };

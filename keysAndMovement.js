@@ -123,8 +123,8 @@ function checkKeys(currentMap) {
 
 
 
-let initialX = 2 * worldTempleTileSize - 10;
-let initialY = 6 * worldTempleTileSize - 15;
+let initialX = 2 * worldTempleTileSize;
+let initialY = 6 * worldTempleTileSize;
 
 function keyPressed() {
   if (key === 'n' || key === 'N') {
