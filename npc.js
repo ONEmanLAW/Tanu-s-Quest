@@ -6,8 +6,8 @@ let npcGrandSageImage;
 
 let npcGrandSageX = 5 * worldTempleTileSize; 
 let npcGrandSageY = 6 * worldTempleTileSize ; 
-let npcGrandSageWidth = worldTempleTileSize -5; 
-let npcGrandSageHeight= worldTempleTileSize - 5; 
+let npcGrandSageWidth = worldTempleTileSize; 
+let npcGrandSageHeight= worldTempleTileSize; 
 
 let dialoguesGrandSage = [
   "Bonjour, que puis-je faire pour vous ?",

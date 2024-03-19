@@ -40,23 +40,39 @@ let animationCounter = 0;
 let animation = true;
 let movementSpeed = worldTempleTileSize / 20;
 
-
 function loseHeart() {
-  if (hearts > 0 && !heroInvincible) { // Vérifiez si le personnage a des vies et n'est pas invincible
-    hearts--; // Réduire le nombre de vies
+  if (hearts > 0 && !heroInvincible) { 
+    hearts--;
     if (hearts === 0) {
-      gameOver = true; // Définir le drapeau de fin de partie si le personnage n'a plus de vies
+      gameOver = true; 
     } else {
-      // Activer le cooldown si le personnage perd une vie
       activateCooldown();
     }
+  }
+};
+
+
+function drawHearts() {
+  const heartWidth = 30;
+  const heartHeight = 30; 
+  const spacing = 10; 
+  const marginX = 20; 
+  const marginY = 20; 
+
+  for (let i = 0; i < hearts; i++) {
+    let x = marginX + i * (heartWidth + spacing);
+
+    fill(255, 0, 0); 
+    noStroke();
+    ellipse(x, marginY, heartWidth, heartHeight);
   }
 }
 
 
+
 let heroInvincible = false;
 let cooldownTimer = 0;
-const cooldownDuration = 3000;
+const cooldownDuration = 1500;
 
 
 function activateCooldown() {
@@ -77,7 +93,6 @@ function handleCooldown() {
     }
   }
 };
-
 
 function resetCooldown() {
   heroInvincible = false; // Désactiver l'invincibilité du héros

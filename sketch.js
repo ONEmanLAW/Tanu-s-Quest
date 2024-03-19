@@ -370,7 +370,6 @@ function draw() {
     checkKeys(currentWorld);
     changeWorldIfNeeded();
     
-    
 
     // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
@@ -379,6 +378,8 @@ function draw() {
       drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
       drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
       image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
+      // To Spawn NPC
+      image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
 
       // Pour voire le Collider
@@ -386,8 +387,6 @@ function draw() {
       noFill();
       rect(xHero, yHero, wHero, hHero); 
       rect(xEnemy, yEnemy, wEnemy, hEnemy); 
-      
-      
       
       
       // Automatic Movement At Start.
@@ -401,12 +400,12 @@ function draw() {
       };
 
       // For Enemy.
+      drawHearts();
       moveEnemy();
       checkEnemyCollision();
       handleCooldown();
 
-      // To Spawn NPC
-      image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
+      
       let textX = (width - textWidth) / 2;
       let textY = height - textHeight - 20;
 

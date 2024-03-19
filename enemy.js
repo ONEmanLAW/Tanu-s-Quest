@@ -25,9 +25,3 @@ function checkEnemyCollision() {
   }
 }
 
-
-
-
-
-
-
