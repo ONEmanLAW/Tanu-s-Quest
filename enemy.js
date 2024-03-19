@@ -24,3 +24,10 @@ function checkEnemyCollision() {
     loseHeart();
   }
 }
+
+
+
+
+
+
+

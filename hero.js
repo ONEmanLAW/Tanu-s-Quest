@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 
 //Spawn of Hero.
-let xHero = 2 * worldTempleTileSize;
+let xHero = 2 * worldTempleTileSize ;
 let yHero = 6 * worldTempleTileSize;
 
 // Size of Hero.
@@ -41,10 +41,6 @@ let animation = true;
 let movementSpeed = worldTempleTileSize / 20;
 
 
-let heroInvincible = false; // Variable pour indiquer si le héros est invincible
-let cooldownTimer = 0; // Timer pour le cooldown
-const cooldownDuration = 2000;
-
 function loseHeart() {
   if (hearts > 0 && !heroInvincible) { // Vérifiez si le personnage a des vies et n'est pas invincible
     hearts--; // Réduire le nombre de vies
@@ -57,10 +53,17 @@ function loseHeart() {
   }
 }
 
+
+let heroInvincible = false;
+let cooldownTimer = 0;
+const cooldownDuration = 3000;
+
+
 function activateCooldown() {
-  heroInvincible = true; // Rendre le héros invincible
-  cooldownTimer = millis(); // Enregistrer le moment où le cooldown a commencé
-}
+  heroInvincible = true; 
+  cooldownTimer = millis();
+};
+
 
 function handleCooldown() {
   // Vérifier si le cooldown est actif
@@ -73,8 +76,9 @@ function handleCooldown() {
       resetCooldown();
     }
   }
-}
+};
+
 
 function resetCooldown() {
   heroInvincible = false; // Désactiver l'invincibilité du héros
-}
+};

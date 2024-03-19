@@ -423,14 +423,6 @@ function draw() {
         // textSize(16);
         // fill(255);
         // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
-
-
-
-
-
-
-
-        
         
       }; 
     
