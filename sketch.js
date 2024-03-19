@@ -315,6 +315,7 @@ function setup() {
 
   npcGrandSageImage = loadImage('assets/hero/run_1left.png');
   enemyImage = loadImage('assets/hero_plateforme.png');
+  heartImage = loadImage('coeurs1.png');
 };
 
 
@@ -369,6 +370,7 @@ function draw() {
     //updateCamera();
     checkKeys(currentWorld);
     changeWorldIfNeeded();
+    drawHearts();
     
 
     // If Hero Have Hearts Game is Not Over.
@@ -400,7 +402,6 @@ function draw() {
       };
 
       // For Enemy.
-      drawHearts();
       moveEnemy();
       checkEnemyCollision();
       handleCooldown();
@@ -449,6 +450,7 @@ function draw() {
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
       }  
+      drawHearts();
     } else {
       textSize(32);
       fill(255,0 ,0);

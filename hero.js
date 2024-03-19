@@ -20,6 +20,7 @@ let currentHeroImage = 0;
 
 // Life of Hero.
 let hearts = 3;
+let heartImage;
 let gameOver = false;
 
 
@@ -53,8 +54,8 @@ function loseHeart() {
 
 
 function drawHearts() {
-  const heartWidth = 30;
-  const heartHeight = 30; 
+  const heartWidth = 64;
+  const heartHeight = 64; 
   const spacing = 10; 
   const marginX = 20; 
   const marginY = 20; 
@@ -62,9 +63,8 @@ function drawHearts() {
   for (let i = 0; i < hearts; i++) {
     let x = marginX + i * (heartWidth + spacing);
 
-    fill(255, 0, 0); 
-    noStroke();
-    ellipse(x, marginY, heartWidth, heartHeight);
+    // Dessiner l'image du cœur
+    image(heartImage, x, marginY, heartWidth, heartHeight);
   }
 }
 
