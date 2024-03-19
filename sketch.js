@@ -63,6 +63,8 @@ let tileDictionnaries = [];
 let worldsTileSizes = [];
 
 
+
+
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
@@ -72,7 +74,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   // Positions Initial.
-  enemy = createVector(7 * worldTempleTileSize, 6.5 * worldTempleTileSize); 
+  enemy = createVector(7 * worldTempleTileSize, 6 * worldTempleTileSize); 
   pointA = createVector(7 * worldTempleTileSize); 
   pointB = createVector(10 * worldTempleTileSize);
   
@@ -272,7 +274,7 @@ function setup() {
 
 
   // Right Hero Images.
-  hero0 = loadImage('assets/hero_test.png');
+  hero0 = loadImage('assets/hero_plateforme.png');
   myHeroRight.push(hero0);
   hero1 = loadImage('assets/hero/run_1.png');
   myHeroRight.push(hero1);
@@ -312,6 +314,7 @@ function setup() {
 
 
   npcGrandSageImage = loadImage('assets/hero/run_1left.png');
+  enemyImage = loadImage('assets/hero_plateforme.png');
 };
 
 
@@ -375,8 +378,7 @@ function draw() {
       drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
       
-      fill(255, 0, 0); // Rouge
-      ellipse(enemy.x, enemy.y, 20, 20);
+      image(enemyImage, enemy.x, enemy.y, enemySize, enemySize);
       moveEnemy();
       
       // Automatic Movement At Start.
@@ -395,8 +397,8 @@ function draw() {
 
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
-      let textX = (width - textWidth) / 2 //+ cameraX;
-      let textY = height - textHeight - 20 //+ cameraY;
+      let textX = (width - textWidth) / 2;
+      let textY = height - textHeight - 20;
 
 
       if (checkNPCInteraction()) {  
@@ -411,6 +413,18 @@ function draw() {
         // textSize(16);
         // fill(255);
         // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
+
+
+
+
+
+
+
+        
+        if (rectIsInRect(xHero, yHero, wHero, hHero, enemy.x, enemy.y, enemySize, enemySize)) {
+          // Si la collision se produit, perdre une vie
+          loseHeart();
+        }
       }; 
     
 
@@ -444,13 +458,3 @@ function draw() {
     }
   }
 };
-
-
-
-function moveEnemy() {
-  enemy.x += speed * directionEnnemy;
-  
-  if ((directionEnnemy === 1 && enemy.x >= pointB.x) || (directionEnnemy === -1 && enemy.x <= pointA.x)) {
-    directionEnnemy *= -1;
-  }
-}
