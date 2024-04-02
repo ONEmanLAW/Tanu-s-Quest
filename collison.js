@@ -16,11 +16,7 @@ function checkCollision(worldCollisionBoard,tileSize) {
         if(rectIsHalfRectUp(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
-      } else if (currentTileValue === 4) {
-        if(rectIsHalfRectDown(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
-          return true 
-        }
-      } 
+      }
     }
   }
 };

@@ -2,6 +2,7 @@
 ///////////FUNCTION KEYSBINDS////////////////
 /////////////////////////////////////////////
 let path = 5;
+
 function moveLeft() {
   xHero -= heroSpeed;
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
@@ -87,39 +88,6 @@ function checkKeys(currentMap) {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
