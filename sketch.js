@@ -26,33 +26,10 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   // Positions Initial.
-  enemy = createVector(7 * worldTempleTileSize, 6 * worldTempleTileSize); 
-  pointA = createVector(7 * worldTempleTileSize); 
-  pointB = createVector(10 * worldTempleTileSize);
+  spawnEnemyAndPatrol();
+  preloadBackgroundImages();
+
   
-
-
-  backgroundTutoImage = loadImage('assets/tuto/fondTutorielTest.jpg',() => {
-    backgroundTutoImage.resize(width, height);
-  });
-
-  backgroundForetImage = loadImage('assets/foretEnchanter/fondForet.jpg',() => {
-    backgroundForetImage.resize(width, height);
-  });
-
-  backgroundGrotteImage = loadImage('assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
-    backgroundGrotteImage.resize(width, height);
-  });
-  
-  backgroundBossImage = loadImage('assets/niveauBoss/fondBoss.jpg',() => {
-    backgroundBossImage.resize(width, height);
-  });  
-  
-
-  // Canvas For Game.
-  // createCanvas(worldTempleBoard[0].length * worldTempleTileSize, worldTempleBoard.length * worldTempleTileSize);
-  
-
   worldTempleTileDictionnary = {
     0: loadImage(''),
     // Sol et SousSol Neige.
@@ -92,7 +69,7 @@ function setup() {
   worldVillageTileDictionnary = {
 
     0: loadImage(''),
-    1: loadImage('assets/village/1.png'),
+       1: loadImage('assets/village/1.png'),
     2: loadImage('assets/village/2.png'),
     3: loadImage('assets/village/3.png'),
     4: loadImage('assets/village/4.png'),
@@ -549,80 +526,19 @@ function setup() {
   };
 
 
-  // Right Hero Images.
-  hero0 = loadImage('assets/hero_plateforme.png');
-  myHeroRight.push(hero0);
-  hero1 = loadImage('assets/hero/run_1.png');
-  myHeroRight.push(hero1);
-  hero2 = loadImage('assets/hero/run_2.png');
-  myHeroRight.push(hero2);
-  hero3 = loadImage('assets/hero/run_3.png');
-  myHeroRight.push(hero3);
-  hero4 = loadImage('assets/hero/run_4.png');
-  myHeroRight.push(hero4);
-
-  //Left Hero Images.
-  myHeroLeft.push(loadImage('assets/hero/run_0left.png'));
-  myHeroLeft.push(loadImage('assets/hero/run_1left.png')); 
-  myHeroLeft.push(loadImage('assets/hero/run_2left.png')); 
-  myHeroLeft.push(loadImage('assets/hero/run_3left.png'));
-  myHeroLeft.push(loadImage('assets/hero/run_4left.png'));
-
-  currentHeroImage = hero0;
+  preloadHeroImages();
 
 
-  // Worlds Setups.
-  worlds = [worldTempleBoard, worldVillageBoard, worldForetBoard, worldGrotteBoard, worldBossBoard];
-
-  decorationWorlds = [worldTempleDecorationBoard, worldVillageDecorationBoard, worldForetDecorationBoard, worldGrotteDecorationBoard, worldBossDecorationBoard];
-
-  collisonWorlds = [worldTempleCollisionBoard, worldVillageCollisionBoard, worldForetCollisionBoard, worldGrotteCollisionBoard, worldBossCollisionBoard];
-
-  
-  tileDictionnaries = [worldTempleTileDictionnary, worldVillageTileDictionnary, worldForetTileDictionnary, worldGrotteTileDictionnary, worldBossTileDictionnary];
-
-  tileDecorationDictionnaries = [worldTempleDecorationTileDictionnary, worldVillageDecorationTileDictionnary, worldForetDecorationTileDictionnary, worldGrotteDecorationTileDictionnary, worldBossDecorationTileDictionnary];
+  setupWorlds();
 
 
-  worldsTileSizes = [worldTempleTileSize, worldVillageTileSize, worldForetTileSize, worldGrotteTileSize, worldBossTileSize];
-
-  worldsDecorationTileSizes = [worldTempleDecorationTileSize, worldVillageDecorationTileSize, worldForetDecorationTileSize, worldGrotteDecorationTileSize, worldBossDecorationTileSize];
-
-
-  npcGrandSageImage = loadImage('assets/hero/run_1left.png');
-  enemyImage = loadImage('assets/hero_plateforme.png');
-  heartImage = loadImage('coeurs1.png');
+  preloadEnemyImages();
+  preloadNPCImages();
+  preloadMiscImages();
 };
 
 
-/////////////////////////////////////////////
-//////////////FUNCTIONS DRAW/////////////////
-/////////////////////////////////////////////
 
-function drawWorld(gameBoard, tileDictionnary, tileSize) {
-  for (let y = 0; y < gameBoard.length; y++) {
-    const currentLine = gameBoard[y];
-    for (let x = 0; x < currentLine.length; x++) {
-      const currentTileValue = currentLine[x];
-      let currentImageName = tileDictionnary[currentTileValue];
-
-      image(currentImageName, x * tileSize, y * tileSize, tileSize, tileSize);
-    }
-  }
-};
-
-
-function drawFront(gameBoard, tileDictionnary, tileSize) {
-  for (let y = 0; y < gameBoard.length; y++) {
-    const currentLine = gameBoard[y];
-    for (let x = 0; x < currentLine.length; x++) {
-      const currentTileValue = currentLine[x];
-      let currentImageName = tileDictionnary[currentTileValue];
-
-      image(currentImageName, x * tileSize, y * tileSize, tileSize, tileSize);
-    }
-  }
-};
 
 
 /////////////////////////////////////////////

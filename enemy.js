@@ -25,3 +25,13 @@ function checkEnemyCollision() {
   }
 }
 
+function spawnEnemyAndPatrol() {
+  enemy = createVector(7 * worldTempleTileSize, 6 * worldTempleTileSize); 
+  pointA = createVector(7 * worldTempleTileSize); 
+  pointB = createVector(10 * worldTempleTileSize);
+}
+
+function preloadEnemyImages() {
+  enemyImage = loadImage('assets/hero_plateforme.png');
+}
+

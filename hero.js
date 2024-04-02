@@ -97,3 +97,33 @@ function handleCooldown() {
 function resetCooldown() {
   heroInvincible = false; // Désactiver l'invincibilité du héros
 };
+
+
+
+function preloadHeroImages() {
+  // Right Hero Images
+  hero0 = loadImage('assets/hero_plateforme.png');
+  myHeroRight.push(hero0);
+  hero1 = loadImage('assets/hero/run_1.png');
+  myHeroRight.push(hero1);
+  hero2 = loadImage('assets/hero/run_2.png');
+  myHeroRight.push(hero2);
+  hero3 = loadImage('assets/hero/run_3.png');
+  myHeroRight.push(hero3);
+  hero4 = loadImage('assets/hero/run_4.png');
+  myHeroRight.push(hero4);
+
+  // Left Hero Images
+  myHeroLeft.push(loadImage('assets/hero/run_0left.png'));
+  myHeroLeft.push(loadImage('assets/hero/run_1left.png')); 
+  myHeroLeft.push(loadImage('assets/hero/run_2left.png')); 
+  myHeroLeft.push(loadImage('assets/hero/run_3left.png'));
+  myHeroLeft.push(loadImage('assets/hero/run_4left.png'));
+
+  currentHeroImage = hero0; // Définition de l'image de héros actuelle
+}
+
+
+function preloadMiscImages() {
+  heartImage = loadImage('coeurs1.png');
+}

@@ -34,3 +34,7 @@ function checkNPCInteraction() {
   return distance < wHero + npcGrandSageWidth;
 };
 
+function preloadNPCImages() {
+  npcGrandSageImage = loadImage('assets/hero/run_1left.png');
+}
+
