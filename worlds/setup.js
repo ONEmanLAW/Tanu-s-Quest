@@ -1,3 +1,17 @@
+function setupWorldVariables() {
+  currentWorld = 0;
+
+  worlds = [];
+  decorationWorlds = [];
+  collisonWorlds = []; 
+
+  tileDictionnaries = [];
+  worldsTileSizes = [];
+}
+
+
+
+
 function setupWorlds() {
   // Worlds
   worlds = [worldTempleBoard, worldVillageBoard, worldForetBoard, worldGrotteBoard, worldBossBoard];

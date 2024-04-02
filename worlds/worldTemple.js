@@ -43,3 +43,36 @@ let worldTempleCollisionBoard = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
+
+
+
+function setupTileDictionariesTemple() {
+  // Dictionnaire de tuiles du temple
+  worldTempleTileDictionnary = {
+      0: loadImage(''),
+      1: loadImage('assets/tuto/neige/solNeige.png'),
+      2: loadImage('assets/tuto/neige/sousSolNeige.png'),
+      3: loadImage('assets/tuto/solEtSousSolTemple/solTemple.png'),
+      4: loadImage('assets/tuto/solEtSousSolTemple/solTempleEtNeige.png'),
+      5: loadImage('assets/tuto/solEtSousSolTemple/sousSolTemple.png'),
+      6: loadImage('assets/tuto/solEtSousSolTemple/sousSolTempleEtNeige.png'),
+      7: loadImage('assets/tuto/piliersTemple/continuiterOmbrePilier.png'),
+      8: loadImage('assets/tuto/piliersTemple/continuiterPilierDroite.png'),
+      9: loadImage('assets/tuto/piliersTemple/continuiterPilierGauche.png'),
+      10: loadImage('assets/tuto/piliersTemple/ombrePilierDroite.png'),
+      11: loadImage('assets/tuto/piliersTemple/ombrePilierGauche.png'),
+      12: loadImage('assets/tuto/piliersTemple/pilierDroite.png'),
+      13: loadImage('assets/tuto/piliersTemple/pilierGauche.png'),
+      14: loadImage('assets/tuto/piliersTemple/pilierEtSolDroite.png'),
+      15: loadImage('assets/tuto/piliersTemple/pilierEtSolGauche.png'),
+      16: loadImage('assets/tuto/toitTemple/toitBasDroite.png'),
+      17: loadImage('assets/tuto/toitTemple/toitBasGauche.png'),
+      18: loadImage('assets/tuto/toitTemple/toitHautDroite.png'),
+      19: loadImage('assets/tuto/toitTemple/toitHautGauche.png')
+  };
+
+  // Dictionnaire de décoration de tuiles du temple
+  worldTempleDecorationTileDictionnary = {
+      0: loadImage('')
+  };
+}

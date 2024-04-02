@@ -124,6 +124,6 @@ function preloadHeroImages() {
 }
 
 
-function preloadMiscImages() {
+function preloadHeartImage() {
   heartImage = loadImage('coeurs1.png');
 }
