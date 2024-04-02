@@ -422,4 +422,4 @@ function setupTileDictionariesVillage() {
     161: loadImage('assets/village/161.png'),
     162: loadImage('assets/village/162.png')
   };
-}
+};

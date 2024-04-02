@@ -75,4 +75,4 @@ function setupTileDictionariesTemple() {
   worldTempleDecorationTileDictionnary = {
       0: loadImage('')
   };
-}
+};

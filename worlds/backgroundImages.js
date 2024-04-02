@@ -1,3 +1,7 @@
+/////////////////////////////////////////////
+////////FUNCTION BACKGROUND IMAGES///////////
+/////////////////////////////////////////////
+
 function preloadBackgroundImages() {
   backgroundTutoImage = loadImage('assets/tuto/fondTutorielTest.jpg',() => {
       backgroundTutoImage.resize(width, height);
@@ -14,4 +18,4 @@ function preloadBackgroundImages() {
   backgroundBossImage = loadImage('assets/niveauBoss/fondBoss.jpg',() => {
       backgroundBossImage.resize(width, height);
   });  
-}
+};

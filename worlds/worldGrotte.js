@@ -95,4 +95,4 @@ function setupTileDictionariesGrotte() {
     // Obstacles.
     4: loadImage('assets/grotteTenebreuse/herbes/obstacleRocher.png'),
   };
-}
+};

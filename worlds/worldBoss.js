@@ -65,5 +65,5 @@ function setupTileDictionariesBoss() {
     1: loadImage('assets/niveauBoss/plafond/plafondCorde.png'),
     2: loadImage('assets/niveauBoss/plafond/lumierePlafond.png'),
   };
-}
+};
 

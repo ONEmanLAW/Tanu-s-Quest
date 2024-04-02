@@ -97,4 +97,4 @@ function setupTileDictionariesForet() {
     7: loadImage('assets/foretEnchanter/champignon/petitChampignon1.png'),
     8: loadImage('assets/foretEnchanter/champignon/petitChampignon2.png'),
   };
-}
+};
