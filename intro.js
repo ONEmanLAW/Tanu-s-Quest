@@ -12,12 +12,12 @@ let currentMusic;
 let musicsOfStoryStarted = false;
 
 function preload() {
-  images.push(loadImage('assets/images/image1.jpg'));
-  images.push(loadImage('assets/images/image2.jpg'));
-  images.push(loadImage('assets/images/image3.jpg'));
-  images.push(loadImage('assets/images/image4.jpg'));
-  images.push(loadImage('assets/images/image5.jpg'));
-  images.push(loadImage('assets/images/image6.jpg'));
+  images.push(loadImage('assets/images/Intro Images/image1.jpg'));
+  images.push(loadImage('assets/images/Intro Images/image2.jpg'));
+  images.push(loadImage('assets/images/Intro Images/image3.jpg'));
+  images.push(loadImage('assets/images/Intro Images/image4.jpg'));
+  images.push(loadImage('assets/images/Intro Images/image5.jpg'));
+  images.push(loadImage('assets/images/Intro Images/image6.jpg'));
 
   musicsOfStory.push(loadSound('assets/musics/Enterin The Skies.mp3', () => {
     // Lecture automatique de la première musique une fois chargée
