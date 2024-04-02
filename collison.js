@@ -12,6 +12,15 @@ function checkCollision(worldCollisionBoard,tileSize) {
           return true 
         }
       }
+      if (currentTileValue === 3) {
+        if(rectIsHalfRectUp(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+          return true 
+        }
+      } else if (currentTileValue === 4) {
+        if(rectIsHalfRectDown(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+          return true 
+        }
+      } 
     }
   }
 };
@@ -97,6 +106,44 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
       console.log("Par le bas et la droite");
+      return true;
+    }
+  };
+};
+
+
+
+
+function rectIsHalfRectUp(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+  // Arrivée par la droite.
+  if (xHero < xR + wR) {
+    if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+      console.log("Par la droite et le centre");
+      return true;
+    }
+  };
+
+  // Arrivée par la gauche.
+  if (xHero + wHero > xR) {
+    if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+      console.log("Par la gauche et le centre");
+      return true;
+    }
+  };
+
+  // Arrivée par le bas.
+  if (yHero < yR + hR) {
+    if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+      console.log("Par la bas et le centre : Effet tête du personnage qui passe sur la maison");
+      return true;
+    }
+  };
+
+  // Arrivée par le haut.
+  if (yHero + hHero > yR) {
+    if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR, wR, hR)) {
+      console.log("Par le haut et le centre");
       return true;
     }
   };
