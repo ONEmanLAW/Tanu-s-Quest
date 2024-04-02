@@ -1,3 +1,7 @@
+/////////////////////////////////////////////
+////////////FUNCTION VARIABLES///////////////
+/////////////////////////////////////////////
+
 function setupWorldVariables() {
   currentWorld = 0;
 
@@ -7,10 +11,11 @@ function setupWorldVariables() {
 
   tileDictionnaries = [];
   worldsTileSizes = [];
-}
+};
 
-
-
+/////////////////////////////////////////////
+///////////FUNCTION WORLDS SETUP/////////////
+/////////////////////////////////////////////
 
 function setupWorlds() {
   // Worlds
@@ -33,4 +38,4 @@ function setupWorlds() {
 
   // Worlds Decoration Tile Sizes
   worldsDecorationTileSizes = [worldTempleDecorationTileSize, worldVillageDecorationTileSize, worldForetDecorationTileSize, worldGrotteDecorationTileSize, worldBossDecorationTileSize];
-}
+};
