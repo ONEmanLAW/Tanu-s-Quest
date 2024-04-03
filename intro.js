@@ -12,7 +12,6 @@ let currentMusic;
 let musicsOfStoryStarted = false;
 
 function preload() {
-
   images.push(loadImage('assets/images/Intro Images/image1.jpg'));
   images.push(loadImage('assets/images/Intro Images/image2.jpg'));
   images.push(loadImage('assets/images/Intro Images/image3.jpg'));
