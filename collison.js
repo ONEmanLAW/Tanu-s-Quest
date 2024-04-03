@@ -110,6 +110,9 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
+
+
+
 function rectIsHalfRectUp(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.

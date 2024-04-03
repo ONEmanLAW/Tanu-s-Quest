@@ -55,7 +55,7 @@ let textWidth = 400;
 let textHeight = 100;
 
 function draw() {
-  if (!gameStarted) {
+  if (!introImagesEnd) {
     // Start Of Intro With Images.
     image(images[currentImageIndex], 0, 0, width, height);
   } else {

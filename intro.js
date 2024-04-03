@@ -5,7 +5,7 @@
 let images = [];
 let currentImageIndex = 0;
 let scrollCanvas;
-let gameStarted = false;
+let introImagesEnd = false;
 
 let musicsOfStory = [];
 let currentMusic;
@@ -42,7 +42,7 @@ function preload() {
 function mouseClicked() {
   currentImageIndex++;
   if (currentImageIndex >= images.length) {
-    gameStarted = true;
+    introImagesEnd= true;
   } else {
     if (currentMusic) {
       currentMusic.stop();
