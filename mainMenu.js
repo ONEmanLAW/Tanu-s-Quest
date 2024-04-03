@@ -9,18 +9,17 @@ let exitButton;
 
 function mainMenuButtons() {
   backgroundImage = loadImage('test.jpeg');
-  jouerButton = loadImage('assets/boss/2.png');
-  parametreButton = loadImage('assets/boss/3.png');
-  exitButton = loadImage('assets/boss/4.png');
+  jouerButton = loadImage('blocJouer.png');
+  parametreButton = loadImage('blocParamètres.png');
+  exitButton = loadImage('blocQuitter.png');
 };
 
 function drawMainMenu() {
   // Dessiner les boutons du menu principal
   image(backgroundImage, 0, 0, width, height);
-  image(jouerButton, 800, 100, 200, 200);
-  image(parametreButton, 800, 300, 200, 200);
-  image(exitButton, 800, 700, 200, 200);
-  
+  image(jouerButton, 600, 200, 600, 200);
+  image(parametreButton, 600, 400, 600, 200);
+  image(exitButton, 600, 600, 600, 200);
 }
 
 
@@ -74,24 +73,24 @@ function mouseClicked() {
   // Gérer les clics en fonction de la scène
   if (scene === 'menu') {
     // Clic sur le bouton "Jouer"
-    if (!gameStart && isClicked(800, 100, jouerButton.width, jouerButton.height)) {
+    if (!gameStart && isClicked(800, 100, 600, 200)) {
       gameStart = true;
     } 
     // Clic sur le bouton "Paramètres"
-    else if (isClicked(800, 300, parametreButton.width, parametreButton.height)) {
+    else if (isClicked(800, 400, 600, 200)) {
       scene = 'parametre'; // Passer à la page des paramètres
     } 
     // Clic sur le bouton "Quitter"
-    else if (isClicked(800, 700, exitButton.width, exitButton.height)) {
+    else if (isClicked(800, 700, 600, 200)) {
       // Fermer le navigateur
       window.close();
     }
   } 
   // Gérer les clics sur la page des paramètres
   else if (scene === 'parametre') {
-     // Clic sur le curseur de volume pour ajuster le volume
-     if (mouseX > sliderX && mouseX < sliderX + sliderWidth && mouseY > sliderY && mouseY < sliderY + sliderHeight) {
-      volume = constrain((mouseX - sliderX) / sliderWidth, 0, 1);
+    // Clic sur le curseur de volume pour ajuster le volume
+    if (mouseX > width / 2 - 150 && mouseX < width / 2 + 150 && mouseY > height / 2 - 20 && mouseY < height / 2 + 20) {
+      volume = constrain((mouseX - (width / 2 - 150)) / 300, 0, 1);
       if (currentMusic) {
         currentMusic.setVolume(volume);
       }
@@ -108,12 +107,14 @@ function mouseClicked() {
         }
       }
     }
-     // Vérifier si le clic est dans la zone de la flèche pour le bouton "Retour"
+
+    // Clic sur le bouton "Retour"
     if (mouseX > 50 && mouseX < 150 && mouseY > height / 2 - 50 && mouseY < height / 2 + 50) {
       scene = 'menu'; // Revenir au menu principal
     }
   }
 }
+
 
 // Fonction pour vérifier si un bouton est cliqué
 function isClicked(x, y, buttonWidth, buttonHeight) {
