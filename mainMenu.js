@@ -14,6 +14,7 @@ function mainMenuButtons() {
   exitButton = loadImage('blocQuitter.png');
 
   backgroundSettingsImage = loadImage('grosBlocParamètres.png');
+  exitButtonParam = loadImage('blocQuitterParamètres.png');
 };
 
 function drawMainMenu() {
@@ -22,8 +23,6 @@ function drawMainMenu() {
   image(jouerButton, 600, 200, 600, 200);
   image(parametreButton, 600, 400, 600, 200);
   image(exitButton, 600, 600, 600, 200);
-
-  
 }
 
 
@@ -41,6 +40,7 @@ function drawParametrePage() {
   // Fond
   image(backgroundImage, 0, 0, width, height);
   image(backgroundSettingsImage, 390, 0, 1000, 1000);
+  image( exitButtonParam, 600, 600, 600, 200);
   
   fill(0);
   textSize(24);
@@ -57,36 +57,36 @@ function drawParametrePage() {
   fill(150);
   rect(sliderHandleX, sliderY, sliderHandleSize, sliderHeight, 5); 
 
-  fill(0);
-  textSize(20);
-  text('Musique:', 100, 200);
-  rect(250, 185, 20, 20);
-  fill(musicEnabled ? 0 : 255); // Si la musique est désactivée, la croix est blanche
-  textSize(16);
-  if (!musicEnabled) {
-    text('X', 257, 199); // Afficher une croix à l'intérieur du carré si la musique est désactivée
+  let squareX = 250;
+  let squareY = 185;
+  
+  if (musicEnabled) {
+    fill(0);
+  } else {
+    fill(255);
   }
-
-  // Afficher le bouton "Retour"
-  fill(0);
-  textSize(20);
-  text('Retour', 100, 300);
-  triangle(50, height / 2, 150, height / 2 - 50, 150, height / 2 + 50); 
+  rect(squareX, squareY, 20, 20);
+  
+  if (!musicEnabled) {
+    fill(0);
+    textSize(16);
+    text('X', squareX + 7, squareY + 15);
+  }
 }
 
 function mouseClicked() {
   // Gérer les clics en fonction de la scène
   if (scene === 'menu') {
     // Clic sur le bouton "Jouer"
-    if (!gameStart && isClicked(800, 100, 600, 200)) {
+    if (!gameStart && isClicked(600, 200, 600, 200)) {
       gameStart = true;
     } 
     // Clic sur le bouton "Paramètres"
-    else if (isClicked(800, 400, 600, 200)) {
+    else if (isClicked(600, 400, 600, 200)) {
       scene = 'parametre'; // Passer à la page des paramètres
     } 
     // Clic sur le bouton "Quitter"
-    else if (isClicked(800, 700, 600, 200)) {
+    else if (isClicked(600, 600, 600, 200)) {
       // Fermer le navigateur
       window.close();
     }
@@ -113,8 +113,7 @@ function mouseClicked() {
       }
     }
 
-    // Clic sur le bouton "Retour"
-    if (mouseX > 50 && mouseX < 150 && mouseY > height / 2 - 50 && mouseY < height / 2 + 50) {
+    if (mouseX > 600 && mouseX < 1200 && mouseY > 600 && mouseY < 800) {
       scene = 'menu'; // Revenir au menu principal
     }
   }
