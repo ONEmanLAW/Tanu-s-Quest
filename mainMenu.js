@@ -12,6 +12,8 @@ function mainMenuButtons() {
   jouerButton = loadImage('blocJouer.png');
   parametreButton = loadImage('blocParamètres.png');
   exitButton = loadImage('blocQuitter.png');
+
+  backgroundSettingsImage = loadImage('grosBlocParamètres.png');
 };
 
 function drawMainMenu() {
@@ -20,6 +22,8 @@ function drawMainMenu() {
   image(jouerButton, 600, 200, 600, 200);
   image(parametreButton, 600, 400, 600, 200);
   image(exitButton, 600, 600, 600, 200);
+
+  
 }
 
 
@@ -36,6 +40,7 @@ function drawParametrePage() {
   // Dessiner la page des paramètres
   // Fond
   image(backgroundImage, 0, 0, width, height);
+  image(backgroundSettingsImage, 390, 0, 1000, 1000);
   
   fill(0);
   textSize(24);
