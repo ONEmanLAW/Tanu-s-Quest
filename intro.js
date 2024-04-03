@@ -12,6 +12,7 @@ let currentMusic;
 let musicsOfStoryStarted = false;
 
 function preload() {
+
   images.push(loadImage('assets/images/Intro Images/image1.jpg'));
   images.push(loadImage('assets/images/Intro Images/image2.jpg'));
   images.push(loadImage('assets/images/Intro Images/image3.jpg'));
@@ -39,28 +40,15 @@ function preload() {
 ////////////FUNCTIONS FOR INTRO//////////////
 /////////////////////////////////////////////
 
-function mouseClicked() {
-  currentImageIndex++;
-  if (currentImageIndex >= images.length) {
-    introImagesEnd= true;
-  } else {
-    if (currentMusic) {
-      currentMusic.stop();
-    }
-    currentMusic = musicsOfStory[currentImageIndex];
-    if (currentMusic) {
-      currentMusic.play();
-    }
-  }
-};
-
 
 function keyTyped() {
-  if (key === 'm' || key === 'M') {
-    if (musicsOfStory[currentImageIndex].isPlaying()) { 
-      musicsOfStory[currentImageIndex].stop();
-    } else {
-      musicsOfStory[currentImageIndex].play();
+  if (gameStart) {
+    if (key === 'm' || key === 'M') {
+      if (musicsOfStory[currentImageIndex].isPlaying()) { 
+        musicsOfStory[currentImageIndex].stop();
+      } else {
+        musicsOfStory[currentImageIndex].play();
+      }
     }
   }
 };

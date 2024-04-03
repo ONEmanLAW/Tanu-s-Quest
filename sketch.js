@@ -13,6 +13,8 @@ function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
 
+  mainMenuButtons();
+
 
   // Tiles Dictionaries.
   setupTileDictionariesTemple(); // worldTemple.js
@@ -47,6 +49,46 @@ function setup() {
 };
 
 
+
+
+
+
+
+
+// Variable pour suivre si le jeu a commencé ou non
+let gameStart = false;
+
+// Définir les images du menu principal
+let jouerButton;
+let parametreButton;
+let exitButton;
+
+function mainMenuButtons() {
+  backgroundImage = loadImage('test.jpeg');
+
+  jouerButton = loadImage('assets/boss/2.png');
+  parametreButton = loadImage('parametre.png');
+  exitButton = loadImage('exit.png');
+};
+
+function drawMainMenu() {
+  // Dessiner les boutons du menu principal
+  image(backgroundImage, 0, 0, width, height);
+  image(jouerButton, 100, 100);
+  image(parametreButton, 100, 200);
+  image(exitButton, 100, 300);
+}
+
+function mouseClicked() {
+  if (!gameStart && mouseX > 100 && mouseX < 100 + jouerButton.width &&
+      mouseY > 100 && mouseY < 100 + jouerButton.height) {
+    gameStart = true;
+  }
+};
+
+
+
+
 /////////////////////////////////////////////
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
@@ -55,10 +97,13 @@ let textWidth = 400;
 let textHeight = 100;
 
 function draw() {
-  if (!introImagesEnd) {
+  if (!gameStart) {
+    drawMainMenu();
+    
+  } else if(gameStart && !introImagesEnd) { 
     // Start Of Intro With Images.
     image(images[currentImageIndex], 0, 0, width, height);
-  } else {
+    } else {
     // Music Stops Playing.
     if (currentMusic && currentMusic.isPlaying()) {
       currentMusic.stop();
