@@ -45,7 +45,8 @@ function setup() {
   // Image Of Enemy.
   preloadEnemyImages(); // enemy.js
   // Positions Initial Of Enemy And Patrole.
-  spawnEnemyAndPatrol(); // enemy.js
+  spawnEnemyAndPatrol();
+  preloadEnemy2Images();
   
 
   // Image Of Npc
@@ -151,7 +152,11 @@ function draw() {
         image(backgroundForetImage, 0, 0);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
-        image(currentHeroImage, xHero, yHero, wHero, hHero); 
+        image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        moveEnemy2();
+        checkEnemy2Collision(); 
+        detectPlayer();
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
