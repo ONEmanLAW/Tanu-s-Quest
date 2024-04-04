@@ -17,6 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   mainMenuButtons();
+  startImages();
 
 
   // Tiles Dictionaries.

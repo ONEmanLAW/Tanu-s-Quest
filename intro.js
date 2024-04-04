@@ -11,7 +11,7 @@ let musicsOfStory = [];
 let currentMusic;
 let musicsOfStoryStarted = false;
 
-function preload() {
+function startImages() {
   images.push(loadImage('assets/images/Intro Images/image1.jpg'));
   images.push(loadImage('assets/images/Intro Images/image2.jpg'));
   images.push(loadImage('assets/images/Intro Images/image3.jpg'));
@@ -52,3 +52,4 @@ function keyTyped() {
     }
   }
 };
+
