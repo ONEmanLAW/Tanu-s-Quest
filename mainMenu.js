@@ -94,7 +94,7 @@ function mouseClicked() {
   // Gérer les clics sur la page des paramètres
   else if (scene === 'parametre') {
     // Clic sur le curseur de volume pour ajuster le volume
-    if (mouseX > width / 2 - 150 && mouseX < width / 2 + 150 && mouseY > height / 2 - 20 && mouseY < height / 2 + 20) {
+    if (isClicked(width / 2 - 150, height / 2 - 20, 300, 40)) {
       volume = constrain((mouseX - (width / 2 - 150)) / 300, 0, 1);
       if (currentMusic) {
         currentMusic.setVolume(volume);
@@ -102,7 +102,7 @@ function mouseClicked() {
     }
 
     // Clic sur le carré pour activer ou désactiver la musique
-    if (mouseX > 250 && mouseX < 270 && mouseY > 185 && mouseY < 205) {
+    if (isClicked(250, 185, 20, 20)) {
       musicEnabled = !musicEnabled; // Inverser l'état de la musique
       if (currentMusic) {
         if (musicEnabled) {
@@ -113,7 +113,7 @@ function mouseClicked() {
       }
     }
 
-    if (mouseX > 600 && mouseX < 1200 && mouseY > 600 && mouseY < 800) {
+    if (isClicked(600, 600, 600, 200)) {
       scene = 'menu'; // Revenir au menu principal
     }
   }
