@@ -157,6 +157,7 @@ function draw() {
         moveEnemy2();
         checkEnemy2Collision(); 
         detectPlayer();
+        handleCooldown();
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);

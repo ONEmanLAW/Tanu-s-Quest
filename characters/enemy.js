@@ -9,6 +9,7 @@ let wEnemy = 64; // Largeur de l'ennemi
 let hEnemy = 64; // Hauteur de l'ennemi
 let directionEnnemy = 1;
 
+
 function moveEnemy() {
   xEnemy += speed * directionEnnemy;
   
