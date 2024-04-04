@@ -118,6 +118,7 @@ function draw() {
       moveEnemy();
       checkEnemyCollision();
       handleCooldown();
+      applyGravity();
 
       
       let textX = (width - textWidth) / 2;

@@ -24,16 +24,6 @@ let heartImage;
 let gameOver = false;
 
 
-// Jump & Gravity of Hero.
-let jump = false;
-let direction = 1;
-let velocity = 4 ;
-let jumpPower =  10;
-let fallingSpeed = 4; // equal to velocity
-
-let minHeight = 385;
-let maxHeight = 150 ;
-let jumpCounter = 0;
 
 
 // Mouvement Automatique Peronnage.
@@ -137,26 +127,56 @@ function preloadHeartImage() {
 
 
 
-let cameraX = 0; // Position X de la caméra
-let cameraY = 0; // Position Y de la caméra
-let cameraWidth = 1000; // Largeur de la caméra
-let cameraHeight = 300; // Hauteur de la caméra
 
 
-function handleCamera() {
-  // Centrer la caméra sur le personnage
-  cameraX = xHero - cameraWidth / 2;
-  cameraY = yHero - cameraHeight / 2;
 
-  // Limiter la caméra pour ne pas sortir de la carte
-  cameraX = constrain(cameraX, 0, worldWidth - cameraWidth);
-  cameraY = constrain(cameraY, 0, worldHeight - cameraHeight);
 
-  // Appliquer la transformation de la caméra
-  translate(-cameraX, -cameraY);
+// Variables pour le saut
+let isJumping = false;
+let jumpForce = -10;
+let gravity = 0.5;
+let yVelocity = 0;
+let maxJumpHeight = 100; // Ajustez selon vos besoins
+
+function jump() {
+  if (!isJumping) {
+    isJumping = true;
+    yVelocity = jumpForce;
+  }
 }
 
-function handleHero() {
-  // Dessiner le héros à sa position actuelle
-  image(currentHeroImage, xHero, yHero, wHero, hHero);
+function applyGravity() {
+  if (isJumping || yHero < 6 * worldTempleTileSize) {
+    yVelocity += gravity;
+    yHero += yVelocity;
+    
+    if (yVelocity > 10) {
+      yVelocity = 10;
+    }
+    
+    if (yHero >= 6 * worldTempleTileSize) {
+      yHero = 6 * worldTempleTileSize;
+      isJumping = false;
+      yVelocity = 0;
+    }
+  }
 }
+
+
+
+// function applyGravity() {
+//   if (isJumping || !checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+//     // Si le héros saute ou n'est pas en collision avec le sol, appliquez la gravité
+//     yVelocity += gravity;
+//     yHero += yVelocity;
+    
+//     // Limitez la vitesse de chute
+//     if (yVelocity > 10) {
+//       yVelocity = 10;
+//     }
+//   } else {
+//     // Arrêtez le saut lorsque le héros touche le sol
+//     isJumping = false;
+//     yVelocity = 0;
+//   }
+// }

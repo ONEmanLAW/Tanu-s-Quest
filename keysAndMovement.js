@@ -49,15 +49,12 @@ function checkKeys(currentMap) {
       if (keyIsDown(81)) {
         moveLeft();
       }
-    }
 
-    if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(32)) {
-        jump = true;
-      } else {
-        jump = false;
+        jump();
       }
     }
+    
 
     if (currentMap === 1) {
       if (keyIsDown(90)) {
@@ -144,37 +141,3 @@ function keyPressed() {
 };
 
 
-/////////////////////////////////////////////
-///////////FUNCTION KEYSBINDS////////////////
-/////////////////////////////////////////////
-
-function gravity() {
-  
-  const collision = checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld]);
-
- 
-  if (jump || !collision) {
-    yHero += direction * velocity;
-  }
-
-  
-  if (jump) {
-   
-    if (jumpCounter >= jumpPower) {
-      velocity = fallingSpeed;
-    } else {
-      velocity = -jumpPower;
-      jumpCounter++;
-    }
-  } else {
-  
-    if (!collision) {
-      velocity = fallingSpeed;
-    }
-  }
-
-  if (collision) {
-    jump = false;
-    jumpCounter = 0;
-  }
-}
