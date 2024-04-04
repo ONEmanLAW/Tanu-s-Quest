@@ -133,3 +133,30 @@ function preloadHeroTopImages() {
 function preloadHeartImage() {
   heartImage = loadImage('assets/Images/heart.png');
 }
+
+
+
+
+let cameraX = 0; // Position X de la caméra
+let cameraY = 0; // Position Y de la caméra
+let cameraWidth = 1000; // Largeur de la caméra
+let cameraHeight = 300; // Hauteur de la caméra
+
+
+function handleCamera() {
+  // Centrer la caméra sur le personnage
+  cameraX = xHero - cameraWidth / 2;
+  cameraY = yHero - cameraHeight / 2;
+
+  // Limiter la caméra pour ne pas sortir de la carte
+  cameraX = constrain(cameraX, 0, worldWidth - cameraWidth);
+  cameraY = constrain(cameraY, 0, worldHeight - cameraHeight);
+
+  // Appliquer la transformation de la caméra
+  translate(-cameraX, -cameraY);
+}
+
+function handleHero() {
+  // Dessiner le héros à sa position actuelle
+  image(currentHeroImage, xHero, yHero, wHero, hHero);
+}

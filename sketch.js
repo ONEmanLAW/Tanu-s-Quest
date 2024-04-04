@@ -50,6 +50,7 @@ function setup() {
 
   // Image Of Npc
   preloadNPCImages(); // npc.js
+  preloadChatImage();
 };
 
 
@@ -60,8 +61,8 @@ function setup() {
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
 
-let textWidth = 400;
-let textHeight = 100;
+let textWidth = 800;
+let textHeight = 200;
 
 function draw() {
   if (!gameStart) {
@@ -125,8 +126,8 @@ function draw() {
 
       if (checkNPCInteraction()) {  
         fill(0);
-        // Mettre une image a la place.
-        rect(textX, textY, textWidth, textHeight);
+
+        image(boiteDeDialogue, textX, textY, textWidth, textHeight);
         textSize(20);
         textAlign(CENTER, CENTER);
         fill(255);
@@ -140,6 +141,7 @@ function draw() {
     
 
       } else if (currentWorld === 1) {
+        updateCamera(2688, 1536);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(currentHeroTopImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);

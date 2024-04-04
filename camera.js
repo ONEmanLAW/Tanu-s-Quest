@@ -1,23 +1,37 @@
-// Caméra qui suit le personnage. 
 let prevCameraX;
 let prevCameraY;
 
-// Camera Only If Not gameOver.
-function updateCamera() {
+
+function updateCamera(worldWidth, worldHeight) {
   if (!gameOver) {
-      cameraX = xHero;
-      cameraY = yHero / 50;
+    let zoomFactor = 1.5;
 
-      if (prevCameraX !== undefined && prevCameraY !== undefined) {
-          cameraX = lerp(prevCameraX, cameraX, 0.1);
-          cameraY = lerp(prevCameraY, cameraY, 0.1);
-      }
-      prevCameraX = cameraX;
-      prevCameraY = cameraY;
+    let cameraWidth = width / zoomFactor;
+    let cameraHeight = height / zoomFactor;
 
-      translate(-cameraX, -cameraY);
+    let targetCameraX = xHero - cameraWidth / 2 + wHero / 2; 
+    let targetCameraY = yHero - cameraHeight / 2 + hHero / 2; 
+
+    if (prevCameraX !== undefined && prevCameraY !== undefined) {
+      targetCameraX = lerp(prevCameraX, targetCameraX, 0.1);
+      targetCameraY = lerp(prevCameraY, targetCameraY, 0.1);
+    }
+
+  
+    targetCameraX = constrain(targetCameraX, 0, worldWidth - cameraWidth);
+    targetCameraY = constrain(targetCameraY, 0, worldHeight - cameraHeight);
+
+   
+    cameraX = targetCameraX;
+    cameraY = targetCameraY;
+
+   
+    prevCameraX = cameraX;
+    prevCameraY = cameraY;
+ 
+    translate(-cameraX * zoomFactor, -cameraY * zoomFactor);
+    scale(zoomFactor);
   }
-};
-
+}
 
 

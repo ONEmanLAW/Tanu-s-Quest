@@ -3,6 +3,7 @@
 /////////////////////////////////////////////
 
 let npcGrandSageImage;
+let boiteDeDialogue;
 
 let npcGrandSageX = 5 * worldTempleTileSize; 
 let npcGrandSageY = 6 * worldTempleTileSize ; 
@@ -36,5 +37,9 @@ function checkNPCInteraction() {
 
 function preloadNPCImages() {
   npcGrandSageImage = loadImage('assets/hero/run_1left.png');
+}
+
+function preloadChatImage() {
+  boiteDeDialogue = loadImage('Dialogue1.png')
 }
 
