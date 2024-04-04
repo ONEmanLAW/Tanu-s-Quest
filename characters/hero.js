@@ -123,6 +123,12 @@ function preloadHeroImages() {
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
 }
 
+function preloadHeroTopImages() {
+
+  heroTop0 = loadImage('hero_village.png');
+  currentHeroTopImage = heroTop0;
+}
+
 
 function preloadHeartImage() {
   heartImage = loadImage('assets/Images/heart.png');

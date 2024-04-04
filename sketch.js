@@ -37,6 +37,7 @@ function setup() {
 
   // Animation Hero.
   preloadHeroImages(); // hero.js
+  preloadHeroTopImages();
   // Hearts Hero.
   preloadHeartImage(); // hero.js
 
@@ -140,7 +141,7 @@ function draw() {
 
       } else if (currentWorld === 1) {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        image(currentHeroTopImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
       } else if (currentWorld === 2) {
