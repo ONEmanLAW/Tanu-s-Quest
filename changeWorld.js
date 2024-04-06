@@ -7,7 +7,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
     const currentLine = worldCollisionBoard[y];
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
-      if (currentTileValue === 2 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
+      if (currentTileValue === 100 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
           return true;
       }
     }

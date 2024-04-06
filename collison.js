@@ -7,85 +7,85 @@ function checkCollision(worldCollisionBoard,tileSize) {
     const currentLine = worldCollisionBoard[y];
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
-      if (currentTileValue === 1){
+      if (currentTileValue === 2){
         if(rectIsInRect(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
-      if (currentTileValue === 2) {
+      if (currentTileValue === 3) {
         if(rectIsHalfRectLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
-      if (currentTileValue === 3) {
+      if (currentTileValue === 4) {
         if(rectIsHalfRectRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
-      if (currentTileValue === 4) {
+      if (currentTileValue === 5) {
         if(rectIsHalfRectTop(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
-      if (currentTileValue === 5) {
+      if (currentTileValue === 6) {
         if(rectIsHalfRectBottom(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
-      if (currentTileValue === 6) {
-        if(rectIsInRectTopLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
-          return true 
-        }
-      }
-
       if (currentTileValue === 7) {
-        if(rectIsInRectTopRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsRectTopLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
       if (currentTileValue === 8) {
-        if(rectIsInRectBottomLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsRectTopRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
       if (currentTileValue === 9) {
-        if(rectIsInRectBottomRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsRectBottomLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
       if (currentTileValue === 10) {
-        if(rectIsInRect75Right(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsRectBottomRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
       if (currentTileValue === 11) {
-        if(rectIsHalfRectTop75(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsRect75Right(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
       if (currentTileValue === 12) {
-        if(rectIsInRectBottomRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
-          return true 
-        }
-      }
-      
-      if (currentTileValue === 13) {
-        if(rectIsInRectBottomLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsHalfRectTop75(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
 
+      if (currentTileValue === 13) {
+        if(rectIsRectBottomRight(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+          return true 
+        }
+      }
+      
       if (currentTileValue === 14) {
-        if(rectIsInRectTopLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsRectBottomLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+          return true 
+        }
+      }
+
+      if (currentTileValue === 15) {
+        if(rectIsRectTopLeft(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
@@ -192,7 +192,7 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 ///////// COLISON Half on Left    /////////////
 /////////////////////////////////////////////
 
-function rectIsInHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -283,7 +283,7 @@ function rectIsInHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
-function rectIsInHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -369,7 +369,7 @@ function rectIsInHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 ///////// COLISON HALF ON TOP    /////////////
 /////////////////////////////////////////////
 
-function rectIsInHalfRectTop(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsHalfRectTop(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -463,7 +463,7 @@ function rectIsInHalfRectTop(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
-function rectIsInHalfRectBottom(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsHalfRectBottom(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -569,7 +569,7 @@ function rectIsInHalfRectBottom(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 /////////////////////////////////////////////
 
 
-function rectIsInRectTopLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectTopLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -659,7 +659,7 @@ function rectIsInRectTopLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 ///////// COLISON en haut a droite    /////////////
 /////////////////////////////////////////////
 
-function rectIsInRectTopRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectTopRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -745,7 +745,7 @@ function rectIsInRectTopRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 ///////// COLISON en bas a gauche    /////////////
 /////////////////////////////////////////////
 
-function rectIsInRectBottomLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectBottomLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -829,7 +829,7 @@ function rectIsInRectBottomLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 // ///////// COLISON en bas a droite    /////////////
 // /////////////////////////////////////////////
 
-function rectIsInRectBottomRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectBottomRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -912,7 +912,7 @@ function rectIsInRectBottomRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 /////////////////////////////////////////////
 
 
-function rectIsInRect75Right(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRect75Right(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -1083,7 +1083,7 @@ function rectIsHalfRectTop75(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
-function rectIsInRectBottomRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectBottomRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -1175,7 +1175,7 @@ function rectIsInRectBottomRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
-function rectIsInRectBottomLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectBottomLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -1259,7 +1259,7 @@ function rectIsInRectBottomLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
-function rectIsInRectTopLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsRectTopLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
