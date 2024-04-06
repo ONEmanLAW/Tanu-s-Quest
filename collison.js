@@ -101,14 +101,19 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
     }
 
     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
-      console.log("Par le bas et la droite");
+      console.log("Par le haut et la droite");
       return true;
     }
   };
 };
 
+// On prends en compe ou la collison ce trouve.
 
-// function rectIsHalfRectUp(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+/////////////////////////////////////////////
+///////// COLISON HALF ON TOP    /////////////
+/////////////////////////////////////////////
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 //   // Arrivée par la droite.
 //   if (xHero < xR + wR) {
@@ -116,6 +121,16 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 //       console.log("Par la droite et le centre");
 //       return true;
 //     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le bas");
+//     //   return true;
+//     // }  
 //   };
 
 //   // Arrivée par la gauche.
@@ -124,20 +139,1089 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 //       console.log("Par la gauche et le centre");
 //       return true;
 //     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le haut");
+//       return true;
+//     } 
 //   };
 
 //   // Arrivée par le bas.
 //   if (yHero < yR + hR) {
-//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
-//       console.log("Par la bas et le centre : Effet tête du personnage qui passe sur la maison");
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero /2 , xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le bas et la droite");
+//     //   return true;
+//     // }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la droite");
+//       return true;
+//     }
+//   };
+// };
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON HALF ON Bottom   /////////////
+/////////////////////////////////////////////
+
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le haut");
+//     //   return true;
+//     // }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le bas");
+//       return true;
+//     }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la bas et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
 //       return true;
 //     }
 //   };
 
 //   // Arrivée par le haut.
 //   if (yHero + hHero > yR) {
-//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR, wR, hR)) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR,wR ,hR)) {
 //       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON Half on GAUCHE    /////////////
+/////////////////////////////////////////////
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
+//       return true;
+//     }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON Half on Droite    /////////////
+/////////////////////////////////////////////
+
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le haut");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le bas");
+//     //   return true;
+//     // }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le bas");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le haut");
+//       return true;
+//     } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la bas et la gauche");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le bas et la droite");
+//     //   return true;
+//     // }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la gauche");
+//     //   return true;
+//     // }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la droite");
+//       return true;
+//     }
+//   };
+// };
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON en haut a gauche    /////////////
+/////////////////////////////////////////////
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le centre");
+//     //   return true;
+//     // }
+    
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le haut");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le bas");
+//     //   return true;
+//     // }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le haut");
+//       return true;
+//     } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero /2 , xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le bas et la droite");
+//     //   return true;
+//     // }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON en haut a droite    /////////////
+/////////////////////////////////////////////
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le bas");
+//     //   return true;
+//     // }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le bas et la droite");
+//     //   return true;
+//     // }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le Haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON en bas a gauche    /////////////
+/////////////////////////////////////////////
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le haut");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le bas");
+//     //   return true;
+//     // }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le bas");
+//       return true;
+//     }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la bas et la gauche");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le bas et la droite");
+//     //   return true;
+//     // }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+
+
+// /////////////////////////////////////////////
+// ///////// COLISON en bas a droite    /////////////
+// /////////////////////////////////////////////
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le haut");
+//     //   return true;
+//     // }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
+//       return true;
+//     }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON 75% GAUCHE    /////////////
+/////////////////////////////////////////////
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero / 1.5, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 1.5, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
+//       return true;
+//     }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 1.5, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON 75% GAUCHE de moitié en haut/////////////
+/////////////////////////////////////////////
+
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la droite et le bas");
+//     //   return true;
+//     // }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero / 1.5, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le bas");
+//     //   return true;
+//     // }
+    
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la gauche et le haut");
+//     //   return true;
+//     // } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par la bas et la gauche");
+//     //   return true;
+//     // }
+
+//     // if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le bas et la droite");
+//     //   return true;
+//     // }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     // if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//     //   console.log("Par le haut et la droite");
+//     //   return true;
+//     // }
+//   };
+// };
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON case vide en bas a droite    /////////////
+/////////////////////////////////////////////
+
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le bas");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le haut");
+//       return true;
+//     } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la bas et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
+//       return true;
+//     }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la droite");
+//       return true;
+//     }
+//   };
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON case vide en bas a gauche    /////////////
+/////////////////////////////////////////////
+
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le bas");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le haut");
+//       return true;
+//     } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la bas et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
+//       return true;
+//     }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la droite");
+//       return true;
+//     }
+//   };
+// };
+
+
+
+
+/////////////////////////////////////////////
+///////// COLISON case vide en HAUT a gauche    /////////////
+/////////////////////////////////////////////
+
+
+
+// function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+
+//   // Arrivée par la droite.
+//   if (xHero < xR + wR) {
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le centre");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le haut");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la droite et le bas");
+//       return true;
+//     }  
+//   };
+
+//   // Arrivée par la gauche.
+//   if (xHero + wHero > xR) {
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le bas");
+//       return true;
+//     }
+    
+//     if (pointIsInRect(xHero + wHero, yHero + hHero, xR, yR, wR, hR)) {
+//       console.log("Par la gauche et le haut");
+//       return true;
+//     } 
+//   };
+
+//   // Arrivée par le bas.
+//   if (yHero < yR + hR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+//       console.log("Par la bas et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par la bas et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero, xR, yR, wR, hR)) {
+//       console.log("Par le bas et la droite");
+//       return true;
+//     }
+//   };
+
+//   // Arrivée par le haut.
+//   if (yHero + hHero > yR) {
+//     if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+//       console.log("Par le haut et le centre");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la gauche");
+//       return true;
+//     }
+
+//     if (pointIsInRect(xHero + wHero, yHero + hHero / 2, xR, yR, wR, hR)) {
+//       console.log("Par le haut et la droite");
 //       return true;
 //     }
 //   };
