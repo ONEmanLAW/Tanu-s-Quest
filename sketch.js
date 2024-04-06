@@ -156,7 +156,7 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
-        image(currentHeroImage, xHero, yHero, 100, 100);
+        image(currentHeroImage, xHero, yHero, 80, 80);
         moveEnemy2();
         checkEnemy2Collision(); 
         detectPlayer();

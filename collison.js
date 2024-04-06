@@ -192,7 +192,7 @@ function rectIsInRect(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 ///////// COLISON Half on Left    /////////////
 /////////////////////////////////////////////
 
-function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la droite.
   if (xHero < xR + wR) {
@@ -214,7 +214,7 @@ function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par la gauche.
   if (xHero + wHero > xR) {
-    if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+    if (pointIsInRect(xHero + wHero / 2.3, yHero + hHero / 2.3, xR, yR, wR, hR)) {
       console.log("Par la gauche et le centre");
       return true;
     }
@@ -232,7 +232,7 @@ function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par le bas.
   if (yHero < yR + hR) {
-    if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+    if (pointIsInRect(xHero + wHero / 2.3, yHero, xR ,yR ,wR ,hR)) {
       console.log("Par la bas et le centre");
       return true;
     }
@@ -250,7 +250,7 @@ function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par le haut.
   if (yHero + hHero > yR) {
-    if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+    if (pointIsInRect(xHero + wHero / 2.3, yHero + hHero, xR, yR,wR ,hR)) {
       console.log("Par le haut et le centre");
       return true;
     }
@@ -283,11 +283,11 @@ function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
 
 
-function rectIsHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
+function rectIsHalfRectLeft(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
-  // Arrivée par la droite.
+    // Arrivée par la droite.
   if (xHero < xR + wR) {
-    if (pointIsInRect(xHero + wHero / 2, yHero + hHero / 2, xR, yR, wR, hR)) {
+    if (pointIsInRect(xHero + wHero / 1.7, yHero + hHero / 1.7, xR, yR, wR, hR)) {
       console.log("Par la droite et le centre");
       return true;
     }
@@ -323,7 +323,7 @@ function rectIsHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par le bas.
   if (yHero < yR + hR) {
-    if (pointIsInRect(xHero + wHero / 2, yHero, xR ,yR ,wR ,hR)) {
+    if (pointIsInRect(xHero + wHero / 1.7, yHero, xR ,yR ,wR ,hR)) {
       console.log("Par la bas et le centre");
       return true;
     }
@@ -341,7 +341,7 @@ function rectIsHalfRectRight(xHero, yHero, wHero, hHero, xR, yR, wR, hR) {
 
   // Arrivée par le haut.
   if (yHero + hHero > yR) {
-    if (pointIsInRect(xHero + wHero / 2, yHero + hHero, xR, yR,wR ,hR)) {
+    if (pointIsInRect(xHero + wHero / 1.7, yHero + hHero, xR, yR,wR ,hR)) {
       console.log("Par le haut et le centre");
       return true;
     }
