@@ -34,6 +34,7 @@ function setup() {
 
   // Background Of Worlds.
   preloadBackgroundImages(); // backgroundImages.js
+  
 
 
   // Animation Hero.
@@ -151,14 +152,16 @@ function draw() {
 
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
+        updateNormalCamera(12800, 896);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
-        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        image(currentHeroImage, xHero, yHero, 100, 100);
         moveEnemy2();
         checkEnemy2Collision(); 
         detectPlayer();
         handleCooldown();
+        
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
