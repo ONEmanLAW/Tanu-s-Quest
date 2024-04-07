@@ -8,14 +8,15 @@ let exitButton;
 
 
 function mainMenuButtons() {
-  backgroundImage = loadImage('test.jpeg');
-  jouerButton = loadImage('blocJouer.png');
-  parametreButton = loadImage('blocParamètres.png');
-  exitButton = loadImage('blocQuitter.png');
+  backgroundImage = loadImage('mainMenu/images/menuBackground.jpeg');
+  jouerButton = loadImage('mainMenu/images/blocJouer.png');
+  parametreButton = loadImage('mainMenu/images/blocParamètres.png');
+  exitButton = loadImage('mainMenu/images/blocQuitter.png');
 
-  backgroundSettingsImage = loadImage('grosBlocParamètres.png');
-  exitButtonParam = loadImage('blocQuitterParamètres.png');
+  backgroundSettingsImage = loadImage('mainMenu/images/grosBlocParamètres.png');
+  exitButtonParam = loadImage('mainMenu/images/blocQuitterParamètres.png');
 };
+
 
 function drawMainMenu() {
   // Dessiner les boutons du menu principal
@@ -34,6 +35,7 @@ let sliderHandleSize = 20; // Taille du bouton de manipulation du curseur
 let sliderX; // Position horizontale du curseur
 let sliderY; // Position verticale du curseur
 let sliderHandleX; // Position horizontale du bouton de manipulation du curseur
+
 
 function drawParametrePage() {
   // Dessiner la page des paramètres
