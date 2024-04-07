@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 
 function preloadBackgroundImages() {
-  backgroundTutoImage = loadImage('assets/tuto/fondTutorielTest.jpg',() => {
+  backgroundTutoImage = loadImage('assets/temple/fondTemple.jpg',() => {
       backgroundTutoImage.resize(width, height);
   });
 

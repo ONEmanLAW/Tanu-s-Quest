@@ -52,18 +52,25 @@ function loseHeart() {
 };
 
 
+
+let cameraX = 0;
+let cameraY = 0;
 function drawHearts() {
   const heartWidth = 64;
-  const heartHeight = 64; 
-  const spacing = 10; 
-  const marginX = 20; 
-  const marginY = 20; 
+  const heartHeight = 64;
+  const spacing = 10;
+  const marginX = 20;
+  const marginY = 20;
+
+  // Déterminer la position absolue des cœurs en tenant compte de la caméra
+  let absoluteMarginX = marginX + cameraX;
+  let absoluteMarginY = marginY + cameraY;
 
   for (let i = 0; i < hearts; i++) {
-    let x = marginX + i * (heartWidth + spacing);
+    let x = absoluteMarginX + i * (heartWidth + spacing);
 
     // Dessiner l'image du cœur
-    image(heartImage, x, marginY, heartWidth, heartHeight);
+    image(heartImage, x, absoluteMarginY, heartWidth, heartHeight);
   }
 }
 
