@@ -156,12 +156,14 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
+        
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         
         moveEnemy2();
         checkEnemy2Collision(); 
         detectPlayer();
         handleCooldown();
+
         
 
       } else if (currentWorld === 3) {

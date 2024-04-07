@@ -199,3 +199,13 @@ function applyGravity() {
 //     yVelocity = 0;
 //   }
 // }
+
+
+
+
+
+
+
+
+
+
