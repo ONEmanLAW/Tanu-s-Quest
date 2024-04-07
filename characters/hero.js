@@ -31,6 +31,15 @@ let animationCounter = 0;
 let animation = true;
 let movementSpeed = worldTempleTileSize / 20;
 
+
+
+//// Hearts
+
+function preloadHeartImage() {
+  heartImage = loadImage('assets/Images/heart.png');
+}
+
+
 function loseHeart() {
   if (hearts > 0 && !heroInvincible) { 
     hearts--;
@@ -57,8 +66,6 @@ function drawHearts() {
     image(heartImage, x, marginY, heartWidth, heartHeight);
   }
 }
-
-
 
 let heroInvincible = false;
 let cooldownTimer = 0;
@@ -120,9 +127,14 @@ function preloadHeroTopImages() {
 }
 
 
-function preloadHeartImage() {
-  heartImage = loadImage('assets/Images/heart.png');
-}
+
+
+
+
+
+
+
+
 
 
 

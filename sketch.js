@@ -152,11 +152,11 @@ function draw() {
 
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
-        updateNormalCamera(12800, 896);
+        updateNormalCamera(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
-        image(currentHeroImage, xHero, yHero, 80, 80);
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
         moveEnemy2();
         checkEnemy2Collision(); 
         detectPlayer();
@@ -168,6 +168,7 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
+        
         
       } else if (currentWorld === 4) {
         image(backgroundBossImage, 0, 0);
