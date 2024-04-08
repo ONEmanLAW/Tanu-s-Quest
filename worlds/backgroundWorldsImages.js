@@ -3,19 +3,19 @@
 /////////////////////////////////////////////
 
 function preloadBackgroundImages() {
-  backgroundTutoImage = loadImage('assets/temple/fondTemple.jpg',() => {
+  backgroundTutoImage = loadImage('worlds/assets/temple/fondTemple.jpg',() => {
       backgroundTutoImage.resize(width, height);
   });
 
-  backgroundForetImage = loadImage('assets/foretEnchanter/fondForet.jpg',() => {
+  backgroundForetImage = loadImage('worlds/assets/foretEnchanter/fondForet.jpg',() => {
       backgroundForetImage.resize(width, height);
   });
 
-  backgroundGrotteImage = loadImage('assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
+  backgroundGrotteImage = loadImage('worlds/assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
       backgroundGrotteImage.resize(width, height);
   });
 
-  backgroundBossImage = loadImage('assets/boss/fondBoss.jpg',() => {
+  backgroundBossImage = loadImage('worlds/assets/boss/fondBoss.jpg',() => {
       backgroundBossImage.resize(width, height);
   });  
 };

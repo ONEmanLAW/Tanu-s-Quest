@@ -17,7 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   mainMenuButtons();
-  startImages();
+  introImages();
 
 
   // Tiles Dictionaries.
@@ -78,10 +78,6 @@ function draw() {
     // Start Of Intro With Images.
     image(images[currentImageIndex], 0, 0, width, height);
     } else {
-    // Music Stops Playing.
-    if (currentMusic && currentMusic.isPlaying()) {
-      currentMusic.stop();
-    };
 
     // Function For The Game.
     checkKeys(currentWorld);
