@@ -40,6 +40,9 @@ function preloadNPCImages() {
 }
 
 function preloadChatImage() {
-  boiteDeDialogue = loadImage('Dialogue1.png')
+  boiteDeDialogueGrandSage = loadImage('Dialogue1.png'),
+  boiteDeDialogueHero = loadImage('Dialogue2.png')
 }
+
+
 

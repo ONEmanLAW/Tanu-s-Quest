@@ -116,28 +116,11 @@ function keyPressed() {
       currentImageIndex++;
       if (currentImageIndex >= images.length) {
         introImagesEnd = true;
-      } else {
-        if (currentMusic) {
-          currentMusic.stop();
-        }
-        currentMusic = musicsOfStory[currentImageIndex];
-        if (currentMusic) {
-          currentMusic.play();
-        }
       }
     } else if (keyCode === LEFT_ARROW) {
       if (currentImageIndex > 0) {
         currentImageIndex--;
-        if (currentMusic) {
-          currentMusic.stop();
-        }
-        currentMusic = musicsOfStory[currentImageIndex];
-        if (currentMusic) {
-          currentMusic.play();
-        }
       }
     }
   }
 };
-
-
