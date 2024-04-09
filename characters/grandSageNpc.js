@@ -6,7 +6,7 @@ let npcGrandSageImage;
 let boiteDeDialogue;
 
 let npcGrandSageX = 5 * worldTempleTileSize; 
-let npcGrandSageY = 6 * worldTempleTileSize ; 
+let npcGrandSageY = 7 * worldTempleTileSize ; 
 let npcGrandSageWidth = worldTempleTileSize; 
 let npcGrandSageHeight= worldTempleTileSize; 
 
@@ -25,7 +25,7 @@ let currentDialogueGrandSageIndex = 0;
 /////////////////////////////////////////////
 
 function checkNPCInteraction() {
-  let playerXCenter = xHero + wHero ;
+  let playerXCenter = xHero + wHero;
   let playerYCenter = yHero + hHero;
   let npcGrandSageXCenter = npcGrandSageX + npcGrandSageWidth;
   let npcGrandSageYCenter = npcGrandSageY + npcGrandSageHeight;
@@ -36,12 +36,11 @@ function checkNPCInteraction() {
 };
 
 function preloadNPCImages() {
-  npcGrandSageImage = loadImage('assets/hero/run_1left.png');
+  npcGrandSageImage = loadImage('assets/hero/run_1.png');
 }
 
 function preloadChatImage() {
-  boiteDeDialogueGrandSage = loadImage('Dialogue1.png'),
-  boiteDeDialogueHero = loadImage('Dialogue2.png')
+  boiteDeDialogueGrandSage = loadImage('Dialogue1.png');
 }
 
 

@@ -132,7 +132,7 @@ function draw() {
       if (checkNPCInteraction()) {  
         fill(0);
 
-        image(boiteDeDialogue, textX, textY, textWidth, textHeight);
+        image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
         textSize(20);
         textAlign(CENTER, CENTER);
         fill(255);
