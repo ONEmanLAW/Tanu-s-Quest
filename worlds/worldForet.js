@@ -121,8 +121,7 @@ function setupTileDictionariesForet() {
   worldForetDecorationTileDictionnary =  {
     0: loadImage(''),
     1: loadImage(''),
-    0: loadImage(''),
-    1: loadImage('worlds/assets/foretEnchanter/1.png'),
+    1: loadImage(''),
     2: loadImage('worlds/assets/foretEnchanter/2.png'),
     3: loadImage('worlds/assets/foretEnchanter/3.png'),
     4: loadImage('worlds/assets/foretEnchanter/4.png'),

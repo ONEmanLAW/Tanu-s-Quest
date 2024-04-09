@@ -51,7 +51,7 @@ function setupTileDictionariesBoss() {
   worldBossTileDictionnary = {
 
     0: loadImage(''),
-    1: loadImage('assets/boss/1.png'),
+    1: loadImage(''),
     2: loadImage('assets/boss/2.png'),
     3: loadImage('assets/boss/3.png'),
     4: loadImage('assets/boss/4.png'),
@@ -70,7 +70,7 @@ function setupTileDictionariesBoss() {
   worldBossDecorationTileDictionnary = {
   
     0: loadImage(''),
-    1: loadImage('assets/boss/1.png'),
+    1: loadImage(''),
     2: loadImage('assets/boss/2.png'),
     3: loadImage('assets/boss/3.png'),
     4: loadImage('assets/boss/4.png'),
