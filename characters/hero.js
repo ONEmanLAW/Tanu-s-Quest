@@ -3,8 +3,8 @@
 /////////////////////////////////////////////
 
 //Spawn of Hero.
-let xHero = 2 * worldTempleTileSize;
-let yHero = 6 * worldTempleTileSize;
+let xHero = 19 * worldTempleTileSize;
+let yHero = 7 * worldTempleTileSize;
 
 // Size of Hero.
 let wHero = worldTempleTileSize;
@@ -29,7 +29,7 @@ let gameOver = false;
 // Mouvement Automatique Peronnage.
 let animationCounter = 0;
 let animation = true;
-let movementSpeed = worldTempleTileSize / 20;
+let movementSpeed = worldTempleTileSize / 16;
 
 
 
@@ -165,7 +165,7 @@ function jump() {
 }
 
 function applyGravity() {
-  if (isJumping || yHero < 6 * worldTempleTileSize) {
+  if (isJumping || yHero < 7 * worldTempleTileSize) {
     yVelocity += gravity;
     yHero += yVelocity;
     
@@ -173,8 +173,8 @@ function applyGravity() {
       yVelocity = 10;
     }
     
-    if (yHero >= 6 * worldTempleTileSize) {
-      yHero = 6 * worldTempleTileSize;
+    if (yHero >= 7 * worldTempleTileSize) {
+      yHero = 7 * worldTempleTileSize;
       isJumping = false;
       yVelocity = 0;
     }

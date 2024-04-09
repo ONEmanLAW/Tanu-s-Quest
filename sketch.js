@@ -66,7 +66,12 @@ function setup() {
 
 let textWidth = 800;
 let textHeight = 200;
+//image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
 
+// For Enemy.
+      // moveEnemy();
+      // checkEnemyCollision();
+      // handleCooldown();
 function draw() {
   if (!gameStart) {
     if (scene === 'menu') {
@@ -91,7 +96,7 @@ function draw() {
       image(backgroundTutoImage, 0, 0);
       drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
       drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
-      image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
+      
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
@@ -100,23 +105,19 @@ function draw() {
       stroke(255, 0, 0);
       noFill();
       rect(xHero, yHero, wHero, hHero); 
-      rect(xEnemy, yEnemy, wEnemy, hEnemy); 
       
       
       // Automatic Movement At Start.
-      // One Tile = 20.
-      if (animation && animationCounter < 80) {
-        xHero += movementSpeed;
+      // One Tile = 16.
+      if (animation && animationCounter < 176) {
+        xHero -= movementSpeed;
         animationCounter++;
-        updateAnimation(myHeroRight);
+        updateAnimation(myHeroLeft);
       } else {
         animation = false;
       };
 
-      // For Enemy.
-      moveEnemy();
-      checkEnemyCollision();
-      handleCooldown();
+      
       applyGravity();
 
       

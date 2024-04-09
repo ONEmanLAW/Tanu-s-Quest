@@ -3,8 +3,8 @@ let enemyImage;
 let pointA;
 let pointB;
 let speed = 2;
-let xEnemy = 7 * worldTempleTileSize;
-let yEnemy = 6 * worldTempleTileSize;
+let xEnemy = 7 * worldForetTileSize;
+let yEnemy = 6 * worldForetTileSize;
 let wEnemy = 64; // Largeur de l'ennemi
 let hEnemy = 64; // Hauteur de l'ennemi
 let directionEnnemy = 1;
@@ -27,9 +27,9 @@ function checkEnemyCollision() {
 }
 
 function spawnEnemyAndPatrol() {
-  enemy = createVector(7 * worldTempleTileSize, 6 * worldTempleTileSize); 
-  pointA = createVector(7 * worldTempleTileSize); 
-  pointB = createVector(10 * worldTempleTileSize);
+  enemy = createVector(7 * worldForetTileSize, 6 * worldForetTileSize); 
+  pointA = createVector(7 * worldForetTileSize); 
+  pointB = createVector(10 * worldForetTileSize);
 }
 
 function preloadEnemyImages() {
