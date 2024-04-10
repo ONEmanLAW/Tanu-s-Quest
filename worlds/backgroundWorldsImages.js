@@ -15,7 +15,7 @@ function preloadBackgroundImages() {
       backgroundGrotteImage.resize(width, height);
   });
 
-  backgroundBossImage = loadImage('assets/boss/fondBoss.jpg',() => {
+  backgroundBossImage = loadImage('worlds/assets/boss/fondBoss.jpg',() => {
       backgroundBossImage.resize(width, height);
   });  
 };
