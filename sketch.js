@@ -89,7 +89,7 @@ function draw() {
     checkKeys(currentWorld);
     changeWorldIfNeeded();
     drawHearts();
-    applyGravity();
+    
     
 
     // If Hero Have Hearts Game is Not Over.
@@ -120,14 +120,22 @@ function draw() {
         animation = false;
       };
 
+      if(!introDialogActive && !animation && !tutoEnCours) {
+        introDialogActive = true;
+      } else if(introDialogActive) {
+        gererIntroduction();
+      }
+
       // Tuto
-      if (!tutoEnCours && !animation) {
+      if (!tutoEnCours && !animation && !introDialogActive) {
         tutoEnCours = true; // Passer tuto à true
-      } else if(tutoEnCours) {
+      } else if (tutoEnCours) {
         gererTutoriel();
       }
+
       // Ajoutez cette condition pour désactiver le tutoriel une fois terminé
-      if (currentDialogueIndex >= dialoguesTutoriel.length) {
+      if (currentDialogueIndex >= dialoguesTutoriel.length && currentIntroductionIndex >= dialoguesIntroduction.length) {
+        introDialogActive = false;
         tutoEnCours = false;
       }
     
@@ -168,7 +176,13 @@ function draw() {
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
-        
+        // Pour voire le Collider
+        stroke(255, 0, 0);
+        noFill();
+        rect(xHero, yHero, wHero, hHero);
+        rect(xEnemy, yEnemy, wEnemy, hEnemy);
+        rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2);  
+          
         // For Enemy.
         moveEnemy();
         checkEnemyCollision();

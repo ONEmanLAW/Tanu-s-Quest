@@ -112,23 +112,56 @@ function resetCooldown() {
 
 function preloadHeroImages() {
   // Right Hero Images
-  hero0 = loadImage('assets/hero_plateforme.png');
+  hero0 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite1.png');
   myHeroRight.push(hero0);
-  hero1 = loadImage('assets/hero/run_1.png');
+  hero1 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite2.png');
   myHeroRight.push(hero1);
-  hero2 = loadImage('assets/hero/run_2.png');
+  hero2 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite3.png');
   myHeroRight.push(hero2);
-  hero3 = loadImage('assets/hero/run_3.png');
+  hero3 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite4.png');
   myHeroRight.push(hero3);
-  hero4 = loadImage('assets/hero/run_4.png');
+  hero4 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite5.png');
   myHeroRight.push(hero4);
+  hero5 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite6.png');
+  myHeroRight.push(hero5);
+  hero6 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite7.png');
+  myHeroRight.push(hero6);
+  hero7 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite8.png');
+  myHeroRight.push(hero7);
+  hero8 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite9.png');
+  myHeroRight.push(hero8);
+  hero9 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite10.png');
+  myHeroRight.push(hero9);
+  hero10 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite11.png');
+  myHeroRight.push(hero10);
+  hero11 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite12.png');
+  myHeroRight.push(hero11);
+  hero12 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite13.png');
+  myHeroRight.push(hero12);
+  hero13 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite14.png');
+  myHeroRight.push(hero13);
+  hero14 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite15.png');
+  myHeroRight.push(hero14);
+  hero15 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite16.png');
+  myHeroRight.push(hero15);
 
   // Left Hero Images
-  myHeroLeft.push(loadImage('assets/hero/run_0left.png'));
-  myHeroLeft.push(loadImage('assets/hero/run_1left.png')); 
-  myHeroLeft.push(loadImage('assets/hero/run_2left.png')); 
-  myHeroLeft.push(loadImage('assets/hero/run_3left.png'));
-  myHeroLeft.push(loadImage('assets/hero/run_4left.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche1.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche2.png')); 
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche3.png')); 
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche4.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche5.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche6.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche7.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche8.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche9.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche10.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche11.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche12.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche13.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche14.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche15.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche16.png'));
 
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
 }
@@ -161,7 +194,7 @@ let isJumping = false;
 let jumpForce = -10;
 let gravity = 0.5;
 let yVelocity = 0;
-let maxJumpHeight = 100; // Ajustez selon vos besoins
+let maxJumpHeight = 10; // Ajustez selon vos besoins
 
 function jump() {
   if (!isJumping) {
@@ -171,7 +204,7 @@ function jump() {
 }
 
 function applyGravity() {
-  if (isJumping || yHero < 7 * worldTempleTileSize) {
+  if (isJumping || yHero <= 7 * worldTempleTileSize) {
     yVelocity += gravity;
     yHero += yVelocity;
     

@@ -36,14 +36,15 @@ function checkNPCInteraction() {
 };
 
 function preloadNPCImages() {
-  npcGrandSageImage = loadImage('assets/hero/run_1.png');
+  npcGrandSageImage = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite1.png');
 }
+
+
 
 function preloadChatImage() {
   boiteDeDialogueGrandSage = loadImage('Dialogue1.png');
+  boiteDeDialogueHero = loadImage('Dialogue2.png');
 }
-
-
 
 
 
@@ -60,13 +61,52 @@ let dialoguesTutoriel = [
 function gererTutoriel() {
   if (tutoEnCours) {
     let dialogueActuel = dialoguesTutoriel[currentDialogueIndex];
-    let textWidth = 800; // Remplacez cette valeur par la largeur de votre boîte de dialogue
-    let textHeight = 200; // Remplacez cette valeur par la hauteur de votre boîte de dialogue
+    let textWidth = 800;
+    let textHeight = 200; 
     let textX = (width - textWidth) / 2;
     let textY = height - textHeight - 20;
     
     fill(0);
     image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
+  }
+}
+
+
+
+
+let dialoguesIntroduction = [
+  { text: "Grand Sage : \"Bienvenue, jeune Tanuki. Qu’est ce qui t'amène en ces temps sombres ?\"", boxType: "GrandSage" },
+  { text: "Tanuki : inquiet \"Grand Sage, quelque chose de terrible est arrivé. Le village est détruit et je ne trouve personne ! J’ai besoin de votre aide !\"", boxType: "Hero" },
+  { text: "Grand Sage : \"Je crois savoir qui est le responsable ... Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village. J’ai réussi à le repousser, mais maintenant, il est de retour, et après toutes ces années de haine refoulée il est encore plus puissant que jamais !\"", boxType: "GrandSage" },
+  { text: "Tanuki : étonné \"Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?\"", boxType: "Hero" },
+  { text: "Grand Sage : \"N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.\"", boxType: "GrandSage" }
+];
+
+let currentIntroductionIndex = 0;
+let introDialogActive = false;
+
+function gererIntroduction() {
+  if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length) {
+    let dialogueActuel = dialoguesIntroduction[currentIntroductionIndex].text;
+    let boxType = dialoguesIntroduction[currentIntroductionIndex].boxType;
+    let textWidth = 800; 
+    let textHeight = 200; 
+    let textX = (width - textWidth) / 2;
+    let textY = height - textHeight - 20;
+    
+    let boiteDeDialogue;
+    if (boxType === "GrandSage") {
+      boiteDeDialogue = boiteDeDialogueGrandSage;
+    } else if (boxType === "Hero") {
+      boiteDeDialogue = boiteDeDialogueHero;
+    }
+    
+    fill(0);
+    image(boiteDeDialogue, textX, textY, textWidth, textHeight);
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);

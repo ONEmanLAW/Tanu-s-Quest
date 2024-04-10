@@ -126,6 +126,18 @@ function keyPressed() {
     }
   }
 
+
+
+  if (keyCode === 78) { // Touche 'n' pour avancer dans les dialogues
+    if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length - 1) {
+      currentIntroductionIndex++;
+    } else if (introDialogActive && currentIntroductionIndex === dialoguesIntroduction.length - 1) {
+      introDialogActive = false;
+      tutoEnCours = true;
+    }
+  }
+
+
   if (tutoEnCours) {
     // Si la touche est 'd' et qu'il y a encore des dialogues à afficher
     if (keyCode === 81 && currentDialogueIndex === 0) {
