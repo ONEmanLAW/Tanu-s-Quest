@@ -48,7 +48,9 @@ function setup() {
   preloadEnemyImages(); // enemy.js
   // Positions Initial Of Enemy And Patrole.
   spawnEnemyAndPatrol();
+
   preloadEnemy2Images();
+  spawnEnemy2();
   
 
   // Image Of Npc
@@ -70,12 +72,7 @@ function setup() {
 
 let textWidth = 800;
 let textHeight = 200;
-//image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
 
-// For Enemy.
-      // moveEnemy();
-      // checkEnemyCollision();
-      // handleCooldown();
 function draw() {
   if (!gameStart) {
     if (scene === 'menu') {
@@ -156,10 +153,14 @@ function draw() {
         image(backgroundForetImage, 0, 0);
         updateNormalCamera(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
-        
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
+        
+        // For Enemy.
+        moveEnemy();
+        checkEnemyCollision();
         
         moveEnemy2();
         checkEnemy2Collision(); 
