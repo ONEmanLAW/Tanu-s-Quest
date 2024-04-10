@@ -170,6 +170,7 @@ function draw() {
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
+        updateNormalCamera(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);

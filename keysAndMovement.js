@@ -56,7 +56,7 @@ function checkKeys(currentMap) {
     }
     
 
-    if (currentMap === 1 || currentMap === 2 ) {
+    if (currentMap === 1 || currentMap === 2 currentMap === 3) {
       if (keyIsDown(90)) {
         yHero -= heroSpeed;
         if (checkCollision(collisonWorlds[currentMap], worldsTileSizes[currentWorld])) {
