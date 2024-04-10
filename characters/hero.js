@@ -10,6 +10,12 @@ let yHero = 7 * worldTempleTileSize;
 let wHero = worldTempleTileSize;
 let hHero = worldTempleTileSize;
 
+// Fonction pour ajuster la taille du héros en fonction du monde
+function adjustHeroSize(currentWorld) {
+  wHero = worldsTileSizes[currentWorld]; // Largeur du héros en fonction du monde actuel
+  hHero = worldsTileSizes[currentWorld]; // Hauteur du héros en fonction du monde actuel
+}
+
 // Animation for Hero.
 let heroSpeed = 5;
 let myHeroRight = [];
