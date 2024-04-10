@@ -110,6 +110,8 @@ function keyPressed() {
     yHero = initialY;
   }
 
+  
+
 
   if (gameStart) {
     if (keyCode === RIGHT_ARROW) {
@@ -121,6 +123,21 @@ function keyPressed() {
       if (currentImageIndex > 0) {
         currentImageIndex--;
       }
+    }
+  }
+
+  if (tutoEnCours) {
+    // Si la touche est 'd' et qu'il y a encore des dialogues à afficher
+    if (keyCode === 81 && currentDialogueIndex === 0) {
+        currentDialogueIndex++;
+    }
+    // Si la touche est 'q' et qu'il y a encore des dialogues à afficher
+    else if (keyCode === 68 && currentDialogueIndex === 1) {
+        currentDialogueIndex++;
+    }
+    // Si la touche est 'espace' et qu'il y a encore des dialogues à afficher
+    else if (keyCode === 32 && currentDialogueIndex === 2) {
+      currentDialogueIndex++;
     }
   }
 };

@@ -89,6 +89,7 @@ function draw() {
     checkKeys(currentWorld);
     changeWorldIfNeeded();
     drawHearts();
+    applyGravity();
     
 
     // If Hero Have Hearts Game is Not Over.
@@ -119,28 +120,38 @@ function draw() {
         animation = false;
       };
 
+      // Tuto
+      if (!tutoEnCours && !animation) {
+        tutoEnCours = true; // Passer tuto à true
+      } else if(tutoEnCours) {
+        gererTutoriel();
+      }
+      // Ajoutez cette condition pour désactiver le tutoriel une fois terminé
+      if (currentDialogueIndex >= dialoguesTutoriel.length) {
+        tutoEnCours = false;
+      }
+    
       
-      applyGravity();
 
       
-      let textX = (width - textWidth) / 2;
-      let textY = height - textHeight - 20;
+      // let textX = (width - textWidth) / 2;
+      // let textY = height - textHeight - 20;
 
 
-      if (checkNPCInteraction()) {  
-        fill(0);
+      // if (checkNPCInteraction()) {  
+      //   fill(0);
 
-        image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
-        textSize(20);
-        textAlign(CENTER, CENTER);
-        fill(255);
-        text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2, textY + textHeight / 2);
+      //   image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
+      //   textSize(20);
+      //   textAlign(CENTER, CENTER);
+      //   fill(255);
+      //   text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2, textY + textHeight / 2);
 
-        // textSize(16);
-        // fill(255);
-        // text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
+      //   textSize(16);
+      //   fill(255);
+      //   text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
         
-      }; 
+      // }; 
     
 
       } else if (currentWorld === 1) {
@@ -161,7 +172,7 @@ function draw() {
         // For Enemy.
         moveEnemy();
         checkEnemyCollision();
-        
+
         moveEnemy2();
         checkEnemy2Collision(); 
         detectPlayer();

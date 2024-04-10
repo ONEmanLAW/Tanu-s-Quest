@@ -4,7 +4,7 @@
 
 //Spawn of Hero.
 let xHero = 17 * worldTempleTileSize;
-let yHero = 6 * worldTempleTileSize;
+let yHero = 7 * worldTempleTileSize;
 
 // Size of Hero.
 let wHero = worldTempleTileSize;

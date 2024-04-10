@@ -45,3 +45,33 @@ function preloadChatImage() {
 
 
 
+
+
+
+let tutoEnCours = false;
+let currentDialogueIndex = 0;
+
+let dialoguesTutoriel = [
+  "Appuyez sur 'q' pour aller à gauche.",
+  "Appuyez sur 'd' pour aller à droite.",
+  "Appuez sur 'space' pour sauter",
+];
+
+function gererTutoriel() {
+  if (tutoEnCours) {
+    let dialogueActuel = dialoguesTutoriel[currentDialogueIndex];
+    let textWidth = 800; // Remplacez cette valeur par la largeur de votre boîte de dialogue
+    let textHeight = 200; // Remplacez cette valeur par la hauteur de votre boîte de dialogue
+    let textX = (width - textWidth) / 2;
+    let textY = height - textHeight - 20;
+    
+    fill(0);
+    image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
+  }
+}
+
+
