@@ -147,7 +147,7 @@ function draw() {
     
 
       } else if (currentWorld === 1) {
-        updateCamera(2688, 1536);
+        updateNormalCamera(4032, 2304);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(currentHeroTopImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
