@@ -113,7 +113,7 @@ function draw() {
       
       // Automatic Movement At Start.
       // One Tile = 16.
-      if (animation && animationCounter < 176) {
+      if (animation && animationCounter < 144) {
         xHero -= movementSpeed;
         animationCounter++;
         updateAnimation(myHeroLeft);
@@ -148,7 +148,7 @@ function draw() {
       } else if (currentWorld === 1) {
         updateCamera(2688, 1536);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        image(currentHeroTopImage, xHero, yHero, wHero, hHero);
+        image(currentHeroTopImage, xHero, yHero, 64, 64);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
       } else if (currentWorld === 2) {

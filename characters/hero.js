@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 
 //Spawn of Hero.
-let xHero = 19 * worldTempleTileSize;
+let xHero = 17 * worldTempleTileSize;
 let yHero = 7 * worldTempleTileSize;
 
 // Size of Hero.
