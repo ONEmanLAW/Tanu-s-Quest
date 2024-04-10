@@ -17,7 +17,7 @@ function adjustHeroSize(currentWorld) {
 }
 
 // Animation for Hero.
-let heroSpeed = 5;
+let heroSpeed = 7;
 let myHeroRight = [];
 let myHeroLeft = [];
 let currentIndex = 0;
