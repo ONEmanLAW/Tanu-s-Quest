@@ -21,6 +21,44 @@ function moveRight() {
   updateAnimation(myHeroRight);
 }
 
+
+
+function moveTopVillage() {
+  yHero -= heroSpeed;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+    yHero += path;
+  }
+  updateAnimationVillage(myHeroVillageTop);
+}
+
+function moveBottomVillage() {
+  yHero += heroSpeed;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes  [currentWorld])) {
+    yHero -= path;
+  }
+  updateAnimationVillage(myHeroVillageBottom);
+}
+
+function moveLeftVillage() {
+  xHero -= heroSpeed;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+    xHero += path;
+  }
+  // HERO left Animation.
+  updateAnimationVillage(myHeroVillageLeft);
+}
+
+function moveRightVillage() {
+  xHero += heroSpeed;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+    xHero -= path;
+  }
+  // HERO Right Animation.
+  updateAnimationVillage(myHeroVillageRight);
+}
+
+
+
 function updateAnimation(animationArray) {
   movementCounter += 1;
   if (movementCounter >= 20 / heroSpeed) {
@@ -29,6 +67,18 @@ function updateAnimation(animationArray) {
       currentIndex = 0;
     }
     currentHeroImage = animationArray[currentIndex];
+    movementCounter = 0;
+  }
+}
+
+function updateAnimationVillage(animationArray) {
+  movementCounter += 1;
+  if (movementCounter >= 20 / heroSpeed) {
+    currentVillageIndex += 1;
+    if (currentVillageIndex === animationArray.length) {
+      currentVillageIndex = 0;
+    }
+    currentHeroVillageImage = animationArray[currentVillageIndex];
     movementCounter = 0;
   }
 }
@@ -56,19 +106,18 @@ function checkKeys(currentMap) {
     }
     
 
-    if (currentMap === 1 || currentMap === 2 || currentMap === 3) {
+    if (currentMap === 1) {
+
+      if (keyIsDown(90) && keyIsDown(83)) {
+        return;
+      }
+      
       if (keyIsDown(90)) {
-        yHero -= heroSpeed;
-        if (checkCollision(collisonWorlds[currentMap], worldsTileSizes[currentWorld])) {
-          yHero += path;
-        }
+        moveTopVillage();
       }
 
       if (keyIsDown(83)) {
-        yHero += heroSpeed;
-        if (checkCollision(collisonWorlds[currentMap], worldsTileSizes[currentWorld])) {
-          yHero -= path;
-        }
+        moveBottomVillage();
       }
 
       if (keyIsDown(68) && keyIsDown(81)) {
@@ -76,11 +125,11 @@ function checkKeys(currentMap) {
       }
 
       if (keyIsDown(68)) {
-        moveRight();
+        moveRightVillage();
       }
 
       if (keyIsDown(81)) {
-        moveLeft();
+        moveLeftVillage();
       }
     }
   }
@@ -128,7 +177,7 @@ function keyPressed() {
 
 
 
-  if (keyCode === 78) { // Touche 'n' pour avancer dans les dialogues
+  if (keyCode === 78) { 
     if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length - 1) {
       currentIntroductionIndex++;
     } else if (introDialogActive && currentIntroductionIndex === dialoguesIntroduction.length - 1) {
@@ -139,15 +188,15 @@ function keyPressed() {
 
 
   if (tutoEnCours) {
-    // Si la touche est 'd' et qu'il y a encore des dialogues à afficher
+    
     if (keyCode === 81 && currentDialogueIndex === 0) {
         currentDialogueIndex++;
     }
-    // Si la touche est 'q' et qu'il y a encore des dialogues à afficher
+
     else if (keyCode === 68 && currentDialogueIndex === 1) {
         currentDialogueIndex++;
     }
-    // Si la touche est 'espace' et qu'il y a encore des dialogues à afficher
+
     else if (keyCode === 32 && currentDialogueIndex === 2) {
       currentDialogueIndex++;
     }

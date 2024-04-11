@@ -1,6 +1,6 @@
 // Village World.
 let worldVillageTileDictionnary = {};
-let worldVillageTileSize = 96;
+let worldVillageTileSize = 112;
 
 let worldVillageBoard = [
   [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 167, 91, 23, 23, 23, 23, 23, 23, 18, 25, 25, 25, 25, 162, 163, 163, 163, 163, 163, 164, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
@@ -30,7 +30,7 @@ let worldVillageBoard = [
 ];
 
 let worldVillageDecorationTileDictionnary = {};
-let worldVillageDecorationTileSize = 96;
+let worldVillageDecorationTileSize = 112;
 
 let worldVillageDecorationBoard = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 96, 0, 0, 92, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

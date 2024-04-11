@@ -10,19 +10,27 @@ let yHero = 7 * worldTempleTileSize;
 let wHero = worldTempleTileSize;
 let hHero = worldTempleTileSize;
 
-// Fonction pour ajuster la taille du héros en fonction du monde
+
 function adjustHeroSize(currentWorld) {
-  wHero = worldsTileSizes[currentWorld]; // Largeur du héros en fonction du monde actuel
-  hHero = worldsTileSizes[currentWorld]; // Hauteur du héros en fonction du monde actuel
+  wHero = worldsTileSizes[currentWorld];
+  hHero = worldsTileSizes[currentWorld];
 }
 
 // Animation for Hero.
 let heroSpeed = 7;
+
 let myHeroRight = [];
 let myHeroLeft = [];
+
+let myHeroVillageLeft = [];
+let myHeroVillageRight = [];
+let myHeroVillageBottom = [];
+let myHeroVillageTop = [];
 let currentIndex = 0;
+let currentVillageIndex = 0;
 let movementCounter = 0;
 let currentHeroImage = 0;
+let currentHeroVillageImage = 0;
 
 // Life of Hero.
 let hearts = 3;
@@ -166,10 +174,101 @@ function preloadHeroImages() {
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
 }
 
-function preloadHeroTopImages() {
 
-  heroTop0 = loadImage('hero_village.png');
-  currentHeroTopImage = heroTop0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function preloadHeroVillageImages() {
+
+  heroVillage0 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face1.png');
+  myHeroVillageBottom.push(heroVillage0);
+  heroVillage1 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face2.png');
+  myHeroVillageBottom.push(heroVillage1);
+  heroVillage2 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face3.png');
+  myHeroVillageBottom.push(heroVillage2);
+  heroVillage3 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face4.png');
+  myHeroVillageBottom.push(heroVillage3);
+  heroVillage4 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face5.png');
+  myHeroVillageBottom.push(heroVillage4);
+  heroVillage5 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face6.png');
+  myHeroVillageBottom.push(heroVillage5);
+  heroVillage6 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face7.png');
+  myHeroVillageBottom.push(heroVillage6);
+  heroVillage7 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face8.png');
+  myHeroVillageBottom.push(heroVillage7);
+  heroVillage8 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face9.png');
+  myHeroVillageBottom.push(heroVillage8);
+  heroVillage9 = loadImage('characters/hero/assets/myHeroVillageBottom/hero village marche face10.png');
+  myHeroVillageBottom.push(heroVillage9);
+
+
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos1.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos2.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos3.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos4.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos5.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos6.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos7.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos8.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos9.png'));
+  myHeroVillageTop.push(loadImage('characters/hero/assets/myHeroVillageTop/hero village marche dos10.png'));
+
+
+
+
+
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite1.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite2.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite3.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite4.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite5.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite6.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite7.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite8.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite9.png'));
+  myHeroVillageRight.push(loadImage('characters/hero/assets/myHeroVillageRight/hero village marche droite10.png'));
+  
+
+
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche1.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche2.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche3.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche4.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche5.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche6.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche7.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche8.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche9.png'));
+  myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche10.png'));
+
+  
+  
+
+
+
+
+
+
+  currentHeroVillageImage = heroVillage0;
 }
 
 

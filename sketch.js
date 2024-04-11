@@ -39,7 +39,7 @@ function setup() {
 
   // Animation Hero.
   preloadHeroImages(); // hero.js
-  preloadHeroTopImages();
+  preloadHeroVillageImages(); // hero.js
   // Hearts Hero.
   preloadHeartImage(); // hero.js
 
@@ -163,11 +163,15 @@ function draw() {
     
 
       } else if (currentWorld === 1) {
-        updateNormalCamera(4032, 2304);
+        updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        image(currentHeroTopImage, xHero, yHero, wHero, hHero);
+        image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
+        stroke(255, 0, 0);
+      noFill();
+      rect(xHero, yHero, wHero, hHero); 
+        
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
         updateNormalCamera(16000, 1120);
