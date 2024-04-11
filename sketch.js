@@ -169,13 +169,13 @@ function draw() {
         image(npcYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
-        if (animationVillage && animationCounterVillage < 144) {
-          xHero += movementSpeed;
-          animationCounterVillage++;
-          updateAnimationVillage(myHeroVillageRight);
-        } else {
-          animationVillage = false;
-        };
+        // if (animationVillage && animationCounterVillage < 144) {
+        //   xHero += movementSpeed;
+        //   animationCounterVillage++;
+        //   updateAnimationVillage(myHeroVillageRight);
+        // } else {
+        //   animationVillage = false;
+        // };
 
         
         stroke(255, 0, 0);

@@ -5,7 +5,7 @@ let yEnemy2 = 6 * worldTempleTileSize;
 let wEnemy2 = 64; 
 let hEnemy2 = 64; 
 let speedEnemy2 = 3;
-let chargeRadius = 150; 
+let chargeRadius = 350; 
 let charging = false; 
 
 function moveEnemy2() {
@@ -46,5 +46,5 @@ function spawnEnemy2() {
 }
 
 function preloadEnemy2Images() {
-  enemy2Image = loadImage('assets/hero_plateforme.png');
+  enemy2Image = loadImage('characters/enemy/gobelin2.png');
 }
