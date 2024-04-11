@@ -119,9 +119,38 @@ function gererIntroduction() {
 
 
 let npcYetiImage;
-let boiteDeDialogueHero;
-
 let npcYetiX = 12 * worldVillageTileSize; 
 let npcYetiY = 10 * worldVillageTileSize ; 
 let npcYetiWidth = worldVillageTileSize + 10; 
 let npcYetiHeight= worldVillageTileSize + 25;
+
+
+let dialoguesYeti = [
+  "Grrr, tu oses t'approcher de moi ?",
+  "Je suis le puissant Yeti, roi de ces montagnes !",
+  "Si tu ne veux pas finir en déjeuner, éloigne-toi !",
+  "Mais... tu sembles différent des autres humains.",
+  "Tu n'aurais pas une friandise à me donner, par hasard ?",
+  "J'ai trop parler avec toi. Me parle pas !"
+];
+
+let currentDialogueYetiIndex = 0;
+
+/////////////////////////////////////////////
+////////FUNCTION FOR NPC Interaction/////////
+/////////////////////////////////////////////
+
+function checkNPCYetiInteraction() {
+  let playerXCenter = xHero + wHero;
+  let playerYCenter = yHero + hHero;
+  let npcYetiXCenter = npcYetiX + npcYetiWidth;
+  let npcYetiYCenter = npcYetiY + npcYetiHeight;
+
+  let distanceToYeti = dist(playerXCenter, playerYCenter, npcYetiXCenter, npcYetiYCenter);
+
+  if (distanceToYeti < wHero + npcYetiWidth) {
+    return "Yeti";
+  } else {
+    return null;
+  }
+};

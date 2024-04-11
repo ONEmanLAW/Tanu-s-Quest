@@ -100,8 +100,19 @@ function checkKeys(currentMap) {
         moveLeft();
       }
 
+      if (keyIsDown(90)) {
+        moveTopVillage();
+      }
+
+      if (keyIsDown(83)) {
+        moveBottomVillage();  
+      }
+
       if (keyIsDown(32)) {
         jump();
+      }
+      if (!keyIsDown(68) && !keyIsDown(81) && !keyIsDown(32)) {
+        updateAnimation(myHeroIdleRight);
       }
     }
     
@@ -152,6 +163,15 @@ function keyPressed() {
       }
     };
   };
+
+  if (key === 'n' || key === 'N') {
+    if (checkNPCYetiInteraction()) {
+      currentDialogueYetiIndex++;
+      if (currentDialogueYetiIndex >= dialoguesYeti.length) {
+        currentDialogueYetiIndex = dialoguesYeti.length - 1;
+      }
+    }
+};
 
   if (key === 'h' && !gameOver) {
     loseHeart();

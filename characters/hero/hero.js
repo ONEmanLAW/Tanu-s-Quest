@@ -27,6 +27,7 @@ let myHeroVillageRight = [];
 let myHeroVillageBottom = [];
 let myHeroVillageTop = [];
 let myHeroVillageIdleBottom = [];
+let myHeroIdleRight = [];
 let currentIndex = 0;
 let currentVillageIndex = 0;
 let movementCounter = 0;
@@ -145,8 +146,8 @@ function drawHud() {
   push(); // Sauvegarde de la matrice de transformation actuelle
   translate(cameraX, cameraY); // Appliquer la transformation de la caméra
 
-  image(cadreVide, 1000, 100, 600, 150); // Position relative à l'écran
-  image(imageEpee2, 1014, 110, 100, 100); // Position relative à l'écran
+  image(cadreVide, 1100, 50, 600, 150); // Position relative à l'écran
+  image(imageEpee2, 1114, 60, 100, 100); // Position relative à l'écran
   
   pop(); // Restaurer la matrice de transformation précédente
 }
@@ -233,6 +234,19 @@ function preloadHeroImages() {
   myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_10.png'));
   myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_11.png'));
   myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_12.png'));
+
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle1.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle2.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle3.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle4.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle5.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle6.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle7.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle8.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle9.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle10.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle11.png'));
+  myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle12.png'));
  
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
 }

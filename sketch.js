@@ -177,7 +177,17 @@ function draw() {
         image(npcYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         drawHud();
-
+        let textX = (width - textWidth) / 2;
+        let textY = height - textHeight - 20;
+        if (checkNPCYetiInteraction()) {  
+          fill(0);
+  
+          image(boiteDeDialogueYeti, 850, 850, textWidth, textHeight);
+          textSize(20);
+          textAlign(CENTER, CENTER);
+          fill(255);
+          text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 390, textY + textHeight / 2 + 110);
+        }
         // if (animationVillage && animationCounterVillage < 144) {
         //   xHero += movementSpeed;
         //   animationCounterVillage++;
@@ -215,7 +225,7 @@ function draw() {
         checkEnemy2Collision(); 
         detectPlayer();
         handleCooldown();
-        applyGravity();
+        //applyGravity();
 
         
 
