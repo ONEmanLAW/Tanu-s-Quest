@@ -41,10 +41,14 @@ let gameOver = false;
 
 
 
-// Mouvement Automatique Peronnage.
+// Mouvement Automatique Peronnage. Temple
 let animationCounter = 0;
 let animation = true;
 let movementSpeed = worldTempleTileSize / 16;
+
+let animationCounterVillage = 0;
+let animationVillage = true;
+let movementSpeedVillage = worldVillageTileSize / 16
 
 
 

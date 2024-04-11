@@ -166,11 +166,22 @@ function draw() {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
+        image(npcYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
 
+        if (animationVillage && animationCounterVillage < 144) {
+          xHero += movementSpeed;
+          animationCounterVillage++;
+          updateAnimationVillage(myHeroVillageRight);
+        } else {
+          animationVillage = false;
+        };
+
+        
         stroke(255, 0, 0);
-      noFill();
-      rect(xHero, yHero, wHero, hHero); 
+        noFill();
+        rect(xHero, yHero, wHero, hHero); 
+        
         
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);

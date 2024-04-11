@@ -37,6 +37,7 @@ function checkNPCInteraction() {
 
 function preloadNPCImages() {
   npcGrandSageImage = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite1.png');
+  npcYetiImage = loadImage('characters/hero/assets/yeti_animation_idle1.png');
 }
 
 
@@ -56,6 +57,7 @@ let dialoguesTutoriel = [
   "Appuyez sur 'q' pour aller à gauche.",
   "Appuyez sur 'd' pour aller à droite.",
   "Appuez sur 'space' pour sauter",
+  ""
 ];
 
 function gererTutoriel() {
@@ -115,3 +117,11 @@ function gererIntroduction() {
 }
 
 
+
+let npcYetiImage;
+let boiteDeDialogueHero;
+
+let npcYetiX = 12 * worldVillageTileSize; 
+let npcYetiY = 10 * worldVillageTileSize ; 
+let npcYetiWidth = worldVillageTileSize + 10; 
+let npcYetiHeight= worldVillageTileSize + 25;

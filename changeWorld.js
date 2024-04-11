@@ -17,7 +17,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         // Code pour le changement de monde vers le village
         currentWorld = 1;
         if (currentTileValue === 301) {
-          xHero = 3 * worldsTileSizes[currentWorld]; 
+          xHero = 2 * worldsTileSizes[currentWorld]; 
           yHero = 10 * worldsTileSizes[currentWorld];
         } else if (currentTileValue === 305) {
           xHero = 17 * worldsTileSizes[currentWorld]; 
