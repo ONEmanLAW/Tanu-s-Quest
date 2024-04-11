@@ -125,57 +125,47 @@ function resetCooldown() {
 
 function preloadHeroImages() {
   // Right Hero Images
-  hero0 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite1.png');
+  hero0 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_01.png');
   myHeroRight.push(hero0);
-  hero1 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite2.png');
+  hero1 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_02.png');
   myHeroRight.push(hero1);
-  hero2 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite3.png');
+  hero2 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_03.png');
   myHeroRight.push(hero2);
-  hero3 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite4.png');
+  hero3 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_04.png');
   myHeroRight.push(hero3);
-  hero4 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite5.png');
+  hero4 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_05.png');
   myHeroRight.push(hero4);
-  hero5 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite6.png');
+  hero5 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_06.png');
   myHeroRight.push(hero5);
-  hero6 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite7.png');
+  hero6 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_07.png');
   myHeroRight.push(hero6);
-  hero7 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite8.png');
+  hero7 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_08.png');
   myHeroRight.push(hero7);
-  hero8 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite9.png');
+  hero8 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_09.png');
   myHeroRight.push(hero8);
-  hero9 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite10.png');
+  hero9 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_10.png');
   myHeroRight.push(hero9);
-  hero10 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite11.png');
+  hero10 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_11.png');
   myHeroRight.push(hero10);
-  hero11 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite12.png');
+  hero11 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_12.png');
   myHeroRight.push(hero11);
-  hero12 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite13.png');
-  myHeroRight.push(hero12);
-  hero13 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite14.png');
-  myHeroRight.push(hero13);
-  hero14 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite15.png');
-  myHeroRight.push(hero14);
-  hero15 = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite16.png');
-  myHeroRight.push(hero15);
+  
+
 
   // Left Hero Images
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche1.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche2.png')); 
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche3.png')); 
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche4.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche5.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche6.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche7.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche8.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche9.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche10.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche11.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche12.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche13.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche14.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche15.png'));
-  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche16.png'));
-
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_01.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_02.png')); 
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_03.png')); 
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_04.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_05.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_06.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_07.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_08.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_09.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_10.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_11.png'));
+  myHeroLeft.push(loadImage('characters/hero/assets/myHeroLeft/hero_plateforme_marche_gauche_12.png'));
+ 
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
 }
 
