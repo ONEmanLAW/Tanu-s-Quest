@@ -26,6 +26,7 @@ let myHeroVillageLeft = [];
 let myHeroVillageRight = [];
 let myHeroVillageBottom = [];
 let myHeroVillageTop = [];
+let myHeroVillageIdleBottom = [];
 let currentIndex = 0;
 let currentVillageIndex = 0;
 let movementCounter = 0;
@@ -260,6 +261,17 @@ function preloadHeroVillageImages() {
   myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche9.png'));
   myHeroVillageLeft.push(loadImage('characters/hero/assets/myHeroVillageLeft/hero village marche gauche10.png'));
 
+
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle1.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle2.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle3.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle4.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle5.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle6.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle7.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle8.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle9.png'));
+  myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle10.png'));
   
   
 

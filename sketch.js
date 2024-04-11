@@ -195,6 +195,7 @@ function draw() {
         checkEnemy2Collision(); 
         detectPlayer();
         handleCooldown();
+        applyGravity();
 
         
 

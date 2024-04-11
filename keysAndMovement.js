@@ -111,13 +111,13 @@ function checkKeys(currentMap) {
       if (keyIsDown(90) && keyIsDown(83)) {
         return;
       }
-      
+
       if (keyIsDown(90)) {
         moveTopVillage();
       }
 
       if (keyIsDown(83)) {
-        moveBottomVillage();
+        moveBottomVillage();  
       }
 
       if (keyIsDown(68) && keyIsDown(81)) {
@@ -131,6 +131,9 @@ function checkKeys(currentMap) {
       if (keyIsDown(81)) {
         moveLeftVillage();
       }
+    }
+    if (!keyIsDown(90) && !keyIsDown(83) && !keyIsDown(68) && !keyIsDown(81)) {
+      updateAnimationVillage(myHeroVillageIdleBottom);
     }
   }
 }
