@@ -43,8 +43,9 @@ function preloadNPCImages() {
 
 
 function preloadChatImage() {
-  boiteDeDialogueGrandSage = loadImage('Dialogue1.png');
-  boiteDeDialogueHero = loadImage('Dialogue2.png');
+  boiteDeDialogueGrandSage = loadImage('dialogueGrandSage.png');
+  boiteDeDialogueHero = loadImage('dialogueTanu.png');
+  boiteDeDialogueYeti = loadImage('dialogueYeti.png')
 }
 
 
@@ -76,8 +77,6 @@ function gererTutoriel() {
     text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
   }
 }
-
-
 
 
 let dialoguesIntroduction = [
