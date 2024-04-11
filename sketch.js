@@ -56,6 +56,9 @@ function setup() {
   // Image Of Npc
   preloadNPCImages(); // npc.js
   preloadChatImage();
+
+
+  preloadHudImages();
 };
 
 
@@ -89,6 +92,8 @@ function draw() {
     checkKeys(currentWorld);
     changeWorldIfNeeded();
     drawHearts();
+    image(cadreVide, 1000, 100, 600, 150);
+    image(imageEpee1, 1014, 110, 100, 100);
     
     
 
@@ -103,6 +108,9 @@ function draw() {
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
+      image(cadreVide, 1000, 100, 600, 150);
+      image(imageEpee1, 1014, 110, 100, 100);
+      
 
       // Pour voire le Collider
       stroke(255, 0, 0);
@@ -168,6 +176,7 @@ function draw() {
         image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
         image(npcYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
+        drawHud();
 
         // if (animationVillage && animationCounterVillage < 144) {
         //   xHero += movementSpeed;

@@ -10,8 +10,8 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
       if (currentTileValue === 300 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers le temple
         currentWorld = 0;
-        xHero = 12 * worldsTileSizes[currentWorld];
-        yHero = 6 * worldsTileSizes[currentWorld];
+        xHero = 16 * worldsTileSizes[currentWorld];
+        yHero = 7 * worldsTileSizes[currentWorld];
         return true;
       } else if ((currentTileValue === 301 || currentTileValue === 305 || currentTileValue === 306) && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers le village

@@ -33,13 +33,6 @@ let movementCounter = 0;
 let currentHeroImage = 0;
 let currentHeroVillageImage = 0;
 
-// Life of Hero.
-let hearts = 3;
-let heartImage;
-let gameOver = false;
-
-
-
 
 // Mouvement Automatique Peronnage. Temple
 let animationCounter = 0;
@@ -50,6 +43,11 @@ let animationCounterVillage = 0;
 let animationVillage = true;
 let movementSpeedVillage = worldVillageTileSize / 16
 
+
+// Life of Hero.
+let hearts = 3;
+let heartImage;
+let gameOver = false;
 
 
 //// Hearts
@@ -71,12 +69,11 @@ function loseHeart() {
 };
 
 
-
 let cameraX = 0;
 let cameraY = 0;
 function drawHearts() {
-  const heartWidth = 64;
-  const heartHeight = 64;
+  const heartWidth = 80;
+  const heartHeight = 80;
   const spacing = 10;
   const marginX = 20;
   const marginY = 20;
@@ -120,6 +117,77 @@ function handleCooldown() {
 function resetCooldown() {
   heroInvincible = false; // Désactiver l'invincibilité du héros
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+let cadreVide;
+let imageEpee1;
+let imageEpee2;
+
+function preloadHudImages() {
+  cadreVide = loadImage('hud/cadreVide.png');
+  imageEpee1 = loadImage('hud/imageEpee.png');
+  imageEpee2 = loadImage('hud/imageEpee2.png');
+}
+
+function drawHud() {
+  // Dessiner les images de la HUD après avoir appliqué la transformation de la caméra
+  push(); // Sauvegarde de la matrice de transformation actuelle
+  translate(cameraX, cameraY); // Appliquer la transformation de la caméra
+
+  image(cadreVide, 1000, 100, 600, 150); // Position relative à l'écran
+  image(imageEpee2, 1014, 110, 100, 100); // Position relative à l'écran
+  
+  pop(); // Restaurer la matrice de transformation précédente
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
