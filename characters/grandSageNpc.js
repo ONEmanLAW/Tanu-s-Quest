@@ -6,9 +6,9 @@ let npcGrandSageImage;
 let boiteDeDialogue;
 
 let npcGrandSageX = 5 * worldTempleTileSize; 
-let npcGrandSageY = 7 * worldTempleTileSize ; 
-let npcGrandSageWidth = worldTempleTileSize; 
-let npcGrandSageHeight= worldTempleTileSize; 
+let npcGrandSageY = 6.50 * worldTempleTileSize ; 
+let npcGrandSageWidth = worldTempleTileSize + 10; 
+let npcGrandSageHeight= worldTempleTileSize + 50; 
 
 let dialoguesGrandSage = [
   "Bonjour, que puis-je faire pour vous ?",
@@ -36,7 +36,7 @@ function checkNPCInteraction() {
 };
 
 function preloadNPCImages() {
-  npcGrandSageImage = loadImage('characters/hero/assets/myHeroRight/hero_plateforme_marche_droite_01.png');
+  npcGrandSageImage = loadImage('sage_test.png');
   npcYetiImage = loadImage('characters/hero/assets/yeti_animation_idle1.png');
 }
 
@@ -45,7 +45,8 @@ function preloadNPCImages() {
 function preloadChatImage() {
   boiteDeDialogueGrandSage = loadImage('dialogueGrandSage.png');
   boiteDeDialogueHero = loadImage('dialogueTanu.png');
-  boiteDeDialogueYeti = loadImage('dialogueYeti.png')
+  boiteDeDialogueHeroTuto = loadImage('dialogueTanuTuto.png');
+  boiteDeDialogueYeti = loadImage('dialogueYeti.png');
 }
 
 
@@ -64,27 +65,27 @@ let dialoguesTutoriel = [
 function gererTutoriel() {
   if (tutoEnCours) {
     let dialogueActuel = dialoguesTutoriel[currentDialogueIndex];
-    let textWidth = 800;
-    let textHeight = 200; 
-    let textX = (width - textWidth) / 2;
-    let textY = height - textHeight - 20;
+    let textWidth = 1100; 
+    let textHeight = 250; 
+    let textX = (width - textWidth) / 2 ;
+    let textY = height - textHeight - 20 + 90;
     
     fill(0);
     image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
+    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
   }
 }
 
 
 let dialoguesIntroduction = [
-  { text: "Grand Sage : \"Bienvenue, jeune Tanuki. Qu’est ce qui t'amène en ces temps sombres ?\"", boxType: "GrandSage" },
-  { text: "Tanuki : inquiet \"Grand Sage, quelque chose de terrible est arrivé. Le village est détruit et je ne trouve personne ! J’ai besoin de votre aide !\"", boxType: "Hero" },
-  { text: "Grand Sage : \"Je crois savoir qui est le responsable ... Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village. J’ai réussi à le repousser, mais maintenant, il est de retour, et après toutes ces années de haine refoulée il est encore plus puissant que jamais !\"", boxType: "GrandSage" },
-  { text: "Tanuki : étonné \"Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?\"", boxType: "Hero" },
-  { text: "Grand Sage : \"N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.\"", boxType: "GrandSage" }
+  { text: "Bienvenue, jeune Tanuki. Qu’est ce qui t'amène en ces temps sombres ?", boxType: "GrandSage" },
+  { text: "Grand Sage, quelque chose de terrible est arrivé.\n Le village est détruit et je ne trouve personne ! J’ai besoin de votre aide !", boxType: "Hero" },
+  { text: "Je crois savoir qui est le responsable ...\n Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour,\n et après toutes ces années de haine refoulée il est encore plus puissant que jamais !", boxType: "GrandSage" },
+  { text: "Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?", boxType: "Hero" },
+  { text: "N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" }
 ];
 
 let currentIntroductionIndex = 0;
@@ -94,16 +95,16 @@ function gererIntroduction() {
   if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length) {
     let dialogueActuel = dialoguesIntroduction[currentIntroductionIndex].text;
     let boxType = dialoguesIntroduction[currentIntroductionIndex].boxType;
-    let textWidth = 800; 
-    let textHeight = 200; 
-    let textX = (width - textWidth) / 2;
-    let textY = height - textHeight - 20;
+    let textWidth = 1100; 
+    let textHeight = 250; 
+    let textX = (width - textWidth) / 2 ;
+    let textY = height - textHeight - 20 + 90;
     
     let boiteDeDialogue;
     if (boxType === "GrandSage") {
       boiteDeDialogue = boiteDeDialogueGrandSage;
     } else if (boxType === "Hero") {
-      boiteDeDialogue = boiteDeDialogueHero;
+      boiteDeDialogue = boiteDeDialogueHeroTuto;
     }
     
     fill(0);
@@ -111,7 +112,7 @@ function gererIntroduction() {
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
+    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
   }
 }
 
