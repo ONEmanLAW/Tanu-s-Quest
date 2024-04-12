@@ -27,6 +27,9 @@ let myHeroVillageRight = [];
 let myHeroVillageBottom = [];
 let myHeroVillageTop = [];
 let myHeroVillageIdleBottom = [];
+let myHeroVillageIdleLeft = [];
+let myHeroVillageIdleRight = [];
+let myHeroVillageIdleTop = [];
 let myHeroIdleRight = [];
 let currentIndex = 0;
 let currentVillageIndex = 0;
@@ -348,6 +351,39 @@ function preloadHeroVillageImages() {
   myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle8.png'));
   myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle9.png'));
   myHeroVillageIdleBottom.push(loadImage('characters/hero/assets/myHeroVillageIdleBottom/hero_village_iddle10.png'));
+
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche1.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche2.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche3.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche4.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche5.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche6.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche7.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche8.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche9.png'));
+  myHeroVillageIdleLeft.push(loadImage('characters/hero/assets/myHeroVillageIdleLeft/hero_village_idle_gauche10.png'));
+
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite1.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite2.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite3.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite4.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite5.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite6.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite7.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite8.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite9.png'));
+  myHeroVillageIdleRight.push(loadImage('characters/hero/assets/myHeroVillageIdleRight/hero_village_idle_droite10.png'));
+  
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos1.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos2.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos3.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos4.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos5.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos6.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos7.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos8.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos9.png'));
+  myHeroVillageIdleTop.push(loadImage('characters/hero/assets/myHeroVillageIdleTop/hero_village_iddle_dos10.png'));
   
   
 

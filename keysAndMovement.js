@@ -83,6 +83,8 @@ function updateAnimationVillage(animationArray) {
   }
 }
 
+
+let lastDirection = 'down';
 function checkKeys(currentMap) {
  
 
@@ -125,10 +127,12 @@ function checkKeys(currentMap) {
 
       if (keyIsDown(90)) {
         moveTopVillage();
+        lastDirection = 'up';
       }
 
       if (keyIsDown(83)) {
         moveBottomVillage();  
+        lastDirection = 'down';
       }
 
       if (keyIsDown(68) && keyIsDown(81)) {
@@ -137,14 +141,25 @@ function checkKeys(currentMap) {
 
       if (keyIsDown(68)) {
         moveRightVillage();
+        lastDirection = 'right';
       }
 
       if (keyIsDown(81)) {
         moveLeftVillage();
+        lastDirection = 'left';
       }
     }
+    // Lorsque la touche est relâchée, vérifiez la direction pour jouer l'animation d'idle appropriée
     if (!keyIsDown(90) && !keyIsDown(83) && !keyIsDown(68) && !keyIsDown(81)) {
-      updateAnimationVillage(myHeroVillageIdleBottom);
+      if (lastDirection === 'up') {
+        updateAnimationVillage(myHeroVillageIdleTop);
+      } else if (lastDirection === 'down') {
+        updateAnimationVillage(myHeroVillageIdleBottom);
+      } else if (lastDirection === 'left') {
+        updateAnimationVillage(myHeroVillageIdleLeft);
+      } else if (lastDirection === 'right') {
+        updateAnimationVillage(myHeroVillageIdleRight);
+      }
     }
   }
 }
