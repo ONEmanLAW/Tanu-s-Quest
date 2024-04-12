@@ -11,7 +11,7 @@ function preloadBackgroundImages() {
       backgroundForetImage.resize(width, height);
   });
 
-  backgroundGrotteImage = loadImage('worlds/assets/grotteTenebreuse/fondGrotteTenebreuseTest.jpg',() => {
+  backgroundGrotteImage = loadImage('worlds/assets/grotteTenebreuse/fondGrotte.jpg',() => {
       backgroundGrotteImage.resize(width, height);
   });
 

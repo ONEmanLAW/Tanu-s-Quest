@@ -68,7 +68,7 @@ function gererTutoriel() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 90;
+    let textY = height - textHeight - 20 + 50;
     
     fill(0);
     image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
@@ -98,7 +98,7 @@ function gererIntroduction() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 90;
+    let textY = height - textHeight - 20 + 50;
     
     let boiteDeDialogue;
     if (boxType === "GrandSage") {

@@ -186,7 +186,7 @@ function draw() {
           textSize(20);
           textAlign(CENTER, CENTER);
           fill(255);
-          text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 390, textY + textHeight / 2 + 110);
+          text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 420, textY + textHeight / 2 + 55);
         }
         // if (animationVillage && animationCounterVillage < 144) {
         //   xHero += movementSpeed;
