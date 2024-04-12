@@ -85,6 +85,7 @@ function updateAnimationVillage(animationArray) {
 
 
 let lastDirection = 'down';
+let lastHorizontalDirection = 'right';
 function checkKeys(currentMap) {
  
 
@@ -96,10 +97,12 @@ function checkKeys(currentMap) {
 
       if (keyIsDown(68)) {
         moveRight();
+        lastHorizontalDirection = 'right';
       }
 
       if (keyIsDown(81)) {
         moveLeft();
+        lastHorizontalDirection = 'left';
       }
 
       if (keyIsDown(90)) {
@@ -113,8 +116,12 @@ function checkKeys(currentMap) {
       if (keyIsDown(32)) {
         jump();
       }
-      if (!keyIsDown(68) && !keyIsDown(81) && !keyIsDown(32)) {
-        updateAnimation(myHeroIdleRight);
+      if (!keyIsDown(68) && !keyIsDown(81)) {
+        if (lastHorizontalDirection === 'right') {
+          updateAnimation(myHeroIdleRight);
+        } else if (lastHorizontalDirection === 'left') {
+          updateAnimation(myHeroIdleLeft);
+        }
       }
     }
     

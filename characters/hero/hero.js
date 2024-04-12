@@ -31,6 +31,7 @@ let myHeroVillageIdleLeft = [];
 let myHeroVillageIdleRight = [];
 let myHeroVillageIdleTop = [];
 let myHeroIdleRight = [];
+let myHeroIdleLeft = [];
 let currentIndex = 0;
 let currentVillageIndex = 0;
 let movementCounter = 0;
@@ -250,6 +251,21 @@ function preloadHeroImages() {
   myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle10.png'));
   myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle11.png'));
   myHeroIdleRight.push(loadImage('characters/hero/assets/myHeroIdleRight/hero_plateforme_idle12.png'));
+
+
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche1.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche2.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche3.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche4.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche5.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche6.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche7.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche8.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche9.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche10.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche11.png'));
+  myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche12.png'));
+  
  
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
 }
