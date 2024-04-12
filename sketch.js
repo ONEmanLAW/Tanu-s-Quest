@@ -204,7 +204,7 @@ function draw() {
         
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
-        updateNormalCamera(16000, 1120);
+        updateParallaxCamera(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
