@@ -75,7 +75,6 @@ function setup() {
 
 
 
-
 function draw() {
   if (!gameStart) {
     if (scene === 'menu') {
@@ -108,8 +107,6 @@ function draw() {
       // To Spawn NPC
       image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
       image(currentHeroImage, xHero, yHero, wHero, hHero);
-      image(cadreVide, 1000, 100, 600, 150);
-      image(imageEpee1, 1014, 110, 100, 100);
       
 
       // Pour voire le Collider
@@ -134,7 +131,6 @@ function draw() {
         gererIntroduction();
       }
 
-      // Ajoutez cette condition pour désactiver le tutoriel une fois terminé
       if (currentIntroductionIndex >= dialoguesIntroduction.length) {
         introDialogActive = false;
       }
@@ -177,17 +173,10 @@ function draw() {
         image(npcYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         drawHud();
-        let textX = (width - textWidth) / 2;
-        let textY = height - textHeight - 20;
-        if (checkNPCYetiInteraction()) {  
-          fill(0);
-  
-          image(boiteDeDialogueYeti, 850, 850, textWidth, textHeight);
-          textSize(20);
-          textAlign(CENTER, CENTER);
-          fill(255);
-          text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 420, textY + textHeight / 2 + 55);
-        }
+        
+        checkNPCYetiInteraction();  
+        
+        
         // if (animationVillage && animationCounterVillage < 144) {
         //   xHero += movementSpeed;
         //   animationCounterVillage++;

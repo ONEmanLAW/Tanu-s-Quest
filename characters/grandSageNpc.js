@@ -169,11 +169,22 @@ function checkNPCYetiInteraction() {
   let npcYetiXCenter = npcYetiX + npcYetiWidth;
   let npcYetiYCenter = npcYetiY + npcYetiHeight;
 
-  let distanceToYeti = dist(playerXCenter, playerYCenter, npcYetiXCenter, npcYetiYCenter);
+  let distance = dist(playerXCenter, playerYCenter, npcYetiXCenter, npcYetiYCenter); 
+  if (distance < wHero + npcYetiWidth) {
+      let textWidth = 1100; 
+      let textHeight = 250;
+      let textX = (width - textWidth) / 2;
+      let textY = height - textHeight - 20;
+      
+      fill(0);
+      image(boiteDeDialogueYeti, textX, textY, textWidth, textHeight);
+      textSize(20);
+      textAlign(CENTER, CENTER);
+      fill(255);
+      text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 420, textY + textHeight / 2 + 55);
 
-  if (distanceToYeti < wHero + npcYetiWidth) {
-    return "Yeti";
-  } else {
-    return null;
+      // Retourne true pour indiquer que l'interaction a été traitée
+      return true;
   }
-};
+  return false;
+}
