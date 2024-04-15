@@ -12,7 +12,7 @@ function preloadBackgroundImages() {
   });
 
   backgroundGrotteImage = loadImage('worlds/assets/grotteTenebreuse/fondGrotte.jpg',() => {
-      backgroundGrotteImage.resize(width, height);
+      backgroundGrotteImage.resize(worldWidth, worldHeight);
   });
 
   backgroundBossImage = loadImage('worlds/assets/boss/fondBoss.jpg',() => {

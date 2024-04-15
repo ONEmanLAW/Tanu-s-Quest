@@ -128,23 +128,17 @@ function draw() {
         animation = false;
       };
 
-      if(!introDialogActive && !animation && !tutoEnCours) {
+      if(!introDialogActive && !animation) {
         introDialogActive = true;
       } else if(introDialogActive) {
         gererIntroduction();
       }
 
-      // Tuto
-      if (!tutoEnCours && !animation && !introDialogActive) {
-        tutoEnCours = true; // Passer tuto à true
-      } else if (tutoEnCours) {
-        gererTutoriel();
-      }
+      
 
       // Ajoutez cette condition pour désactiver le tutoriel une fois terminé
-      if (currentDialogueIndex >= dialoguesTutoriel.length && currentIntroductionIndex >= dialoguesIntroduction.length) {
+      if (currentIntroductionIndex >= dialoguesIntroduction.length) {
         introDialogActive = false;
-        tutoEnCours = false;
       }
     
       

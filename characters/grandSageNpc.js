@@ -56,32 +56,31 @@ function preloadChatImage() {
 
 
 
-let tutoEnCours = false;
-let currentDialogueIndex = 0;
+// let tutoEnCours = false;
+// let currentDialogueIndex = 0;
 
-let dialoguesTutoriel = [
-  "Appuyez sur 'q' pour aller à gauche.",
-  "Appuyez sur 'd' pour aller à droite.",
-  "Appuez sur 'space' pour sauter",
-  ""
-];
+// let dialoguesTutoriel = [
+//   "Appuyez sur 'q' pour aller à gauche.",
+//   "Appuyez sur 'd' pour aller à droite.",
+//   "Appuez sur 'space' pour sauter",
+// ];
 
-function gererTutoriel() {
-  if (tutoEnCours) {
-    let dialogueActuel = dialoguesTutoriel[currentDialogueIndex];
-    let textWidth = 1100; 
-    let textHeight = 250; 
-    let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
+// function gererTutoriel() {
+//   if (tutoEnCours) {
+//     let dialogueActuel = dialoguesTutoriel[currentDialogueIndex];
+//     let textWidth = 1100; 
+//     let textHeight = 250; 
+//     let textX = (width - textWidth) / 2 ;
+//     let textY = height - textHeight - 20 + 50;
     
-    fill(0);
-    image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
-    textSize(20);
-    textAlign(CENTER, CENTER);
-    fill(255);
-    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
-  }
-}
+//     fill(0);
+//     image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
+//     textSize(20);
+//     textAlign(CENTER, CENTER);
+//     fill(255);
+//     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+//   }
+// }
 
 
 let dialoguesIntroduction = [
@@ -89,7 +88,10 @@ let dialoguesIntroduction = [
   { text: "Grand Sage, quelque chose de terrible est arrivé.\n Le village est détruit et je ne trouve personne ! J’ai besoin de votre aide !", boxType: "Hero" },
   { text: "Je crois savoir qui est le responsable ...\n Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour,\n et après toutes ces années de haine refoulée il est encore plus puissant que jamais !", boxType: "GrandSage" },
   { text: "Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?", boxType: "Hero" },
-  { text: "N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" }
+  { text: "N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" },
+  { text: "Appuyez sur 'q' pour aller à gauche.", boxType: "GrandSage" },
+  { text: "Appuyez sur 'd' pour aller à droite.", boxType: "GrandSage" },
+  { text: "Appuyez sur 'space' pour sauter.", boxType: "GrandSage" },
 ];
 
 let currentIntroductionIndex = 0;

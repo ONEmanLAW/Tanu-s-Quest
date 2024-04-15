@@ -221,29 +221,32 @@ function keyPressed() {
   }
 
 
-
+  // Intro Tuto.
+  if (keyCode === 78 && currentIntroductionIndex >= 5 && currentIntroductionIndex <= 7) {
+    return; // Désactiver la touche 'n' à partir de l'index 5 jusqu'à l'index 7 inclusivement
+  }
+  
   if (keyCode === 78) { 
     if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length - 1) {
       currentIntroductionIndex++;
     } else if (introDialogActive && currentIntroductionIndex === dialoguesIntroduction.length - 1) {
       introDialogActive = false;
-      tutoEnCours = true;
     }
   }
-
-
-  if (tutoEnCours) {
-    
-    if (keyCode === 81 && currentDialogueIndex === 0) {
-        currentDialogueIndex++;
-    }
-
-    else if (keyCode === 68 && currentDialogueIndex === 1) {
-        currentDialogueIndex++;
-    }
-
-    else if (keyCode === 32 && currentDialogueIndex === 2) {
-      currentDialogueIndex++;
+  
+  if (introDialogActive) {
+    if (currentIntroductionIndex === 5) {
+      if (keyCode === 81) { // Appuie sur 'q' pour aller à gauche
+        currentIntroductionIndex++;
+      }
+    } else if (currentIntroductionIndex === 6) {
+      if (keyCode === 68) { // Appuie sur 'd' pour aller à droite
+        currentIntroductionIndex++;
+      }
+    } else if (currentIntroductionIndex === 7) {
+      if (keyCode === 32) { // Appuie sur 'espace' pour sauter
+        currentIntroductionIndex++;
+      }
     }
   }
 };
