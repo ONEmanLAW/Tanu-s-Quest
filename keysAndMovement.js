@@ -247,6 +247,10 @@ function keyPressed() {
       if (keyCode === 32) { // Appuie sur 'espace' pour sauter
         currentIntroductionIndex++;
       }
+    } else if (currentIntroductionIndex === 9) {
+      if (keyCode === 13) { // Appuie sur 'espace' pour sauter
+        currentIntroductionIndex++;
+      }
     }
   }
 };

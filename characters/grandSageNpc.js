@@ -92,6 +92,8 @@ let dialoguesIntroduction = [
   { text: "Appuyez sur 'q' pour aller à gauche.", boxType: "GrandSage" },
   { text: "Appuyez sur 'd' pour aller à droite.", boxType: "GrandSage" },
   { text: "Appuyez sur 'space' pour sauter.", boxType: "GrandSage" },
+  { text: "Tiens! Avant de partir prends cette épée. Je te conseille de commencer ta quête par la forêt enchantée.", boxType: "GrandSage" },
+  { text: "Une fois que tu est prêt appuie sur Entrer pour commencer ton avanture.", boxType: "GrandSage" },
 ];
 
 let currentIntroductionIndex = 0;
