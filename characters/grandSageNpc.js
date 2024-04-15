@@ -35,9 +35,13 @@ function checkNPCInteraction() {
   return distance < wHero + npcGrandSageWidth;
 };
 
+
+
+
+
 function preloadNPCImages() {
-  npcGrandSageImage = loadImage('sage_test.png');
-  npcYetiImage = loadImage('characters/hero/assets/yeti_animation_idle1.png');
+  npcGrandSageImage = loadImage('characters/npc/grandSage/sage_test.png');
+  npcYetiImage = loadImage('characters/npc/yeti/yeti_animation_idle1.png');
 }
 
 
