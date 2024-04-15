@@ -43,10 +43,10 @@ function preloadNPCImages() {
 
 
 function preloadChatImage() {
-  boiteDeDialogueGrandSage = loadImage('dialogueGrandSage.png');
-  boiteDeDialogueHero = loadImage('dialogueTanu.png');
-  boiteDeDialogueHeroTuto = loadImage('dialogueTanuTuto.png');
-  boiteDeDialogueYeti = loadImage('dialogueYeti.png');
+  boiteDeDialogueGrandSage = loadImage('characters/dialogueBoxe/dialogueGrandSage.png');
+  boiteDeDialogueHero = loadImage('characters/dialogueBoxe/dialogueTanu.png');
+  boiteDeDialogueHeroTuto = loadImage('characters/dialogueBoxe/dialogueTanuTuto.png');
+  boiteDeDialogueYeti = loadImage('characters/dialogueBoxe/dialogueYeti.png');
 }
 
 
