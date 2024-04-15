@@ -11,11 +11,11 @@ let npcGrandSageWidth = worldTempleTileSize + 10;
 let npcGrandSageHeight= worldTempleTileSize + 50; 
 
 let dialoguesGrandSage = [
-  "Bonjour, que puis-je faire pour vous ?",
-  "Je m'appelle Bob et je suis chanteur.",
-  "Je vends une hache pour 15 coins si tu veux!",
-  "I am sorry, je n'ai pas d'autre information à vous donner.",
-  "C'est bon, on a assez parlé."
+  "Rends-toi à la forêt enchantée",
+  "Vite tu n’as pas le temps il faut que tu ailles à la forêt enchantée",
+  "Vite tu n’as pas le temps il faut que tu ailles à la forêt enchantée",
+  "Combien de fois doit je te le repeter Tanu va à la forêt enchantée",
+  "TU ME FAIT CHIER!!!!"
 ];
 
 let currentDialogueGrandSageIndex = 0;
@@ -24,16 +24,31 @@ let currentDialogueGrandSageIndex = 0;
 ////////FUNCTION FOR NPC Interaction/////////
 /////////////////////////////////////////////
 
-function checkNPCInteraction() {
+function checkGrandSageInteraction() {
   let playerXCenter = xHero + wHero;
   let playerYCenter = yHero + hHero;
   let npcGrandSageXCenter = npcGrandSageX + npcGrandSageWidth;
   let npcGrandSageYCenter = npcGrandSageY + npcGrandSageHeight;
 
-  let distance = dist(playerXCenter, playerYCenter, npcGrandSageXCenter, npcGrandSageYCenter);
+    let textWidth = 1100; 
+    let textHeight = 250; 
+    let textX = (width - textWidth) / 2 ;
+    let textY = height - textHeight - 20 + 50;
+    
+  let distance = dist(playerXCenter, playerYCenter, npcGrandSageXCenter, npcGrandSageYCenter); 
+  if (distance < wHero + npcGrandSageWidth) {
+      fill(0);
+      image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
+      textSize(20);
+      textAlign(CENTER, CENTER);
+      fill(255);
+      text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2 + 100, textY + textHeight / 2);
 
-  return distance < wHero + npcGrandSageWidth;
-};
+      return true;
+  }
+
+  return false;
+}
 
 
 

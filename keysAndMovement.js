@@ -177,15 +177,17 @@ let initialX = 2 * worldTempleTileSize;
 let initialY = 6 * worldTempleTileSize;
 
 function keyPressed() {
-  if (key === 'n' || key === 'N') {
-    if (checkNPCInteraction()) {
-      currentDialogueGrandSageIndex++;
-      if (currentDialogueGrandSageIndex >= dialoguesGrandSage.length) {
-        currentDialogueGrandSageIndex = dialoguesGrandSage.length - 1;
-      }
+  if(!introDialogActive && !animation) {
+    if (key === 'n' || key === 'N') {
+      if (checkGrandSageInteraction()) {
+        currentDialogueGrandSageIndex++;
+        if (currentDialogueGrandSageIndex >= dialoguesGrandSage.length) {
+          currentDialogueGrandSageIndex = dialoguesGrandSage.length - 1;
+        }
+      };
     };
-  };
-
+  }
+ 
   if (key === 'n' || key === 'N') {
     if (checkNPCYetiInteraction()) {
       currentDialogueYetiIndex++;

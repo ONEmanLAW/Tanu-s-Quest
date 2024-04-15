@@ -73,8 +73,8 @@ function setup() {
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
 
-let textWidth = 800;
-let textHeight = 200;
+
+
 
 function draw() {
   if (!gameStart) {
@@ -139,6 +139,11 @@ function draw() {
         introDialogActive = false;
       }
       gestionTransitionImage();
+
+      if(!introDialogActive && !animation) {
+        checkGrandSageInteraction();
+      }
+     
       
      
 
@@ -146,8 +151,7 @@ function draw() {
       
 
       
-      // let textX = (width - textWidth) / 2;
-      // let textY = height - textHeight - 20;
+      
 
 
       // if (checkNPCInteraction()) {  
