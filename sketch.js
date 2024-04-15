@@ -134,12 +134,14 @@ function draw() {
         gererIntroduction();
       }
 
-      
-
       // Ajoutez cette condition pour désactiver le tutoriel une fois terminé
       if (currentIntroductionIndex >= dialoguesIntroduction.length) {
         introDialogActive = false;
       }
+      gestionTransitionImage();
+      
+     
+
     
       
 
