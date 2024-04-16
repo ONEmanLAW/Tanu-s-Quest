@@ -91,8 +91,6 @@ function draw() {
     checkKeys(currentWorld);
     changeWorldIfNeeded();
     drawHearts();
-    image(cadreVide, 1000, 100, 600, 150);
-    image(imageEpee1, 1014, 110, 100, 100);
     
     
 
@@ -215,6 +213,7 @@ function draw() {
         detectPlayer();
         handleCooldown();
         //applyGravity();
+        drawHud();
 
         
 

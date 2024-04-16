@@ -6,15 +6,24 @@ function preloadHudImages() {
   cadreVide = loadImage('hud/cadreVide.png');
   imageEpee1 = loadImage('hud/imageEpee.png');
   imageEpee2 = loadImage('hud/imageEpee2.png');
+  imageFeu1 = loadImage('hud/imageFeu1.png');
+  imageEau1 = loadImage('hud/imageEau1.png');
+  imageTerre1 = loadImage('hud/imageTerre1.png');
+  imageVent1 = loadImage('hud/imageVent1.png');
+  imagePotion1 = loadImage('hud/imagePotion1.png');
 }
 
 function drawHud() {
   push(); 
   translate(cameraX, cameraY);
 
-  image(cadreVide, 1100, 50, 600, 150);
-  image(imageEpee2, 1114, 60, 100, 100);
-  
+  image(cadreVide, 30, 780, 600, 150);
+  image(imageEpee2, 44, 791, 100, 100);
+  image( imagePotion1, 125, 840, 75, 75);
+  image(imageTerre1, 225, 840, 65, 65);
+  image(imageFeu1, 325, 840, 65, 65);
+  image(imageVent1, 425, 840, 65, 65);
+  image(imageEau1, 525, 840, 65, 65);
   pop();
 }
 
