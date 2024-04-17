@@ -7,10 +7,23 @@ function preloadHudImages() {
   imageEpee1 = loadImage('hud/imageEpee.png');
   imageEpee2 = loadImage('hud/imageEpee2.png');
   imageFeu1 = loadImage('hud/imageFeu1.png');
+  imageFeu2 = loadImage('hud/imageFeu2.png');
   imageEau1 = loadImage('hud/imageEau1.png');
+  imageEau2 = loadImage('hud/imageEau2.png');
   imageTerre1 = loadImage('hud/imageTerre1.png');
+  imageTerre2 = loadImage('hud/imageTerre2.png');
   imageVent1 = loadImage('hud/imageVent1.png');
+  imageVent2 = loadImage('hud/imageVent2.png');
   imagePotion1 = loadImage('hud/imagePotion1.png');
+  imagePotion2 = loadImage('hud/imagePotion2.png');
+  imagePotion3 = loadImage('hud/imagePotion3.png');
+  imagePotion4 = loadImage('hud/imagePotion4.png');
+
+  imageGrenouille = loadImage('hud/Grenouille.png');
+  imagevillageoisSauvés = loadImage('hud/villageoisSauvés.png');
+
+  imageEcorce = loadImage('hud/imageEcorce.png');
+  
 }
 
 function drawHud() {
@@ -19,11 +32,22 @@ function drawHud() {
 
   image(cadreVide, 30, 780, 600, 150);
   image(imageEpee2, 44, 791, 100, 100);
-  image( imagePotion1, 125, 840, 75, 75);
+  image(imagePotion1, 125, 840, 75, 75);
   image(imageTerre1, 225, 840, 65, 65);
   image(imageFeu1, 325, 840, 65, 65);
   image(imageVent1, 425, 840, 65, 65);
   image(imageEau1, 525, 840, 65, 65);
+
+  image(imageGrenouille, 1750, 30, 110, 110);
+  image(imagevillageoisSauvés, 1500, 30, 200, 100);
+
+  // Vérifie si la conversation avec le Yeti est terminée
+  if (conversationYetiFinished) {
+    // Dessine la nouvelle image dans le HUD
+    image(imageEcorce, 1750, 200, 100, 100);
+  }
+  
+  
   pop();
 }
 

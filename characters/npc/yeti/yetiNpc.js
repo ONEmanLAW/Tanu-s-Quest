@@ -3,6 +3,8 @@ let npcYetiY = 10 * worldVillageTileSize ;
 let npcYetiWidth = worldVillageTileSize + 10; 
 let npcYetiHeight= worldVillageTileSize + 25;
 
+let conversationYetiFinished = false;
+
 
 
 let dialoguesYeti = [
@@ -40,12 +42,16 @@ function checkNPCYetiInteraction() {
     fill(255);
     text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 420, textY + textHeight / 2 + 55);
 
+    // Si c'est le dernier dialogue, marque la conversation comme terminée
+    if (currentDialogueYetiIndex === dialoguesYeti.length - 1) {
+      conversationYetiFinished = true;
+    }
+
     // Retourne true pour indiquer que l'interaction a été traitée
     return true;
   }
   return false;
 }
-
 
 
 let currentYetiIndex = 0;

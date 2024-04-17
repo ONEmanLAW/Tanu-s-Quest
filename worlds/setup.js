@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 
 function setupWorldVariables() {
-  currentWorld = 0;
+  currentWorld = 1;
 
   worlds = [];
   decorationWorlds = [];
