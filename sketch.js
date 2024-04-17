@@ -169,11 +169,19 @@ function draw() {
       } else if (currentWorld === 1) {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
         updateYetiAnimation(myYetiIdle);
-        image(currentYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
+        image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
+        image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         drawHud();
+
+        if (animationVillage && animationCounterVillage < 133) {
+          xHero += movementSpeedVillage;
+          animationCounterVillage++;
+          updateAnimation(myHeroVillageRight);
+        } else {
+          animationVillage = false;
+        };
         
         checkNPCYetiInteraction();  
         
