@@ -1,8 +1,8 @@
-let npcYetiImage;
 let npcYetiX = 12 * worldVillageTileSize; 
 let npcYetiY = 10 * worldVillageTileSize ; 
 let npcYetiWidth = worldVillageTileSize + 10; 
 let npcYetiHeight= worldVillageTileSize + 25;
+
 
 
 let dialoguesYeti = [
@@ -44,4 +44,54 @@ function checkNPCYetiInteraction() {
     return true;
   }
   return false;
+}
+
+
+
+let currentYetiIndex = 0;
+let myYetiIdle = [];
+let currentYetiImage = 0;
+let movementCounterYeti = 0;
+
+function preloadYetiImages() {
+  // Idle Images for Yeti
+  yeti0 = loadImage('characters/npc/yeti/yeti_animation_idle1.png');
+  myYetiIdle.push(yeti0);
+  yeti1 = loadImage('characters/npc/yeti/yeti_animation_idle2.png');
+  myYetiIdle.push(yeti1);
+  yeti2 = loadImage('characters/npc/yeti/yeti_animation_idle3.png');
+  myYetiIdle.push(yeti2);
+  yeti3 = loadImage('characters/npc/yeti/yeti_animation_idle4.png');
+  myYetiIdle.push(yeti3);
+  yeti4 = loadImage('characters/npc/yeti/yeti_animation_idle5.png');
+  myYetiIdle.push(yeti4);
+  yeti5 = loadImage('characters/npc/yeti/yeti_animation_idle6.png');
+  myYetiIdle.push(yeti5);
+  yeti6 = loadImage('characters/npc/yeti/yeti_animation_idle7.png');
+  myYetiIdle.push(yeti6);
+  yeti7 = loadImage('characters/npc/yeti/yeti_animation_idle8.png');
+  myYetiIdle.push(yeti7);
+
+  currentYetiImage = yeti0; // Définition de l'image de héros actuelle
+}
+
+function animateYetiIdle() {
+  // Passe à la frame suivante
+  currentYetiIndex = (currentYetiIndex + 1) % myYetiIdle.length;
+  currentYetiImage = myYetiIdle[currentYetiIndex];
+}
+
+
+function updateYetiAnimation(animationArray) {
+  movementCounterYeti += 1;
+  // Réglez la vitesse de l'animation du Yeti comme vous le souhaitez
+  // Par exemple, 20 frames par image
+  if (movementCounterYeti >= 15) {
+    currentYetiIndex += 1;
+    if (currentYetiIndex === animationArray.length) {
+      currentYetiIndex = 0;
+    }
+    currentYetiImage = animationArray[currentYetiIndex];
+    movementCounterYeti = 0;
+  }
 }

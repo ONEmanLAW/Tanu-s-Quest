@@ -56,7 +56,7 @@ function checkGrandSageInteraction() {
 
 function preloadNPCImages() {
   npcGrandSageImage = loadImage('characters/npc/grandSage/sage_test.png');
-  npcYetiImage = loadImage('characters/npc/yeti/yeti_animation_idle1.png');
+  //npcYetiImage = loadImage('characters/npc/yeti/yeti_animation_idle1.png');
 }
 
 

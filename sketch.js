@@ -40,6 +40,8 @@ function setup() {
   // Animation Hero.
   preloadHeroImages(); // hero.js
   preloadHeroVillageImages(); // hero.js
+
+  preloadYetiImages();
   // Hearts Hero.
   preloadHeartImage(); // hero.js
 
@@ -168,7 +170,8 @@ function draw() {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
-        image(npcYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
+        updateYetiAnimation(myYetiIdle);
+        image(currentYetiImage, npcYetiX, npcYetiY, npcYetiWidth, npcYetiHeight);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         drawHud();
         
