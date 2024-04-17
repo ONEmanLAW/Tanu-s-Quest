@@ -206,6 +206,13 @@ function keyPressed() {
     yHero = initialY;
   }
 
+    if (currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
+      if (key === 'e') {
+        attack();
+      }
+    }
+    
+
   
 
 
@@ -256,3 +263,5 @@ function keyPressed() {
     }
   }
 };
+
+

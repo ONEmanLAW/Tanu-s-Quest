@@ -214,6 +214,23 @@ function draw() {
         handleCooldown();
         //applyGravity();
         drawHud();
+        
+        detectDirection();
+
+        if (isAttacking) {
+          // Gérer l'attaque (animation, etc.)
+          attack(); // Appeler la fonction pour activer l'attaque
+          
+          // Réinitialiser la taille du héros après l'attaque
+          wHero = 80;
+          hHero = 80;
+
+          // Vérifier les collisions après l'attaque
+          checkCollisionAttack();
+          
+          // Réinitialiser l'état de l'attaque
+          isAttacking = false;
+        }
 
         
 

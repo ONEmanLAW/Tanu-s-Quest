@@ -135,6 +135,75 @@ function resetCooldown() {
 
 
 
+let isAttacking = false;
+let attackDirection = 'right'; // Par défaut, le héros regarde vers la droite
+
+// Fonction pour détecter l'orientation du héros
+function detectDirection() {
+  // Vérifier si le joueur a appuyé sur les touches de déplacement
+  if (keyIsDown(68)) {
+    attackDirection = 'right';
+  } else if (keyIsDown(81)) {
+    attackDirection = 'left';
+  }
+}
+
+// Fonction pour gérer l'attaque
+function attack() {
+  isAttacking = true;
+  
+  // Sauvegarder la position x et y du héros avant l'attaque
+  let originalX = xHero;
+  
+  // Sauvegarder la largeur du héros avant l'attaque
+  let originalWidth = wHero;
+  
+  if (attackDirection === 'right') {
+    wHero *= 2; // Augmente la largeur de wHero pour une attaque vers la droite
+  } else if (attackDirection === 'left') {
+    wHero *= -2; // Inverse la largeur de wHero pour une attaque vers la gauche
+  }
+  
+  // Réinitialiser la position du héros après l'attaque
+  xHero = originalX;
+}
+
+// Fonction pour détecter les collisions entre le héros et l'ennemi pendant l'attaque
+function checkCollisionAttack() {
+  if (isAttacking) {
+    let attackX;
+
+    // Calculer la position de l'attaque en fonction de la direction
+    if (attackDirection === 'right') {
+      attackX = xHero + wHero;
+    } else if (attackDirection === 'left') {
+      // Ajuster la position de l'attaque pour une attaque à gauche
+      attackX = xHero + wHero;
+
+    }
+
+    // Vérifier si l'ennemi est touché par l'attaque
+    if (
+      attackX < xEnemy2 + wEnemy2 &&
+      attackX > xEnemy2 &&
+      attackY < yEnemy2 + hEnemy2 &&
+      attackY > yEnemy2
+    ) {
+      // L'attaque a touché l'ennemi, faire disparaître l'ennemi
+      // Remplacer cette logique par votre code pour supprimer l'ennemi
+      xEnemy2 = -1000; // Déplacer l'ennemi hors de l'écran pour le faire disparaître
+      yEnemy2 = -1000;
+    }
+  }
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -31,7 +31,7 @@ function checkGrandSageInteraction() {
   let npcGrandSageYCenter = npcGrandSageY + npcGrandSageHeight;
 
     let textWidth = 1100; 
-    let textHeight = 250; 
+    let textHeight = 250;
     let textX = (width - textWidth) / 2 ;
     let textY = height - textHeight - 20 + 50;
     
