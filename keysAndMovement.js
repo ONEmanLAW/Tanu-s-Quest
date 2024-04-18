@@ -89,10 +89,11 @@ let lastHorizontalDirection = 'right';
 function checkKeys(currentMap) {
  
   if (!gameOver) {
-    if (animation) {
-      // Désactive les contrôles de mouvement
-      return;
-    }
+    // A mettre a la fin.
+    // if (animation) {
+    //   // Désactive les contrôles de mouvement
+    //   return;
+    // }
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
@@ -108,13 +109,13 @@ function checkKeys(currentMap) {
         lastHorizontalDirection = 'left';
       }
 
-      if (keyIsDown(90)) {
-        moveTopVillage();
-      }
+      // if (keyIsDown(90)) {
+      //   moveTopVillage();
+      // }
 
-      if (keyIsDown(83)) {
-        moveBottomVillage();  
-      }
+      // if (keyIsDown(83)) {
+      //   moveBottomVillage();  
+      // }
 
       if (keyIsDown(32)) {
         jump();
