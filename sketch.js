@@ -224,6 +224,7 @@ function draw() {
         
         handleCooldown();
         //applyGravity();
+        update();
         drawHud();
         
         //detectDirection();
