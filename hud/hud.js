@@ -86,6 +86,7 @@ function displayImageWithBlink(img, x, y, w, h) {
 
 
 
+
 // let fadeOpacity = 0; // Opacité initiale pour la transition de fondu
 // let fadeDuration = 1 * 0.5; // Durée de la transition en secondes à 1 FPS
 // let displayDuration = 5 * 1; // Durée d'affichage de l'image en secondes à 1 FPS

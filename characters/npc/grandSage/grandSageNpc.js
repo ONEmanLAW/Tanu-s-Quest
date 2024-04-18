@@ -66,6 +66,9 @@ function preloadChatImage() {
   boiteDeDialogueHero = loadImage('characters/dialogueBoxe/dialogueTanu.png');
   boiteDeDialogueHeroTuto = loadImage('characters/dialogueBoxe/dialogueTanuTuto.png');
   boiteDeDialogueYeti = loadImage('characters/dialogueBoxe/dialogueYeti.png');
+
+  boiteDeDialogueGrandSageSansN = loadImage('characters/dialogueBoxe/dialogueGrandSageSansN.png');
+  boiteDeDialogueHeroSansN = loadImage('characters/dialogueBoxe/dialogueTanuSansN.png');
 }
 
 
@@ -104,11 +107,11 @@ let dialoguesIntroduction = [
   { text: "Je crois savoir qui est le responsable ...\n Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour,\n et après toutes ces années de haine refoulée il est encore plus puissant que jamais !", boxType: "GrandSage" },
   { text: "Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?", boxType: "Hero" },
   { text: "N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" },
-  { text: "Appuyez sur 'q' pour aller à gauche.", boxType: "GrandSage" },
-  { text: "Appuyez sur 'd' pour aller à droite.", boxType: "GrandSage" },
-  { text: "Appuyez sur 'space' pour sauter.", boxType: "GrandSage" },
+  { text: "Appuyez sur 'q' pour aller à gauche.", boxType: "GrandSageSansN" },
+  { text: "Appuyez sur 'd' pour aller à droite.", boxType: "GrandSageSansN" },
+  { text: "Appuyez sur 'space' pour sauter.", boxType: "GrandSageSansN" },
   { text: "Tiens! Avant de partir prends cette épée. Je te conseille de commencer ta quête par la forêt enchantée.", boxType: "GrandSage" },
-  { text: "Une fois que tu est prêt appuie sur Entrer pour commencer ton avanture.", boxType: "GrandSage" },
+  { text: "Une fois que tu est prêt appuie sur Entrer pour commencer ton avanture.", boxType: "GrandSageSansN" },
 ];
 
 let currentIntroductionIndex = 0;
@@ -128,6 +131,8 @@ function gererIntroduction() {
       boiteDeDialogue = boiteDeDialogueGrandSage;
     } else if (boxType === "Hero") {
       boiteDeDialogue = boiteDeDialogueHeroTuto;
+    } else if (boxType === "GrandSageSansN") {
+      boiteDeDialogue = boiteDeDialogueGrandSageSansN
     }
     
     fill(0);
