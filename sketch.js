@@ -175,7 +175,7 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
         image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
-        image(currentHeroVillageImage, xHero, yHero, wHero, hHero);
+        image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         drawHud();
 
@@ -224,7 +224,6 @@ function draw() {
         
         handleCooldown();
         //applyGravity();
-        update();
         drawHud();
         
         //detectDirection();
