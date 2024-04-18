@@ -85,15 +85,9 @@ function updateAnimationVillage(animationArray) {
 
 
 let lastDirection = 'down';
-let lastHorizontalDirection = 'right';
+let lastHorizontalDirection = 'left';
 function checkKeys(currentMap) {
- 
   if (!gameOver) {
-    // A mettre a la fin.
-    // if (animation) {
-    //   // Désactive les contrôles de mouvement
-    //   return;
-    // }
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
@@ -102,24 +96,15 @@ function checkKeys(currentMap) {
       if (keyIsDown(68)) {
         moveRight();
         lastHorizontalDirection = 'right';
-      }
-
-      if (keyIsDown(81)) {
+      } else if (keyIsDown(81)) {
         moveLeft();
         lastHorizontalDirection = 'left';
       }
 
-      // if (keyIsDown(90)) {
-      //   moveTopVillage();
-      // }
-
-      // if (keyIsDown(83)) {
-      //   moveBottomVillage();  
-      // }
-
       if (keyIsDown(32)) {
         jump();
       }
+
       if (!keyIsDown(68) && !keyIsDown(81)) {
         if (lastHorizontalDirection === 'right') {
           updateAnimation(myHeroIdleRight);
@@ -129,44 +114,31 @@ function checkKeys(currentMap) {
       }
     }
     
-    // Pas Besoin de le mettre car personnage est dans collsion
-    // if (animationVillage) {
-    //   // Désactive les contrôles de mouvement
-    //   return;
-    // }
-
     if (currentMap === 1) {
-
-      if (keyIsDown(90) && keyIsDown(83)) {
+      if (keyIsDown(68) && keyIsDown(81)) {
         return;
       }
 
-      if (keyIsDown(90)) {
-        moveTopVillage();
-        lastDirection = 'up';
-      }
-
-      if (keyIsDown(83)) {
-        moveBottomVillage();  
-        lastDirection = 'down';
-      }
-
-      if (keyIsDown(68) && keyIsDown(81)) {
+      if (keyIsDown(90) && keyIsDown(83)) {
         return;
       }
 
       if (keyIsDown(68)) {
         moveRightVillage();
         lastDirection = 'right';
-      }
-
-      if (keyIsDown(81)) {
+      } else if (keyIsDown(81)) {
         moveLeftVillage();
         lastDirection = 'left';
+      } else if (keyIsDown(90)) {
+        moveTopVillage();
+        lastDirection = 'up';
+      } else if (keyIsDown(83)) {
+        moveBottomVillage();
+        lastDirection = 'down';
       }
     }
-    // Lorsque la touche est relâchée, vérifiez la direction pour jouer l'animation d'idle appropriée
-    if (!keyIsDown(90) && !keyIsDown(83) && !keyIsDown(68) && !keyIsDown(81)) {
+
+    if (!keyIsDown(68) && !keyIsDown(81) && !keyIsDown(90) && !keyIsDown(83)) {
       if (lastDirection === 'up') {
         updateAnimationVillage(myHeroVillageIdleTop);
       } else if (lastDirection === 'down') {
