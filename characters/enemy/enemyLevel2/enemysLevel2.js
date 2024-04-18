@@ -1,7 +1,7 @@
 let enemy2;
 let enemy2Image;
-let xEnemy2 = 7 * worldTempleTileSize;
-let yEnemy2 = 6 * worldTempleTileSize;
+let xEnemy2 = 7 * worldForetTileSize;
+let yEnemy2 = 6 * worldForetTileSize;
 let wEnemy2 = 64; 
 let hEnemy2 = 64; 
 let speedEnemy2 = 3;
@@ -16,9 +16,9 @@ function moveEnemy2() {
     yEnemy2 += sin(angle) * speedEnemy2;
   } else {
     
-    let distanceToOrigin = dist(xEnemy2, yEnemy2, 7 * worldTempleTileSize, 6 * worldTempleTileSize);
+    let distanceToOrigin = dist(xEnemy2, yEnemy2, 7 * worldForetTileSize, 6 * worldForetTileSize);
     if (distanceToOrigin > 1) {
-      let angle = atan2(6 * worldTempleTileSize - yEnemy2, 7 * worldTempleTileSize - xEnemy2);
+      let angle = atan2(6 * worldForetTileSize - yEnemy2, 7 * worldForetTileSize - xEnemy2);
       xEnemy2 += cos(angle) * speedEnemy2;
       yEnemy2 += sin(angle) * speedEnemy2;
     }
@@ -32,7 +32,7 @@ function checkEnemy2Collision() {
   }
 }
 
-function detectPlayer() {
+function detectPlayer2() {
   
   if (dist(xHero, yHero, xEnemy2, yEnemy2) < chargeRadius) {
     charging = true;
@@ -42,7 +42,7 @@ function detectPlayer() {
 }
 
 function spawnEnemy2() {
-  enemy2 = createVector(10 * worldTempleTileSize, 3 * worldTempleTileSize);
+  enemy2 = createVector(10 * worldForetTileSize, 3 * worldForetTileSize);
 }
 
 function preloadEnemy2Images() {

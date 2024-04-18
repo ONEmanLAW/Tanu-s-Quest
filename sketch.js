@@ -56,6 +56,8 @@ function setup() {
   preloadEnemy2Images();
   spawnEnemy2();
   
+  preloadEnemy3Images();
+  spawnEnemy3();
 
   // Image Of Npc
   preloadNPCImages(); // npc.js
@@ -187,14 +189,7 @@ function draw() {
         
         checkNPCYetiInteraction();  
         
-        
-        // if (animationVillage && animationCounterVillage < 144) {
-        //   xHero += movementSpeed;
-        //   animationCounterVillage++;
-        //   updateAnimationVillage(myHeroVillageRight);
-        // } else {
-        //   animationVillage = false;
-        // };
+
         
         
       } else if (currentWorld === 2) {
@@ -203,6 +198,7 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
         image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
+        image(enemy3Image, xEnemy3, yEnemy3, wEnemy3, hEnemy3);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         // Pour voire le Collider
@@ -210,7 +206,8 @@ function draw() {
         noFill();
         rect(xHero, yHero, wHero, hHero);
         rect(xEnemy, yEnemy, wEnemy, hEnemy);
-        rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2);  
+        rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2); 
+        rect(xEnemy3, yEnemy3, wEnemy3, hEnemy3);   
           
         // For Enemy.
         moveEnemy();
@@ -218,27 +215,33 @@ function draw() {
 
         moveEnemy2();
         checkEnemy2Collision(); 
-        detectPlayer();
+        detectPlayer2();
+
+
+        moveEnemy3();
+        checkEnemy3Collision(); 
+        detectPlayer3();
+        
         handleCooldown();
         //applyGravity();
         drawHud();
         
-        detectDirection();
+        //detectDirection();
 
-        if (isAttacking) {
-          // Gérer l'attaque (animation, etc.)
-          attack(); // Appeler la fonction pour activer l'attaque
+        // if (isAttacking) {
+        //   // Gérer l'attaque (animation, etc.)
+        //   attack(); // Appeler la fonction pour activer l'attaque
           
-          // Réinitialiser la taille du héros après l'attaque
-          wHero = 80;
-          hHero = 80;
+        //   // Réinitialiser la taille du héros après l'attaque
+        //   wHero = 80;
+        //   hHero = 80;
 
-          // Vérifier les collisions après l'attaque
-          checkCollisionAttack();
+        //   // Vérifier les collisions après l'attaque
+        //   checkCollisionAttack();
           
-          // Réinitialiser l'état de l'attaque
-          isAttacking = false;
-        }
+        //   // Réinitialiser l'état de l'attaque
+        //   isAttacking = false;
+        // }
 
         
 
