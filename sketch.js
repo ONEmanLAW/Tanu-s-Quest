@@ -26,6 +26,8 @@ function setup() {
   setupTileDictionariesForet(); // worldForet.js
   setupTileDictionariesGrotte(); // worldGrotte.js
   setupTileDictionariesBoss(); // worldBoss.js
+  setupTileDictionariesVillage2(); // worldVillage2.js
+  setupTileDictionariesVillage3(); // worldVillage3.js
 
 
   // Worlds Preload
@@ -193,11 +195,6 @@ function draw() {
         // } else {
         //   animationVillage = false;
         // };
-
-        
-        stroke(255, 0, 0);
-        noFill();
-        rect(xHero, yHero, wHero, hHero); 
         
         
       } else if (currentWorld === 2) {

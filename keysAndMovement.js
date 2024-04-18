@@ -88,8 +88,11 @@ let lastDirection = 'down';
 let lastHorizontalDirection = 'right';
 function checkKeys(currentMap) {
  
-
   if (!gameOver) {
+    if (animation) {
+      // Désactive les contrôles de mouvement
+      return;
+    }
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
@@ -125,6 +128,11 @@ function checkKeys(currentMap) {
       }
     }
     
+    // Pas Besoin de le mettre car personnage est dans collsion
+    // if (animationVillage) {
+    //   // Désactive les contrôles de mouvement
+    //   return;
+    // }
 
     if (currentMap === 1) {
 
