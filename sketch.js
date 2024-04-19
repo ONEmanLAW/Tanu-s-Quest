@@ -196,35 +196,43 @@ function draw() {
         image(backgroundForetImage, 0, 0);
         updateParallaxCamera(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
-        image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
-        image(enemy3Image, xEnemy3, yEnemy3, wEnemy3, hEnemy3);
+        // image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
+        // image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
+        // image(enemy3Image, xEnemy3, yEnemy3, wEnemy3, hEnemy3);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         // Pour voire le Collider
         stroke(255, 0, 0);
         noFill();
         rect(xHero, yHero, wHero, hHero);
-        rect(xEnemy, yEnemy, wEnemy, hEnemy);
-        rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2); 
-        rect(xEnemy3, yEnemy3, wEnemy3, hEnemy3);   
+
+        // For enemy 
+
+        // rect(xEnemy, yEnemy, wEnemy, hEnemy);
+        // rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2); 
+        // rect(xEnemy3, yEnemy3, wEnemy3, hEnemy3);   
           
-        // For Enemy.
-        moveEnemy();
-        checkEnemyCollision();
+        // // For Enemy.
+        // moveEnemy();
+        // checkEnemyCollision();
 
-        moveEnemy2();
-        checkEnemy2Collision(); 
-        detectPlayer2();
+        // moveEnemy2();
+        // checkEnemy2Collision(); 
+        // detectPlayer2();
 
 
-        moveEnemy3();
-        checkEnemy3Collision(); 
-        detectPlayer3();
+        // moveEnemy3();
+        // checkEnemy3Collision(); 
+        // detectPlayer3();
         
         handleCooldown();
         //applyGravity();
+        checkHeroInFire();
         drawHud();
+
+        if(!heroInFire) {
+          image(imageFeu2, xFeu2, yFeu2, wFeu2, hFeu2);
+        }
         
         //detectDirection();
 

@@ -1,6 +1,19 @@
 let cadreVide;
 let imageEpee1;
 let imageEpee2;
+let imageFeu1;
+let imageFeu2;
+let imageEau1;
+let imageEau2;
+let imageTerre1;
+let imageTerre2;
+let imageVent1;
+let imageVent2;
+let imagePotion1;
+let imagePotion2;
+let imagePotion3;
+let imagePotion4;
+
 
 function preloadHudImages() {
   cadreVide = loadImage('hud/cadreVide.png');
@@ -26,6 +39,28 @@ function preloadHudImages() {
   
 }
 
+
+
+
+
+// Coordonnées et dimensions de l'image de feu
+let xFeu2 = 7 * worldForetTileSize;
+let yFeu2 = 9 * worldForetTileSize;
+let wFeu2 = 80;
+let hFeu2 = 80
+let heroInFire = false;
+
+function checkHeroInFire() {
+  if (!heroInFire) {
+    if (xHero + wHero > xFeu2 &&
+        xHero < xFeu2 + wFeu2 &&
+        yHero + hHero > yFeu2 &&
+        yHero < yFeu2 + hFeu2) {
+      heroInFire = true;
+    }
+  }
+}
+
 function drawHud() {
   push(); 
   translate(cameraX, cameraY);
@@ -34,7 +69,16 @@ function drawHud() {
   image(imageEpee2, 44, 791, 100, 100);
   image(imagePotion1, 125, 840, 75, 75);
   image(imageTerre1, 225, 840, 65, 65);
-  image(imageFeu1, 325, 840, 65, 65);
+  
+  // Vérifier si l'hero image est dans imageFeu2
+  if (!heroInFire) {
+    // Afficher imageFeu1 si l'hero image n'est pas dans imageFeu2
+    image(imageFeu1, 325, 840, 65, 65);
+  } else {
+    // Afficher imageFeu2 si l'hero image est dans imageFeu2
+    displayImageWithBlinkUniversal(imageFeu2, 325, 840, 65, 65);
+  }
+
   image(imageVent1, 425, 840, 65, 65);
   image(imageEau1, 525, 840, 65, 65);
 
@@ -84,6 +128,54 @@ function displayImageWithBlink(img, x, y, w, h) {
 
 
 
+// Fonction pour gérer l'affichage et le clignotement d'une image spécifique
+function displayImageWithBlinkUniversal(img, x, y, w, h) {
+  // Commence le clignotement de l'image
+  // Si c'est la première frame depuis que l'image a commencé à clignoter, note le temps actuel
+  if (timeStartedBlinking === 0) {
+    timeStartedBlinking = millis(); // Note le temps actuel
+  }
+
+  // Calcule le temps écoulé depuis que l'image a commencé à clignoter
+  let elapsedTime = millis() - timeStartedBlinking;
+
+  // Si le temps écoulé est inférieur à la durée de clignotement
+  if (elapsedTime < blinkingDuration) {
+    // Alterne entre afficher et masquer l'image toutes les 500 millisecondes
+    if (floor(elapsedTime / 500) % 2 === 0) { // Alterne toutes les 500 ms
+      // Affiche l'image
+      image(img, x, y, w, h);
+    }
+  } else {
+    // Si la durée de clignotement est écoulée, affiche normalement l'image
+    image(img, x, y, w, h);
+  }
+}
+
+
+
+let displayDuration = 5 * 60;
+let displayTimer = 0; 
+let imageVisible = false; 
+let imageDisplayed = false; 
+
+function gestionTransitionImage() {
+  if (!imageVisible && !imageDisplayed) { 
+    if (!introDialogActive && !animation) { 
+      imageVisible = true; 
+      imageDisplayed = true; 
+      displayTimer = 0; 
+    }
+  } else if (imageVisible) { 
+    if (displayTimer < displayDuration) { 
+      image(imageEpee2, 500, 500, 100, 100); 
+      displayTimer++; 
+    } else {
+      imageVisible = false; 
+    }
+  }
+}
+
 
 
 
@@ -123,27 +215,3 @@ function displayImageWithBlink(img, x, y, w, h) {
 //     }
 //   }
 // }
-
-let displayDuration = 5 * 60;
-let displayTimer = 0; 
-let imageVisible = false; 
-let imageDisplayed = false; 
-
-function gestionTransitionImage() {
-  if (!imageVisible && !imageDisplayed) { 
-    if (!introDialogActive && !animation) { 
-      imageVisible = true; 
-      imageDisplayed = true; 
-      displayTimer = 0; 
-    }
-  } else if (imageVisible) { 
-    if (displayTimer < displayDuration) { 
-      image(imageEpee2, 500, 500, 100, 100); 
-      displayTimer++; 
-    } else {
-      imageVisible = false; 
-    }
-  }
-}
-
-
