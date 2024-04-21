@@ -53,8 +53,6 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
 
 
 
-
-
 function changeWorldIfNeeded() {
   if (checkWorldChange(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     currentWorld = (currentWorld) % worlds.length;
