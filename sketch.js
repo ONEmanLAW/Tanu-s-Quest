@@ -8,6 +8,8 @@ setupWorldVariables(); // setup.js
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
+
+// For Canavas.
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -16,6 +18,8 @@ function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
 
+  
+  // For Intro.
   mainMenuButtons();
   introImages();
 
@@ -38,12 +42,12 @@ function setup() {
   preloadBackgroundImages(); // backgroundImages.js
   
 
-
   // Animation Hero.
   preloadHeroImages(); // hero.js
   preloadHeroVillageImages(); // hero.js
 
-  preloadYetiImages();
+  // Animation Yeti.
+  preloadYetiImages(); // yetiNpc.js
   // Hearts Hero.
   preloadHeartImage(); // hero.js
 
@@ -51,35 +55,26 @@ function setup() {
   // Image Of Enemy.
   preloadEnemyImages(); // enemy.js
   // Positions Initial Of Enemy And Patrole.
-  spawnEnemyAndPatrol();
+  spawnEnemyAndPatrol(); // enemy.js
 
-  preloadEnemy2Images();
-  spawnEnemy2();
+  preloadEnemy2Images(); // enemy2.js
+  spawnEnemy2(); // enemy2.js
   
-  preloadEnemy3Images();
-  spawnEnemy3();
+  preloadEnemy3Images(); // enemy3.js
+  spawnEnemy3(); // enemy3.js
 
   // Image Of Npc
-  preloadNPCImages(); // npc.js
-  preloadChatImage();
+  preloadNPCImages(); // grandSageNpc.js
+  preloadChatImage(); //grandSageNpc.js
 
 
-  preloadHudImages();
+  preloadHudImages(); // hud.js
 };
-
-
-
-
-
-
-
 
 
 /////////////////////////////////////////////
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
-
-
 
 function draw() {
   if (!gameStart) {
@@ -103,72 +98,46 @@ function draw() {
     // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
       if (currentWorld === 0) {
-      updateNormalCamera(1824, 1056);
-      image(backgroundTutoImage, 0, 0);
-      drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-      drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
-      
-      // To Spawn NPC
-      image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
-      image(currentHeroImage, xHero, yHero, wHero, hHero);
-      
-
-      // Pour voire le Collider
-      stroke(255, 0, 0);
-      noFill();
-      rect(xHero, yHero, wHero, hHero); 
-      
-      
-      // Automatic Movement At Start.
-      // One Tile = 16.
-      if (animation && animationCounter < 144) {
-        xHero -= movementSpeed;
-        animationCounter++;
-        updateAnimation(myHeroLeft);
-      } else {
-        animation = false;
-      };
-
-      if(!introDialogActive && !animation) {
-        introDialogActive = true;
-      } else if(introDialogActive) {
-        gererIntroduction();
-      }
-
-      if (currentIntroductionIndex >= dialoguesIntroduction.length) {
-        introDialogActive = false;
-      }
-      gestionTransitionImage();
-
-      if(!introDialogActive && !animation) {
-        checkGrandSageInteraction();
-      }
-     
-      
-     
-
-    
-      
-
-      
-      
-
-
-      // if (checkNPCInteraction()) {  
-      //   fill(0);
-
-      //   image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
-      //   textSize(20);
-      //   textAlign(CENTER, CENTER);
-      //   fill(255);
-      //   text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2, textY + textHeight / 2);
-
-      //   textSize(16);
-      //   fill(255);
-      //   text("Appuyez sur 'N' pour passer au prochain texte", width / 2 + cameraX, height - 80 + cameraY);
+        updateNormalCamera(1824, 1056);
+        image(backgroundTutoImage, 0, 0);
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
         
-      // }; 
-    
+        // To Spawn NPC
+        image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        
+
+        // Pour voire le Collider
+        stroke(255, 0, 0);
+        noFill();
+        rect(xHero, yHero, wHero, hHero); 
+        
+        
+        // Automatic Movement At Start.
+        // One Tile = 16.
+        if (animation && animationCounter < 144) {
+          xHero -= movementSpeed;
+          animationCounter++;
+          updateAnimation(myHeroLeft);
+        } else {
+          animation = false;
+        };
+
+        if(!introDialogActive && !animation) {
+          introDialogActive = true;
+        } else if(introDialogActive) {
+          gererIntroduction();
+        }
+
+        if (currentIntroductionIndex >= dialoguesIntroduction.length) {
+          introDialogActive = false;
+        }
+        gestionTransitionImage();
+
+        if(!introDialogActive && !animation) {
+          checkGrandSageInteraction();
+        }
 
       } else if (currentWorld === 1) {
         updateNormalCamera(4704, 2688);
@@ -251,7 +220,6 @@ function draw() {
         //   isAttacking = false;
         // }
 
-        
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
@@ -268,7 +236,7 @@ function draw() {
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
       }  
-      drawHearts();
+
     } else {
       textSize(32);
       fill(255,0 ,0);

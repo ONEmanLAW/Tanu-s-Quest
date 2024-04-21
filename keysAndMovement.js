@@ -1,63 +1,52 @@
-/////////////////////////////////////////////
-///////////FUNCTION KEYSBINDS////////////////
-/////////////////////////////////////////////
 let path = 7;
+let lastDirection = 'down';
+let lastHorizontalDirection = 'left';
 
 function moveLeft() {
   xHero -= heroSpeed;
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
-    xHero += path;
-  }
-  // HERO left Animation.
+  handleCollision();
   updateAnimation(myHeroLeft);
 }
 
 function moveRight() {
   xHero += heroSpeed;
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
-    xHero -= path;
-  }
-  // HERO Right Animation.
+  handleCollision();
   updateAnimation(myHeroRight);
 }
 
-
-
 function moveTopVillage() {
   yHero -= heroSpeed;
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
-    yHero += path;
-  }
+  handleCollision();
   updateAnimationVillage(myHeroVillageTop);
 }
 
 function moveBottomVillage() {
   yHero += heroSpeed;
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes  [currentWorld])) {
-    yHero -= path;
-  }
+  handleCollision();
   updateAnimationVillage(myHeroVillageBottom);
 }
 
 function moveLeftVillage() {
   xHero -= heroSpeed;
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
-    xHero += path;
-  }
-  // HERO left Animation.
+  handleCollision();
   updateAnimationVillage(myHeroVillageLeft);
 }
 
 function moveRightVillage() {
   xHero += heroSpeed;
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
-    xHero -= path;
-  }
-  // HERO Right Animation.
+  handleCollision();
   updateAnimationVillage(myHeroVillageRight);
 }
 
-
+function handleCollision() {
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
+    if (lastDirection === 'left' || lastDirection === 'right') {
+      xHero += (lastDirection === 'left') ? path : -path;
+    } else {
+      yHero += (lastDirection === 'up') ? path : -path;
+    }
+  }
+}
 
 function updateAnimation(animationArray) {
   movementCounter += 1;
@@ -83,16 +72,9 @@ function updateAnimationVillage(animationArray) {
   }
 }
 
-
-let lastDirection = 'down';
-let lastHorizontalDirection = 'left';
 function checkKeys(currentMap) {
   if (!gameOver) {
-    if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
-      if (keyIsDown(68) && keyIsDown(81)) {
-        return;
-      }
-
+    if ((currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) && (keyIsDown(68) || keyIsDown(81))) {
       if (keyIsDown(68)) {
         moveRight();
         lastHorizontalDirection = 'right';
@@ -100,29 +82,7 @@ function checkKeys(currentMap) {
         moveLeft();
         lastHorizontalDirection = 'left';
       }
-
-      if (keyIsDown(32)) {
-        jump();
-      }
-
-      if (!keyIsDown(68) && !keyIsDown(81)) {
-        if (lastHorizontalDirection === 'right') {
-          updateAnimation(myHeroIdleRight);
-        } else if (lastHorizontalDirection === 'left') {
-          updateAnimation(myHeroIdleLeft);
-        }
-      }
-    }
-    
-    if (currentMap === 1) {
-      if (keyIsDown(68) && keyIsDown(81)) {
-        return;
-      }
-
-      if (keyIsDown(90) && keyIsDown(83)) {
-        return;
-      }
-
+    } else if (currentMap === 1 && (keyIsDown(68) || keyIsDown(81) || keyIsDown(90) || keyIsDown(83))) {
       if (keyIsDown(68)) {
         moveRightVillage();
         lastDirection = 'right';
@@ -152,31 +112,22 @@ function checkKeys(currentMap) {
   }
 }
 
-
-
-let initialX = 2 * worldTempleTileSize;
-let initialY = 6 * worldTempleTileSize;
-
 function keyPressed() {
-  if(!introDialogActive && !animation) {
-    if (key === 'n' || key === 'N') {
-      if (checkGrandSageInteraction()) {
-        currentDialogueGrandSageIndex++;
-        if (currentDialogueGrandSageIndex >= dialoguesGrandSage.length) {
-          currentDialogueGrandSageIndex = dialoguesGrandSage.length - 1;
-        }
-      };
-    };
-  }
- 
-  if (key === 'n' || key === 'N') {
-    if (checkNPCYetiInteraction()) {
-      currentDialogueYetiIndex++;
-      if (currentDialogueYetiIndex >= dialoguesYeti.length) {
-        currentDialogueYetiIndex = dialoguesYeti.length - 1;
+  if (!introDialogActive && !animation) {
+    if ((key === 'n' || key === 'N') && checkGrandSageInteraction()) {
+      currentDialogueGrandSageIndex++;
+      if (currentDialogueGrandSageIndex >= dialoguesGrandSage.length) {
+        currentDialogueGrandSageIndex = dialoguesGrandSage.length - 1;
       }
     }
-};
+  }
+
+  if ((key === 'n' || key === 'N') && checkNPCYetiInteraction()) {
+    currentDialogueYetiIndex++;
+    if (currentDialogueYetiIndex >= dialoguesYeti.length) {
+      currentDialogueYetiIndex = dialoguesYeti.length - 1;
+    }
+  }
 
   if (key === 'h' && !gameOver) {
     loseHeart();
@@ -187,15 +138,11 @@ function keyPressed() {
     yHero = initialY;
   }
 
-    if (currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
-      if (key === 'e') {
-        attack();
-      }
+  if (currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
+    if (key === 'e') {
+      attack();
     }
-    
-
-  
-
+  }
 
   if (gameStart) {
     if (keyCode === RIGHT_ARROW) {
@@ -203,46 +150,26 @@ function keyPressed() {
       if (currentImageIndex >= images.length) {
         introImagesEnd = true;
       }
-    } else if (keyCode === LEFT_ARROW) {
-      if (currentImageIndex > 0) {
-        currentImageIndex--;
-      }
+    } else if (keyCode === LEFT_ARROW && currentImageIndex > 0) {
+      currentImageIndex--;
     }
   }
 
-
-  // Intro Tuto.
   if (keyCode === 78 && currentIntroductionIndex >= 5 && currentIntroductionIndex <= 7) {
-    return; // Désactiver la touche 'n' à partir de l'index 5 jusqu'à l'index 7 inclusivement
+    return;
   }
-  
-  if (keyCode === 78) { 
-    if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length - 1) {
+
+  if (keyCode === 78 && introDialogActive) {
+    if (currentIntroductionIndex < dialoguesIntroduction.length - 1) {
       currentIntroductionIndex++;
-    } else if (introDialogActive && currentIntroductionIndex === dialoguesIntroduction.length - 1) {
+    } else {
       introDialogActive = false;
     }
   }
-  
-  if (introDialogActive) {
-    if (currentIntroductionIndex === 5) {
-      if (keyCode === 81) { // Appuie sur 'q' pour aller à gauche
-        currentIntroductionIndex++;
-      }
-    } else if (currentIntroductionIndex === 6) {
-      if (keyCode === 68) { // Appuie sur 'd' pour aller à droite
-        currentIntroductionIndex++;
-      }
-    } else if (currentIntroductionIndex === 7) {
-      if (keyCode === 32) { // Appuie sur 'espace' pour sauter
-        currentIntroductionIndex++;
-      }
-    } else if (currentIntroductionIndex === 9) {
-      if (keyCode === 13) { // Appuie sur 'espace' pour sauter
-        currentIntroductionIndex++;
-      }
+
+  if (introDialogActive && (currentIntroductionIndex === 5 || currentIntroductionIndex === 6 || currentIntroductionIndex === 7 || currentIntroductionIndex === 9)) {
+    if ((currentIntroductionIndex === 5 && keyCode === 81) || (currentIntroductionIndex === 6 && keyCode === 68) || (currentIntroductionIndex === 7 && keyCode === 32) || (currentIntroductionIndex === 9 && keyCode === 13)) {
+      currentIntroductionIndex++;
     }
   }
-};
-
-
+}

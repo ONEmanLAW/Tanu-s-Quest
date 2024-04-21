@@ -36,8 +36,7 @@ function preloadHudImages() {
   imagevillageoisSauvés = loadImage('hud/villageoisSauvés.png');
 
   imageEcorce = loadImage('hud/imageEcorce.png');
-  
-}
+};
 
 
 
@@ -59,7 +58,8 @@ function checkHeroInFire() {
       heroInFire = true;
     }
   }
-}
+};
+
 
 function drawHud() {
   push(); 
@@ -82,12 +82,12 @@ function drawHud() {
   image(imageVent1, 425, 840, 65, 65);
   image(imageEau1, 525, 840, 65, 65);
 
-  image(imageGrenouille, 1750, 30, 110, 110);
-  image(imagevillageoisSauvés, 1500, 30, 200, 100);
+  image(imageGrenouille, 1650, 30, 110, 110);
+  image(imagevillageoisSauvés, 1400, 30, 200, 100);
 
   // Si la conversation avec le Yeti est terminée
   if (conversationYetiFinished) {
-    displayImageWithBlink(imageEcorce, 1750, 200, 100, 100);
+    displayImageWithBlink(imageEcorce, 1650, 200, 100, 100);
   } 
   
   pop();
