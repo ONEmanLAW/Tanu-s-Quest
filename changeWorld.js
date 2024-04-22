@@ -26,30 +26,35 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
           xHero = 40 * worldsTileSizes[currentWorld]; 
           yHero = 15 * worldsTileSizes[currentWorld];
         }
+        setupTileDictionariesVillage(); // Charge les ressources du monde du village
         return true;
       } else if (currentTileValue === 302  && pointIsInRect(xHero, yHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers la forêt
         currentWorld = 2;
         xHero = 2 * worldsTileSizes[currentWorld];
         yHero = 9 * worldsTileSizes[currentWorld];
+        setupTileDictionariesForet(); // Charge les ressources du monde de la forêt
         return true;
       } else if (currentTileValue === 303 && pointIsInRect(xHero, yHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers la grotte
         currentWorld = 3;
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 9 * worldsTileSizes[currentWorld];
+        setupTileDictionariesGrotte(); // Charge les ressources du monde de la grotte
         return true;
       } else if (currentTileValue === 304 && pointIsInRect(xHero, yHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers le boss
         currentWorld = 4;
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 8 * worldsTileSizes[currentWorld];
+        setupTileDictionariesBoss(); // Charge les ressources du monde du boss
         return true;
       } 
     }
   }
   return false;
-};
+}
+
 
 
 

@@ -14,14 +14,18 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+function preload() {
+  // For Intro.
+  mainMenuButtons();
+  introImages();
+}
+
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
 
   
-  // For Intro.
-  mainMenuButtons();
-  introImages();
+  
 
 
   // Tiles Dictionaries.
@@ -30,8 +34,8 @@ function setup() {
   setupTileDictionariesForet(); // worldForet.js
   setupTileDictionariesGrotte(); // worldGrotte.js
   setupTileDictionariesBoss(); // worldBoss.js
-  setupTileDictionariesVillage2(); // worldVillage2.js
-  setupTileDictionariesVillage3(); // worldVillage3.js
+  // setupTileDictionariesVillage2(); // worldVillage2.js
+  // setupTileDictionariesVillage3(); // worldVillage3.js
 
 
   // Worlds Preload
