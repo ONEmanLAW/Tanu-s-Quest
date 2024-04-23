@@ -95,7 +95,7 @@ function draw() {
     // Function For The Game.
     checkKeys(currentWorld);
     changeWorldIfNeeded();
-    drawHearts();
+    
     
     
 
@@ -151,6 +151,7 @@ function draw() {
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         drawHud();
+        drawHearts();
 
         if (animationVillage && animationCounterVillage < 133) {
           xHero += movementSpeedVillage;
@@ -202,6 +203,7 @@ function draw() {
         //applyGravity();
         checkHeroInFire();
         drawHud();
+        drawHearts();
 
         if(!heroInFire) {
           image(imageFeu2, xFeu2, yFeu2, wFeu2, hFeu2);

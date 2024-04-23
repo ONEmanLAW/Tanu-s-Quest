@@ -112,7 +112,7 @@ function checkKeys(currentMap) {
       }
     }
     
-    if (currentMap === 1) {
+    if (currentMap === 1 || currentMap === 2 || currentMap === 3) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
       }

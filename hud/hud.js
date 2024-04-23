@@ -13,6 +13,7 @@ let imagePotion1;
 let imagePotion2;
 let imagePotion3;
 let imagePotion4;
+let imagecadreHeart;
 
 
 function preloadHudImages() {
@@ -32,10 +33,12 @@ function preloadHudImages() {
   imagePotion3 = loadImage('hud/imagePotion3.png');
   imagePotion4 = loadImage('hud/imagePotion4.png');
 
+
   imageGrenouille = loadImage('hud/Grenouille.png');
   imagevillageoisSauvés = loadImage('hud/villageoisSauvés.png');
 
   imageEcorce = loadImage('hud/imageEcorce.png');
+  imageCadreHeart = loadImage('hud/cadreHeart.png');
 };
 
 
@@ -65,22 +68,24 @@ function drawHud() {
   push(); 
   translate(cameraX, cameraY);
 
-  image(cadreVide, 30, 780, 600, 150);
-  image(imageEpee2, 44, 791, 100, 100);
-  image(imagePotion1, 125, 840, 75, 75);
-  image(imageTerre1, 225, 840, 65, 65);
+  image(imageCadreHeart, 5, 5, 350, 125);
+
+  image(cadreVide, 30, 850, 600, 150);
+  image(imageEpee2, 44, 861, 100, 100);
+  image(imagePotion1, 160, 915, 75, 75);
+  image(imageTerre1, 250, 915, 65, 65);
   
   // Vérifier si l'hero image est dans imageFeu2
   if (!heroInFire) {
     // Afficher imageFeu1 si l'hero image n'est pas dans imageFeu2
-    image(imageFeu1, 325, 840, 65, 65);
+    image(imageFeu1, 340, 915, 65, 65);
   } else {
     // Afficher imageFeu2 si l'hero image est dans imageFeu2
-    displayImageWithBlinkUniversal(imageFeu2, 325, 840, 65, 65);
+    displayImageWithBlinkUniversal(imageFeu2, 340, 915, 65, 65);
   }
 
-  image(imageVent1, 425, 840, 65, 65);
-  image(imageEau1, 525, 840, 65, 65);
+  image(imageVent1, 430, 915, 65, 65);
+  image(imageEau1, 520, 915, 65, 65);
 
   image(imageGrenouille, 1650, 30, 110, 110);
   image(imagevillageoisSauvés, 1400, 30, 200, 100);

@@ -77,11 +77,11 @@ function loseHeart() {
 let cameraX = 0;
 let cameraY = 0;
 function drawHearts() {
-  const heartWidth = 80;
-  const heartHeight = 80;
-  const spacing = 10;
-  const marginX = 20;
-  const marginY = 20;
+  const heartWidth = 75;
+  const heartHeight = 75;
+  const spacing = 30;
+  const marginX = 30;
+  const marginY = 25;
 
   // Déterminer la position absolue des cœurs en tenant compte de la caméra
   let absoluteMarginX = marginX + cameraX;
