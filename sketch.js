@@ -102,7 +102,7 @@ function draw() {
     // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
       if (currentWorld === 0) {
-        updateNormalCamera(1824, 1056);
+        updateNormalCamera(1800, 1056);
         image(backgroundTutoImage, 0, 0);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
@@ -142,6 +142,8 @@ function draw() {
         if(!introDialogActive && !animation) {
           checkGrandSageInteraction();
         }
+        
+        drawHudTemple ();
 
       } else if (currentWorld === 1) {
         updateNormalCamera(4704, 2688);

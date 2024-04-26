@@ -50,78 +50,7 @@ let animationVillage = true;
 let movementSpeedVillage = worldVillageTileSize / 16
 
 
-// Life of Hero.
-let hearts = 3;
-let heartImage;
-let gameOver = false;
 
-
-//// Hearts
-
-function preloadHeartImage() {
-  heartImage = loadImage('assets/Images/heart.png');
-}
-
-function loseHeart() {
-  if (hearts > 0 && !heroInvincible) { 
-    hearts--;
-    if (hearts === 0) {
-      gameOver = true; 
-    } else {
-      activateCooldown();
-    }
-  }
-};
-
-
-let cameraX = 0;
-let cameraY = 0;
-function drawHearts() {
-  const heartWidth = 75;
-  const heartHeight = 75;
-  const spacing = 30;
-  const marginX = 30;
-  const marginY = 25;
-
-  // Déterminer la position absolue des cœurs en tenant compte de la caméra
-  let absoluteMarginX = marginX + cameraX;
-  let absoluteMarginY = marginY + cameraY;
-
-  for (let i = 0; i < hearts; i++) {
-    let x = absoluteMarginX + i * (heartWidth + spacing);
-
-    // Dessiner l'image du cœur
-    image(heartImage, x, absoluteMarginY, heartWidth, heartHeight);
-  }
-}
-
-let heroInvincible = false;
-let cooldownTimer = 0;
-const cooldownDuration = 1500;
-
-
-function activateCooldown() {
-  heroInvincible = true; 
-  cooldownTimer = millis();
-};
-
-
-function handleCooldown() {
-  // Vérifier si le cooldown est actif
-  if (heroInvincible) {
-    // Calculer le temps écoulé depuis le début du cooldown
-    let elapsedTime = millis() - cooldownTimer;
-    // Vérifier si le temps écoulé dépasse la durée du cooldown
-    if (elapsedTime >= cooldownDuration) {
-      // Désactiver le cooldown
-      resetCooldown();
-    }
-  }
-};
-
-function resetCooldown() {
-  heroInvincible = false; // Désactiver l'invincibilité du héros
-};
 
 
 
