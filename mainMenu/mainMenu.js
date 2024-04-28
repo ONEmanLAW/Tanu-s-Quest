@@ -14,6 +14,10 @@ function mainMenuButtons() {
 
   backgroundSettingsImage = loadImage('mainMenu/images/grosBlocParamètres.png');
   exitButtonParam = loadImage('mainMenu/images/blocQuitterParamètres.png');
+
+  //Music de fond pour le Mainmenu
+
+  musiqueFond = loadSound('mainMenu/music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav');
 };
 
 
@@ -36,13 +40,15 @@ function mouseClicked() {
     // Clic sur le bouton "Jouer"
     if (!gameStart && isClicked(600, 200, 600, 200)) {
       gameStart = true;
+      musiqueFond.stop();
     } 
     // Clic sur le bouton "Paramètres"
     else if (isClicked(600, 400, 600, 200)) {
-      scene = 'parametre'; // Passer à la page des paramètres
+      scene = 'parametre';
     } 
     // Clic sur le bouton "Quitter"
     else if (isClicked(600, 600, 600, 200)) {
+      musiqueFond.stop();
       // Fermer le navigateur
       window.close();
     }

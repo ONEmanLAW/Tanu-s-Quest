@@ -23,6 +23,7 @@ function preload() {
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
+  musiqueFond.loop();
 
   
   
