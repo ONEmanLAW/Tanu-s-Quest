@@ -109,6 +109,7 @@ function draw() {
         
         // To Spawn NPC
         image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
+        image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
 

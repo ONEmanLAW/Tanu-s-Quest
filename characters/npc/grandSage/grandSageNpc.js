@@ -56,7 +56,7 @@ function checkGrandSageInteraction() {
 
 function preloadNPCImages() {
   npcGrandSageImage = loadImage('characters/npc/grandSage/sage_test.png');
-  //npcYetiImage = loadImage('characters/npc/yeti/yeti_animation_idle1.png');
+  mannequinImage = loadImage('characters/npc/mannequinTuto/mannequinTuto.png');
 }
 
 
@@ -143,7 +143,4 @@ function gererIntroduction() {
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
   }
 }
-
-
-
 
