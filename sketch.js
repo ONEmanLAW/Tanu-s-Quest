@@ -99,8 +99,8 @@ function draw() {
     changeWorldIfNeeded();
     
     
-    
 
+    
     // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
       if (currentWorld === 0) {
@@ -173,7 +173,7 @@ function draw() {
         
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
-        updateParallaxCamera(16000, 1120);
+        updateParallaxCameraForet(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         // image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
         // image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
@@ -237,7 +237,7 @@ function draw() {
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
-        updateNormalCamera(16000, 1120);
+        updateParallaxCameraGrotte(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);

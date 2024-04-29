@@ -38,8 +38,8 @@ function updateNormalCamera(worldWidth, worldHeight) {
 
 
 
-// Camera avec le parallaxe, pour les monde vu e horizontal.
-function updateParallaxCamera(worldWidth, worldHeight) {
+// Fonction générique pour mettre à jour la caméra avec parallaxe
+function updateParallaxCamera(worldWidth, worldHeight, backgroundImg) {
   if (!gameOver) {
     let targetCameraX = xHero - width / 2 + wHero / 2; 
     let targetCameraY = yHero - height / 2 + hHero / 2; 
@@ -61,13 +61,25 @@ function updateParallaxCamera(worldWidth, worldHeight) {
     prevCameraX = cameraX;
     prevCameraY = cameraY;
 
-    // Dessine les fonds avec déplacement parallaxe
-    image(backgroundForetImage, -cameraX * 0.2, 0, worldWidth, worldHeight); // Parallaxe à 20% de la vitesse de la caméra
+    // Dessine le fond avec déplacement parallaxe
+    image(backgroundImg, -cameraX * 0.2, 0, worldWidth, worldHeight); // Parallaxe à 20% de la vitesse de la caméra
 
     // Dessine le personnage et les autres éléments de jeu sans déplacement parallaxe
     translate(-cameraX + parallaxOffsetX, -cameraY); // Ajoute le déplacement parallaxe à la translation horizontale
   }
 }
+
+// Appel de la fonction pour la forêt
+function updateParallaxCameraForet(worldWidth, worldHeight) {
+  updateParallaxCamera(worldWidth, worldHeight, backgroundForetImage);
+}
+
+// Appel de la fonction pour la grotte
+function updateParallaxCameraGrotte(worldWidth, worldHeight) {
+  updateParallaxCamera(worldWidth, worldHeight, backgroundGrotteImage);
+}
+
+
 
 
 
