@@ -107,59 +107,47 @@ function drawHudTemple () {
 
 
 
-let timeStartedBlinking = 0; // Variable pour stocker le temps auquel l'image a commencé à clignoter
-let blinkingDuration = 5000; // Durée du clignotement en millisecondes (5 secondes)
+let timeStartedBlinking = 0; 
+let blinkingDuration = 5000; 
+let blinkingImages = {};
 
-// Fonction pour gérer l'affichage et le clignotement de l'image
+
 function displayImageWithBlink(img, x, y, w, h) {
   if (conversationYetiFinished) {
-    // Si la conversation avec le Yeti est terminée, commence le clignotement de l'image
-    // Si c'est la première frame depuis que l'image a commencé à clignoter, note le temps actuel
     if (timeStartedBlinking === 0) {
-      timeStartedBlinking = millis(); // Note le temps actuel
+      timeStartedBlinking = millis(); 
     }
 
-    // Calcule le temps écoulé depuis que l'image a commencé à clignoter
     let elapsedTime = millis() - timeStartedBlinking;
 
-    // Si le temps écoulé est inférieur à la durée de clignotement
     if (elapsedTime < blinkingDuration) {
-      // Alterne entre afficher et masquer l'image toutes les 500 millisecondes
-      if (floor(elapsedTime / 500) % 2 === 0) { // Alterne toutes les 500 ms
-        // Affiche l'image
+      if (floor(elapsedTime / 500) % 2 === 0) {
         image(img, x, y, w, h);
       }
     } else {
-      // Si la durée de clignotement est écoulée, affiche normalement l'image
       image(img, x, y, w, h);
     }
   } else {
-    // Si la conversation avec le Yeti n'est pas terminée, n'affiche pas l'image
+    
   }
 }
 
 
 
-// Fonction pour gérer l'affichage et le clignotement d'une image spécifique
 function displayImageWithBlinkUniversal(img, x, y, w, h) {
-  // Commence le clignotement de l'image
-  // Si c'est la première frame depuis que l'image a commencé à clignoter, note le temps actuel
-  if (timeStartedBlinking === 0) {
-    timeStartedBlinking = millis(); // Note le temps actuel
+  if (!blinkingImages[img]) {
+    blinkingImages[img] = {
+      timeStartedBlinking: millis(),
+      blinkingDuration: 5000 
+    };
   }
-
-  // Calcule le temps écoulé depuis que l'image a commencé à clignoter
+  let {timeStartedBlinking, blinkingDuration} = blinkingImages[img];
   let elapsedTime = millis() - timeStartedBlinking;
-
-  // Si le temps écoulé est inférieur à la durée de clignotement
   if (elapsedTime < blinkingDuration) {
-    // Alterne entre afficher et masquer l'image toutes les 500 millisecondes
-    if (floor(elapsedTime / 500) % 2 === 0) { // Alterne toutes les 500 ms
-      // Affiche l'image
+    if (floor(elapsedTime / 500) % 2 === 0) { 
       image(img, x, y, w, h);
     }
   } else {
-    // Si la durée de clignotement est écoulée, affiche normalement l'image
     image(img, x, y, w, h);
   }
 }

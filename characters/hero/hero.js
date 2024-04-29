@@ -421,7 +421,7 @@ function jump() {
   }
 }
 
-function applyGravity() {
+function applyGravityTemple() {
   if (isJumping || yHero <= 7 * worldTempleTileSize) {
     yVelocity += gravity;
     yHero += yVelocity;

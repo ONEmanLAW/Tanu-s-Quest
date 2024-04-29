@@ -106,16 +106,13 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
         
-        // To Spawn NPC
+        // Spawn NPC.
         image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
         image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
-        image(currentHeroImage, xHero, yHero, wHero, hHero);
-        
 
-        // Pour voire le Collider
-        stroke(255, 0, 0);
-        noFill();
-        rect(xHero, yHero, wHero, hHero); 
+        // Spawn Hero.
+        image(currentHeroImage, xHero, yHero, wHero, hHero);
+
         
         
         // Automatic Movement At Start.
@@ -144,6 +141,7 @@ function draw() {
         }
         
         drawHudTemple ();
+        applyGravityTemple();
 
       } else if (currentWorld === 1) {
         updateNormalCamera(4704, 2688);
@@ -193,7 +191,6 @@ function draw() {
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
         
         handleCooldown();
-        //applyGravity();
         checkHeroInFire();
         drawHud();
         drawHearts();
