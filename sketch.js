@@ -81,7 +81,6 @@ function setup() {
 /////////////////////////////////////////////
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
-
 function draw() {
   if (!gameStart) {
     if (scene === 'menu') {
@@ -181,9 +180,9 @@ function draw() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
         // Pour voire le Collider
-        stroke(255, 0, 0);
-        noFill();
-        rect(xHero, yHero, wHero, hHero);
+        // stroke(255, 0, 0);
+        // noFill();
+        // rect(xHero, yHero, wHero, hHero);
 
         // For enemy 
 
@@ -213,9 +212,16 @@ function draw() {
         if(!heroInFire) {
           image(imageFeu2, xFeu2, yFeu2, wFeu2, hFeu2);
         }
+        
+        if (cageVisible) {
+          // Dessiner la cage si elle est visible
+          image(cageImage, cageX, cageY, cageWidth, cageHeight);
+        }
 
-        image(cageImage, cageX, cageY, cageWidth, cageHeight);
         checkCageInteraction();
+
+        
+        checkForestNpcSaved();
         
         //detectDirection();
 

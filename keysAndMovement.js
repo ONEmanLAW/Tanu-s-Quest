@@ -8,7 +8,7 @@ function moveLeft() {
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     xHero += path;
   }
-  // HERO left Animation.
+  // HERO Left Animation.
   updateAnimation(myHeroLeft);
 }
 
@@ -27,6 +27,7 @@ function moveTopVillage() {
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     yHero += path;
   }
+  // HERO Top Village Animation
   updateAnimationVillage(myHeroVillageTop);
 }
 
@@ -35,6 +36,7 @@ function moveBottomVillage() {
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes  [currentWorld])) {
     yHero -= path;
   }
+  // HERO Bottom Village Animation
   updateAnimationVillage(myHeroVillageBottom);
 }
 
@@ -43,7 +45,7 @@ function moveLeftVillage() {
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     xHero += path;
   }
-  // HERO left Animation.
+  // HERO Left Village Animation.
   updateAnimationVillage(myHeroVillageLeft);
 }
 
@@ -52,10 +54,14 @@ function moveRightVillage() {
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
     xHero -= path;
   }
-  // HERO Right Animation.
+  // HERO Right Village Animation.
   updateAnimationVillage(myHeroVillageRight);
 }
 
+
+/////////////////////////////////////////////
+/////////////FUNCTION UPDATE/////////////////
+/////////////////////////////////////////////
 
 function updateAnimation(animationArray) {
   movementCounter += 1;
@@ -82,10 +88,17 @@ function updateAnimationVillage(animationArray) {
 }
 
 
+
+/////////////////////////////////////////////
+/////////////FUNCTION CHECKKEYS//////////////
+/////////////////////////////////////////////
+
 let lastDirection = 'down';
 let lastHorizontalDirection = 'left';
+
 function checkKeys(currentMap) {
   if (!gameOver) {
+    // Temple, Foret, Grotte, Boss
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
@@ -99,9 +112,11 @@ function checkKeys(currentMap) {
         lastHorizontalDirection = 'left';
       }
 
+
       if (keyIsDown(32)) {
         jump();
       }
+
 
       if (!keyIsDown(68) && !keyIsDown(81)) {
         if (lastHorizontalDirection === 'right') {
@@ -112,6 +127,7 @@ function checkKeys(currentMap) {
       }
     }
     
+    // Village
     if (currentMap === 1 || currentMap === 2 || currentMap === 3) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
@@ -152,6 +168,9 @@ function checkKeys(currentMap) {
 
 
 
+/////////////////////////////////////////////
+///////////FUNCTION KEYSPRESSED//////////////
+/////////////////////////////////////////////
 
 let initialX = 2 * worldTempleTileSize;
 let initialY = 6 * worldTempleTileSize;
@@ -168,8 +187,6 @@ function keyPressed() {
     }
   };
 
-
- 
 
   if (key === 'n' || key === 'N') {
     if (checkNPCYetiInteraction()) {
@@ -191,13 +208,19 @@ function keyPressed() {
   };
 
   
-  if (currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
+  if (currentWorld === 1 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
     if (key === 'e') {
       attack();
     }
   };
-    
 
+  if (checkCageInteraction() && key === 't' && currentWorld === 2) {
+    counterForet += 3;
+    cageVisible = false; 
+
+    counterForet = min(counterForet, 12);
+    
+  }
 
   if (gameStart) {
     if (keyCode === RIGHT_ARROW) {
@@ -239,7 +262,7 @@ function keyPressed() {
         currentIntroductionIndex++;
       }
     } else if (currentIntroductionIndex === 9) {
-      if (keyCode === 13) { // Appuie sur 'espace' pour sauter
+      if (keyCode === 13) { // Appuie sur 'enter' pour sauter
         currentIntroductionIndex++;
       }
     }
