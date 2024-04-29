@@ -57,11 +57,11 @@ function setup() {
   preloadHeartImage(); // hero.js
 
 
-  preloadEnemy1Image();
-  createEnemies();
+  preloadEnemy1Image(); // enemy1.js
+  createEnemies(); // enemy1.js
 
-  preloadEnemy2Images(); // enemy2.js
-  spawnEnemy2(); // enemy2.js
+  preloadEnemy2Image(); // enemy2.js
+  createEnemies2();
   
   preloadEnemy3Images(); // enemy3.js
   spawnEnemy3(); // enemy3.js
@@ -178,26 +178,17 @@ function draw() {
         drawEnemies(); // Dessiner les ennemis
         checkEnemyCollision(); // Vérifier les collisions entre le héros et les ennemis
 
+        moveEnemies2(); // Déplacer les ennemis de type 2
+        drawEnemies2(); // Dessiner les ennemis de type 2
+        checkEnemy2Collision(); // Vérifier les collisions entre le héros et les ennemis de type 2
+        detectPlayer2(); // Détecter la présence du joueur pour les ennemis de type 2
+
+
         
         // image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
         // image(enemy3Image, xEnemy3, yEnemy3, wEnemy3, hEnemy3);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
-        drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]);
-        // Pour voire le Collider
-        // stroke(255, 0, 0);
-        // noFill();
-        // rect(xHero, yHero, wHero, hHero);
-
-        // For enemy 
-
-        // rect(xEnemy, yEnemy, wEnemy, hEnemy);
-        // rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2); 
-        // rect(xEnemy3, yEnemy3, wEnemy3, hEnemy3);   
-          
-
-        // moveEnemy2();
-        // checkEnemy2Collision(); 
-        // detectPlayer2();
+        drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
 
 
         // moveEnemy3();
