@@ -4,6 +4,7 @@ let speed = 2;
 let wEnemy = 64;
 let hEnemy = 64; 
 
+
 function preloadEnemy1Image() {
   enemyImage = loadImage('characters/enemy/gobelin1.png');
 }
@@ -25,7 +26,9 @@ function createEnemies() {
     direction: 1
   });
 
+  // Add More Ennemies.
 }
+
 
 function moveEnemies() {
   for (let i = 0; i < enemies.length; i++) {
@@ -40,12 +43,14 @@ function moveEnemies() {
   }
 }
 
+
 function drawEnemies() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
     image(enemyImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
   }
 }
+
 
 function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {

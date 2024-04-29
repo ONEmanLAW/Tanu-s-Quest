@@ -1,24 +1,31 @@
-let enemies2 = []; // Tableau pour stocker les données de chaque ennemi de type 2
+let enemies2 = [];
 let enemy2Image;
 let speedEnemy2 = 3;
-let wEnemy2 = 64; // Largeur de l'ennemi de type 2
-let hEnemy2 = 64; // Hauteur de l'ennemi de type 2
+let wEnemy2 = 64; 
+let hEnemy2 = 64; 
 let chargeRadius = 350; 
 let charging = false; 
+
 
 function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');
 }
 
+
 function createEnemies2() {
-  // Ajouter les données de chaque ennemi de type 2 dans le tableau 'enemies2'
   enemies2.push({
-    position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), // Position initiale de l'ennemi
-    charging: false // Indique si l'ennemi charge vers le joueur
+    position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), 
+    charging: false 
   });
 
-  // Ajouter d'autres ennemis de type 2 si nécessaire
+  enemies2.push({
+    position: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), 
+    charging: false 
+  });
+
+  // Add More Ennemies.
 }
+
 
 function moveEnemies2() {
   for (let i = 0; i < enemies2.length; i++) {
@@ -38,6 +45,7 @@ function moveEnemies2() {
   }
 }
 
+
 function drawEnemies2() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
@@ -45,20 +53,20 @@ function drawEnemies2() {
   }
 }
 
+
 function checkEnemy2Collision() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
-    // Vérifier la collision entre le héros et l'ennemi de type 2
     if (dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
       loseHeart();
     }
   }
 }
 
+
 function detectPlayer2() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
-    // Vérifier si le joueur est à portée de charge pour l'ennemi de type 2
     if (dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < chargeRadius) {
       enemy2.charging = true;
     } else {

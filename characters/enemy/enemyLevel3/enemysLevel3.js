@@ -6,6 +6,7 @@ let hEnemy3 = 64;
 let chaseSpeed = 4; 
 let chaseRange = 300; 
 
+
 function preloadEnemy3Image() {
   enemy3Image = loadImage('characters/enemy/gobelin3.png');
 }
@@ -17,6 +18,12 @@ function createEnemies3() {
     detected: false 
   });
 
+  enemies3.push({
+    position: createVector(20 * worldForetTileSize, 8 * worldForetTileSize), 
+    detected: false 
+  });
+
+  // Add More Ennemies.
 }
 
 function moveEnemies3() {
@@ -37,12 +44,14 @@ function moveEnemies3() {
   }
 }
 
+
 function drawEnemies3() {
   for (let i = 0; i < enemies3.length; i++) {
     let enemy3 = enemies3[i];
     image(enemy3Image, enemy3.position.x, enemy3.position.y, wEnemy3, hEnemy3);
   }
 }
+
 
 function checkEnemy3Collision() {
   for (let i = 0; i < enemies3.length; i++) {
@@ -52,6 +61,7 @@ function checkEnemy3Collision() {
     }
   }
 }
+
 
 function detectPlayer3() {
   for (let i = 0; i < enemies3.length; i++) {
