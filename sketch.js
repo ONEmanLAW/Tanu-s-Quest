@@ -57,10 +57,8 @@ function setup() {
   preloadHeartImage(); // hero.js
 
 
-  // Image Of Enemy.
-  preloadEnemyImages(); // enemy.js
-  // Positions Initial Of Enemy And Patrole.
-  spawnEnemyAndPatrol(); // enemy.js
+  preloadEnemy1Image();
+  createEnemies();
 
   preloadEnemy2Images(); // enemy2.js
   spawnEnemy2(); // enemy2.js
@@ -174,7 +172,13 @@ function draw() {
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        // image(enemyImage, xEnemy, yEnemy, wEnemy, hEnemy);
+
+
+        moveEnemies(); // Déplacer les ennemis
+        drawEnemies(); // Dessiner les ennemis
+        checkEnemyCollision(); // Vérifier les collisions entre le héros et les ennemis
+
+        
         // image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
         // image(enemy3Image, xEnemy3, yEnemy3, wEnemy3, hEnemy3);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
@@ -190,9 +194,6 @@ function draw() {
         // rect(xEnemy2, yEnemy2, wEnemy2, hEnemy2); 
         // rect(xEnemy3, yEnemy3, wEnemy3, hEnemy3);   
           
-        // // For Enemy.
-        // moveEnemy();
-        // checkEnemyCollision();
 
         // moveEnemy2();
         // checkEnemy2Collision(); 

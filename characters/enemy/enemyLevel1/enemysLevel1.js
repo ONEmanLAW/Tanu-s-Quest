@@ -1,39 +1,57 @@
-let enemy;
+let enemies = [];
 let enemyImage;
-let pointA;
-let pointB;
 let speed = 2;
-let xEnemy = 14 * worldForetTileSize;
-let yEnemy = 10.20 * worldForetTileSize;
-let wEnemy = 64; // Largeur de l'ennemi
-let hEnemy = 64; // Hauteur de l'ennemi
-let directionEnnemy = 1;
+let wEnemy = 64;
+let hEnemy = 64; 
 
-
-function moveEnemy() {
-  xEnemy += speed * directionEnnemy;
-  
-  if ((directionEnnemy === 1 && xEnemy >= pointB.x) || (directionEnnemy === -1 && xEnemy <= pointA.x)) {
-    directionEnnemy *= -1;
-  }
-}
-
-function checkEnemyCollision() {
-  // Vérifier la collision entre le héros et l'ennemi
-  if (rectIsInRect(xHero, yHero, wHero, hHero, xEnemy, yEnemy, wEnemy, hEnemy)) {
-    // Si la collision se produit, perdre une vie
-    loseHeart();
-  }
-}
-
-function spawnEnemyAndPatrol() {
-  enemy = createVector(14 * worldForetTileSize, 10.20 * worldForetTileSize); 
-  pointA = createVector(9 * worldForetTileSize); 
-  pointB = createVector(14 * worldForetTileSize);
-}
-
-function preloadEnemyImages() {
+function preloadEnemy1Image() {
   enemyImage = loadImage('characters/enemy/gobelin1.png');
 }
 
 
+function createEnemies() {
+  enemies.push({
+    position: createVector(14 * worldForetTileSize, 10.20 * worldForetTileSize),
+    pointA: createVector(9 * worldForetTileSize, 10.20 * worldForetTileSize),
+    pointB: createVector(14 * worldForetTileSize, 10.20 * worldForetTileSize),
+    direction: 1
+  });
+
+
+  enemies.push({
+    position: createVector(10 * worldForetTileSize, 8.50 * worldForetTileSize),
+    pointA: createVector(10 * worldForetTileSize, 8.50 * worldForetTileSize),
+    pointB: createVector(12 * worldForetTileSize, 8.50 * worldForetTileSize),
+    direction: 1
+  });
+
+}
+
+function moveEnemies() {
+  for (let i = 0; i < enemies.length; i++) {
+    let enemy = enemies[i];
+    enemy.position.x += speed * enemy.direction;
+
+    // Inverser la direction si l'ennemi atteint l'un des points de patrouille
+    if ((enemy.direction === 1 && enemy.position.x >= enemy.pointB.x) || 
+        (enemy.direction === -1 && enemy.position.x <= enemy.pointA.x)) {
+      enemy.direction *= -1;
+    }
+  }
+}
+
+function drawEnemies() {
+  for (let i = 0; i < enemies.length; i++) {
+    let enemy = enemies[i];
+    image(enemyImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
+  }
+}
+
+function checkEnemyCollision() {
+  for (let i = 0; i < enemies.length; i++) {
+    let enemy = enemies[i];
+    if (rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
+      loseHeart();
+    }
+  }
+}
