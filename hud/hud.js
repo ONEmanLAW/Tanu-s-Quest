@@ -15,6 +15,11 @@ let imagePotion3;
 let imagePotion4;
 let imagecadreHeart;
 
+let imagePierreEau;
+let imagePierreTerre;
+let imagePierreFeu;
+let imagePierreVent;
+
 
 function preloadHudImages() {
   cadreVide = loadImage('hud/cadreVide.png');
@@ -39,6 +44,11 @@ function preloadHudImages() {
 
   imageEcorce = loadImage('hud/imageEcorce.png');
   imageCadreHeart = loadImage('hud/cadreHeart.png');
+
+  imagePierreEau = loadImage('hud/pierreEau.png');
+  imagePierreTerre = loadImage('hud/pierreTerre.png');
+  imagePierreFeu = loadImage('hud/pierreFeu.png');
+  imagePierreVent = loadImage('hud/pierreVent.png');
 };
 
 
@@ -46,11 +56,12 @@ function preloadHudImages() {
 
 
 // Coordonnées et dimensions de l'image de feu
-let xFeu2 = 7 * worldForetTileSize;
-let yFeu2 = 9 * worldForetTileSize;
-let wFeu2 = 80;
-let hFeu2 = 80
+let xFeu2 = 7 * worldForetTileSize + 18;
+let yFeu2 = 9 * worldForetTileSize + 18;
+let wFeu2 = 64;
+let hFeu2 = 64;
 let heroInFire = false;
+let heroHasFireStone = false;
 
 function checkHeroInFire() {
   if (!heroInFire) {
@@ -62,6 +73,65 @@ function checkHeroInFire() {
     }
   }
 };
+
+// // Coordonnées et dimensions de l'image de feu
+// let xTerre = 7 * worldForetTileSize + 18;
+// let yTerre = 9 * worldForetTileSize + 18;
+// let wTerre = 64;
+// let hTerre = 64;
+// let heroInStone = false;
+// let heroHasStoneStone = false;
+
+// function checkHeroInStone() {
+//   if (!heroInStone) {
+//     if (xHero + wHero > xStone2 &&
+//         xHero < xStone2 + wStone2 &&
+//         yHero + hHero > yStone2 &&
+//         yHero < yStone2 + hStone2) {
+//       heroInStoneStone = true;
+//     }
+//   }
+// };
+
+
+
+// // Coordonnées et dimensions de l'image de l'eau
+// let xEau2 = 10 * worldForetTileSize + 18;
+// let yEau2 = 12 * worldForetTileSize + 18;
+// let wEau2 = 64;
+// let hEau2 = 64;
+// let heroInWater2 = false;
+
+// function checkHeroInWater2() {
+//   if (!heroInWater2) {
+//     if (xHero + wHero > xEau2 &&
+//         xHero < xEau2 + wEau2 &&
+//         yHero + hHero > yEau2 &&
+//         yHero < yEau2 + hEau2) {
+//       heroInWater2 = true;
+//     }
+//   }
+// };
+
+
+// // Coordonnées et dimensions de l'image du vent
+// let xVent2 = 15 * worldForetTileSize + 18;
+// let yVent2 = 5 * worldForetTileSize + 18;
+// let wVent2 = 64;
+// let hVent2 = 64;
+// let heroInWind2 = false;
+
+// function checkHeroInWind2() {
+//   if (!heroInWind2) {
+//     if (xHero + wHero > xVent2 &&
+//         xHero < xVent2 + wVent2 &&
+//         yHero + hHero > yVent2 &&
+//         yHero < yVent2 + hVent2) {
+//       heroInWind2 = true;
+//     }
+//   }
+// };
+
 
 
 function drawHud() {
@@ -82,6 +152,7 @@ function drawHud() {
   } else {
     // Afficher imageFeu2 si l'hero image est dans imageFeu2
     displayImageWithBlinkUniversal(imageFeu2, 340, 915, 65, 65);
+    heroHasFireStone = true;
   }
 
   image(imageVent1, 430, 915, 65, 65);

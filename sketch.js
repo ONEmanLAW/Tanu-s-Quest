@@ -196,7 +196,7 @@ function draw() {
         drawHearts();
 
         if(!heroInFire) {
-          image(imageFeu2, xFeu2, yFeu2, wFeu2, hFeu2);
+          image(imagePierreFeu, xFeu2, yFeu2, wFeu2, hFeu2);
         }
         
         for (let i = 0; i < cagePositions.length; i++) {

@@ -12,8 +12,8 @@ let npcGrandSageHeight= worldTempleTileSize + 50;
 
 let dialoguesGrandSage = [
   "Rends-toi à la forêt enchantée",
-  "Vite tu n’as pas le temps il faut que tu ailles à la forêt enchantée",
-  "Vite tu n’as pas le temps il faut que tu ailles à la forêt enchantée",
+  "Vite tu n'as pas le temps il faut que tu ailles à la forêt enchantée",
+  "Vite tu n'as pas le temps il faut que tu ailles à la forêt enchantée",
   "Combien de fois doit je te le repeter Tanu va à la forêt enchantée",
   "TU ME FAIT CHIER!!!!"
 ];
