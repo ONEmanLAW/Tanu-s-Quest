@@ -6,26 +6,27 @@ let hEnemy2 = 64;
 let chargeRadius = 350; 
 let charging = false; 
 
-
 function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');
 }
 
-
 function createEnemies2() {
   enemies2.push({
     position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), 
-    charging: false 
+    charging: false,
+    origin: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), // Définissez l'origine pour le premier ennemi
+    distanceToOrigin: 0 
   });
 
   enemies2.push({
     position: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), 
-    charging: false 
+    charging: false,
+    origin: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), // Définissez l'origine pour le deuxième ennemi
+    distanceToOrigin: 0 
   });
 
-  // Add More Ennemies.
+  // Ajoutez plus d'ennemis avec leurs positions respectives et d'autres propriétés si nécessaire
 }
-
 
 function moveEnemies2() {
   for (let i = 0; i < enemies2.length; i++) {
@@ -35,9 +36,10 @@ function moveEnemies2() {
       enemy2.position.x += cos(angle) * speedEnemy2;
       enemy2.position.y += sin(angle) * speedEnemy2;
     } else {
-      let distanceToOrigin = dist(enemy2.position.x, enemy2.position.y, 7 * worldForetTileSize, 6 * worldForetTileSize);
+      let distanceToOrigin = dist(enemy2.position.x, enemy2.position.y, enemy2.origin.x, enemy2.origin.y);
+      enemy2.distanceToOrigin = distanceToOrigin;
       if (distanceToOrigin > 1) {
-        let angle = atan2(6 * worldForetTileSize - enemy2.position.y, 7 * worldForetTileSize - enemy2.position.x);
+        let angle = atan2(enemy2.origin.y - enemy2.position.y, enemy2.origin.x - enemy2.position.x);
         enemy2.position.x += cos(angle) * speedEnemy2;
         enemy2.position.y += sin(angle) * speedEnemy2;
       }
@@ -45,14 +47,12 @@ function moveEnemies2() {
   }
 }
 
-
 function drawEnemies2() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
     image(enemy2Image, enemy2.position.x, enemy2.position.y, wEnemy2, hEnemy2);
   }
 }
-
 
 function checkEnemy2Collision() {
   for (let i = 0; i < enemies2.length; i++) {
@@ -62,7 +62,6 @@ function checkEnemy2Collision() {
     }
   }
 }
-
 
 function detectPlayer2() {
   for (let i = 0; i < enemies2.length; i++) {

@@ -37,7 +37,9 @@ function checkCageInteraction() {
       fill(255);
       textSize(20);
       textAlign(CENTER, CENTER);
-      text("Appuyez sur 't' pour libérer", width / 2, height - 50);
+      
+      // Afficher le texte à côté de la cage en question
+      text("Appuyez sur 't' pour libérer", cagePositions[i].x + cageWidth / 2, cagePositions[i].y + cageHeight + 20);
       
       return i; // Retourne l'indice de la cage actuelle
     }

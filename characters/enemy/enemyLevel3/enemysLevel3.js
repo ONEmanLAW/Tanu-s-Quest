@@ -15,14 +15,17 @@ function preloadEnemy3Image() {
 function createEnemies3() {
   enemies3.push({
     position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
-    detected: false 
+    detected: false,
+    origin: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), // Définissez l'origine pour le premier ennemi
+    distanceToOrigin: 0 
   });
 
   enemies3.push({
     position: createVector(20 * worldForetTileSize, 8 * worldForetTileSize), 
-    detected: false 
+    detected: false,
+    origin: createVector(20 * worldForetTileSize, 8 * worldForetTileSize), // Définissez l'origine pour le deuxième ennemi
+    distanceToOrigin: 0 
   });
-
   // Add More Ennemies.
 }
 
@@ -34,9 +37,10 @@ function moveEnemies3() {
       enemy3.position.x += cos(angle) * chaseSpeed;
       enemy3.position.y += sin(angle) * chaseSpeed;
     } else {
-      let distanceToOrigin = dist(enemy3.position.x, enemy3.position.y, 15 * worldForetTileSize, 6 * worldForetTileSize);
-      if (distanceToOrigin > 1) {
-        let angle = atan2(6 * worldForetTileSize - enemy3.position.y, 15 * worldForetTileSize - enemy3.position.x);
+      // Mettez à jour la distance à l'origine pour chaque ennemi
+      enemy3.distanceToOrigin = dist(enemy3.position.x, enemy3.position.y, enemy3.origin.x, enemy3.origin.y);
+      if (enemy3.distanceToOrigin > 1) {
+        let angle = atan2(enemy3.origin.y - enemy3.position.y, enemy3.origin.x - enemy3.position.x);
         enemy3.position.x += cos(angle) * speedEnemy3;
         enemy3.position.y += sin(angle) * speedEnemy3;
       }
