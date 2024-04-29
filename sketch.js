@@ -57,14 +57,14 @@ function setup() {
   preloadHeartImage(); // hero.js
 
 
-  preloadEnemy1Image(); // enemy1.js
-  createEnemies(); // enemy1.js
+  preloadEnemy1Image(); // enemyLevel1.js
+  createEnemies(); // enemyLevel1.js
 
-  preloadEnemy2Image(); // enemy2.js
-  createEnemies2();
+  preloadEnemy2Image(); // enemy2Level.js
+  createEnemies2(); // enemy2Level.js
   
-  preloadEnemy3Images(); // enemy3.js
-  spawnEnemy3(); // enemy3.js
+  preloadEnemy3Image(); // enemyLevel3.js
+  createEnemies3(); // enemyLevel3.js
 
   // Image Of Npc
   preloadNPCImages(); // grandSageNpc.js
@@ -184,9 +184,11 @@ function draw() {
         detectPlayer2(); // Détecter la présence du joueur pour les ennemis de type 2
 
 
-        
-        // image(enemy2Image, xEnemy2, yEnemy2, wEnemy2, hEnemy2);
-        // image(enemy3Image, xEnemy3, yEnemy3, wEnemy3, hEnemy3);
+        moveEnemies3(); // Déplacer les ennemis de type 3
+        drawEnemies3(); // Dessiner les ennemis de type 3
+        checkEnemy3Collision(); // Vérifier les collisions entre le héros et les ennemis de type 3
+        detectPlayer3(); // Détecter la présence du joueur pour les ennemis de type 3
+
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
 
