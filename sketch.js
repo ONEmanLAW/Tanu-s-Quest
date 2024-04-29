@@ -174,28 +174,23 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
 
 
-        moveEnemies(); // Déplacer les ennemis
-        drawEnemies(); // Dessiner les ennemis
-        checkEnemyCollision(); // Vérifier les collisions entre le héros et les ennemis
+        moveEnemies(); 
+        drawEnemies();
+        checkEnemyCollision(); 
 
-        moveEnemies2(); // Déplacer les ennemis de type 2
-        drawEnemies2(); // Dessiner les ennemis de type 2
-        checkEnemy2Collision(); // Vérifier les collisions entre le héros et les ennemis de type 2
-        detectPlayer2(); // Détecter la présence du joueur pour les ennemis de type 2
+        moveEnemies2(); 
+        drawEnemies2(); 
+        checkEnemy2Collision(); 
+        detectPlayer2(); 
 
 
-        moveEnemies3(); // Déplacer les ennemis de type 3
-        drawEnemies3(); // Dessiner les ennemis de type 3
-        checkEnemy3Collision(); // Vérifier les collisions entre le héros et les ennemis de type 3
-        detectPlayer3(); // Détecter la présence du joueur pour les ennemis de type 3
+        moveEnemies3();
+        drawEnemies3();
+        checkEnemy3Collision();
+        detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
-
-
-        // moveEnemy3();
-        // checkEnemy3Collision(); 
-        // detectPlayer3();
         
         handleCooldown();
         //applyGravity();

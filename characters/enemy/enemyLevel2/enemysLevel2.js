@@ -14,14 +14,14 @@ function createEnemies2() {
   enemies2.push({
     position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), 
     charging: false,
-    origin: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), // Définissez l'origine pour le premier ennemi
+    origin: createVector(7 * worldForetTileSize, 6 * worldForetTileSize),
     distanceToOrigin: 0 
   });
 
   enemies2.push({
     position: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), 
     charging: false,
-    origin: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), // Définissez l'origine pour le deuxième ennemi
+    origin: createVector(27 * worldForetTileSize, 6 * worldForetTileSize),
     distanceToOrigin: 0 
   });
 
