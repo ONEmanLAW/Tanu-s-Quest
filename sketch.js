@@ -213,14 +213,12 @@ function draw() {
           image(imageFeu2, xFeu2, yFeu2, wFeu2, hFeu2);
         }
         
-        if (cageVisible) {
-          // Dessiner la cage si elle est visible
-          image(cageImage, cageX, cageY, cageWidth, cageHeight);
+        for (let i = 0; i < cagePositions.length; i++) {
+          if (cageVisible[i]) {
+            image(cageImage, cagePositions[i].x, cagePositions[i].y, cageWidth, cageHeight);
+          }
         }
-
         checkCageInteraction();
-
-        
         checkForestNpcSaved();
         
         //detectDirection();

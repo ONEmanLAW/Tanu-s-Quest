@@ -214,12 +214,13 @@ function keyPressed() {
     }
   };
 
-  if (checkCageInteraction() && key === 't' && currentWorld === 2) {
-    counterForet += 3;
-    cageVisible = false; 
-
-    counterForet = min(counterForet, 12);
-    
+  if (key === 't') {
+    let cageIndex = checkCageInteraction();
+    if (cageIndex !== -1) {
+      counterForet += 3; // Incrémenter le compteur de 3
+      counterForet = min(counterForet, 12); // Limiter le compteur à 12
+      cageVisible[cageIndex] = false; // Rendre la cage invisible
+    }
   }
 
   if (gameStart) {
