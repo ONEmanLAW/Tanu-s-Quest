@@ -71,6 +71,7 @@ function setup() {
   // Image Of Npc
   preloadNPCImages(); // grandSageNpc.js
   preloadChatImage(); //grandSageNpc.js
+  preloadCageImage(); // prison.js
 
 
   preloadHudImages(); // hud.js
@@ -212,6 +213,9 @@ function draw() {
         if(!heroInFire) {
           image(imageFeu2, xFeu2, yFeu2, wFeu2, hFeu2);
         }
+
+        image(cageImage, cageX, cageY, cageWidth, cageHeight);
+        checkCageInteraction();
         
         //detectDirection();
 
