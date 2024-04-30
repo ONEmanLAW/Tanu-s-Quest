@@ -20,6 +20,9 @@ let imagePierreTerre;
 let imagePierreFeu;
 let imagePierreVent;
 
+let imageEcorce1;
+let imageEcorce2;
+
 
 function preloadHudImages() {
   cadreVide = loadImage('hud/cadreVide.png');
@@ -42,7 +45,8 @@ function preloadHudImages() {
   imageGrenouille = loadImage('hud/Grenouille.png');
   imagevillageoisSauvés = loadImage('hud/villageoisSauvés.png');
 
-  imageEcorce = loadImage('hud/imageEcorce.png');
+  imageEcorce1 = loadImage('hud/imageEcorce1.jpg');
+  imageEcorce2 = loadImage('hud.imageEcorce2.png');
   imageCadreHeart = loadImage('hud/cadreHeart.png');
 
   imagePierreEau = loadImage('hud/pierreEau.png');
@@ -163,7 +167,7 @@ function drawHud() {
 
   // Si la conversation avec le Yeti est terminée
   if (conversationYetiFinished) {
-    displayImageWithBlink(imageEcorce, 1650, 200, 100, 100);
+    displayImageWithBlink(imageEcorce1, 1650, 200, 100, 100);
   } 
   
   pop();
