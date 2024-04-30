@@ -53,6 +53,7 @@ function setup() {
 
   // Animation Yeti.
   preloadYetiImages(); // yetiNpc.js
+  preloadBossImages(); 
   // Hearts Hero.
   preloadHeartImage(); // hero.js
 
@@ -236,9 +237,12 @@ function draw() {
       } else if (currentWorld === 4) {
         updateNormalCamera(1824, 1056);
         image(backgroundBossImage, 0, 0);
+        image(currentBossImage, bossX, bossY, bossWidth, bossHeight);
+        updateBossAnimation(myBossIdle);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
+        
       }  
 
     } else {

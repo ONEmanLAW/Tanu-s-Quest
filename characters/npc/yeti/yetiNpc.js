@@ -81,11 +81,6 @@ function preloadYetiImages() {
   currentYetiImage = yeti0; // Définition de l'image de héros actuelle
 }
 
-function animateYetiIdle() {
-  // Passe à la frame suivante
-  currentYetiIndex = (currentYetiIndex + 1) % myYetiIdle.length;
-  currentYetiImage = myYetiIdle[currentYetiIndex];
-}
 
 
 function updateYetiAnimation(animationArray) {
