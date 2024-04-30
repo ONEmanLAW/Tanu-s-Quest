@@ -45,7 +45,7 @@ function preloadHudImages() {
   imageGrenouille = loadImage('hud/Grenouille.png');
   imagevillageoisSauvés = loadImage('hud/villageoisSauvés.png');
 
-  imageEcorce1 = loadImage('hud/imageEcorce1.jpg');
+  imageEcorce1 = loadImage('hud/imageEcorce1.png');
   imageEcorce2 = loadImage('hud.imageEcorce2.png');
   imageCadreHeart = loadImage('hud/cadreHeart.png');
 
