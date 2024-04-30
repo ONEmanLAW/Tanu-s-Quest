@@ -194,7 +194,8 @@ function draw() {
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
-        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
+        
 
 
         moveEnemies(); 
@@ -213,7 +214,8 @@ function draw() {
         detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
-        drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
+        
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         
         handleCooldown();
         checkHeroInFire();
