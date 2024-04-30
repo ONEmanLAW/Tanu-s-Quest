@@ -10,7 +10,7 @@ function preloadEnemy1Image() {
 }
 
 
-function createEnemies() {
+function createEnemiesForet() {
   enemies.push({
     position: createVector(14 * worldForetTileSize, 10.20 * worldForetTileSize),
     pointA: createVector(9 * worldForetTileSize, 10.20 * worldForetTileSize),

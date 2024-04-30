@@ -10,7 +10,7 @@ function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');
 }
 
-function createEnemies2() {
+function createEnemiesForet2() {
   enemies2.push({
     position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), 
     charging: false,

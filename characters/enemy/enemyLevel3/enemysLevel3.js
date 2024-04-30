@@ -12,7 +12,7 @@ function preloadEnemy3Image() {
 }
 
 
-function createEnemies3() {
+function createEnemiesForet3() {
   enemies3.push({
     position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
     detected: false,

@@ -59,13 +59,13 @@ function setup() {
 
 
   preloadEnemy1Image(); // enemyLevel1.js
-  createEnemies(); // enemyLevel1.js
+  createEnemiesForet(); // enemyLevel1.js
 
   preloadEnemy2Image(); // enemy2Level.js
-  createEnemies2(); // enemy2Level.js
+  createEnemiesForet2(); // enemy2Level.js
   
   preloadEnemy3Image(); // enemyLevel3.js
-  createEnemies3(); // enemyLevel3.js
+  createEnemiesForet3(); // enemyLevel3.js
 
   // Image Of Npc
   preloadNPCImages(); // grandSageNpc.js
@@ -242,7 +242,6 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
-        
       }  
 
     } else {
