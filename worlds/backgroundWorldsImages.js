@@ -8,11 +8,11 @@ function preloadBackgroundImages() {
   });
 
   backgroundForetImage = loadImage('worlds/assets/foretEnchanter/fondForet.jpg',() => {
-      backgroundForetImage.resize(worldWidth, worldHeight);
+      backgroundForetImage.resize(16000, 1120);
   });
 
   backgroundGrotteImage = loadImage('worlds/assets/grotteTenebreuse/fondGrotteLong.jpg',() => {
-      backgroundGrotteImage.resize(worldwidth, worldheight);
+      backgroundGrotteImage.resize(16000, 1120);
   });
 
   backgroundBossImage = loadImage('worlds/assets/boss/fondBoss.jpg',() => {

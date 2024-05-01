@@ -88,10 +88,10 @@ function setup() {
 
 
 
-gameOverImage;
-retryImage;
-mainMenuImage;
-quitImage;
+let gameOverImage;
+let retryImage;
+let mainMenuImage;
+let quitImage;
 
 function preloadGameOverImages() {
   gameOverImage = loadImage('bloc game over.png');
