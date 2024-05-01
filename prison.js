@@ -1,11 +1,11 @@
 let cageImage;
 let cagePositions = [
-  {x: 5 * worldForetTileSize, y: 8 * worldForetTileSize}, 
-  {x: 10 * worldForetTileSize, y: 8 * worldForetTileSize},
+  {x: 5.40 * worldForetTileSize, y: 8.30 * worldForetTileSize}, 
+  {x: 10.40 * worldForetTileSize, y: 8.30 * worldForetTileSize},
 ];
 
-let cageWidth = worldForetTileSize * 2;
-let cageHeight = worldForetTileSize * 2;
+let cageWidth = worldForetTileSize * 1.60;
+let cageHeight = worldForetTileSize * 1.70;
 
 let counterForet = 0;
 let isForestNpcSaved = false;
