@@ -29,6 +29,18 @@ function createEnemiesForet3() {
   // Add More Ennemies.
 }
 
+function resetEnemies3Position() {
+  for (let i = 0; i < enemies3.length; i++) {
+    let enemy3 = enemies3[i];
+    // Réinitialise la position de l'ennemi à sa position initiale
+    enemy3.position.x = enemy3.origin.x;
+    enemy3.position.y = enemy3.origin.y;
+    // Réinitialise les autres propriétés si nécessaire
+    enemy3.detected = false;
+    enemy3.distanceToOrigin = 0;
+  }
+}
+
 function moveEnemies3() {
   for (let i = 0; i < enemies3.length; i++) {
     let enemy3 = enemies3[i];

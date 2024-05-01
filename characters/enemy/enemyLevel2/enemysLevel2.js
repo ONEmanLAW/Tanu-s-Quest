@@ -28,6 +28,19 @@ function createEnemiesForet2() {
   // Ajoutez plus d'ennemis avec leurs positions respectives et d'autres propriétés si nécessaire
 }
 
+
+function resetEnemies2Position() {
+  for (let i = 0; i < enemies2.length; i++) {
+    let enemy2 = enemies2[i];
+    // Réinitialise la position de l'ennemi à sa position initiale
+    enemy2.position.x = enemy2.origin.x;
+    enemy2.position.y = enemy2.origin.y;
+    // Réinitialise les autres propriétés si nécessaire
+    enemy2.charging = false;
+    enemy2.distanceToOrigin = 0;
+  }
+}
+
 function moveEnemies2() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];

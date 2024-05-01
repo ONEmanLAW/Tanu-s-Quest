@@ -26,7 +26,8 @@ function createEnemiesForet() {
     position: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
     pointA: createVector(9 * worldForetTileSize, 10 * worldForetTileSize),
     pointB: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
-    direction: 1
+    direction: 1,
+    initialPosition: createVector(14 * worldForetTileSize, 10 * worldForetTileSize) // Enregistrez la position initiale
   });
 
 
@@ -34,10 +35,22 @@ function createEnemiesForet() {
     position: createVector(10 * worldForetTileSize, 8 * worldForetTileSize),
     pointA: createVector(10 * worldForetTileSize, 8 * worldForetTileSize),
     pointB: createVector(12 * worldForetTileSize, 8 * worldForetTileSize),
-    direction: 1
+    direction: 1,
+    initialPosition: createVector(10 * worldForetTileSize, 8 * worldForetTileSize) // Enregistrez la position initiale
   });
-
   // Add More Ennemies.
+}
+
+
+function resetEnemiesPosition() {
+  for (let i = 0; i < enemies.length; i++) {
+    let enemy = enemies[i];
+    // Réinitialise la position de l'ennemi à sa position initiale
+    enemy.position.x = enemy.initialPosition.x;
+    enemy.position.y = enemy.initialPosition.y;
+    // Réinitialise la direction de l'ennemi si nécessaire
+    enemy.direction = 1; // Remettre la direction à sa valeur par défaut, si nécessaire
+  }
 }
 
 

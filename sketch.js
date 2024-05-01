@@ -202,16 +202,16 @@ function draw() {
         drawEnemies();
         checkEnemyCollision(); 
 
-        // moveEnemies2(); 
-        // drawEnemies2(); 
-        // checkEnemy2Collision(); 
-        // detectPlayer2(); 
+        moveEnemies2(); 
+        drawEnemies2(); 
+        checkEnemy2Collision(); 
+        detectPlayer2(); 
 
 
-        // moveEnemies3();
-        // drawEnemies3();
-        // checkEnemy3Collision();
-        // detectPlayer3(); 
+        moveEnemies3();
+        drawEnemies3();
+        checkEnemy3Collision();
+        detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
@@ -317,6 +317,16 @@ function draw() {
         if (mouseX > retryX && mouseX < retryX + retryWidth && 
             mouseY > retryY && mouseY < retryY + retryImage.height * imageScale) {
           // Retry
+          
+          if (gameOver) {
+            hearts = 3;
+            gameOver = false;
+            xHero = 2 * worldTempleTileSize;
+            yHero = 6 * worldTempleTileSize;
+            resetEnemiesPosition();
+            resetEnemies2Position();
+            resetEnemies3Position();
+          }
           // Ajoutez ici la logique pour relancer le niveau
         } else if (mouseX > mainMenuX && mouseX < mainMenuX + mainMenuWidth && 
                    mouseY > mainMenuY && mouseY < mainMenuY + mainMenuImage.height * imageScale) {

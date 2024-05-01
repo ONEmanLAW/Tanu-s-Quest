@@ -198,14 +198,7 @@ function keyPressed() {
   };
 
   
-  if (key === 'h' && !gameOver) {
-    loseHeart();
-  } else if (gameOver && key === 'r') {
-    hearts = 3;
-    gameOver = false;
-    xHero = initialX;
-    yHero = initialY;
-  };
+
 
   
   if (currentWorld === 1 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
