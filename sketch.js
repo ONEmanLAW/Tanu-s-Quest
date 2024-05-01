@@ -202,16 +202,16 @@ function draw() {
         drawEnemies();
         checkEnemyCollision(); 
 
-        moveEnemies2(); 
-        drawEnemies2(); 
-        checkEnemy2Collision(); 
-        detectPlayer2(); 
+        // moveEnemies2(); 
+        // drawEnemies2(); 
+        // checkEnemy2Collision(); 
+        // detectPlayer2(); 
 
 
-        moveEnemies3();
-        drawEnemies3();
-        checkEnemy3Collision();
-        detectPlayer3(); 
+        // moveEnemies3();
+        // drawEnemies3();
+        // checkEnemy3Collision();
+        // detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         

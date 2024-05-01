@@ -1,12 +1,23 @@
 let enemies = [];
 let enemyImage;
 let speed = 2;
-let wEnemy = 64;
-let hEnemy = 64; 
+let wEnemy = 80;
+let hEnemy = 80; 
+
+let enemyLeftImages = [];
+let enemyRightImages = [];
 
 
 function preloadEnemy1Image() {
-  enemyImage = loadImage('characters/enemy/gobelin1.png');
+  // Left enemy images
+  for (let i = 1; i <= 12; i++) {
+    enemyLeftImages.push(loadImage(`characters/enemy/enemyLevel1/assets/left/marche_gauche_gobelin1_${i}.png`));
+  }
+
+  // Right enemy images
+  for (let i = 1; i <= 12; i++) {
+    enemyRightImages.push(loadImage(`characters/enemy/enemyLevel1/assets/right/marche_droite_gobelin1_${i}.png`));
+  }
 }
 
 
@@ -47,7 +58,9 @@ function moveEnemies() {
 function drawEnemies() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
-    image(enemyImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
+    let enemyImages = (enemy.direction === 1) ? enemyRightImages : enemyLeftImages;
+    let currentImage = enemyImages[Math.floor(frameCount / 10) % enemyImages.length];
+    image(currentImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
   }
 }
 
