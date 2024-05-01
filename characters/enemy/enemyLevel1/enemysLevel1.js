@@ -69,7 +69,11 @@ function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
     if (rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
-      loseHeart();
+      // Vérifie la direction du personnage et de l'ennemi
+      if ((enemy.direction === 1 && xHero > enemy.position.x) || 
+          (enemy.direction === -1 && xHero < enemy.position.x)) {
+        loseHeart();
+      }
     }
   }
 }
