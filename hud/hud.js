@@ -177,6 +177,49 @@ function drawHud() {
 // Crée est afficher les élements du tuto.
 function drawHudTemple () {
   push();
+  if (currentIntroductionIndex === 12) {
+    image(imageCadreHeart, 5, 100, 350, 125);
+    drawHearts();
+  } else if(currentIntroductionIndex === 13) {
+    image(imageCadreHeart, 5, 100, 350, 125);
+    drawHearts();
+
+    image(cadreVide, 30, 850, 600, 150);
+    image(imageEpee1, 44, 861, 100, 100);
+  } else if(currentIntroductionIndex === 14) {
+    image(imageCadreHeart, 5, 100, 350, 125);
+    drawHearts();
+
+    image(cadreVide, 30, 850, 600, 150);
+    image(imageEpee1, 44, 861, 100, 100);
+    image(imagePotion1, 160, 915, 75, 75);
+
+  } else if(currentIntroductionIndex === 15) {
+    image(imageCadreHeart, 5, 100, 350, 125);
+    drawHearts();
+
+    image(cadreVide, 30, 850, 600, 150);
+    image(imageEpee1, 44, 861, 100, 100);
+    image(imagePotion1, 160, 915, 75, 75);
+
+    image(imageTerre1, 250, 915, 65, 65);
+    image(imageFeu1, 340, 915, 65, 65);
+    image(imageVent1, 430, 915, 65, 65);
+    image(imageEau1, 520, 915, 65, 65);
+  } else if (currentIntroductionIndex === 16) {
+    image(imageCadreHeart, 5, 100, 350, 125);
+    drawHearts();
+
+    image(cadreVide, 30, 850, 600, 150);
+    image(imageEpee1, 44, 861, 100, 100);
+    image(imagePotion1, 160, 915, 75, 75);
+
+    image(imageTerre1, 250, 915, 65, 65);
+    image(imageFeu1, 340, 915, 65, 65);
+    image(imageVent1, 430, 915, 65, 65);
+    image(imageEau1, 520, 915, 65, 65);
+    image(imagevillageoisSauvés, 1400, 30, 200, 100);
+  }
   pop();
 }
 

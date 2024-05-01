@@ -237,7 +237,7 @@ function keyPressed() {
   };
 
   // Intro Tuto.
-  if (keyCode === 78 && currentIntroductionIndex >= 5 && currentIntroductionIndex <= 7) {
+  if (keyCode === 78 && currentIntroductionIndex >= 5 && currentIntroductionIndex <= 10) {
     return;
   };
   
@@ -262,8 +262,20 @@ function keyPressed() {
       if (keyCode === 32) { // Appuie sur 'espace' pour sauter
         currentIntroductionIndex++;
       }
-    } else if (currentIntroductionIndex === 9) {
+    } else if (currentIntroductionIndex === 19) {
       if (keyCode === 13) { // Appuie sur 'enter' pour sauter
+        currentIntroductionIndex++;
+      }
+    } else if(currentIntroductionIndex === 8) {
+      if(keyCode === 69) {
+        currentIntroductionIndex++;
+      }
+    } else if(currentIntroductionIndex === 9) {
+      if(keyCode === 90) {
+        currentIntroductionIndex++
+      }
+    } else if(currentIntroductionIndex === 10) {
+      if(keyCode === 83) {
         currentIntroductionIndex++;
       }
     }
