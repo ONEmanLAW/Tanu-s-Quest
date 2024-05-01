@@ -78,24 +78,24 @@ function checkHeroInFire() {
   }
 };
 
-// // Coordonnées et dimensions de l'image de feu
-// let xTerre = 7 * worldForetTileSize + 18;
-// let yTerre = 9 * worldForetTileSize + 18;
-// let wTerre = 64;
-// let hTerre = 64;
-// let heroInStone = false;
-// let heroHasStoneStone = false;
+// Coordonnées et dimensions de l'image de feu
+let xTerre = 178 * worldForetTileSize + 18;
+let yTerre = 9 * worldForetTileSize + 18;
+let wTerre = 64;
+let hTerre = 64;
+let heroInStone = false;
+let heroHasStoneStone = false;
 
-// function checkHeroInStone() {
-//   if (!heroInStone) {
-//     if (xHero + wHero > xStone2 &&
-//         xHero < xStone2 + wStone2 &&
-//         yHero + hHero > yStone2 &&
-//         yHero < yStone2 + hStone2) {
-//       heroInStoneStone = true;
-//     }
-//   }
-// };
+function checkHeroInStone() {
+  if (!heroInStone) {
+    if (xHero + wHero > xTerre &&
+        xHero < xTerre + wTerre &&
+        yHero + hHero > yTerre &&
+        yHero < yTerre + hTerre) {
+      heroInStone = true;
+    }
+  }
+};
 
 
 
@@ -138,6 +138,7 @@ function checkHeroInFire() {
 
 
 
+
 function drawHud() {
   push(); 
   translate(cameraX, cameraY);
@@ -147,8 +148,17 @@ function drawHud() {
   image(cadreVide, 30, 850, 600, 150);
   image(imageEpee2, 44, 861, 100, 100);
   image(imagePotion1, 160, 915, 75, 75);
-  image(imageTerre1, 250, 915, 65, 65);
-  
+
+  if (!heroInStone) {
+    image(imageTerre1, 250, 915, 65, 65)
+  } else {
+    displayImageWithBlinkUniversal(imageTerre2, 250, 915, 65, 65);
+    heroHasStoneStone = true;
+  }
+
+
+
+
   // Vérifier si l'hero image est dans imageFeu2
   if (!heroInFire) {
     // Afficher imageFeu1 si l'hero image n'est pas dans imageFeu2
@@ -158,6 +168,8 @@ function drawHud() {
     displayImageWithBlinkUniversal(imageFeu2, 340, 915, 65, 65);
     heroHasFireStone = true;
   }
+
+  
 
   image(imageVent1, 430, 915, 65, 65);
   image(imageEau1, 520, 915, 65, 65);

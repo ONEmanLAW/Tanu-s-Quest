@@ -218,12 +218,12 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         
         handleCooldown();
-        checkHeroInFire();
+        checkHeroInStone();
         drawHud();
         drawHearts();
 
-        if(!heroInFire) {
-          image(imagePierreFeu, xFeu2, yFeu2, wFeu2, hFeu2);
+        if(!heroInStone) {
+          image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
         }
         
         for (let i = 0; i < cagePositions.length; i++) {
