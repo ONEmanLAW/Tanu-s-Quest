@@ -23,17 +23,17 @@ function preloadEnemy1Image() {
 
 function createEnemiesForet() {
   enemies.push({
-    position: createVector(14 * worldForetTileSize, 10.20 * worldForetTileSize),
-    pointA: createVector(9 * worldForetTileSize, 10.20 * worldForetTileSize),
-    pointB: createVector(14 * worldForetTileSize, 10.20 * worldForetTileSize),
+    position: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
+    pointA: createVector(9 * worldForetTileSize, 10 * worldForetTileSize),
+    pointB: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
     direction: 1
   });
 
 
   enemies.push({
-    position: createVector(10 * worldForetTileSize, 8.50 * worldForetTileSize),
-    pointA: createVector(10 * worldForetTileSize, 8.50 * worldForetTileSize),
-    pointB: createVector(12 * worldForetTileSize, 8.50 * worldForetTileSize),
+    position: createVector(10 * worldForetTileSize, 8 * worldForetTileSize),
+    pointA: createVector(10 * worldForetTileSize, 8 * worldForetTileSize),
+    pointB: createVector(12 * worldForetTileSize, 8 * worldForetTileSize),
     direction: 1
   });
 
@@ -59,7 +59,7 @@ function drawEnemies() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
     let enemyImages = (enemy.direction === 1) ? enemyRightImages : enemyLeftImages;
-    let currentImage = enemyImages[Math.floor(frameCount / 10) % enemyImages.length];
+    let currentImage = enemyImages[Math.floor(frameCount / 5) % enemyImages.length];
     image(currentImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
   }
 }
