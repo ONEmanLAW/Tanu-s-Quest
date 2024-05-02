@@ -71,6 +71,7 @@ function setup() {
   preloadNPCImages(); // grandSageNpc.js
   preloadChatImage(); //grandSageNpc.js
   preloadCageImage(); // prison.js
+  preloadCageImageGrotte();
 
 
   preloadHudImages(); // hud.js
@@ -258,6 +259,15 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
+
+
+        for (let i = 0; i < cagePositionsGrotte.length; i++) {
+          if (cageVisibleGrotte[i]) {
+            image(cageImageGrotte, cagePositionsGrotte[i].x, cagePositionsGrotte[i].y, cageWidthGrotte, cageHeightGrotte);
+          }
+        }
+        checkCageInteractionGrotte();
+        checkGrotteNpcSaved();
         
         
       } else if (currentWorld === 4) {
