@@ -35,8 +35,8 @@ function setup() {
   setupTileDictionariesForet(); // worldForet.js
   setupTileDictionariesGrotte(); // worldGrotte.js
   setupTileDictionariesBoss(); // worldBoss.js
-  // setupTileDictionariesVillage2(); // worldVillage2.js
-  // setupTileDictionariesVillage3(); // worldVillage3.js
+  setupTileDictionariesVillage2(); // worldVillage2.js
+  setupTileDictionariesVillage3(); // worldVillage3.js
 
 
   // Worlds Preload
@@ -283,7 +283,37 @@ function draw() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
-      }  
+
+
+
+
+
+
+
+
+      } else if(currentWorld === 5) {
+        updateNormalCamera(4704, 2688);
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        updateYetiAnimation(myYetiIdle);
+        image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
+        image(currentHeroVillageImage, xHero, yHero, 96, 96);
+        drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
+        drawHud();
+        drawHearts();
+
+
+
+
+      }else if(currentWorld === 6) {
+        updateNormalCamera(4704, 2688);
+        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        updateYetiAnimation(myYetiIdle);
+        image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
+        image(currentHeroVillageImage, xHero, yHero, 96, 96);
+        drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
+        drawHud();
+        drawHearts();
+      }
 
       
       if (hearts <= 0) {

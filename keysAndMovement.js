@@ -128,7 +128,7 @@ function checkKeys(currentMap) {
     }
     
     // Village
-    if (currentMap === 1 || currentMap === 2 || currentMap === 3) {
+    if (currentMap === 1 || currentMap === 2 || currentMap === 3 || currentMap === 5 || currentMap === 6) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
       }
@@ -201,7 +201,7 @@ function keyPressed() {
 
 
   
-  if (currentWorld === 1 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
+  if (currentWorld === 0 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
     if (key === 'e') {
       attack();
     }
