@@ -359,7 +359,7 @@ function setupTileDictionariesVillage3() {
     265: loadImage('worlds/assets/village3/265.png'),
   };
 
-  worldvillageDecorationTileDictionnary3 = {
+  worldVillageDecorationTileDictionnary3 = {
 
     0: loadImage(''),
     1: loadImage(''),

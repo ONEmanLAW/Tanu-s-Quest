@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 
 function setupWorldVariables() {
-  currentWorld = 6;
+  currentWorld = 5;
 
   worlds = [];
   decorationWorlds = [];
@@ -22,7 +22,7 @@ function setupWorlds() {
   worlds = [worldTempleBoard, worldVillageBoard, worldForetBoard, worldGrotteBoard, worldBossBoard, worldVillageBoard2, worldVillageBoard3];
 
   // Decoration Worlds
-  decorationWorlds = [worldTempleDecorationBoard, worldVillageDecorationBoard, worldForetDecorationBoard, worldGrotteDecorationBoard, worldBossDecorationBoard, , worldVillageDecorationBoard3];
+  decorationWorlds = [worldTempleDecorationBoard, worldVillageDecorationBoard, worldForetDecorationBoard, worldGrotteDecorationBoard, worldBossDecorationBoard, worldVillageDecorationBoard2, worldVillageDecorationBoard3];
 
   // Collision Worlds
   collisonWorlds = [worldTempleCollisionBoard, worldVillageCollisionBoard, worldForetCollisionBoard, worldGrotteCollisionBoard, worldBossCollisionBoard, worldVillageCollisionBoard2, worldVillageCollisionBoard3,];

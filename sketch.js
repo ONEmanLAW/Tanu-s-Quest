@@ -5,6 +5,86 @@
 setupWorldVariables(); // setup.js
 
 
+let allAssetsLoaded = false;
+
+function preloadAssets() {
+  return new Promise((resolve, reject) => {
+  
+    const assetPromises = [];
+
+    
+    assetPromises.push(loadTileDictionaries());
+    assetPromises.push(loadWorldAssets());
+    
+   
+
+    Promise.all(assetPromises)
+      .then(() => {
+        allAssetsLoaded = true;
+        resolve();
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+function loadWorldAssets() {
+  return new Promise((resolve, reject) => {
+   
+    setupWorlds(); // setup.js
+   
+    resolve();
+  });
+}
+
+function loadTileDictionaries() {
+  return new Promise((resolve, reject) => {
+    const promises = [
+      // new Promise((resolve, reject) => {
+      //   setupTileDictionariesVillage(); // worldVillage.js
+      //   resolve(); 
+      // }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesTemple(); // worldTemple.js
+        resolve();
+      }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesForet(); // worldForet.js
+        resolve(); 
+      }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesGrotte(); // worldGrotte.js
+        resolve();
+      }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesBoss(); // worldBoss.js
+        resolve(); 
+      }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesVillage2(); // worldVillage2.js
+        resolve(); 
+      }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesVillage3(); // worldVillage3.js
+        resolve(); 
+      })
+    ];
+    
+    
+    Promise.all(promises)
+      .then(() => {
+        
+        resolve();
+      })
+      .catch((error) => {
+        
+        reject(error);
+      });
+  });
+}
+
+
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
@@ -18,35 +98,7 @@ function preload() {
   // For Intro.
   mainMenuButtons();
   introImages();
-}
-
-function setup() {
-  // Canvas For Story.
-  createCanvas(windowWidth, windowHeight);
-  musiqueFond.loop();
-
   
-  
-
-
-  // Tiles Dictionaries.
-  setupTileDictionariesTemple(); // worldTemple.js
-  setupTileDictionariesVillage(); // worldVillage.js
-  setupTileDictionariesForet(); // worldForet.js
-  setupTileDictionariesGrotte(); // worldGrotte.js
-  setupTileDictionariesBoss(); // worldBoss.js
-  setupTileDictionariesVillage2(); // worldVillage2.js
-  setupTileDictionariesVillage3(); // worldVillage3.js
-
-
-  // Worlds Preload
-  setupWorlds(); // setup.js
-
-
-  // Background Of Worlds.
-  preloadBackgroundImages(); // backgroundImages.js
-  
-
   // Animation Hero.
   preloadHeroImages(); // hero.js
   preloadHeroVillageImages(); // hero.js
@@ -77,6 +129,26 @@ function setup() {
 
   preloadHudImages(); // hud.js
   preloadGameOverImages();
+  // Background Of Worlds.
+  preloadBackgroundImages(); // backgroundImages.js
+}
+
+function setup() {
+  // Canvas For Story.
+  createCanvas(windowWidth, windowHeight);
+  musiqueFond.loop();
+
+  preloadAssets()
+    .then(() => {
+      // Une fois que tous les assets sont chargés, commencez à dessiner
+      drawGame();
+    })
+    .catch((error) => {
+      console.error('Une erreur est survenue lors du chargement des assets :', error);
+    });
+
+
+  
 };
 
 
@@ -103,10 +175,16 @@ function preloadGameOverImages() {
 }
 
 
-/////////////////////////////////////////////
-////////////FUNCTIONS FOR DRAW///////////////
-/////////////////////////////////////////////
-function draw() {
+
+
+
+
+
+
+
+
+
+function drawGame() {
   if (!gameStart) {
     if (scene === 'menu') {
       drawMainMenu();
@@ -297,20 +375,21 @@ function draw() {
         updateYetiAnimation(myYetiIdle);
         image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
-        drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
+        drawFront(decorationWorlds[5], tileDecorationDictionnaries[5], worldsDecorationTileSizes[5]);
         drawHud();
         drawHearts();
 
 
 
 
-      }else if(currentWorld === 6) {
+      }
+      else if(currentWorld === 6) {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
         image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
-        drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
+        drawFront(decorationWorlds[6], tileDecorationDictionnaries[6], worldsDecorationTileSizes[6]);
         drawHud();
         drawHearts();
       }
@@ -391,4 +470,35 @@ function draw() {
       }
     }
   }
-};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+////////////FUNCTIONS FOR DRAW///////////////
+/////////////////////////////////////////////
+function draw() {
+  // Dessinez votre jeu ici
+  if (allAssetsLoaded) {
+    drawGame();
+  } else {
+    // Affichez un message de chargement ou une animation de chargement
+    background(0);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    text("Chargement...", width / 2, height / 2);
+  }
+}  
