@@ -7,7 +7,7 @@ let boiteDeDialogue;
 
 let npcGrandSageX = 5 * worldTempleTileSize; 
 let npcGrandSageY = 6.50 * worldTempleTileSize ; 
-let npcGrandSageWidth = worldTempleTileSize + 10; 
+let npcGrandSageWidth = worldTempleTileSize + 120; 
 let npcGrandSageHeight= worldTempleTileSize + 50; 
 
 let dialoguesGrandSage = [
@@ -55,7 +55,6 @@ function checkGrandSageInteraction() {
 
 
 function preloadNPCImages() {
-  npcGrandSageImage = loadImage('characters/npc/grandSage/sage_test.png');
   mannequinImage = loadImage('characters/npc/mannequinTuto/mannequinTuto.png');
 }
 
@@ -154,3 +153,35 @@ function gererIntroduction() {
   }
 }
 
+
+
+
+let currentGrandSageIndex = 0;
+let myGrandSageIdle = []; // Tableau pour les images d'attente du Grand Sage
+let currentGrandSageImage = 0;
+let movementCounterGrandSage = 0;
+
+function preloadGrandSageImages() {
+  // Idle Images for Grand Sage
+  for (let i = 1; i <= 12; i++) {
+    let imageName = 'characters/npc/grandSage/assets/sage_idle' + i + '.png';
+    let image = loadImage(imageName);
+    myGrandSageIdle.push(image);
+  }
+  currentGrandSageImage = myGrandSageIdle[0]; // Définition de l'image du Grand Sage actuelle
+}
+
+function updateGrandSageAnimation(animationArray) {
+  movementCounterGrandSage += 1;
+
+  // Réglez la vitesse de l'animation du Grand Sage comme vous le souhaitez
+  // Par exemple, 10 images par image
+  if (movementCounterGrandSage >= 10) {
+    currentGrandSageIndex += 1;
+    if (currentGrandSageIndex === animationArray.length) {
+      currentGrandSageIndex = 0;
+    }
+    currentGrandSageImage = animationArray[currentGrandSageIndex];
+    movementCounterGrandSage = 0;
+  }
+}

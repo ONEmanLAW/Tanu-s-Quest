@@ -70,6 +70,7 @@ function setup() {
   // Image Of Npc
   preloadNPCImages(); // grandSageNpc.js
   preloadChatImage(); //grandSageNpc.js
+  preloadGrandSageImages(); //grandSageNPC.js
   preloadCageImage(); // prison.js
   preloadCageImageGrotte();
 
@@ -133,7 +134,11 @@ function draw() {
         drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
         
         // Spawn NPC.
-        image(npcGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
+       
+        updateGrandSageAnimation(myGrandSageIdle);
+        // Dessinez l'image actuelle du Grand Sage
+        image(currentGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
+        
         image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
 
         // Spawn Hero.
