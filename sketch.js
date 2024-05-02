@@ -285,6 +285,12 @@ function draw() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
       }  
 
+      
+      if (hearts <= 0) {
+        // Si le joueur est mort, afficher l'animation de mort du personnage
+        updateAnimation(myHeroDeath);
+      }
+
     } else {
 // Si le joueur est mort (game over)
       // Calculer la position centrale verticale

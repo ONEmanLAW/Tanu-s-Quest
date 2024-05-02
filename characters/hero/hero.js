@@ -32,6 +32,7 @@ let myHeroVillageIdleRight = [];
 let myHeroVillageIdleTop = [];
 let myHeroIdleRight = [];
 let myHeroIdleLeft = [];
+let myHeroDeath = [];
 let currentIndex = 0;
 let currentVillageIndex = 0;
 let movementCounter = 0;
@@ -244,6 +245,19 @@ function preloadHeroImages() {
   myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche10.png'));
   myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche11.png'));
   myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche12.png'));
+
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort1.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort2.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort3.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort4.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort5.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort6.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort7.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort8.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort9.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort10.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort11.png'));
+  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort12.png'));
   
  
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
