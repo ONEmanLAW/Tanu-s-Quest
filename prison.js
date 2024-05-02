@@ -15,7 +15,6 @@ let cageVisible = []; // Tableau pour indiquer si chaque cage est visible ou non
 
 function preloadCageImage() {
   cageImage = loadImage('prisonFôret.png');
-  
   for (let i = 0; i < cagePositions.length; i++) {
     cageVisible.push(true);
   }
