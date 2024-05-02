@@ -189,13 +189,14 @@ function keyPressed() {
 
 
   if (key === 'n' || key === 'N') {
-    if (checkNPCYetiInteraction()) {
-      currentDialogueYetiIndex++;
-      if (currentDialogueYetiIndex >= dialoguesYeti.length) {
-        currentDialogueYetiIndex = dialoguesYeti.length - 1;
-      }
+    if (yetiDialogActive) {
+        currentYetiIndexQuete++;
+        if (currentYetiIndexQuete >= dialoguesYeti.length) {
+            currentYetiIndexQuete = dialoguesYeti.length - 1;
+            yetiDialogActive = false; // Désactiver le dialogue lorsque tous les dialogues ont été affichés
+        }
     }
-  };
+}
 
   
 

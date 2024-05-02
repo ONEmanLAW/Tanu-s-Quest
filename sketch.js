@@ -41,10 +41,10 @@ function loadWorldAssets() {
 function loadTileDictionaries() {
   return new Promise((resolve, reject) => {
     const promises = [
-      // new Promise((resolve, reject) => {
-      //   setupTileDictionariesVillage(); // worldVillage.js
-      //   resolve(); 
-      // }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesVillage(); // worldVillage.js
+        resolve(); 
+      }),
       new Promise((resolve, reject) => {
         setupTileDictionariesTemple(); // worldTemple.js
         resolve();
@@ -65,10 +65,10 @@ function loadTileDictionaries() {
         setupTileDictionariesVillage2(); // worldVillage2.js
         resolve(); 
       }),
-      new Promise((resolve, reject) => {
-        setupTileDictionariesVillage3(); // worldVillage3.js
-        resolve(); 
-      })
+      // new Promise((resolve, reject) => {
+      //   setupTileDictionariesVillage3(); // worldVillage3.js
+      //   resolve(); 
+      // })
     ];
     
     
@@ -268,10 +268,15 @@ function drawGame() {
           updateAnimation(myHeroVillageRight);
         } else {
           animationVillage = false;
+          yetiDialogActive = true;
         };
         
-        checkNPCYetiInteraction();  
-        
+        //checkNPCYetiInteraction();
+       
+        // Vérifie si le dialogue du Yeti est actif
+        if (yetiDialogActive) {
+          gererDialoguesYeti();
+        }
 
         
         
@@ -363,12 +368,6 @@ function drawGame() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
 
-
-
-
-
-
-
       } else if(currentWorld === 5) {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -379,11 +378,7 @@ function drawGame() {
         drawHud();
         drawHearts();
 
-
-
-
-      }
-      else if(currentWorld === 6) {
+      } else if(currentWorld === 6) {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
