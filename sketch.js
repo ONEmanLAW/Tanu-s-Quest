@@ -1,3 +1,16 @@
+// array assets = [path1, path2, ...]
+// // 
+// worldcandisplay = false
+// fn loadAsset
+
+//   while index < array assets.length
+//     loadImage("path current index of array", counter + 1)
+
+//   canworlddisplay = true
+
+
+
+
 /////////////////////////////////////////////
 //////////////WORLDS VARIABLES///////////////
 /////////////////////////////////////////////
@@ -141,7 +154,8 @@ function setup() {
   preloadAssets()
     .then(() => {
       // Une fois que tous les assets sont chargés, commencez à dessiner
-      drawGame();
+      //drawGame();
+      console.log('YES');
     })
     .catch((error) => {
       console.error('Une erreur est survenue lors du chargement des assets :', error);
@@ -486,7 +500,7 @@ function drawGame() {
 /////////////////////////////////////////////
 function draw() {
   // Dessinez votre jeu ici
-  if (allAssetsLoaded) {
+  if (allAssetsLoaded) { //canworlddisplay
     drawGame();
   } else {
     // Affichez un message de chargement ou une animation de chargement
