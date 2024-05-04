@@ -89,6 +89,15 @@ function checkCollision(worldCollisionBoard,tileSize) {
           return true 
         }
       }
+
+      if (currentTileValue === 1000) {
+        if (pointIsInRect(xHero, yHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)) {
+          // Le joueur touche la tuile 1000
+          hearts = 0; // Le joueur perd tous ses cœurs
+          gameOver = true; // Le jeu est terminé
+          return true; // Fin de la fonction de collision
+        }
+      }
     }
   }
 };

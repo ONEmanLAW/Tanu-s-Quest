@@ -6,7 +6,7 @@ let hEnemy2 = 64;
 let chargeRadius = 350; 
 let charging = false; 
 
-const livesGobelin2 = 2;
+const livesGobelin2 = 1;
 
 function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');
@@ -81,12 +81,7 @@ function checkEnemy2Collision() {
         enemy2.lives--;
         isAttacking = false;
 
-        // Faire reculer légèrement l'ennemi dans la direction de l'attaque
-        if (lastHorizontalDirection === 'left') {
-          enemy2.position.x -= 100; 
-        } else if (lastHorizontalDirection === 'right') {
-          enemy2.position.x += 100; 
-        }
+       
       }
     } else {
       enemy2.isHit = false;

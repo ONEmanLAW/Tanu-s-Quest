@@ -82,13 +82,6 @@ function checkEnemy3Collision() {
         enemy3.isHit = true;
         enemy3.lives--;
         isAttacking = false;
-
-        // Faire reculer légèrement l'ennemi dans la direction de l'attaque
-        if (lastHorizontalDirection === 'left') {
-          enemy3.position.x -= 100; 
-        } else if (lastHorizontalDirection === 'right') {
-          enemy3.position.x += 100; 
-        }
       }
     } else {
       enemy3.isHit = false;

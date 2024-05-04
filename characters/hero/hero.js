@@ -143,7 +143,7 @@ function heroAttack() {
       wHero = wHero * 1.5; 
       xHero += wHero * 0.1;
     } else if (lastHorizontalDirection === 'left') {
-      wHero = wHero * 1.5; 
+      wHero = wHero * -1.5 
       xHero -= wHero * 0.3;
     }
     

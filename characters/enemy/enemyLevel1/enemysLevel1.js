@@ -7,7 +7,7 @@ let hEnemy = 80;
 let enemyLeftImages = [];
 let enemyRightImages = [];
 
-const livesGobelin1 = 2;
+const livesGobelin1 = 1;
 
 
 function preloadEnemy1Image() {
@@ -90,12 +90,6 @@ function checkEnemyCollision() {
       if (!enemy.isHit) {
         enemy.isHit = true;
         enemy.lives--;
-        // Faire reculer l'ennemi dans la direction de l'attaque
-        if (lastHorizontalDirection === 'left') {
-          enemy.position.x -= 100; 
-        } else if (lastHorizontalDirection === 'right') {
-          enemy.position.x += 100;
-        }
         isAttacking = false;
       }
     } else {
