@@ -160,6 +160,14 @@ function heroAttack() {
 
 
 
+function checkHeroOutOfBounds() {
+  if (yHero > 14 * worldForetTileSize) {
+    hearts -= 3;
+    gameOver = true;
+  }
+}
+
+
 
 
 
