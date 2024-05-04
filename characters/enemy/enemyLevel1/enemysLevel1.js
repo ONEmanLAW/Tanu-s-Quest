@@ -94,7 +94,7 @@ function checkEnemyCollision() {
         if (lastHorizontalDirection === 'left') {
           enemy.position.x -= 100; 
         } else if (lastHorizontalDirection === 'right') {
-          enemy.position.x += 100; e
+          enemy.position.x += 100;
         }
         isAttacking = false;
       }

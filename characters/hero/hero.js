@@ -149,7 +149,7 @@ function heroAttack() {
     
     setTimeout(() => {
       isAttacking = false;
-      wHero = worldTempleTileSize;
+      wHero = worldForetTileSize;
     }, attackDuration);
     
     setTimeout(() => {

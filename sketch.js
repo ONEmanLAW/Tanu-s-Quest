@@ -465,6 +465,11 @@ function drawGame() {
             resetEnemiesPosition();
             resetEnemies2Position();
             resetEnemies3Position();
+            if (currentWorld === 2) {
+              createEnemiesForet();
+              createEnemiesForet2();
+              createEnemiesForet3();
+            }
           }
           // Ajoutez ici la logique pour relancer le niveau
         } else if (mouseX > mainMenuX && mouseX < mainMenuX + mainMenuWidth && 
