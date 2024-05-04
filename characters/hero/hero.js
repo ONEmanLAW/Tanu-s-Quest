@@ -129,19 +129,32 @@ let movementSpeedVillage = worldVillageTileSize / 16
 
 
 
-// Variable pour suivre si le héros est en train d'attaquer
-let isAttacking = false;
 
-// Durée de l'attaque en millisecondes
-const attackDuration = 500; // 0.5 secondes
+let isAttacking = false;
+const attackDuration = 200;
+const attackCooldown = 300;
 
 // Fonction pour gérer l'attaque du héros
 function heroAttack() {
   if (!isAttacking) {
     isAttacking = true;
+    
+    if (lastHorizontalDirection === 'right') {
+      wHero = wHero * 1.5; 
+      xHero += wHero * 0.1;
+    } else if (lastHorizontalDirection === 'left') {
+      wHero = wHero * 1.5; 
+      xHero -= wHero * 0.3;
+    }
+    
     setTimeout(() => {
       isAttacking = false;
+      wHero = worldTempleTileSize;
     }, attackDuration);
+    
+    setTimeout(() => {
+      isAttacking = false;
+    }, attackCooldown);
   }
 }
 

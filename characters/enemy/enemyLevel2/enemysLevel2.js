@@ -6,7 +6,7 @@ let hEnemy2 = 64;
 let chargeRadius = 350; 
 let charging = false; 
 
-const livesGobelin2 = 1;
+const livesGobelin2 = 2;
 
 function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');
@@ -76,16 +76,29 @@ function checkEnemy2Collision() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
     if (isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
-      // Réduisez la vie de l'ennemi si le héros attaque
-      enemy2.lives--;
-      if (enemy2.lives <= 0) {
-        // Supprimez l'ennemi s'il n'a plus de vies
-        enemies2.splice(i, 1);
+      if (!enemy2.isHit) {
+        enemy2.isHit = true;
+        enemy2.lives--;
+        isAttacking = false;
+
+        // Faire reculer légèrement l'ennemi dans la direction de l'attaque
+        if (lastHorizontalDirection === 'left') {
+          enemy2.position.x -= 100; 
+        } else if (lastHorizontalDirection === 'right') {
+          enemy2.position.x += 100; 
+        }
+      }
+    } else {
+      enemy2.isHit = false;
+
+      if (!isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
+        loseHeart();
       }
     }
-    // Si le héros n'attaque pas et qu'il y a une collision, le héros perd de la vie
-    else if (!isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
-      loseHeart();
+
+    // Si l'ennemi n'a plus de vie, le supprimer
+    if (enemy2.lives <= 0) {
+      enemies2.splice(i, 1);
     }
   }
 }

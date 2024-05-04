@@ -87,20 +87,32 @@ function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
     if (isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
-      // Réduisez la vie de l'ennemi si le héros attaque
-      enemy.lives--;
-      if (enemy.lives <= 0) {
-        // Supprimez l'ennemi s'il n'a plus de vies
-        enemies.splice(i, 1);
+      if (!enemy.isHit) {
+        enemy.isHit = true;
+        enemy.lives--;
+        // Faire reculer l'ennemi dans la direction de l'attaque
+        if (lastHorizontalDirection === 'left') {
+          enemy.position.x -= 100; 
+        } else if (lastHorizontalDirection === 'right') {
+          enemy.position.x += 100; e
+        }
+        isAttacking = false;
+      }
+    } else {
+      enemy.isHit = false;
+
+      if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
+        // Vérifie la direction du personnage et de l'ennemi
+        if ((enemy.direction === 1 && xHero > enemy.position.x) || 
+            (enemy.direction === -1 && xHero < enemy.position.x)) {
+          loseHeart();
+        }
       }
     }
-    // Si le héros n'attaque pas et qu'il y a une collision, le héros perd de la vie
-    else if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
-      // Vérifie la direction du personnage et de l'ennemi
-      if ((enemy.direction === 1 && xHero > enemy.position.x) || 
-          (enemy.direction === -1 && xHero < enemy.position.x)) {
-        loseHeart();
-      }
+
+    // Si l'ennemi n'a plus de vie, le supprimer
+    if (enemy.lives <= 0) {
+      enemies.splice(i, 1);
     }
   }
 }

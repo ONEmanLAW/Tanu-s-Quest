@@ -78,16 +78,28 @@ function checkEnemy3Collision() {
   for (let i = 0; i < enemies3.length; i++) {
     let enemy3 = enemies3[i];
     if (isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
-      // Réduisez la vie de l'ennemi si le héros attaque
-      enemy3.lives--;
-      if (enemy3.lives <= 0) {
-        // Supprimez l'ennemi s'il n'a plus de vies
-        enemies3.splice(i, 1);
+      if (!enemy3.isHit) {
+        enemy3.isHit = true;
+        enemy3.lives--;
+        isAttacking = false;
+
+        // Faire reculer légèrement l'ennemi dans la direction de l'attaque
+        if (lastHorizontalDirection === 'left') {
+          enemy3.position.x -= 100; 
+        } else if (lastHorizontalDirection === 'right') {
+          enemy3.position.x += 100; 
+        }
+      }
+    } else {
+      enemy3.isHit = false;
+      if (!isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
+        loseHeart();
       }
     }
-    // Si le héros n'attaque pas et qu'il y a une collision, le héros perd de la vie
-    else if (!isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
-      loseHeart();
+
+    // Si l'ennemi n'a plus de vie, le supprimer
+    if (enemy3.lives <= 0) {
+      enemies3.splice(i, 1);
     }
   }
 }
