@@ -6,6 +6,8 @@ let hEnemy2 = 64;
 let chargeRadius = 350; 
 let charging = false; 
 
+const livesGobelin2 = 1;
+
 function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');
 }
@@ -15,14 +17,16 @@ function createEnemiesForet2() {
     position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), 
     charging: false,
     origin: createVector(7 * worldForetTileSize, 6 * worldForetTileSize),
-    distanceToOrigin: 0 
+    distanceToOrigin: 0,
+    lives : livesGobelin2 
   });
 
   enemies2.push({
     position: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), 
     charging: false,
     origin: createVector(27 * worldForetTileSize, 6 * worldForetTileSize),
-    distanceToOrigin: 0 
+    distanceToOrigin: 0,
+    lives : livesGobelin2
   });
 
   // Ajoutez plus d'ennemis avec leurs positions respectives et d'autres propriétés si nécessaire
@@ -38,6 +42,7 @@ function resetEnemies2Position() {
     // Réinitialise les autres propriétés si nécessaire
     enemy2.charging = false;
     enemy2.distanceToOrigin = 0;
+    enemy2.lives = livesGobelin2;
   }
 }
 
@@ -70,7 +75,16 @@ function drawEnemies2() {
 function checkEnemy2Collision() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
-    if (dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
+    if (isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
+      // Réduisez la vie de l'ennemi si le héros attaque
+      enemy2.lives--;
+      if (enemy2.lives <= 0) {
+        // Supprimez l'ennemi s'il n'a plus de vies
+        enemies2.splice(i, 1);
+      }
+    }
+    // Si le héros n'attaque pas et qu'il y a une collision, le héros perd de la vie
+    else if (!isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
       loseHeart();
     }
   }

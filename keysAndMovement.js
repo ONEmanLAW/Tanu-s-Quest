@@ -251,6 +251,10 @@ function keyPressed() {
       introDialogActive = false;
     }
   };
+
+  if (keyCode === 69) { // Touche "E" pour attaquer
+    heroAttack();
+  }
   
   if (introDialogActive) {
     if (currentIntroductionIndex === 5) {

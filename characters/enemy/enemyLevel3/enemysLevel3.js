@@ -4,7 +4,9 @@ let speedEnemy3 = 3;
 let wEnemy3 = 64; 
 let hEnemy3 = 64;
 let chaseSpeed = 4; 
-let chaseRange = 300; 
+let chaseRange = 300;
+
+const livesGobelin3 = 2; 
 
 
 function preloadEnemy3Image() {
@@ -17,14 +19,16 @@ function createEnemiesForet3() {
     position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
     detected: false,
     origin: createVector(15 * worldForetTileSize, 6 * worldForetTileSize),
-    distanceToOrigin: 0 
+    distanceToOrigin: 0,
+    lives : livesGobelin3 
   });
 
   enemies3.push({
     position: createVector(20 * worldForetTileSize, 8 * worldForetTileSize), 
     detected: false,
     origin: createVector(20 * worldForetTileSize, 8 * worldForetTileSize),
-    distanceToOrigin: 0 
+    distanceToOrigin: 0,
+    lives : livesGobelin3  
   });
   // Add More Ennemies.
 }
@@ -38,6 +42,7 @@ function resetEnemies3Position() {
     // Réinitialise les autres propriétés si nécessaire
     enemy3.detected = false;
     enemy3.distanceToOrigin = 0;
+    enemy3.lives = livesGobelin3;
   }
 }
 
@@ -72,7 +77,16 @@ function drawEnemies3() {
 function checkEnemy3Collision() {
   for (let i = 0; i < enemies3.length; i++) {
     let enemy3 = enemies3[i];
-    if (dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
+    if (isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
+      // Réduisez la vie de l'ennemi si le héros attaque
+      enemy3.lives--;
+      if (enemy3.lives <= 0) {
+        // Supprimez l'ennemi s'il n'a plus de vies
+        enemies3.splice(i, 1);
+      }
+    }
+    // Si le héros n'attaque pas et qu'il y a une collision, le héros perd de la vie
+    else if (!isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
       loseHeart();
     }
   }
