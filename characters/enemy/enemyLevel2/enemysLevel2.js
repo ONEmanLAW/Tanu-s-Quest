@@ -6,7 +6,7 @@ let hEnemy2 = 64;
 let chargeRadius = 350; 
 let charging = false; 
 
-const livesGobelin2 = 1;
+const livesGobelin2 = 3;
 
 function preloadEnemy2Image() {
   enemy2Image = loadImage('characters/enemy/gobelin2.png');

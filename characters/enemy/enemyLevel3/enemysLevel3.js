@@ -6,7 +6,7 @@ let hEnemy3 = 64;
 let chaseSpeed = 4; 
 let chaseRange = 300;
 
-const livesGobelin3 = 2; 
+const livesGobelin3 = 5; 
 
 
 function preloadEnemy3Image() {

@@ -7,7 +7,7 @@ let hEnemy = 80;
 let enemyLeftImages = [];
 let enemyRightImages = [];
 
-const livesGobelin1 = 1;
+const livesGobelin1 = 2;
 
 
 function preloadEnemy1Image() {

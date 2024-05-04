@@ -204,7 +204,7 @@ function keyPressed() {
   
   if (currentWorld === 0 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
     if (key === 'e') {
-      attack();
+      heroAttack();
     }
   };
 
@@ -252,9 +252,7 @@ function keyPressed() {
     }
   };
 
-  if (keyCode === 69) { // Touche "E" pour attaquer
-    heroAttack();
-  }
+
   
   if (introDialogActive) {
     if (currentIntroductionIndex === 5) {
