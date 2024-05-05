@@ -55,7 +55,7 @@ function gererDialoguesYeti() {
       conversationYetiFinished = true;
       yetiDialogActive = false;
 
-      dialoguesYeti.splice(0, currentYetiIndexQuete + 1);
+      //dialoguesYeti.splice(0, currentYetiIndexQuete + 1);
     }
   }
 }

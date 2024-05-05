@@ -198,16 +198,17 @@ function keyPressed() {
     }
   };
 
-
-  if (key === 'n' || key === 'N') {
-    if (yetiDialogActive) {
-        currentYetiIndexQuete++;
-        if (currentYetiIndexQuete >= dialoguesYeti.length) {
-            currentYetiIndexQuete = dialoguesYeti.length - 1;
-            yetiDialogActive = false; // Désactiver le dialogue lorsque tous les dialogues ont été affichés
-        }
+  if (yetiDialogActive) {
+    if (key === 'n' || key === 'N') {
+    currentYetiIndexQuete++;
+    if (currentYetiIndexQuete >= dialoguesYeti.length) {
+        currentYetiIndexQuete = dialoguesYeti.length - 1;
+        yetiDialogActive = false; // Désactiver le dialogue lorsque tous les dialogues ont été affichés
     }
-  }
+    }
+   
+}
+  
 
   
   
