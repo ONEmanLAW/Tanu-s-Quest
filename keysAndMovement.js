@@ -98,15 +98,22 @@ let lastHorizontalDirection = 'left';
 
 function checkKeys(currentMap) {
   if (!gameOver) {
+    if (currentMap === 0) {
+      if (animation) {
+        return;
+      }
+    } else if (currentMap  === 1) {
+      if (animationVillage) {
+        return;
+      }
+    }
     // Temple, Foret, Grotte, Boss
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
       }
 
-      if (animation) {
-        return;
-      }
+      
 
       if (keyIsDown(68)) {
         moveRight();
@@ -140,12 +147,6 @@ function checkKeys(currentMap) {
       if (keyIsDown(90) && keyIsDown(83)) {
         return;
       }
-
-
-      if(animationVillage) {
-        return;
-      }
-
       
 
       if (keyIsDown(68)) {
@@ -224,6 +225,10 @@ function keyPressed() {
       counterForet += 3; 
       counterForet = min(counterForet, 9); 
       cageVisible[cageIndex] = false; 
+      
+      if (counterForet === 9) {
+        isForestNpcSaved = true;
+      }
     }
   }
 

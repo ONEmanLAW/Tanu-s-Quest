@@ -14,6 +14,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         yHero = 7 * worldsTileSizes[currentWorld];
         return true;
       } else if (currentTileValue === 301 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && !introDialogActive && !animation) {
+        // Code pour le changement de monde vers le village
         currentWorld = 1;
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 10 * worldsTileSizes[currentWorld];
@@ -36,13 +37,12 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 8 * worldsTileSizes[currentWorld];
         return true;
-      } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
+      } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isForestNpcSaved && heroHasStoneStone) {
         // Code pour le changement de monde vers le village un peu reconstruit
-        if (isForestNpcSaved && heroHasStoneStone) {
           currentWorld = 5;
-          // Mettez ici les coordonnées de téléportation appropriées pour la tuile 305
+          xHero = 2 * worldsTileSizes[currentWorld]; 
+          yHero = 10 * worldsTileSizes[currentWorld];
           return true;
-        }
       } else if(currentTileValue === 306 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers le village reconstruit
         currentWorld === 6;
