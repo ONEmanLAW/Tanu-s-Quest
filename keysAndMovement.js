@@ -196,11 +196,9 @@ function keyPressed() {
             yetiDialogActive = false; // Désactiver le dialogue lorsque tous les dialogues ont été affichés
         }
     }
-}
+  }
 
   
-
-
   
   if (currentWorld === 0 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
     if (key === 'e') {

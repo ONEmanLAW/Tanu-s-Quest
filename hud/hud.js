@@ -26,35 +26,35 @@ let imageEcorceMagique;
 
 
 function preloadHudImages() {
-  cadreVide = loadImage('hud/cadreVide.png');
-  imageEpee1 = loadImage('hud/imageEpee.png');
-  imageEpee2 = loadImage('hud/imageEpee2.png');
-  imageFeu1 = loadImage('hud/imageFeu1.png');
-  imageFeu2 = loadImage('hud/imageFeu2.png');
-  imageEau1 = loadImage('hud/imageEau1.png');
-  imageEau2 = loadImage('hud/imageEau2.png');
-  imageTerre1 = loadImage('hud/imageTerre1.png');
-  imageTerre2 = loadImage('hud/imageTerre2.png');
-  imageVent1 = loadImage('hud/imageVent1.png');
-  imageVent2 = loadImage('hud/imageVent2.png');
-  imagePotion1 = loadImage('hud/imagePotion1.png');
-  imagePotion2 = loadImage('hud/imagePotion2.png');
-  imagePotion3 = loadImage('hud/imagePotion3.png');
-  imagePotion4 = loadImage('hud/imagePotion4.png');
+  cadreVide = loadImage('hud/assets/cadreVide.png');
+  imageEpee1 = loadImage('hud/assets/imageEpee.png');
+  imageEpee2 = loadImage('hud/assets/imageEpee2.png');
+  imageFeu1 = loadImage('hud/assets/imageFeu1.png');
+  imageFeu2 = loadImage('hud/assets/imageFeu2.png');
+  imageEau1 = loadImage('hud/assets/imageEau1.png');
+  imageEau2 = loadImage('hud/assets/imageEau2.png');
+  imageTerre1 = loadImage('hud/assets/imageTerre1.png');
+  imageTerre2 = loadImage('hud/assets/imageTerre2.png');
+  imageVent1 = loadImage('hud/assets/imageVent1.png');
+  imageVent2 = loadImage('hud/assets/imageVent2.png');
+  imagePotion1 = loadImage('hud/assets/imagePotion1.png');
+  imagePotion2 = loadImage('hud/assets/imagePotion2.png');
+  imagePotion3 = loadImage('hud/assets/imagePotion3.png');
+  imagePotion4 = loadImage('hud/assets/imagePotion4.png');
 
 
-  imageGrenouille = loadImage('hud/Grenouille.png');
-  imagevillageoisSauvés = loadImage('hud/villageoisSauvés.png');
+  imageGrenouille = loadImage('hud/assets/Grenouille.png');
+  imagevillageoisSauvés = loadImage('hud/assets/villageoisSauvés.png');
 
-  imageEcorce1 = loadImage('hud/imageEcorce1.png');
-  imageEcorce2 = loadImage('hud/imageEcorce2.png');
-  imageEcorceMagique = loadImage('hud/imageEcorceMagique.png')
-  imageCadreHeart = loadImage('hud/cadreHeart.png');
+  imageEcorce1 = loadImage('hud/assets/imageEcorce1.png');
+  imageEcorce2 = loadImage('hud/assets/imageEcorce2.png');
+  imageEcorceMagique = loadImage('hud/assets/imageEcorceMagique.png')
+  imageCadreHeart = loadImage('hud/assets/cadreHeart.png');
 
-  imagePierreEau = loadImage('hud/pierreEau.png');
-  imagePierreTerre = loadImage('hud/pierreTerre.png');
-  imagePierreFeu = loadImage('hud/pierreFeu.png');
-  imagePierreVent = loadImage('hud/pierreVent.png');
+  imagePierreEau = loadImage('hud/assets/pierreEau.png');
+  imagePierreTerre = loadImage('hud/assets/pierreTerre.png');
+  imagePierreFeu = loadImage('hud/assets/pierreFeu.png');
+  imagePierreVent = loadImage('hud/assets/pierreVent.png');
 };
 
 
@@ -335,7 +335,7 @@ let gameOver = false;
 //// Hearts
 
 function preloadHeartImage() {
-  heartImage = loadImage('hud/heart.png');
+  heartImage = loadImage('hud/assets/heart.png');
 }
 
 function loseHeart() {
