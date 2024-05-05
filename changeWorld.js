@@ -13,13 +13,10 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 16 * worldsTileSizes[currentWorld];
         yHero = 7 * worldsTileSizes[currentWorld];
         return true;
-      } else if (currentTileValue === 301 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
-        // Code pour le changement de monde vers le village détruit
+      } else if (currentTileValue === 301 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && !introDialogActive && !animation) {
         currentWorld = 1;
-        if (currentTileValue === 301) {
-          xHero = 2 * worldsTileSizes[currentWorld]; 
-          yHero = 10 * worldsTileSizes[currentWorld];
-        }
+        xHero = 2 * worldsTileSizes[currentWorld]; 
+        yHero = 10 * worldsTileSizes[currentWorld];
         return true;
       } else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers la forêt
