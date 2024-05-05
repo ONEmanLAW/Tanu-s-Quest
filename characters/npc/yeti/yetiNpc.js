@@ -52,11 +52,13 @@ function gererDialoguesYeti() {
     
     // Vérifie si c'est le dernier dialogue
     if (currentYetiIndexQuete === dialoguesYeti.length - 1) {
-      conversationYetiFinished = true; // Met à jour la variable lorsque le dernier dialogue est atteint
+      conversationYetiFinished = true;
+      yetiDialogActive = false;
+
+      dialoguesYeti.splice(0, currentYetiIndexQuete + 1);
     }
   }
 }
-
 
 
 

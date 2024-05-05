@@ -18,7 +18,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 10 * worldsTileSizes[currentWorld];
         return true;
-      } else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
+      } else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && conversationYetiFinished) {
         // Code pour le changement de monde vers la forêt
         currentWorld = 2;
         xHero = 2 * worldsTileSizes[currentWorld];

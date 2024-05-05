@@ -226,7 +226,6 @@ function drawGame() {
         if (currentIntroductionIndex >= dialoguesIntroduction.length) {
           introDialogActive = false;
         }
-        gestionTransitionImage();
 
         if(!introDialogActive && !animation) {
           checkGrandSageInteraction();
@@ -261,6 +260,7 @@ function drawGame() {
           gererDialoguesYeti();
         }
 
+        
         
         
       } else if (currentWorld === 2) {
