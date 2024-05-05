@@ -248,7 +248,7 @@ function drawGame() {
         if (animationVillage && animationCounterVillage < 133) {
           xHero += movementSpeedVillage;
           animationCounterVillage++;
-          updateAnimation(myHeroVillageRight);
+          updateAnimationVillage(myHeroVillageRight);
         } else {
           animationVillage = false;
           yetiDialogActive = true;

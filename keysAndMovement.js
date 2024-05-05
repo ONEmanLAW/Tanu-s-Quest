@@ -104,6 +104,10 @@ function checkKeys(currentMap) {
         return;
       }
 
+      if (animation) {
+        return;
+      }
+
       if (keyIsDown(68)) {
         moveRight();
         lastHorizontalDirection = 'right';
@@ -136,6 +140,13 @@ function checkKeys(currentMap) {
       if (keyIsDown(90) && keyIsDown(83)) {
         return;
       }
+
+
+      if(animationVillage) {
+        return;
+      }
+
+      
 
       if (keyIsDown(68)) {
         moveRightVillage();
