@@ -22,6 +22,7 @@ let imagePierreVent;
 
 let imageEcorce1;
 let imageEcorce2;
+let imageEcorceMagique;
 
 
 function preloadHudImages() {
@@ -47,6 +48,7 @@ function preloadHudImages() {
 
   imageEcorce1 = loadImage('hud/imageEcorce1.png');
   imageEcorce2 = loadImage('hud/imageEcorce2.png');
+  imageEcorceMagique = loadImage('hud/imageEcorceMagique.png')
   imageCadreHeart = loadImage('hud/cadreHeart.png');
 
   imagePierreEau = loadImage('hud/pierreEau.png');
@@ -57,7 +59,24 @@ function preloadHudImages() {
 
 
 
+// Coordonnées et dimensions de l'image de feu
+let xEcorce = 70 * worldForetTileSize + 18;
+let yEcorce = 4 * worldForetTileSize + 18;
+let wEcorce = 64;
+let hEcorce = 64;
+let heroInEcorce = false;
+let heroHasEcorce= false;
 
+function checkHeroInEcorce() {
+  if (!heroInFire) {
+    if (xHero + wHero > xEcorce &&
+        xHero < xEcorce + wEcorce &&
+        yHero + hHero > yEcorce &&
+        yHero < yEcorce + hEcorce) {
+      heroInEcorce = true;
+    }
+  }
+};
 
 // Coordonnées et dimensions de l'image de feu
 let xFeu2 = 7 * worldForetTileSize + 18;
@@ -157,14 +176,9 @@ function drawHud() {
   }
 
 
-
-
-  // Vérifier si l'hero image est dans imageFeu2
   if (!heroInFire) {
-    // Afficher imageFeu1 si l'hero image n'est pas dans imageFeu2
     image(imageFeu1, 340, 915, 65, 65);
   } else {
-    // Afficher imageFeu2 si l'hero image est dans imageFeu2
     displayImageWithBlinkUniversal(imageFeu2, 340, 915, 65, 65);
     heroHasFireStone = true;
   }
@@ -178,10 +192,12 @@ function drawHud() {
   image(imagevillageoisSauvés, 1400, 30, 200, 100);
 
   // Si la conversation avec le Yeti est terminée
-  if (conversationYetiFinished) {
+  if (conversationYetiFinished && !heroInEcorce) {
     displayImageWithBlink(imageEcorce1, 1650, 200, 100, 100);
-  } 
-  
+  } else if(conversationYetiFinished && heroInEcorce) {
+    displayImageWithBlinkUniversal(imageEcorce2, 1650, 200, 100, 100);
+    heroHasEcorce = true;
+  }
   pop();
 }
 

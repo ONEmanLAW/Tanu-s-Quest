@@ -133,23 +133,15 @@ let movementSpeedVillage = worldVillageTileSize / 16
 let isAttacking = false;
 const attackDuration = 200;
 const attackCooldown = 300;
+let baseWidthHero = 80;
 
 // Fonction pour gérer l'attaque du héros
 function heroAttack() {
   if (!isAttacking) {
     isAttacking = true;
     
-    if (lastHorizontalDirection === 'right') {
-      wHero = wHero * 1.5; 
-      xHero += wHero * 0.1;
-    } else if (lastHorizontalDirection === 'left') {
-      wHero = wHero * -1.5 
-      xHero -= wHero * 0.3;
-    }
-    
     setTimeout(() => {
       isAttacking = false;
-      wHero = worldForetTileSize;
     }, attackDuration);
     
     setTimeout(() => {

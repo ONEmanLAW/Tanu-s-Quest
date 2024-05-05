@@ -55,7 +55,7 @@ function checkForestNpcSaved() {
   fill(255);
   textSize(30);
   textAlign(CENTER, CENTER);
-  text(counterForet + "/12", 1525, 80);
+  text(counterForet + "/9", 1525, 80);
 }
 
 

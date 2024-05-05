@@ -322,6 +322,7 @@ function drawGame() {
         
         handleCooldown();
         checkHeroInStone();
+        checkHeroInEcorce();
         drawHud();
         drawHearts();
 
@@ -329,6 +330,10 @@ function drawGame() {
           image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
         }
         
+        if(!heroInEcorce) {
+          image(imageEcorceMagique, xEcorce, yEcorce, wEcorce, hEcorce);
+        }
+
         for (let i = 0; i < cagePositions.length; i++) {
           if (cageVisible[i]) {
             image(cageImage, cagePositions[i].x, cagePositions[i].y, cageWidth, cageHeight);
@@ -345,6 +350,7 @@ function drawGame() {
         updateParallaxCameraGrotte(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
+        
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
 

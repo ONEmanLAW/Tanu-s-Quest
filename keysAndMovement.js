@@ -211,18 +211,18 @@ function keyPressed() {
   if (key === 't') {
     let cageIndex = checkCageInteraction();
     if (cageIndex !== -1) {
-      counterForet += 3; // Incrémenter le compteur de 3
-      counterForet = min(counterForet, 12); // Limiter le compteur à 12
-      cageVisible[cageIndex] = false; // Rendre la cage invisible
+      counterForet += 3; 
+      counterForet = min(counterForet, 9); 
+      cageVisible[cageIndex] = false; 
     }
   }
 
   if (key === 't') {
     let cageIndexGrotte = checkCageInteractionGrotte();
     if (cageIndexGrotte !== -1) {
-      counterGrotte += 3; // Incrémenter le compteur de 3
-      counterGrotte= min(counterGrotte, 12); // Limiter le compteur à 12
-      cageVisibleGrotte[cageIndexGrotte] = false; // Rendre la cage invisible
+      counterGrotte += 3; 
+      counterGrotte= min(counterGrotte, 9); 
+      cageVisibleGrotte[cageIndexGrotte] = false;
     }
   }
 
