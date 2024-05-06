@@ -199,6 +199,18 @@ function keyPressed() {
     }
   };
 
+
+  if (keyCode === 78) { 
+    if (bossIntroActive && currentBossIntroductionIndex < bossDialogues.length - 1) {
+      currentBossIntroductionIndex++;
+    } else if (bossIntroActive && currentBossIntroductionIndex === bossDialogues.length - 1) {
+      bossIntroActive = false;
+      // Supprimez les dialogues du boss une fois que le dernier dialogue a été affiché
+      bossDialogues.splice(0, bossDialogues.length);
+    }
+};
+
+
   if (yetiDialogActive) {
     if (key === 'n' || key === 'N') {
     currentYetiIndexQuete++;

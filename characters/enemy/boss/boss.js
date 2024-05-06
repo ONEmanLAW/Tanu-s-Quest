@@ -52,3 +52,41 @@ function updateBossAnimation(animationArray) {
     movementCounterBoss = 0;
   }
 }
+
+
+
+
+
+let bossDialogues = [
+  { text: "Je suis le terrifiant Boss Gobelin, et je suis revenu pour réduire ce village en cendres !", boxType: "Boss" },
+  { text: "Tanuki, tu oses te dresser contre moi ? Tu n'as aucune chance !", boxType: "Boss" },
+  { text: "TU VAS VOIRE !!!", boxType: "Hero" },
+];
+
+let currentBossIntroductionIndex = 0;
+let bossIntroActive = false;
+
+function gererIntroductionBoss() {
+  if (bossIntroActive && currentBossIntroductionIndex < bossDialogues.length) {
+    let dialogueActuel = bossDialogues[currentBossIntroductionIndex].text;
+    let boxType = bossDialogues[currentBossIntroductionIndex].boxType;
+    let textWidth = 1100;
+    let textHeight = 250;
+    let textX = (width - textWidth) / 2;
+    let textY = height - textHeight - 20 + 50;
+
+    let boiteDeDialogue;
+    if (boxType === "Boss") {
+      boiteDeDialogue = boiteDeDialogueGrandSage;
+    } else if (boxType === "Hero") {
+      boiteDeDialogue = boiteDeDialogueHeroTuto;
+    }
+    
+    fill(0);
+    image(boiteDeDialogue, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+  }
+}

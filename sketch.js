@@ -339,6 +339,24 @@ function drawGame() {
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
+        if (animationBoss && animationCounterBoss < 144) {
+          xHero += movementSpeedBoss;
+          animationCounterBoss++;
+          updateAnimation(myHeroRight);
+        } else {
+          animationBoss = false;
+        };
+
+        if(!bossIntroActive && !animationBoss) {
+          bossIntroActive = true;
+        } else if(bossIntroActive) {
+          gererIntroductionBoss();
+        }
+
+        if (currentBossIntroductionIndex >= bossDialogues.length) {
+          bossIntroActive = false;
+        }
+
 
       } else if(currentWorld === 5) {
         updateNormalCamera(4704, 2688);

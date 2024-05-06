@@ -48,7 +48,13 @@ let movementSpeed = worldTempleTileSize / 16;
 // Movement automatique arrivée au village
 let animationCounterVillage = 0;
 let animationVillage = true;
-let movementSpeedVillage = worldVillageTileSize / 16
+let movementSpeedVillage = worldVillageTileSize / 16;
+
+// Movement automatique arrivée au Boss
+let animationCounterBoss = 0;
+let animationBoss = true;
+let movementSpeedBoss = worldBossTileSize / 16;
+
 
 
 
