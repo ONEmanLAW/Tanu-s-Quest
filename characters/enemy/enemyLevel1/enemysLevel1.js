@@ -86,7 +86,11 @@ function drawEnemies() {
 function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
-    if (isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
+    // Calculer la position horizontale du centre de l'attaque
+    let attackCenterX = (lastHorizontalDirection === 'right') ? xHero + wHero / 2 + worldForetTileSize / 4 : xHero - wHero / 2 - worldForetTileSize / 4;
+    // La position verticale du centre de l'attaque reste centrée sur le héros
+
+    if (isAttacking && abs(attackCenterX - enemy.position.x) < wHero / 2 + wEnemy / 2) {
       if (!enemy.isHit) {
         enemy.isHit = true;
         enemy.lives--;
@@ -95,7 +99,7 @@ function checkEnemyCollision() {
     } else {
       enemy.isHit = false;
 
-      if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
+      if (!isAttacking && dist(xHero, yHero, enemy.position.x, enemy.position.y) < wHero / 2 + wEnemy / 2) {
         // Vérifie la direction du personnage et de l'ennemi
         if ((enemy.direction === 1 && xHero > enemy.position.x) || 
             (enemy.direction === -1 && xHero < enemy.position.x)) {
@@ -110,3 +114,5 @@ function checkEnemyCollision() {
     }
   }
 }
+
+

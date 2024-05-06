@@ -139,6 +139,14 @@ let baseWidthHero = 80;
 function heroAttack() {
   if (!isAttacking) {
     isAttacking = true;
+
+    // Calculer la direction de l'attaque en fonction de la direction actuelle du héros
+    let attackDirection;
+    if (lastHorizontalDirection === 'right') {
+      attackDirection = 1; // Attaque vers la droite
+    } else {
+      attackDirection = -1; // Attaque vers la gauche
+    }
     
     setTimeout(() => {
       isAttacking = false;

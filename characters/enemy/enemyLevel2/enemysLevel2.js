@@ -75,13 +75,14 @@ function drawEnemies2() {
 function checkEnemy2Collision() {
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
-    if (isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
+    // Calculer la position horizontale du centre de l'attaque
+    let attackCenterX = (lastHorizontalDirection === 'right') ? xHero + wHero / 2 + worldForetTileSize / 2 : xHero - wHero / 2 - worldForetTileSize / 4;
+
+    if (isAttacking && abs(attackCenterX - enemy2.position.x) < wHero / 2 + wEnemy2 / 2) {
       if (!enemy2.isHit) {
         enemy2.isHit = true;
         enemy2.lives--;
         isAttacking = false;
-
-       
       }
     } else {
       enemy2.isHit = false;

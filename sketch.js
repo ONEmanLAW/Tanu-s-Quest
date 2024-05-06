@@ -277,7 +277,7 @@ function drawGame() {
         moveEnemies2(); 
         drawEnemies2(); 
         checkEnemy2Collision(); 
-        detectPlayer2(); 
+        //detectPlayer2(); 
 
 
         moveEnemies3();
@@ -311,8 +311,6 @@ function drawGame() {
         checkCageInteraction();
         checkForestNpcSaved();
         checkHeroOutOfBounds();
-        
-
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
