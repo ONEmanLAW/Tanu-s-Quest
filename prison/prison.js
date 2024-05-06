@@ -1,3 +1,8 @@
+/////////////////////////////////////////////
+/////////////////CAGE FORET//////////////////
+/////////////////////////////////////////////
+
+
 let cageImage;
 let cagePositions = [
   {x: 28.40 * worldForetTileSize, y: 8.30 * worldForetTileSize}, 
@@ -5,23 +10,20 @@ let cagePositions = [
   {x: 197.40 * worldForetTileSize, y: 1.30 * worldForetTileSize},
 ];
 
-
-
 let cageWidth = worldForetTileSize * 1.60;
 let cageHeight = worldForetTileSize * 1.70;
 
 let counterForet = 0;
 let isForestNpcSaved = false;
-let cageVisible = []; // Tableau pour indiquer si chaque cage est visible ou non
+let cageVisible = [];
 
 
 function preloadCageImage() {
-  cageImage = loadImage('prisonFôret.png');
+  cageImage = loadImage('prison/prisonFôret.png');
   for (let i = 0; i < cagePositions.length; i++) {
     cageVisible.push(true);
   }
 }
-
 
 function checkCageInteraction() {
   for (let i = 0; i < cagePositions.length; i++) {
@@ -49,7 +51,6 @@ function checkCageInteraction() {
   return -1; // Aucune cage n'est proche
 }
 
-
 function checkForestNpcSaved() {
   translate(cameraX, cameraY);
   fill(255);
@@ -59,12 +60,9 @@ function checkForestNpcSaved() {
 }
 
 
-
-
-
-
-
-
+/////////////////////////////////////////////
+////////////////CAGE GROTTE//////////////////
+/////////////////////////////////////////////
 
 
 let cageImageGrotte;
@@ -76,12 +74,14 @@ let cagePositionsGrotte = [
 
 let cageWidthGrotte = worldGrotteTileSize * 1.60;
 let cageHeightGrotte = worldGrotteTileSize * 1.70;
+
 let counterGrotte = 0;
 let isGrottetNpcSaved = false;
 let cageVisibleGrotte = [];
 
+
 function preloadCageImageGrotte() {
-  cageImageGrotte = loadImage('prisonGrotte.png');
+  cageImageGrotte = loadImage('prison/prisonGrotte.png');
 
   for (let i = 0; i < cagePositionsGrotte.length; i++) {
     cageVisibleGrotte.push(true);
