@@ -373,7 +373,7 @@ function drawHearts() {
 
 let heroInvincible = false;
 let cooldownTimer = 0;
-const cooldownDuration = 1500;
+const cooldownDuration = 2000;
 
 
 function activateCooldown() {

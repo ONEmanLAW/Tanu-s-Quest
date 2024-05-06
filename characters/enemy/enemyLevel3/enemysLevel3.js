@@ -77,9 +77,7 @@ function drawEnemies3() {
 function checkEnemy3Collision() {
   for (let i = 0; i < enemies3.length; i++) {
     let enemy3 = enemies3[i];
-    let attackCenterX = (lastHorizontalDirection === 'right') ? xHero + wHero / 2 + worldForetTileSize / 4 : xHero - wHero / 2 - worldForetTileSize / 4;
-
-    if (isAttacking && abs(attackCenterX - enemy3.position.x) < wHero / 2 + wEnemy3 / 2) {
+    if (isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
       if (!enemy3.isHit) {
         enemy3.isHit = true;
         enemy3.lives--;
@@ -98,6 +96,7 @@ function checkEnemy3Collision() {
     }
   }
 }
+
 
 
 

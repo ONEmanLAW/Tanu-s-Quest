@@ -283,7 +283,7 @@ function drawGame() {
         moveEnemies3();
         drawEnemies3();
         checkEnemy3Collision();
-        detectPlayer3(); 
+        // detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
