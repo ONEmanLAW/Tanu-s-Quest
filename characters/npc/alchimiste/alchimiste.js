@@ -4,6 +4,8 @@ let alchimisteWidth = worldVillageTileSize3 + 40;
 let alchimisteHeight = worldVillageTileSize3 + 40; 
 
 
+
+
 let currentAlcimisteIndex = 0;
 let myAlchimisteIdle = []; // Tableau pour les images d'attente du Grand Sage
 let currentAlchimisteImage = 0;
@@ -40,13 +42,17 @@ function updateAlchimisteAnimation(animationArray) {
 
 // Dialogues de l'alchimiste
 let dialoguesAlchimiste = [
-  { text: "Salutations, jeune aventurier. En quoi puis-je vous être utile ?", boxType: "Alchimiste" },
-  { text: "L'alchimiste, j'ai besoin de votre expertise. Le village est en danger et j'ai besoin de votre aide !", boxType: "Hero" },
+  { text: " Coucou Tanu ! Merci encore de nous avoir sauvée", boxType: "Alchimiste" },
+  { text: "Pas de souci ces normal", boxType: "Hero" },
+  { text: "J'ai quelque choses pour toi !", boxType: "Alchimiste" },
+  { text: "Voici des potions pour toi , si jamais tu perds trop de coeur tu peut utilier 'r' pour récupérer de la vie.", boxType: "Alchimiste" },
+  { text: "Je te remercie pour ton don.", boxType: "Hero" },
   // Ajoutez d'autres dialogues ici
 ];
 
 let currentAlchimisteIndex = 0;
 let alchimisteDialogActive = false;
+let alchimisteDialogueFinished = false;
 
 // Fonction pour gérer le dialogue de l'alchimiste
 function gererDialoguesAlchimiste() {
@@ -79,6 +85,9 @@ function gererDialoguesAlchimiste() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX, textY);
+  } else {
+    // Si tous les dialogues ont été affichés, le dialogue de l'alchimiste est terminé
+    
   }
 }
 

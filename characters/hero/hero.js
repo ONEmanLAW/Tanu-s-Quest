@@ -10,6 +10,8 @@ let yHero = 7 * worldTempleTileSize;
 let wHero = worldTempleTileSize;
 let hHero = worldTempleTileSize;
 
+let potions = 0;
+
 
 function adjustHeroSize(currentWorld) {
   wHero = worldsTileSizes[currentWorld];

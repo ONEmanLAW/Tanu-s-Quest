@@ -207,6 +207,8 @@ function keyPressed() {
         currentAlchimisteIndex++;
       } else if (alchimisteDialogActive && currentAlchimisteIndex === dialoguesAlchimiste.length - 1) {
         alchimisteDialogActive = false;
+        alchimisteDialogueFinished = true;
+        potions = 3;
         // Supprimez les dialogues de l'alchimiste une fois que le dernier dialogue a été affiché
         dialoguesAlchimiste.splice(0, dialoguesAlchimiste.length);
       }
@@ -233,7 +235,24 @@ function keyPressed() {
     }
     }
    
-}
+  }
+
+
+
+  if (keyCode === 82) { // 82 est le code pour la touche "r"
+    // Vérifier si le joueur a des potions
+    if (potions > 0 && hearts < 3) {
+      // Récupérer un cœur
+      hearts++;
+      // Décrémenter le nombre de potions
+      potions--;
+    }
+  }
+
+  if (keyCode === 72) { // 72 est le code pour la touche "h"
+    // Appeler la fonction loseHeart()
+    loseHeart();
+  }
 
   
   if (keyCode === 80) {

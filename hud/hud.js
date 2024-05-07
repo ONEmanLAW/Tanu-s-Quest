@@ -166,7 +166,10 @@ function drawHud() {
 
   image(cadreVide, 30, 850, 600, 150);
   image(imageEpee2, 44, 861, 100, 100);
-  image(imagePotion1, 160, 915, 75, 75);
+  
+  if (!alchimisteDialogueFinished) {
+    image(imagePotion1, 160, 915, 75, 75);
+  }
 
   if (!heroInStone) {
     image(imageTerre1, 250, 915, 65, 65)
@@ -198,6 +201,17 @@ function drawHud() {
     displayImageWithBlinkUniversal(imageEcorce2, 1650, 200, 100, 100);
     heroHasEcorce = true;
   }
+
+  if (alchimisteDialogueFinished && potions === 3) {
+    displayImageWithBlinkUniversal(imagePotion4, 160, 915, 75, 75)
+  } else if (alchimisteDialogueFinished && potions === 2) {
+    displayImageWithBlinkUniversal(imagePotion3, 160, 915, 75, 75)
+  } else if(alchimisteDialogueFinished && potions === 1) {
+    displayImageWithBlinkUniversal(imagePotion2, 160, 915, 75, 75)
+  } else if(alchimisteDialogueFinished && potions === 0) {
+    displayImageWithBlinkUniversal(imagePotion1, 160, 915, 75, 75)
+  } 
+
   pop();
 }
 
