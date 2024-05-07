@@ -68,6 +68,8 @@ function preloadChatImage() {
 
   boiteDeDialogueGrandSageSansN = loadImage('characters/dialogueBoxe/dialogueGrandSageSansN.png');
   boiteDeDialogueHeroSansN = loadImage('characters/dialogueBoxe/dialogueTanuSansN.png');
+
+  boiteDeDialogueBoss = loadImage('characters/dialogueBoxe/grandDialogueBoss.png');
 }
 
 

@@ -77,7 +77,7 @@ function gererIntroductionBoss() {
 
     let boiteDeDialogue;
     if (boxType === "Boss") {
-      boiteDeDialogue = boiteDeDialogueGrandSage;
+      boiteDeDialogue = boiteDeDialogueBoss;
     } else if (boxType === "Hero") {
       boiteDeDialogue = boiteDeDialogueHeroTuto;
     }
