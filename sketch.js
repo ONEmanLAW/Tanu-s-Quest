@@ -74,14 +74,14 @@ function loadTileDictionaries() {
         setupTileDictionariesBoss(); // worldBoss.js
         resolve(); 
       }),
-      // new Promise((resolve, reject) => {
-      //   setupTileDictionariesVillage2(); // worldVillage2.js
-      //   resolve(); 
-      // }),
       new Promise((resolve, reject) => {
         setupTileDictionariesVillage3(); // worldVillage3.js
         resolve(); 
-      })
+      }),
+       // new Promise((resolve, reject) => {
+      //   setupTileDictionariesVillage2(); // worldVillage2.js
+      //   resolve(); 
+      // }),
     ];
     
     
@@ -138,6 +138,7 @@ function preload() {
   preloadGrandSageImages(); //grandSageNPC.js
   preloadCageImage(); // prison.js
   preloadCageImageGrotte();
+  preloadAlchimisteImages();
 
 
   preloadHudImages(); // hud.js
@@ -370,7 +371,11 @@ function drawGame() {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
-        image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
+        image(currentYetiImage, 12 * worldVillageTileSize3, 10 * worldVillageTileSize3, npcYetiWidth, npcYetiHeight);
+        
+        updateAlchimisteAnimation(myAlchimisteIdle);
+        image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
+
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[5], tileDecorationDictionnaries[5], worldsDecorationTileSizes[5]);
         drawHud();
