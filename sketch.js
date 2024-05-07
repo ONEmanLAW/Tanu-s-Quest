@@ -74,14 +74,14 @@ function loadTileDictionaries() {
         setupTileDictionariesBoss(); // worldBoss.js
         resolve(); 
       }),
-      new Promise((resolve, reject) => {
-        setupTileDictionariesVillage2(); // worldVillage2.js
-        resolve(); 
-      }),
       // new Promise((resolve, reject) => {
-      //   setupTileDictionariesVillage3(); // worldVillage3.js
+      //   setupTileDictionariesVillage2(); // worldVillage2.js
       //   resolve(); 
-      // })
+      // }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesVillage3(); // worldVillage3.js
+        resolve(); 
+      })
     ];
     
     
