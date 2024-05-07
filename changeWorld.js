@@ -43,11 +43,6 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
           xHero = 2 * worldsTileSizes[currentWorld]; 
           yHero = 10 * worldsTileSizes[currentWorld];
           return true;
-      } else if(currentTileValue === 306 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
-        // Code pour le changement de monde vers le village reconstruit
-        currentWorld === 6;
-
-        return true;
       }
     }
   }

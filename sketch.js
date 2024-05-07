@@ -376,15 +376,6 @@ function drawGame() {
         drawHud();
         drawHearts();
 
-      } else if(currentWorld === 6) {
-        updateNormalCamera(4704, 2688);
-        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        updateYetiAnimation(myYetiIdle);
-        image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
-        image(currentHeroVillageImage, xHero, yHero, 96, 96);
-        drawFront(decorationWorlds[6], tileDecorationDictionnaries[6], worldsDecorationTileSizes[6]);
-        drawHud();
-        drawHearts();
       }
 
       
