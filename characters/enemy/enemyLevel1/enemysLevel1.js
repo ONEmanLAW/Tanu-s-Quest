@@ -33,6 +33,8 @@ function createEnemiesForet() {
     lives: livesGobelin1 // Initialisez les vies de l'ennemi
   });
 
+  
+
 
   enemies.push({
     position: createVector(10 * worldForetTileSize, 8 * worldForetTileSize),
@@ -44,6 +46,7 @@ function createEnemiesForet() {
   });
   // Add More Ennemies.
 }
+
 
 
 function resetEnemiesPosition() {
@@ -83,7 +86,7 @@ function drawEnemies() {
 }
 
 
-User
+
 function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];

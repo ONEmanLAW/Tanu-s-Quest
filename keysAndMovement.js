@@ -221,6 +221,14 @@ function keyPressed() {
     }
    
 }
+
+  // Vérifier si la touche pressée est "P"
+  if (keyCode === 80) {
+    // Réduire la vie du boss si elle est supérieure à zéro
+    if (bossHealth > 0) {
+      bossHealth -= 10; // par exemple, réduire la vie du boss de 10 points
+    }
+  }
   
 
   

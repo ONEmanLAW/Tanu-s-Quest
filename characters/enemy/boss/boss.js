@@ -4,6 +4,8 @@ let bossWidth = worldBossTileSize * 6;
 let bossHeight= worldBossTileSize * 6;
 
 
+
+
 let currentBossIndex = 0;
 let myBossIdle = [];
 let currentBossImage = 0;
@@ -90,3 +92,36 @@ function gererIntroductionBoss() {
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
   }
 }
+
+
+
+
+
+
+let bossHealth = 100; // Santé totale du boss
+let bossMaxHealth = 100; // Santé maximale du boss
+let bossHealthBarWidth = 600; // Largeur de la barre de santé
+let bossHealthBarHeight = 20; // Hauteur de la barre de santé
+let bossHealthBarX = 500; // Position horizontale de la barre de santé
+let bossHealthBarY = 50; // Position verticale de la barre de santé
+
+function drawBossHealthBar() {
+  // Calculer la largeur de la barre de santé en fonction de la santé actuelle du boss
+  let currentHealthBarWidth = (bossHealth / bossMaxHealth) * bossHealthBarWidth;
+
+  // Définir la couleur de la barre de santé en fonction de la santé actuelle
+  let healthBarColor;
+  if (bossHealth >= 0.7 * bossMaxHealth) {
+    healthBarColor = color(0, 255, 0); // Vert si la santé est élevée
+  } else if (bossHealth >= 0.4 * bossMaxHealth) {
+    healthBarColor = color(255, 255, 0); // Jaune si la santé est moyenne
+  } else {
+    healthBarColor = color(255, 0, 0); // Rouge si la santé est faible
+  }
+
+  // Dessiner la barre de santé
+  fill(healthBarColor);
+  rect(bossHealthBarX, bossHealthBarY, currentHealthBarWidth, bossHealthBarHeight);
+}
+
+

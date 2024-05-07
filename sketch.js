@@ -277,13 +277,13 @@ function drawGame() {
         moveEnemies2(); 
         drawEnemies2(); 
         checkEnemy2Collision(); 
-        //detectPlayer2(); 
+        detectPlayer2(); 
 
 
         moveEnemies3();
         drawEnemies3();
         checkEnemy3Collision();
-        // detectPlayer3(); 
+        detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
@@ -311,6 +311,8 @@ function drawGame() {
         checkCageInteraction();
         checkForestNpcSaved();
         checkHeroOutOfBounds();
+        
+
 
       } else if (currentWorld === 3) {
         image(backgroundGrotteImage, 0, 0);
@@ -339,8 +341,10 @@ function drawGame() {
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
+        drawBossHealthBar();
+
         if (animationBoss && animationCounterBoss < 144) {
-          xHero += movementSpeedBoss;
+          xHero -= movementSpeedBoss;
           animationCounterBoss++;
           updateAnimation(myHeroRight);
         } else {
@@ -356,6 +360,10 @@ function drawGame() {
         if (currentBossIntroductionIndex >= bossDialogues.length) {
           bossIntroActive = false;
         }
+
+        
+
+        
 
 
       } else if(currentWorld === 5) {
