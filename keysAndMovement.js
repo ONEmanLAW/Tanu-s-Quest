@@ -200,6 +200,19 @@ function keyPressed() {
   };
 
 
+
+
+    if (keyCode === 78) { // Touche "N"
+      if (alchimisteDialogActive && currentAlchimisteIndex < dialoguesAlchimiste.length - 1) {
+        currentAlchimisteIndex++;
+      } else if (alchimisteDialogActive && currentAlchimisteIndex === dialoguesAlchimiste.length - 1) {
+        alchimisteDialogActive = false;
+        // Supprimez les dialogues de l'alchimiste une fois que le dernier dialogue a été affiché
+        dialoguesAlchimiste.splice(0, dialoguesAlchimiste.length);
+      }
+    }
+
+  
   if (keyCode === 78) { 
     if (bossIntroActive && currentBossIntroductionIndex < bossDialogues.length - 1) {
       currentBossIntroductionIndex++;
@@ -208,7 +221,7 @@ function keyPressed() {
       // Supprimez les dialogues du boss une fois que le dernier dialogue a été affiché
       bossDialogues.splice(0, bossDialogues.length);
     }
-};
+  };
 
 
   if (yetiDialogActive) {

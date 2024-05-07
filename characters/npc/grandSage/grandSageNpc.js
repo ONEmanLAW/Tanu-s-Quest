@@ -70,6 +70,7 @@ function preloadChatImage() {
   boiteDeDialogueHeroSansN = loadImage('characters/dialogueBoxe/dialogueTanuSansN.png');
 
   boiteDeDialogueBoss = loadImage('characters/dialogueBoxe/grandDialogueBoss.png');
+  boiteDeDialogueAlcimiste = loadImage('characters/dialogueBoxe/dialogueAlchimiste1.png');
 }
 
 

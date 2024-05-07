@@ -381,6 +381,17 @@ function drawGame() {
         drawHud();
         drawHearts();
 
+            // Vérifier l'interaction avec l'alchimiste et activer le dialogue si nécessaire
+      if (checkAlchimisteInteraction()) {
+        // Si le joueur est suffisamment proche de l'alchimiste, activer le dialogue
+        alchimisteDialogActive = true;
+      } else {
+        // Si le joueur n'est pas assez proche de l'alchimiste, désactiver le dialogue
+        alchimisteDialogActive = false;
+      }
+      
+      // Afficher et gérer le dialogue de l'alchimiste si actif
+      gererDialoguesAlchimiste();
       }
 
       
