@@ -154,16 +154,11 @@ function setup() {
 
   preloadAssets()
     .then(() => {
-      // Une fois que tous les assets sont chargés, commencez à dessiner
-      //drawGame();
-      console.log('YES');
+      drawGame();
     })
     .catch((error) => {
       console.error('Une erreur est survenue lors du chargement des assets :', error);
     });
-
-
-  
 };
 
 
@@ -242,8 +237,7 @@ function drawGame() {
         image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
-        drawHud();
-        drawHearts();
+        
 
         if (animationVillage && animationCounterVillage < 133) {
           xHero += movementSpeedVillage;
@@ -261,9 +255,22 @@ function drawGame() {
           gererDialoguesYeti();
         }
 
+        if (isForestNpcSaved && heroHasStoneStone) {
+          updateAlchimisteAnimation(myAlchimisteIdle);
+          image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
+          if (checkAlchimisteInteraction()) {
+            alchimisteDialogActive = true;
+          } else {
+            alchimisteDialogActive = false;
+          }
+          gererDialoguesAlchimiste();
+        }
+        
+
         
         
-        
+        drawHud();
+        drawHearts();
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
@@ -373,25 +380,12 @@ function drawGame() {
         updateYetiAnimation(myYetiIdle);
         image(currentYetiImage, 12 * worldVillageTileSize3, 10 * worldVillageTileSize3, npcYetiWidth, npcYetiHeight);
         
-        updateAlchimisteAnimation(myAlchimisteIdle);
-        image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
+        
 
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[5], tileDecorationDictionnaries[5], worldsDecorationTileSizes[5]);
         drawHud();
         drawHearts();
-
-            // Vérifier l'interaction avec l'alchimiste et activer le dialogue si nécessaire
-      if (checkAlchimisteInteraction()) {
-        // Si le joueur est suffisamment proche de l'alchimiste, activer le dialogue
-        alchimisteDialogActive = true;
-      } else {
-        // Si le joueur n'est pas assez proche de l'alchimiste, désactiver le dialogue
-        alchimisteDialogActive = false;
-      }
-      
-      // Afficher et gérer le dialogue de l'alchimiste si actif
-      gererDialoguesAlchimiste();
       }
 
       

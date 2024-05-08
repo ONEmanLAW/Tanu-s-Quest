@@ -19,7 +19,13 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 10 * worldsTileSizes[currentWorld];
         return true;
-      } else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && conversationYetiFinished) {
+      } else if (currentTileValue === 310 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isForestNpcSaved && heroHasStoneStone) {
+        // Code pour le changement de monde vers le village
+        currentWorld = 1;
+        xHero = 2 * worldsTileSizes[currentWorld]; 
+        yHero = 10 * worldsTileSizes[currentWorld];
+        return true;
+      }else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && conversationYetiFinished) {
         // Code pour le changement de monde vers la forêt
         currentWorld = 2;
         xHero = 2 * worldsTileSizes[currentWorld];
@@ -37,7 +43,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 8 * worldsTileSizes[currentWorld];
         return true;
-      } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isForestNpcSaved && heroHasStoneStone) {
+      } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers le village un peu reconstruit
           currentWorld = 5;
           xHero = 2 * worldsTileSizes[currentWorld]; 

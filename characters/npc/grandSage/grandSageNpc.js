@@ -25,26 +25,28 @@ let currentDialogueGrandSageIndex = 0;
 /////////////////////////////////////////////
 
 function checkGrandSageInteraction() {
-  let playerXCenter = xHero + wHero;
-  let playerYCenter = yHero + hHero;
-  let npcGrandSageXCenter = npcGrandSageX + npcGrandSageWidth;
-  let npcGrandSageYCenter = npcGrandSageY + npcGrandSageHeight;
+  let playerXCenter = xHero + wHero / 2;
+  let playerYCenter = yHero + hHero / 2;
+  let npcGrandSageXCenter = npcGrandSageX + npcGrandSageWidth / 2;
+  let npcGrandSageYCenter = npcGrandSageY + npcGrandSageHeight / 2;
 
-    let textWidth = 1100; 
-    let textHeight = 250;
-    let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
-    
+  let textWidth = 1100; 
+  let textHeight = 250;
+  let textX = (width - textWidth) / 2 ;
+  let textY = height - textHeight - 20 + 50;
+  
   let distance = dist(playerXCenter, playerYCenter, npcGrandSageXCenter, npcGrandSageYCenter); 
-  if (distance < wHero + npcGrandSageWidth) {
-      fill(0);
-      image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
-      textSize(20);
-      textAlign(CENTER, CENTER);
-      fill(255);
-      text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2 + 100, textY + textHeight / 2);
+  let interactionDistance = wHero / 2 + npcGrandSageWidth / 2 - 10; // Réduire de 10 pixels
 
-      return true;
+  if (distance < interactionDistance) {
+    fill(0);
+    image(boiteDeDialogueGrandSage, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2 + 100, textY + textHeight / 2);
+
+    return true;
   }
 
   return false;
