@@ -16,6 +16,6 @@ function preloadBackgroundImages() {
   });
 
   backgroundBossImage = loadImage('worlds/assets/boss/fondBoss.jpg',() => {
-      backgroundBossImage.resize(1824, 1056);
+      backgroundBossImage.resize(3648, 1056);
   });  
 };

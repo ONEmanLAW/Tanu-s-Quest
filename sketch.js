@@ -382,7 +382,12 @@ function drawGame() {
         
         
       } else if (currentWorld === 4) {
-        updateNormalCamera(1824, 1056);
+        if(animationBoss) {
+          updateNormalCamera(3648, 1056);
+        } else {
+          updateNormalCamera(1824, 1056);
+        }
+        
         image(backgroundBossImage, 0, 0);
         image(currentBossImage, bossX, bossY, bossWidth, bossHeight);
         updateBossAnimation(myBossIdle);
@@ -392,10 +397,10 @@ function drawGame() {
 
         drawBossHealthBar();
 
-        if (animationBoss && animationCounterBoss < 144) {
+        if (animationBoss && animationCounterBoss < 250) {
           xHero -= movementSpeedBoss;
           animationCounterBoss++;
-          updateAnimation(myHeroRight);
+          updateAnimation(myHeroLeft);
         } else {
           animationBoss = false;
         };
