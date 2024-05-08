@@ -148,6 +148,7 @@ function preload() {
   preloadCageImage(); // prison.js
   preloadCageImageGrotte();
   preloadAlchimisteImages();
+  preloadBabyTanukiImages();
 
 
   preloadHudImages(); // hud.js
@@ -297,7 +298,15 @@ function drawGame() {
             alchimisteDialogActive = false;
           }
           gererDialoguesAlchimiste();
+
+          
+
+
+          
         }
+
+        updateBabyTanukiAnimation(mybabyTanukiIdle);
+          image(currentBabyTanukiImage, npcBabyTanukiX, npcBabyTanukiY, npcBabyTanukiWidth, npcBabyTanukiHeight);
         
 
         
@@ -342,7 +351,7 @@ function drawGame() {
         checkHeroInEcorce();
         drawHud();
         drawHearts();
-        applyGravity();
+        //applyGravity();
 
         if(!heroInStone) {
           image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
@@ -387,7 +396,6 @@ function drawGame() {
         } else {
           updateNormalCamera(1824, 1056);
         }
-        
         image(backgroundBossImage, 0, 0);
         image(currentBossImage, bossX, bossY, bossWidth, bossHeight);
         updateBossAnimation(myBossIdle);
