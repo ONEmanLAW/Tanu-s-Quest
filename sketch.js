@@ -98,6 +98,15 @@ function loadTileDictionaries() {
 }
 
 
+
+
+
+
+
+
+
+
+let loadingGif;
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
@@ -145,6 +154,8 @@ function preload() {
   preloadGameOverImages();
   // Background Of Worlds.
   preloadBackgroundImages(); // backgroundImages.js
+
+  loadingGif = loadImage('pageDeChargement.gif');
 }
 
 function setup() {
@@ -161,6 +172,15 @@ function setup() {
     });
 };
 
+
+
+let isLoadingScreenActive = true;
+
+
+function drawLoadingScreen() {
+  // Dessiner l'image GIF de chargement
+  image(loadingGif, 0, 0, width, height);
+}
 
 
 function drawGame() {
@@ -185,6 +205,14 @@ function drawGame() {
     // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
       if (currentWorld === 0) {
+        if (isLoadingScreenActive) {
+          drawLoadingScreen(); // Afficher l'écran de chargement
+
+          // Charger le nouveau monde après 3 secondes
+          setTimeout(function() {
+              isLoadingScreenActive = false; // Désactiver l'écran de chargement
+          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+        } else {
         updateNormalCamera(1800, 1056);
         image(backgroundTutoImage, 0, 0);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -226,9 +254,12 @@ function drawGame() {
         if(!introDialogActive && !animation) {
           checkGrandSageInteraction();
         }
+
+        gestionTransitionImage();
         
         drawHudTemple ();
         applyGravityTemple();
+      }
 
       } else if (currentWorld === 1) {
         updateNormalCamera(4704, 2688);
