@@ -226,16 +226,17 @@ function keyPressed() {
   };
 
 
-  if (yetiDialogActive) {
-    if (key === 'n' || key === 'N') {
-    currentYetiIndexQuete++;
-    if (currentYetiIndexQuete >= dialoguesYeti.length) {
-        currentYetiIndexQuete = dialoguesYeti.length - 1;
-        yetiDialogActive = false; // Désactiver le dialogue lorsque tous les dialogues ont été affichés
+
+
+    if(keyCode === 78) {
+      if(yetiDialogActive && currentYetiIndexQuete < dialoguesYeti.length - 1) {
+        currentYetiIndexQuete++;
+      } else if(yetiDialogActive && currentYetiIndexQuete === dialoguesYeti.length - 1) {
+        yetiDialogActive = false;
+        conversationYetiFinished = true;
+        dialoguesYeti.splice(0, dialoguesYeti.length);
+      }
     }
-    }
-   
-  }
 
 
 

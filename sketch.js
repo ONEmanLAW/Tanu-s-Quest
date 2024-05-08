@@ -255,6 +255,10 @@ function drawGame() {
           gererDialoguesYeti();
         }
 
+        if (currentYetiIndexQuete >= dialoguesYeti.length && yetiDialogActive) {
+          yetiDialogActive = false;
+        }
+
         if (isForestNpcSaved && heroHasStoneStone) {
           updateAlchimisteAnimation(myAlchimisteIdle);
           image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);

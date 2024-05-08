@@ -49,14 +49,8 @@ function gererDialoguesYeti() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
-    
-    // Vérifie si c'est le dernier dialogue
-    if (currentYetiIndexQuete === dialoguesYeti.length - 1) {
-      conversationYetiFinished = true;
-      yetiDialogActive = false;
-
-      //dialoguesYeti.splice(0, currentYetiIndexQuete + 1);
-    }
+  } else {
+    yetiDialogActive = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
   }
 }
 
