@@ -1,11 +1,25 @@
-let totalTanukisSaved = 0;
-
 function displayTotalTanukisSaved() {
   translate(cameraX, cameraY);
   fill(255);
   textSize(30);
   textAlign(CENTER, CENTER);
-  text(totalTanukisSaved + "/18", 1525, 80);
+  text("0/25", 1525, 80);
+}
+
+function displayTotalTanukisSaved2() {
+  translate(cameraX, cameraY);
+  fill(255);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("9/25", 1525, 80);
+}
+
+function displayTotalTanukisSaved3() {
+  translate(cameraX, cameraY);
+  fill(255);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text("18/25", 1525, 80);
 }
 
 
@@ -67,7 +81,6 @@ function checkForestNpcSaved() {
   textSize(30);
   textAlign(CENTER, CENTER);
   text(counterForet + "/9", 1525, 80);
-  totalTanukisSaved += counterForet;
 }
 
 
@@ -131,5 +144,4 @@ function checkGrotteNpcSaved() {
   textSize(30);
   textAlign(CENTER, CENTER);
   text(counterGrotte + "/9", 1525, 80);
-  totalTanukisSaved += counterGrotte;
 }

@@ -22,10 +22,10 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
       } else if (currentTileValue === 310 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isForestNpcSaved && heroHasStoneStone) {
         // Code pour le changement de monde vers le village
         currentWorld = 1;
-        xHero = 2 * worldsTileSizes[currentWorld]; 
-        yHero = 10 * worldsTileSizes[currentWorld];
+        xHero = 15 * worldsTileSizes[currentWorld]; 
+        yHero = 1 * worldsTileSizes[currentWorld];
         return true;
-      }else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && conversationYetiFinished) {
+      }else if (currentTileValue === 302  && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && conversationYetiFinished && !isForestNpcSaved && !heroHasStoneStone) {
         // Code pour le changement de monde vers la forêt
         currentWorld = 2;
         xHero = 2 * worldsTileSizes[currentWorld];

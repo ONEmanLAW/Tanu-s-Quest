@@ -275,7 +275,13 @@ function drawGame() {
         
         drawHud();
         drawHearts();
-        displayTotalTanukisSaved();
+        if (!isForestNpcSaved && !heroHasStoneStone) {
+          displayTotalTanukisSaved();
+        } else {
+          displayTotalTanukisSaved2();
+        }
+        
+
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
@@ -389,7 +395,7 @@ function drawGame() {
         
         drawHud();
         drawHearts();
-        displayTotalTanukisSaved();
+        displayTotalTanukisSaved3();
       }
 
       
