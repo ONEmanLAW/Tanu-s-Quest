@@ -13,6 +13,7 @@ let imagePotion1;
 let imagePotion2;
 let imagePotion3;
 let imagePotion4;
+let imagePotion5;
 let imagecadreHeart;
 
 let imagePierreEau;
@@ -24,6 +25,7 @@ let imageEcorce1;
 let imageEcorce2;
 let imageEcorceMagique;
 
+let imageDialogueObtenuEpeeGrenouille;
 
 function preloadHudImages() {
   cadreVide = loadImage('hud/assets/cadreVide.png');
@@ -41,6 +43,7 @@ function preloadHudImages() {
   imagePotion2 = loadImage('hud/assets/imagePotion2.png');
   imagePotion3 = loadImage('hud/assets/imagePotion3.png');
   imagePotion4 = loadImage('hud/assets/imagePotion4.png');
+  imagePotion5 = loadImage('hud/assets/imagePotion5.png');
 
 
   imageGrenouille = loadImage('hud/assets/Grenouille.png');
@@ -55,6 +58,8 @@ function preloadHudImages() {
   imagePierreTerre = loadImage('hud/assets/pierreTerre.png');
   imagePierreFeu = loadImage('hud/assets/pierreFeu.png');
   imagePierreVent = loadImage('hud/assets/pierreVent.png');
+
+  imageDialogueObtenuEpeeGrenouille = loadImage('hud/assets/dialogueObtenuEpeeGrenouille.png');
 };
 
 
@@ -209,7 +214,7 @@ function drawHud() {
   } else if(alchimisteDialogueFinished && potions === 1) {
     displayImageWithBlinkUniversal(imagePotion2, 160, 915, 75, 75)
   } else if(alchimisteDialogueFinished && potions === 0) {
-    displayImageWithBlinkUniversal(imagePotion1, 160, 915, 75, 75)
+    displayImageWithBlinkUniversal(imagePotion5, 160, 915, 75, 75)
   } 
 
   pop();
@@ -328,7 +333,7 @@ function gestionTransitionImage() {
     }
   } else if (imageVisible) { 
     if (displayTimer < displayDuration) { 
-      image(imageEpee2, 500, 500, 100, 100); 
+      image(imageDialogueObtenuEpeeGrenouille, 750, 350, 700, 200); 
       displayTimer++; 
     } else {
       imageVisible = false; 

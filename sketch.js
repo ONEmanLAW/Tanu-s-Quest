@@ -213,54 +213,52 @@ function drawGame() {
               isLoadingScreenActive = false; // Désactiver l'écran de chargement
           }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
         } else {
-        updateNormalCamera(1800, 1056);
-        image(backgroundTutoImage, 0, 0);
-        drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
+          updateNormalCamera(1800, 1056);
+          image(backgroundTutoImage, 0, 0);
+          drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+          drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
+          
+          // Spawn NPC.
         
-        // Spawn NPC.
-       
-        updateGrandSageAnimation(myGrandSageIdle);
-        // Dessinez l'image actuelle du Grand Sage
-        image(currentGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
-        
-        image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
+          updateGrandSageAnimation(myGrandSageIdle);
+          // Dessinez l'image actuelle du Grand Sage
+          image(currentGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
+          
+          image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
 
-        // Spawn Hero.
-        image(currentHeroImage, xHero, yHero, wHero, hHero);
+          // Spawn Hero.
+          image(currentHeroImage, xHero, yHero, wHero, hHero);
 
-        
-        
-        // Automatic Movement At Start.
-        // One Tile = 16.
-        if (animation && animationCounter < 144) {
-          xHero -= movementSpeed;
-          animationCounter++;
-          updateAnimation(myHeroLeft);
-        } else {
-          animation = false;
-        };
+          
+          
+          // Automatic Movement At Start.
+          // One Tile = 16.
+          if (animation && animationCounter < 144) {
+            xHero -= movementSpeed;
+            animationCounter++;
+            updateAnimation(myHeroLeft);
+          } else {
+            animation = false;
+          };
 
-        if(!introDialogActive && !animation) {
-          introDialogActive = true;
-        } else if(introDialogActive) {
-          gererIntroduction();
+          if(!introDialogActive && !animation) {
+            introDialogActive = true;
+          } else if(introDialogActive) {
+            gererIntroduction();
+          }
+
+          if (currentIntroductionIndex >= dialoguesIntroduction.length) {
+            introDialogActive = false;
+          }
+
+          if(!introDialogActive && !animation) {
+            checkGrandSageInteraction();
+          }
+          gestionTransitionImage();
+          
+          drawHudTemple ();
+          applyGravityTemple();
         }
-
-        if (currentIntroductionIndex >= dialoguesIntroduction.length) {
-          introDialogActive = false;
-        }
-
-        if(!introDialogActive && !animation) {
-          checkGrandSageInteraction();
-        }
-
-        gestionTransitionImage();
-        
-        drawHudTemple ();
-        applyGravityTemple();
-      }
-
       } else if (currentWorld === 1) {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -344,6 +342,7 @@ function drawGame() {
         checkHeroInEcorce();
         drawHud();
         drawHearts();
+        applyGravity();
 
         if(!heroInStone) {
           image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
