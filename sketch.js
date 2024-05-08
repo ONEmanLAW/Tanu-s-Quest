@@ -261,6 +261,13 @@ function drawGame() {
           applyGravityTemple();
         }
       } else if (currentWorld === 1) {
+        if (!isLoadingScreenActive) {
+          drawLoadingScreen(); // Afficher l'écran de chargement
+          // Charger le nouveau monde après 3 secondes
+          setTimeout(function() {
+              isLoadingScreenActive = true; // Désactiver l'écran de chargement
+          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+        } else {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
@@ -299,14 +306,12 @@ function drawGame() {
           }
           gererDialoguesAlchimiste();
 
-          
-
-
+          updateBabyTanukiAnimation(mybabyTanukiIdle);
+          image(currentBabyTanukiImage, npcBabyTanukiX, npcBabyTanukiY, npcBabyTanukiWidth, npcBabyTanukiHeight);
           
         }
 
-        updateBabyTanukiAnimation(mybabyTanukiIdle);
-          image(currentBabyTanukiImage, npcBabyTanukiX, npcBabyTanukiY, npcBabyTanukiWidth, npcBabyTanukiHeight);
+        
         
 
         
@@ -319,8 +324,15 @@ function drawGame() {
           displayTotalTanukisSaved2();
         }
         
-
+      }
       } else if (currentWorld === 2) {
+        if (isLoadingScreenActive) {
+          drawLoadingScreen(); // Afficher l'écran de chargement
+          // Charger le nouveau monde après 3 secondes
+          setTimeout(function() {
+              isLoadingScreenActive = false; // Désactiver l'écran de chargement
+          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+        } else {
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
@@ -371,8 +383,15 @@ function drawGame() {
         checkHeroOutOfBounds();
         
 
-
+      }
       } else if (currentWorld === 3) {
+        if (!isLoadingScreenActive) {
+          drawLoadingScreen(); // Afficher l'écran de chargement
+          // Charger le nouveau monde après 3 secondes
+          setTimeout(function() {
+              isLoadingScreenActive = true; // Désactiver l'écran de chargement
+          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+        } else {
         image(backgroundGrotteImage, 0, 0);
         updateParallaxCameraGrotte(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -389,8 +408,15 @@ function drawGame() {
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
         
-        
+      }
       } else if (currentWorld === 4) {
+        if (!isLoadingScreenActive) {
+          drawLoadingScreen(); // Afficher l'écran de chargement
+          // Charger le nouveau monde après 3 secondes
+          setTimeout(function() {
+              isLoadingScreenActive = true; // Désactiver l'écran de chargement
+          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+        } else {
         if(animationBoss) {
           updateNormalCamera(3648, 1056);
         } else {
@@ -422,6 +448,7 @@ function drawGame() {
         if (currentBossIntroductionIndex >= bossDialogues.length) {
           bossIntroActive = false;
         }
+      }
 
         
 
@@ -429,6 +456,13 @@ function drawGame() {
 
 
       } else if(currentWorld === 5) {
+        if (isLoadingScreenActive) {
+          drawLoadingScreen(); // Afficher l'écran de chargement
+          // Charger le nouveau monde après 3 secondes
+          setTimeout(function() {
+              isLoadingScreenActive = false; // Désactiver l'écran de chargement
+          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+        } else {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
@@ -440,6 +474,7 @@ function drawGame() {
         drawHearts();
         displayTotalTanukisSaved3();
       }
+    }
 
       
       if (hearts <= 0) {
