@@ -188,8 +188,10 @@ let initialX = 2 * worldTempleTileSize;
 let initialY = 6 * worldTempleTileSize;
 
 function keyPressed() {
+
+
   if(!introDialogActive && !animation) {
-    if (key === 'n' || key === 'N') {
+    if (keyCode === 78) {
       if (checkGrandSageInteraction()) {
         currentDialogueGrandSageIndex++;
         if (currentDialogueGrandSageIndex >= dialoguesGrandSage.length) {
@@ -200,19 +202,17 @@ function keyPressed() {
   };
 
 
-
-
-    if (keyCode === 78) { // Touche "N"
-      if (alchimisteDialogActive && currentAlchimisteIndex < dialoguesAlchimiste.length - 1) {
-        currentAlchimisteIndex++;
-      } else if (alchimisteDialogActive && currentAlchimisteIndex === dialoguesAlchimiste.length - 1) {
-        alchimisteDialogActive = false;
-        alchimisteDialogueFinished = true;
-        potions = 3;
-        // Supprimez les dialogues de l'alchimiste une fois que le dernier dialogue a été affiché
-        dialoguesAlchimiste.splice(0, dialoguesAlchimiste.length);
-      }
+  if (keyCode === 78) { // Touche "N"
+    if (alchimisteDialogActive && currentAlchimisteIndex < dialoguesAlchimiste.length - 1) {
+      currentAlchimisteIndex++;
+    } else if (alchimisteDialogActive && currentAlchimisteIndex === dialoguesAlchimiste.length - 1) {
+      alchimisteDialogActive = false;
+      alchimisteDialogueFinished = true;
+      potions = 3;
+      // Supprimez les dialogues de l'alchimiste une fois que le dernier dialogue a été affiché
+      dialoguesAlchimiste.splice(0, dialoguesAlchimiste.length);
     }
+  }
 
   
   if (keyCode === 78) { 
@@ -226,37 +226,33 @@ function keyPressed() {
   };
 
 
-
-
-    if(keyCode === 78) {
-      if(yetiDialogActive && currentYetiIndexQuete < dialoguesYeti.length - 1) {
-        currentYetiIndexQuete++;
-      } else if(yetiDialogActive && currentYetiIndexQuete === dialoguesYeti.length - 1) {
-        yetiDialogActive = false;
-        conversationYetiFinished = true;
-        dialoguesYeti.splice(0, dialoguesYeti.length);
-      }
-    }
-
-
-
-  if (keyCode === 82) { // 82 est le code pour la touche "r"
-    // Vérifier si le joueur a des potions
-    if (potions > 0 && hearts < 3) {
-      // Récupérer un cœur
-      hearts++;
-      // Décrémenter le nombre de potions
-      potions--;
+  if(keyCode === 78) {
+    if(yetiDialogActive && currentYetiIndexQuete < dialoguesYeti.length - 1) {
+      currentYetiIndexQuete++;
+    } else if(yetiDialogActive && currentYetiIndexQuete === dialoguesYeti.length - 1) {
+      yetiDialogActive = false;
+      conversationYetiFinished = true;
+      dialoguesYeti.splice(0, dialoguesYeti.length);
     }
   }
 
-  if (keyCode === 72) { // 72 est le code pour la touche "h"
-    // Appeler la fonction loseHeart()
+  if(currentWorld === 2 || currentWorld === 3 || currentWorld === 4 ) {
+    if (keyCode === 82) { // Touche R pour le code '82'.
+      if (potions > 0 && hearts < 3) {
+        hearts++;
+        potions--;
+      }
+    }
+  }
+  
+
+  // Pour test les potions
+  if (keyCode === 72) {  // Touche H pour le code '72'.
     loseHeart();
   }
 
-  
-  if (keyCode === 80) {
+  // Pour test le boss.
+  if (keyCode === 80) { // Touche P pour le code '80'.
     
     if (bossHealth > 0) {
       bossHealth -= 10;

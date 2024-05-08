@@ -275,6 +275,7 @@ function drawGame() {
         
         drawHud();
         drawHearts();
+        displayTotalTanukisSaved();
       } else if (currentWorld === 2) {
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
@@ -383,13 +384,12 @@ function drawGame() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
         image(currentYetiImage, 12 * worldVillageTileSize3, 10 * worldVillageTileSize3, npcYetiWidth, npcYetiHeight);
-        
-        
-
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[5], tileDecorationDictionnaries[5], worldsDecorationTileSizes[5]);
+        
         drawHud();
         drawHearts();
+        displayTotalTanukisSaved();
       }
 
       

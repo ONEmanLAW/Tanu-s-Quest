@@ -1,7 +1,17 @@
+let totalTanukisSaved = 0;
+
+function displayTotalTanukisSaved() {
+  translate(cameraX, cameraY);
+  fill(255);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text(totalTanukisSaved + "/18", 1525, 80);
+}
+
+
 /////////////////////////////////////////////
 /////////////////CAGE FORET//////////////////
 /////////////////////////////////////////////
-
 
 let cageImage;
 let cagePositions = [
@@ -57,6 +67,7 @@ function checkForestNpcSaved() {
   textSize(30);
   textAlign(CENTER, CENTER);
   text(counterForet + "/9", 1525, 80);
+  totalTanukisSaved += counterForet;
 }
 
 
@@ -120,4 +131,5 @@ function checkGrotteNpcSaved() {
   textSize(30);
   textAlign(CENTER, CENTER);
   text(counterGrotte + "/9", 1525, 80);
+  totalTanukisSaved += counterGrotte;
 }
