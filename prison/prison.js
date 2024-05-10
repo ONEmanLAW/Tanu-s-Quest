@@ -43,7 +43,7 @@ let cageVisible = [];
 
 
 function preloadCageImage() {
-  cageImage = loadImage('prison/prisonFôret.png');
+  cageImage = loadImage('prison/prisonFôret.gif');
   for (let i = 0; i < cagePositions.length; i++) {
     cageVisible.push(true);
   }
@@ -105,7 +105,7 @@ let cageVisibleGrotte = [];
 
 
 function preloadCageImageGrotte() {
-  cageImageGrotte = loadImage('prison/prisonGrotte.png');
+  cageImageGrotte = loadImage('prison/prisonGrotte.gif');
 
   for (let i = 0; i < cagePositionsGrotte.length; i++) {
     cageVisibleGrotte.push(true);
