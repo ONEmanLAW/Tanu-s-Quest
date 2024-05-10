@@ -67,6 +67,7 @@ let bossDialogues = [
 
 let currentBossIntroductionIndex = 0;
 let bossIntroActive = false;
+let bossIntroFinish = false;
 
 function gererIntroductionBoss() {
   if (bossIntroActive && currentBossIntroductionIndex < bossDialogues.length) {

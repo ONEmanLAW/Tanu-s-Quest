@@ -137,6 +137,8 @@ function preload() {
 
   preloadEnemy2Image(); // enemy2Level.js
   createEnemiesForet2(); // enemy2Level.js
+  createEnemiesGrotte2();
+  createEnemiesBoss2();
   
   preloadEnemy3Image(); // enemyLevel3.js
   createEnemiesForet3(); // enemyLevel3.js
@@ -174,6 +176,10 @@ function setup() {
 };
 
 
+
+let battlePhase = 1; // Phase initiale de la bataille contre le boss
+let enemiesToDefeatForPhase = [3, 5]; // Nombre d'ennemis à vaincre pour chaque phase
+let enemiesDefeated = 0; // Nombre total d'ennemis vaincus
 
 let isLoadingScreenActive = true;
 
@@ -405,6 +411,12 @@ function drawGame() {
             image(cageImageGrotte, cagePositionsGrotte[i].x, cagePositionsGrotte[i].y, cageWidthGrotte, cageHeightGrotte);
           }
         }
+
+
+        moveEnemies2(); 
+        drawEnemies2(); 
+        checkEnemy2Collision(); 
+        detectPlayer2(); 
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
         
@@ -448,12 +460,12 @@ function drawGame() {
         if (currentBossIntroductionIndex >= bossDialogues.length) {
           bossIntroActive = false;
         }
+
+        if (!bossIntroActive && !animationBoss && !battleBoss) {
+          battleBoss = true;
+        }
+        
       }
-
-        
-
-        
-
 
       } else if(currentWorld === 5) {
         if (isLoadingScreenActive) {
