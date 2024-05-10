@@ -1,3 +1,4 @@
+let enemies2 = [];
 let enemy2Image;
 let speedEnemy2 = 3;
 let wEnemy2 = 64; 
@@ -12,7 +13,6 @@ function preloadEnemy2Image() {
 }
 
 function createEnemiesForet2() {
-  enemies2 = [];
   enemies2.push({
     position: createVector(7 * worldForetTileSize, 6 * worldForetTileSize), 
     charging: false,
@@ -30,26 +30,6 @@ function createEnemiesForet2() {
   });
 
   // Ajoutez plus d'ennemis avec leurs positions respectives et d'autres propriétés si nécessaire
-}
-
-
-function createEnemiesGrotte2() {
-  enemies2 = [];
-  enemies2.push({
-    position: createVector(2 * worldGrotteTileSize, 6 * worldGrotteTileSize), 
-    charging: false,
-    origin: createVector(2 * worldGrotteTileSize, 6 * worldGrotteTileSize),
-    distanceToOrigin: 0,
-    lives : livesGobelin2 
-  });
-
-  enemies2.push({
-    position: createVector(5 * worldGrotteTileSize, 6 * worldGrotteTileSize), 
-    charging: false,
-    origin: createVector(5 * worldGrotteTileSize, 6 * worldGrotteTileSize),
-    distanceToOrigin: 0,
-    lives : livesGobelin2
-  });
 }
 
 
