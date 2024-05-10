@@ -134,14 +134,15 @@ function preload() {
 
   preloadEnemy1Image(); // enemyLevel1.js
   createEnemiesForet(); // enemyLevel1.js
+  createEnemiesGrotte();
 
   preloadEnemy2Image(); // enemy2Level.js
   createEnemiesForet2(); // enemy2Level.js
   createEnemiesGrotte2();
-  createEnemiesBoss2();
   
   preloadEnemy3Image(); // enemyLevel3.js
-  createEnemiesForet3(); // enemyLevel3.js
+  createEnemiesForet3();
+  createEnemiesGrotte3(); // enemyLevel3.js
 
   // Image Of Npc
   preloadNPCImages(); // grandSageNpc.js
@@ -413,10 +414,24 @@ function drawGame() {
         }
 
 
+        moveEnemies(); 
+        drawEnemies();
+        checkEnemyCollision(); 
+
         moveEnemies2(); 
         drawEnemies2(); 
         checkEnemy2Collision(); 
         detectPlayer2(); 
+
+
+        moveEnemies3();
+        drawEnemies3();
+        checkEnemy3Collision();
+        detectPlayer3(); 
+
+
+
+        
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
         

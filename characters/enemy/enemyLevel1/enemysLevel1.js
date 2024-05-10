@@ -1,4 +1,3 @@
-let enemies = [];
 let enemyImage;
 let speed = 2;
 let wEnemy = 80;
@@ -24,6 +23,7 @@ function preloadEnemy1Image() {
 
 
 function createEnemiesForet() {
+  enemies = [];
   enemies.push({
     position: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
     pointA: createVector(9 * worldForetTileSize, 10 * worldForetTileSize),
@@ -32,9 +32,6 @@ function createEnemiesForet() {
     initialPosition: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),// Enregistrez la position initiale
     lives: livesGobelin1 // Initialisez les vies de l'ennemi
   });
-
-  
-
 
   enemies.push({
     position: createVector(10 * worldForetTileSize, 8 * worldForetTileSize),
@@ -45,6 +42,27 @@ function createEnemiesForet() {
     lives: livesGobelin1 // Initialisez les vies de l'ennemi
   });
   // Add More Ennemies.
+}
+
+function createEnemiesGrotte() {
+  enemies = [];
+  enemies.push({
+    position: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
+    pointA: createVector(9 * worldForetTileSize, 10 * worldForetTileSize),
+    pointB: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
+    direction: 1,
+    initialPosition: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),// Enregistrez la position initiale
+    lives: livesGobelin1 // Initialisez les vies de l'ennemi
+  });
+
+  enemies.push({
+    position: createVector(2 * worldForetTileSize, 8 * worldForetTileSize),
+    pointA: createVector(2 * worldForetTileSize, 8 * worldForetTileSize),
+    pointB: createVector(12 * worldForetTileSize, 8 * worldForetTileSize),
+    direction: 1,
+    initialPosition: createVector(10 * worldForetTileSize, 8 * worldForetTileSize), // Enregistrez la position initiale
+    lives: livesGobelin1 // Initialisez les vies de l'ennemi
+  });
 }
 
 

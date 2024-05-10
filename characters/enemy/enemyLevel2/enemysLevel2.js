@@ -52,15 +52,6 @@ function createEnemiesGrotte2() {
   });
 }
 
-function createEnemiesBoss2() {
-  enemies2.push({
-    position: createVector(5 * worldBossTileSize, 6 * worldBossTileSize), 
-    charging: false,
-    origin: createVector(5 * worldBossTileSize, 6 * worldBossTileSize),
-    distanceToOrigin: 0,
-    lives : livesGobelin2
-  });
-}
 
 
 function resetEnemies2Position() {

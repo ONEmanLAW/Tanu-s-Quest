@@ -1,4 +1,3 @@
-let enemies3 = [];
 let enemy3Image;
 let speedEnemy3 = 3;
 let wEnemy3 = 64; 
@@ -15,6 +14,7 @@ function preloadEnemy3Image() {
 
 
 function createEnemiesForet3() {
+  enemies3 = [];
   enemies3.push({
     position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
     detected: false,
@@ -31,6 +31,25 @@ function createEnemiesForet3() {
     lives : livesGobelin3  
   });
   // Add More Ennemies.
+}
+
+function createEnemiesGrotte3() {
+  enemies3 = [];
+  enemies3.push({
+    position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
+    detected: false,
+    origin: createVector(15 * worldForetTileSize, 6 * worldForetTileSize),
+    distanceToOrigin: 0,
+    lives : livesGobelin3 
+  });
+
+  enemies3.push({
+    position: createVector(20 * worldForetTileSize, 8 * worldForetTileSize), 
+    detected: false,
+    origin: createVector(20 * worldForetTileSize, 8 * worldForetTileSize),
+    distanceToOrigin: 0,
+    lives : livesGobelin3  
+  });
 }
 
 function resetEnemies3Position() {
