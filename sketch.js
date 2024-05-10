@@ -67,16 +67,16 @@ function loadTileDictionaries() {
         resolve(); 
       }),
       new Promise((resolve, reject) => {
-        setupTileDictionariesGrotte(); // worldGrotte.js
-        resolve();
-      }),
-      new Promise((resolve, reject) => {
         setupTileDictionariesBoss(); // worldBoss.js
         resolve(); 
       }),
       new Promise((resolve, reject) => {
         setupTileDictionariesVillage3(); // worldVillage3.js
         resolve(); 
+      }),
+      new Promise((resolve, reject) => {
+        setupTileDictionariesGrotte(); // worldGrotte.js
+        resolve();
       }),
        // new Promise((resolve, reject) => {
       //   setupTileDictionariesVillage2(); // worldVillage2.js

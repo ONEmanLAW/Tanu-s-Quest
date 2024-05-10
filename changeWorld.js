@@ -31,7 +31,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 2 * worldsTileSizes[currentWorld];
         yHero = 9 * worldsTileSizes[currentWorld];
         return true;
-      } else if (currentTileValue === 303 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && alchimisteDialogueFinished) {
+      } else if (currentTileValue === 303 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers la grotte
         currentWorld = 3;
         xHero = 2 * worldsTileSizes[currentWorld]; 
