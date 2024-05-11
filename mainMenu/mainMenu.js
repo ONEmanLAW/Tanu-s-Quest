@@ -7,7 +7,7 @@ let exitButton;
 
 
 function mainMenuButtons() {
-  backgroundImage = loadImage('mainMenu/images/menuBackground.jpeg');
+  backgroundImage = loadImage('mainMenu/images/menuBackground.gif');
   jouerButton = loadImage('mainMenu/images/blocJouer.png');
   parametreButton = loadImage('mainMenu/images/blocParamètres.png');
   exitButton = loadImage('mainMenu/images/blocQuitter.png');
