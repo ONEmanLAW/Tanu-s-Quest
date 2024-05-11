@@ -366,16 +366,18 @@ function drawGame() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         
         handleCooldown();
-        checkHeroInStone();
-        checkHeroInEcorce();
+        
         drawHud();
         drawHearts();
         applyGravity();
 
+        checkHeroInStone();
+       
         if(!heroInStone) {
           image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
         }
-        
+
+        checkHeroInEcorce();
         if(!heroInEcorce) {
           image(imageEcorceMagique, xEcorce, yEcorce, wEcorce, hEcorce);
         }
@@ -413,8 +415,29 @@ function drawGame() {
           }
         }
 
+
+        checkHeroInFire();
+        if(!heroInFire) {
+          image(imagePierreFeu, xFeu2, yFeu2, wFeu2, hFeu2);
+        }
+
+        checkHeroInWind();
+        if (!heroInWind) {
+          image(imagePierreVent, xVent, yVent, wVent, hVent);
+        }
+
+        checkHeroInWater();
+        if (!heroInWater) {
+          image(imagePierreEau, xEau, yEau, wEau, hEau);
+        }
+
+        handleCooldown();
+        drawHud();
+        drawHearts();
+
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
+        
         
       }
       } else if (currentWorld === 4) {
