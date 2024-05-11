@@ -201,6 +201,16 @@ function keyPressed() {
     }
   };
 
+  if (keyCode === 78) { // Touche "N"
+    if (foretDialogActive && currentDialogueForetIndex < dialoguesInForet.length - 1) {
+        currentDialogueForetIndex++;
+    } else if (foretDialogActive && currentDialogueForetIndex === dialoguesInForet.length - 1) {
+        foretDialogActive = false;
+        // Supprimer les dialogues de la forêt une fois que le dernier dialogue a été affiché
+        dialoguesInForet.splice(0, dialoguesInForet.length);
+    }
+}
+
 
   if (keyCode === 78) { // Touche "N"
     if (alchimisteDialogActive && currentAlchimisteIndex < dialoguesAlchimiste.length - 1) {
@@ -213,6 +223,7 @@ function keyPressed() {
       dialoguesAlchimiste.splice(0, dialoguesAlchimiste.length);
     }
   }
+
 
   
   if (keyCode === 78) { 

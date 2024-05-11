@@ -340,6 +340,8 @@ function drawGame() {
               isLoadingScreenActive = false; // Désactiver l'écran de chargement
           }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
         } else {
+          foretDialogActive = true;
+          
         image(backgroundForetImage, 0, 0);
         updateParallaxCameraForet(16000, 1120);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
@@ -390,6 +392,9 @@ function drawGame() {
         checkCageInteraction();
         checkForestNpcSaved();
         checkHeroOutOfBounds();
+        if(foretDialogActive) {
+          gererDialogueForet();
+        }
         
 
       }
