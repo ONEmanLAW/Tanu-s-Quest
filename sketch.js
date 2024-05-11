@@ -136,7 +136,7 @@ function preload() {
   createEnemiesForet(); // enemyLevel1.js
 
 
-  preloadEnemy2Image(); // enemy2Level.js
+  preloadEnemy2Animations(); // enemy2Level.js
   createEnemiesForet2(); // enemy2Level.js
  
   
@@ -352,11 +352,12 @@ function drawGame() {
         // drawEnemies();
         // checkEnemyCollision(); 
 
-        // moveEnemies2(); 
-        // drawEnemies2(); 
-        // checkEnemy2Collision(); 
-        // detectPlayer2(); 
-
+        
+        checkEnemy2Collision(); 
+        moveEnemies2();
+        detectPlayer2();
+        updateAnimationState2();
+        drawEnemies2();
 
         // moveEnemies3();
         // drawEnemies3();
