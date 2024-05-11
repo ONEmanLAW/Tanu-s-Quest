@@ -471,7 +471,6 @@ let isJumping = false;
 let jumpForce = -10;
 let gravity = 0.5;
 let yVelocity = 0;
-let maxJumpHeight = 10; // Ajustez selon vos besoins
 
 function jump() {
   if (!isJumping) {
@@ -479,6 +478,39 @@ function jump() {
     yVelocity = jumpForce;
   }
 }
+
+
+
+
+
+function applyGravity() {
+  // Appliquer la gravité
+  yVelocity += gravity;
+  
+  // Si le personnage est en train de sauter, mettre à jour sa position verticale
+  if (isJumping) {
+    yHero += yVelocity;
+  }
+  
+  // Vérifier si le personnage va entrer en collision avec le sol lors du prochain déplacement
+  let nextY = yHero + yVelocity;
+  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld], nextY)) {
+    // Si oui, arrêter le saut 5px avant la collision
+    isJumping = false;
+    yVelocity = 0;
+    yHero = Math.floor(yHero / 80) * 80; // Arrondir à la tuile la plus proche
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 function applyGravityTemple() {
   if (isJumping || yHero <= 7 * worldTempleTileSize) {
@@ -496,32 +528,3 @@ function applyGravityTemple() {
     }
   }
 }
-
-
-
-// function applyGravity() {
-//   if (isJumping || !checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
-//     // Si le héros saute ou n'est pas en collision avec le sol, appliquez la gravité
-//     yVelocity += gravity;
-//     yHero += yVelocity;
-    
-//     // Limitez la vitesse de chute
-//     if (yVelocity > 10) {
-//       yVelocity = 10;
-//     }
-//   } else {
-//     // Arrêtez le saut lorsque le héros touche le sol
-//     isJumping = false;
-//     yVelocity = 0;
-//   }
-// }
-
-
-
-
-
-
-
-
-
-

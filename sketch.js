@@ -346,20 +346,20 @@ function drawGame() {
         
 
 
-        moveEnemies(); 
-        drawEnemies();
-        checkEnemyCollision(); 
+        // moveEnemies(); 
+        // drawEnemies();
+        // checkEnemyCollision(); 
 
-        moveEnemies2(); 
-        drawEnemies2(); 
-        checkEnemy2Collision(); 
-        detectPlayer2(); 
+        // moveEnemies2(); 
+        // drawEnemies2(); 
+        // checkEnemy2Collision(); 
+        // detectPlayer2(); 
 
 
-        moveEnemies3();
-        drawEnemies3();
-        checkEnemy3Collision();
-        detectPlayer3(); 
+        // moveEnemies3();
+        // drawEnemies3();
+        // checkEnemy3Collision();
+        // detectPlayer3(); 
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
@@ -370,6 +370,7 @@ function drawGame() {
         checkHeroInEcorce();
         drawHud();
         drawHearts();
+        applyGravity();
 
         if(!heroInStone) {
           image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
