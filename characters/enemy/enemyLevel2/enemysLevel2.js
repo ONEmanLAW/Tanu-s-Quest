@@ -44,7 +44,6 @@ function createEnemiesForet2() {
     origin: createVector(27 * worldForetTileSize, 6 * worldForetTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin2,
-    frameIndex: 0,
     direction: 'left' // Définir la direction par défaut
   });
 
@@ -54,7 +53,6 @@ function createEnemiesForet2() {
     origin: createVector(15 * worldForetTileSize, 6 * worldForetTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin2,
-    frameIndex: 0,
     direction: 'left' // Définir la direction par défaut
   });
 
