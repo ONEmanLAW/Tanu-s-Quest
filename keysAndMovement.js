@@ -209,8 +209,19 @@ function keyPressed() {
         // Supprimer les dialogues de la forêt une fois que le dernier dialogue a été affiché
         dialoguesInForet.splice(0, dialoguesInForet.length);
     }
+  }
+
+  if (keyCode === 78) { // Touche "N"
+    if (foretFinishDialogActive && currentDialogueFinishForetIndex < dialoguesFinishForet.length - 1) {
+        currentDialogueFinishForetIndex++;
+    } else if (foretFinishDialogActive && currentDialogueFinishForetIndex === dialoguesFinishForet.length - 1) {
+        foretFinishDialogActive = false;
+        // Supprimer les dialogues de fin de la forêt une fois que le dernier dialogue a été affiché
+        dialoguesFinishForet.splice(0, dialoguesFinishForet.length);
+    }
 }
 
+  
 
   if (keyCode === 78) { // Touche "N"
     if (alchimisteDialogActive && currentAlchimisteIndex < dialoguesAlchimiste.length - 1) {

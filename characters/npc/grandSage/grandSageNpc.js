@@ -191,6 +191,46 @@ function gererDialogueForet() {
 
 
 
+let dialoguesFinishForet = [
+  { text: "LE GRAND SAGE A UN MESSAGE POUR VOUS CRAOOOO", boxType: "Grenouille" },
+  { text: "...", boxType: "Hero" },
+  { text: "Tanu je ressens que tu a sauvé tout les villagois et la pierre rends toi de retour au village pour contiuer ta quête.", boxType: "GrandSage" },
+];
+
+let currentDialogueFinishForetIndex = 0;
+let foretFinishDialogActive = false;
+
+function gererDialogueFinishForet() {
+  if (foretFinishDialogActive && currentDialogueFinishForetIndex < dialoguesFinishForet.length) {
+    let dialogueActuel = dialoguesFinishForet[currentDialogueFinishForetIndex].text;
+    let boxType = dialoguesFinishForet[currentDialogueFinishForetIndex].boxType;
+    let textWidth = 1100; 
+    let textHeight = 250; 
+    let textX = (width - textWidth) / 2 ;
+    let textY = height - textHeight - 20 + 50;
+    
+    let boiteDeDialogue;
+    if (boxType === "Grenouille") {
+      boiteDeDialogue = boiteDeDialogueGrenouille;
+    } else if (boxType === "Hero") {
+      boiteDeDialogue = boiteDeDialogueHeroTuto;
+    } else if(boxType === "GrandSage") {
+      boiteDeDialogue = boiteDeDialogueGrandSage;
+    }
+    
+    fill(0);
+    image(boiteDeDialogue, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+  }
+}
+
+
+
+
+
 ///////// GRAND SAGE ANIMATION /////////////
 
 let currentGrandSageIndex = 0;

@@ -393,11 +393,18 @@ function drawGame() {
         checkCageInteraction();
         checkForestNpcSaved();
         checkHeroOutOfBounds();
+
+
         if(foretDialogActive) {
           gererDialogueForet();
         }
         
 
+        if(heroHasStoneStone && isForestNpcSaved) {
+          foretFinishDialogActive = true;
+          gererDialogueFinishForet();
+        }
+        
       }
       } else if (currentWorld === 3) {
         if (!isLoadingScreenActive) {
@@ -448,11 +455,11 @@ function drawGame() {
       }
       } else if (currentWorld === 4) {
         if (!isLoadingScreenActive) {
-          drawLoadingScreen(); // Afficher l'écran de chargement
-          // Charger le nouveau monde après 3 secondes
+          drawLoadingScreen();
+          
           setTimeout(function() {
-              isLoadingScreenActive = true; // Désactiver l'écran de chargement
-          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+              isLoadingScreenActive = true; 
+          }, 3000);
         } else {
         if(animationBoss) {
           updateNormalCamera(3648, 1056);
@@ -494,11 +501,10 @@ function drawGame() {
 
       } else if(currentWorld === 5) {
         if (isLoadingScreenActive) {
-          drawLoadingScreen(); // Afficher l'écran de chargement
-          // Charger le nouveau monde après 3 secondes
+          drawLoadingScreen();
           setTimeout(function() {
-              isLoadingScreenActive = false; // Désactiver l'écran de chargement
-          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+              isLoadingScreenActive = false; 
+          }, 3000);
         } else {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
