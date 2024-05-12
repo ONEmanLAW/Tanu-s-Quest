@@ -267,42 +267,48 @@ function drawGame() {
           drawHudTemple ();
           applyGravityTemple();
         }
+
+
+
+
       } else if (currentWorld === 1) {
         if (!isLoadingScreenActive) {
-          drawLoadingScreen(); // Afficher l'écran de chargement
-          // Charger le nouveau monde après 3 secondes
+          drawLoadingScreen();
           setTimeout(function() {
-              isLoadingScreenActive = true; // Désactiver l'écran de chargement
-          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+              isLoadingScreenActive = true;
+          }, 3000);
         } else {
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
-        updateYetiAnimation(myYetiIdle);
-        image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
         
 
-        if (animationVillage && animationCounterVillage < 133) {
-          xHero += movementSpeedVillage;
-          animationCounterVillage++;
-          updateAnimationVillage(myHeroVillageRight);
-        } else {
-          animationVillage = false;
-          yetiDialogActive = true;
-        };
+
+        // Phase 1 du village aprés le temple.
+        if (!isForestNpcSaved && !heroHasStoneStone) {
+          updateYetiAnimation(myYetiIdle);
+          image(currentYetiImage, 12 * worldVillageTileSize, 10 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
+          if (animationVillage && animationCounterVillage < 133) {
+            xHero += movementSpeedVillage;
+            animationCounterVillage++;
+            updateAnimationVillage(myHeroVillageRight);
+          } else {
+            animationVillage = false;
+            yetiDialogActive = true;
+          };
+          
+          if (yetiDialogActive) {
+            gererDialoguesYeti();
+          }
+  
+          if (currentYetiIndexQuete >= dialoguesYeti.length && yetiDialogActive) {
+            yetiDialogActive = false;
+          }
+        }
         
-        //checkNPCYetiInteraction();
-       
-        // Vérifie si le dialogue du Yeti est actif
-        if (yetiDialogActive) {
-          gererDialoguesYeti();
-        }
 
-        if (currentYetiIndexQuete >= dialoguesYeti.length && yetiDialogActive) {
-          yetiDialogActive = false;
-        }
-
+        // Phase 2 du village aprés la Foret.
         if (isForestNpcSaved && heroHasStoneStone) {
           updateAlchimisteAnimation(myAlchimisteIdle);
           image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
@@ -315,7 +321,25 @@ function drawGame() {
 
           updateBabyTanukiAnimation(mybabyTanukiIdle);
           image(currentBabyTanukiImage, npcBabyTanukiX, npcBabyTanukiY, npcBabyTanukiWidth, npcBabyTanukiHeight);
-          
+
+          updateYetiAnimation(myYetiIdle);
+          image(currentYetiImage, 15 * worldVillageTileSize, 5 * worldVillageTileSize, npcYetiWidth, npcYetiHeight);
+          if (heroHasEcorce) {
+            if(checkYetiInteraction()) {
+              yetiDialogActiveEcorse = true;
+            } else {
+              yetiDialogActiveEcorse = false
+            }
+            gererDialoguesYetiEcorse();
+            
+          } else {
+            if(checkYetiInteraction2()) {
+              yetiDialogActiveEcorse2 = true;
+            } else {
+              yetiDialogActiveEcorse2 = false;
+            }
+            gererDialoguesYetiEcorse2();
+          }
         }
 
         

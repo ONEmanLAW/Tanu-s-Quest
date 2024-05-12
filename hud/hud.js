@@ -70,7 +70,7 @@ let yEcorce = 4 * worldForetTileSize + 18;
 let wEcorce = 64;
 let hEcorce = 64;
 let heroInEcorce = false;
-let heroHasEcorce= false;
+let heroHasEcorce = false;
 
 function checkHeroInEcorce() {
   if (!heroInFire) {

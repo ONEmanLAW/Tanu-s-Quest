@@ -3,9 +3,15 @@ let npcYetiY = 10 * worldVillageTileSize ;
 let npcYetiWidth = worldVillageTileSize + 10; 
 let npcYetiHeight= worldVillageTileSize + 25;
 
+let npcYetiX2 = 15 * worldVillageTileSize; 
+let npcYetiY2 = 5 * worldVillageTileSize ; 
+let npcYetiWidth2 = worldVillageTileSize + 10; 
+let npcYetiHeight2 = worldVillageTileSize + 25;
+
+
+
+
 let conversationYetiFinished = false;
-
-
 
 let dialoguesYeti = [
   { text: "OHHHHHHHHHHHHHHHH", boxType: "Yeti" },
@@ -59,51 +65,146 @@ function gererDialoguesYeti() {
 
 
 
-// let dialoguesYeti = [
-//   "Grrr, tu oses t'approcher de moi ?",
-//   "Je suis le puissant Yeti, roi de ces montagnes !",
-//   "Si tu ne veux pas finir en déjeuner, éloigne-toi !",
-//   "Mais... tu sembles différent des autres humains.",
-//   "Tu n'aurais pas une friandise à me donner, par hasard ?",
-//   "J'ai trop parler avec toi. Me parle pas !"
-// ];
 
-// let currentDialogueYetiIndex = 0;
 
-// /////////////////////////////////////////////
-// ////////FUNCTION FOR NPC Interaction/////////
-// /////////////////////////////////////////////
 
-// function checkNPCYetiInteraction() {
-//   let playerXCenter = xHero + wHero;
-//   let playerYCenter = yHero + hHero;
-//   let npcYetiXCenter = npcYetiX + npcYetiWidth;
-//   let npcYetiYCenter = npcYetiY + npcYetiHeight;
 
-//   let distance = dist(playerXCenter, playerYCenter, npcYetiXCenter, npcYetiYCenter); 
-//   if (distance < wHero + npcYetiWidth) {
-//     let textWidth = 1100; 
-//     let textHeight = 250;
-//     let textX = (width - textWidth) / 2;
-//     let textY = height - textHeight - 20;
+let conversationYetiFinishedEcorse = false;
+
+let dialoguesYetiEcorse = [
+  { text: "OHHHHHHHHHHHHHHHHHH", boxType: "Yeti" },
+  { text: "....", boxType: "Hero" },
+  { text: "TANU, j'ai entendu tes exploi dans la foret, tu a pu ramener l'ecorcsse", boxType: "Yeti" },
+  { text: "Oui le voici", boxType: "Hero" },
+  { text: "INcroyable MERCI", boxType: "Yeti" },
+  { text: "Voici pour toi .", boxType: "Yeti" },
+  // Ajoute d'autres dialogues ici selon le besoin
+];
+
+let yetiDialogActiveEcorse = false;
+let currentYetiIndexQueteEcorse = 0; // Renommage de la variable
+
+function gererDialoguesYetiEcorse() {
+  if (yetiDialogActiveEcorse && currentYetiIndexQueteEcorse < dialoguesYetiEcorse.length) {
+    let dialogueActuel = dialoguesYetiEcorse[currentYetiIndexQueteEcorse].text;
+    let boxType = dialoguesYetiEcorse[currentYetiIndexQueteEcorse].boxType;
+    let textWidth = 1100; 
+    let textHeight = 250; 
+    let textX = (width - textWidth) / 2 ;
+    let textY = height - textHeight - 20 + 50;
     
-//     fill(0);
-//     image(boiteDeDialogueYeti, textX, textY, textWidth, textHeight);
-//     textSize(20);
-//     textAlign(CENTER, CENTER);
-//     fill(255);
-//     text(dialoguesYeti[currentDialogueYetiIndex], textX + textWidth / 2 + 420, textY + textHeight / 2 + 55);
+    let boiteDeDialogue;
+    if (boxType === "Yeti") {
+      boiteDeDialogue = boiteDeDialogueYeti;
+    } else if (boxType === "Hero") {
+      boiteDeDialogue = boiteDeDialogueHero;
+    }
+    
+    fill(0);
+    image(boiteDeDialogue, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+  } else {
+    yetiDialogActiveEcorse = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
+  }
+}
 
-//     // Si c'est le dernier dialogue, marque la conversation comme terminée
-//     if (currentDialogueYetiIndex === dialoguesYeti.length - 1) {
-//       conversationYetiFinished = true;
-//     }
+function checkYetiInteraction() {
+  let playerXCenter = xHero + wHero / 2;
+  let playerYCenter = yHero + hHero / 2;
+  let npcYetiXCenter = npcYetiX2 + npcYetiWidth2 / 2;
+  let npcYetiYCenter = npcYetiY2 + npcYetiHeight2 / 2;
 
-//     // Retourne true pour indiquer que l'interaction a été traitée
-//     return true;
-//   }
-//   return false;
-// }
+  let interactionDistance = wHero / 2 + npcYetiWidth2 / 2 - 10;
+
+  let distance = dist(playerXCenter, playerYCenter, npcYetiXCenter, npcYetiYCenter); 
+
+  if (distance < interactionDistance) {
+    yetiDialogActiveEcorse = true; // Activer le dialogue du Yeti
+    return true;
+  }
+
+  return false;
+}
+
+
+
+
+
+let conversationYetiFinishedEcorse2 = false;
+
+let dialoguesYetiEcorse2 = [
+  { text: "OHHHHHHHHHHHHHHHHHH", boxType: "Yeti" },
+  { text: "....", boxType: "Hero" },
+  { text: "TANU, j'ai entendu tes exploi dans la foret, tu a pu ramener l'ecorcsse", boxType: "Yeti" },
+  { text: "Non maleresuement... ", boxType: "Hero" },
+  { text: "Ah je suis plutot décu...", boxType: "Yeti" },
+  { text: "Je pense que tu a plein de choses a faire aurevoir.", boxType: "Yeti" },
+  // Ajoute d'autres dialogues ici selon le besoin
+];
+
+let yetiDialogActiveEcorse2 = false;
+let currentYetiIndexQueteEcorse2 = 0; // Renommage de la variable
+
+function gererDialoguesYetiEcorse2() {
+  if (yetiDialogActiveEcorse2 && currentYetiIndexQueteEcorse2 < dialoguesYetiEcorse2.length) {
+    let dialogueActuel = dialoguesYetiEcorse2[currentYetiIndexQueteEcorse2].text;
+    let boxType = dialoguesYetiEcorse2[currentYetiIndexQueteEcorse2].boxType;
+    let textWidth = 1100; 
+    let textHeight = 250; 
+    let textX = (width - textWidth) / 2 ;
+    let textY = height - textHeight - 20 + 50;
+    
+    let boiteDeDialogue;
+    if (boxType === "Yeti") {
+      boiteDeDialogue = boiteDeDialogueYeti;
+    } else if (boxType === "Hero") {
+      boiteDeDialogue = boiteDeDialogueHero;
+    }
+    
+    fill(0);
+    image(boiteDeDialogue, textX, textY, textWidth, textHeight);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+  } else {
+    yetiDialogActiveEcorse = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
+  }
+}
+
+
+function checkYetiInteraction2() {
+  let playerXCenter = xHero + wHero / 2;
+  let playerYCenter = yHero + hHero / 2;
+  let npcYetiXCenter = npcYetiX2 + npcYetiWidth2 / 2;
+  let npcYetiYCenter = npcYetiY2 + npcYetiHeight2 / 2;
+
+  let interactionDistance = wHero / 2 + npcYetiWidth2 / 2 - 10;
+
+  let distance = dist(playerXCenter, playerYCenter, npcYetiXCenter, npcYetiYCenter); 
+
+  if (distance < interactionDistance) {
+    yetiDialogActiveEcorse2 = true; // Activer le dialogue du Yeti
+    return true;
+  }
+
+  return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 let currentYetiIndex = 0;

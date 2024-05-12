@@ -212,6 +212,26 @@ function keyPressed() {
   }
 
   if (keyCode === 78) { // Touche "N"
+    if (yetiDialogActiveEcorse && currentYetiIndexQueteEcorse < dialoguesYetiEcorse.length - 1) {
+        currentYetiIndexQueteEcorse++;
+    } else if (yetiDialogActiveEcorse && currentYetiIndexQueteEcorse === dialoguesYetiEcorse.length - 1) {
+        yetiDialogActiveEcorse = false;
+        // Supprimer les dialogues de l'écorse une fois que le dernier dialogue a été affiché
+        dialoguesYetiEcorse.splice(0, dialoguesYetiEcorse.length);
+    }
+  }
+
+  if (keyCode === 78) { // Touche "N"
+    if (yetiDialogActiveEcorse2 && currentYetiIndexQueteEcorse2 < dialoguesYetiEcorse2.length - 1) {
+        currentYetiIndexQueteEcorse2++;
+    } else if (yetiDialogActiveEcorse2 && currentYetiIndexQueteEcorse2 === dialoguesYetiEcorse2.length - 1) {
+        yetiDialogActiveEcorse2 = false;
+        // Supprimer les dialogues de l'écorse une fois que le dernier dialogue a été affiché
+        dialoguesYetiEcorse2.splice(0, dialoguesYetiEcorse2.length);
+    }
+  }
+
+  if (keyCode === 78) { // Touche "N"
     if (foretFinishDialogActive && currentDialogueFinishForetIndex < dialoguesFinishForet.length - 1) {
         currentDialogueFinishForetIndex++;
     } else if (foretFinishDialogActive && currentDialogueFinishForetIndex === dialoguesFinishForet.length - 1) {
@@ -219,7 +239,7 @@ function keyPressed() {
         // Supprimer les dialogues de fin de la forêt une fois que le dernier dialogue a été affiché
         dialoguesFinishForet.splice(0, dialoguesFinishForet.length);
     }
-}
+  }
 
   
 
@@ -235,8 +255,6 @@ function keyPressed() {
     }
   }
 
-
-  
   if (keyCode === 78) { 
     if (bossIntroActive && currentBossIntroductionIndex < bossDialogues.length - 1) {
       currentBossIntroductionIndex++;
@@ -257,6 +275,12 @@ function keyPressed() {
       dialoguesYeti.splice(0, dialoguesYeti.length);
     }
   }
+
+
+
+
+
+
 
   if(currentWorld === 3 || currentWorld === 4 || currentWorld === 1 ) {
     if (keyCode === 82) { // Touche R pour le code '82'.
