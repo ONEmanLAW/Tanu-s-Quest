@@ -140,7 +140,7 @@ function preload() {
   createEnemiesForet2(); // enemy2Level.js
  
   
-  preloadEnemy3Image(); // enemyLevel3.js
+  preloadEnemy3Animations(); // enemyLevel3.js
   createEnemiesForet3();
   
 
@@ -353,16 +353,18 @@ function drawGame() {
         // checkEnemyCollision(); 
 
         
-        checkEnemy2Collision(); 
-        moveEnemies2();
-        detectPlayer2();
-        updateAnimationState2();
-        drawEnemies2();
+        // checkEnemy2Collision(); 
+        // moveEnemies2();
+        // detectPlayer2();
+        // updateAnimationState2();
+        // drawEnemies2();
 
-        // moveEnemies3();
-        // drawEnemies3();
-        // checkEnemy3Collision();
-        // detectPlayer3(); 
+
+        checkEnemy3Collision();
+        moveEnemies3();
+        detectPlayer3(); 
+        updateAnimationState3();
+        drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
