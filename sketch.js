@@ -178,9 +178,7 @@ function setup() {
 
 
 
-let battlePhase = 1; // Phase initiale de la bataille contre le boss
-let enemiesToDefeatForPhase = [3, 5]; // Nombre d'ennemis à vaincre pour chaque phase
-let enemiesDefeated = 0; // Nombre total d'ennemis vaincus
+
 
 let isLoadingScreenActive = true;
 
