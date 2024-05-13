@@ -86,6 +86,9 @@ function drawEnemies() {
 }
 
 
+// Définir une variable pour le décalage de recul des ennemis
+let enemyRecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
+let enemyRecoilDuration = 0.5; // Durée du recul en secondes
 
 function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {
@@ -94,6 +97,30 @@ function checkEnemyCollision() {
       if (!enemy.isHit) {
         enemy.isHit = true;
         enemy.lives--;
+
+        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi
+        let direction = xHero > enemy.position.x ? -1 : 1;
+
+        // Définir la cible finale du recul
+        let targetX = enemy.position.x + direction * enemyRecoilDistance;
+
+        // Animer le recul de l'ennemi
+        let startTime = Date.now();
+        let endTime = startTime + enemyRecoilDuration * 1000; // Conversion en millisecondes
+
+        function animateRecoil() {
+          let now = Date.now();
+          let progress = (now - startTime) / (endTime - startTime);
+          if (progress < 1) {
+            enemy.position.x = enemy.position.x + (targetX - enemy.position.x) * progress;
+            requestAnimationFrame(animateRecoil);
+          } else {
+            enemy.position.x = targetX;
+          }
+        }
+
+        animateRecoil();
+
         isAttacking = false;
       }
     } else {
@@ -103,7 +130,7 @@ function checkEnemyCollision() {
         // Vérifie la direction du personnage et de l'ennemi
         if ((enemy.direction === 1 && xHero > enemy.position.x) || 
             (enemy.direction === -1 && xHero < enemy.position.x)) {
-          loseHeart();
+          loseHeart(); // Vous pouvez retirer cette ligne si vous ne voulez pas que le héros perde de cœur lorsqu'il est touché par un ennemi
         }
       }
     }
@@ -114,5 +141,7 @@ function checkEnemyCollision() {
     }
   }
 }
+
+
 
 

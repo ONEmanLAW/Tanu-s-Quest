@@ -382,11 +382,11 @@ function drawGame() {
         // drawEnemies2();
 
 
-        checkEnemy3Collision();
-        moveEnemies3();
-        detectPlayer3(); 
-        updateAnimationState3();
-        drawEnemies3();
+        // checkEnemy3Collision();
+        // moveEnemies3();
+        // detectPlayer3(); 
+        // updateAnimationState3();
+        // drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
