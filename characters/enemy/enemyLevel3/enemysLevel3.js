@@ -3,8 +3,8 @@ let enemy3Image;
 let speedEnemy3 = 3;
 let wEnemy3 = 80; 
 let hEnemy3 = 80;
-let chaseSpeed = 4; 
-let chaseRange = 300;
+let chaseSpeed = 3; 
+let chaseRange = 250;
 
 const livesGobelin3 = 3; 
 
@@ -131,6 +131,10 @@ function drawEnemies3() {
   }
 }
 
+// Définir une variable pour le décalage de recul des ennemis 3
+let enemy3RecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
+let enemy3RecoilDuration = 0.5; // Durée du recul en secondes
+
 function checkEnemy3Collision() {
   for (let i = 0; i < enemies3.length; i++) {
     let enemy3 = enemies3[i];
@@ -138,6 +142,30 @@ function checkEnemy3Collision() {
       if (!enemy3.isHit) {
         enemy3.isHit = true;
         enemy3.lives--;
+
+        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 3
+        let direction = xHero > enemy3.position.x ? -1 : 1;
+
+        // Définir la cible finale du recul
+        let targetX = enemy3.position.x + direction * enemy3RecoilDistance;
+
+        // Animer le recul de l'ennemi 3
+        let startTime = Date.now();
+        let endTime = startTime + enemy3RecoilDuration * 1000; // Conversion en millisecondes
+
+        function animateRecoil() {
+          let now = Date.now();
+          let progress = (now - startTime) / (endTime - startTime);
+          if (progress < 1) {
+            enemy3.position.x = enemy3.position.x + (targetX - enemy3.position.x) * progress;
+            requestAnimationFrame(animateRecoil);
+          } else {
+            enemy3.position.x = targetX;
+          }
+        }
+
+        animateRecoil();
+
         isAttacking = false;
       }
     } else {
