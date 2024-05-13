@@ -143,6 +143,10 @@ function drawEnemies2() {
 
 
 
+// Définir une variable pour le décalage de recul des ennemis 2
+let enemy2RecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
+let enemy2RecoilDuration = 0.5; // Durée du recul en secondes
+
 function checkEnemy2Collision() {
   // Vérifier les collisions avec les ennemis et gérer les dégâts
   for (let i = 0; i < enemies2.length; i++) {
@@ -151,6 +155,30 @@ function checkEnemy2Collision() {
       if (!enemy2.isHit) {
         enemy2.isHit = true;
         enemy2.lives--;
+
+        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 2
+        let direction = xHero > enemy2.position.x ? -1 : 1;
+
+        // Définir la cible finale du recul
+        let targetX = enemy2.position.x + direction * enemy2RecoilDistance;
+
+        // Animer le recul de l'ennemi 2
+        let startTime = Date.now();
+        let endTime = startTime + enemy2RecoilDuration * 1000; // Conversion en millisecondes
+
+        function animateRecoil() {
+          let now = Date.now();
+          let progress = (now - startTime) / (endTime - startTime);
+          if (progress < 1) {
+            enemy2.position.x = enemy2.position.x + (targetX - enemy2.position.x) * progress;
+            requestAnimationFrame(animateRecoil);
+          } else {
+            enemy2.position.x = targetX;
+          }
+        }
+
+        animateRecoil();
+
         isAttacking = false;
       }
     } else {
@@ -164,6 +192,7 @@ function checkEnemy2Collision() {
     }
   }
 }
+
 
 function detectPlayer2() {
   // Détecter le joueur et définir l'état de charge des ennemis

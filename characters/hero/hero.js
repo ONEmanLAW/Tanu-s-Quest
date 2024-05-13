@@ -140,7 +140,7 @@ let movementSpeedBoss = worldBossTileSize / 16;
 
 let isAttacking = false;
 const attackDuration = 200;
-const attackCooldown = 300;
+const attackCooldown = 200;
 let baseWidthHero = 80;
 
 // Fonction pour gérer l'attaque du héros

@@ -375,11 +375,11 @@ function drawGame() {
         // checkEnemyCollision(); 
 
         
-        // checkEnemy2Collision(); 
-        // moveEnemies2();
-        // detectPlayer2();
-        // updateAnimationState2();
-        // drawEnemies2();
+        checkEnemy2Collision(); 
+        moveEnemies2();
+        detectPlayer2();
+        updateAnimationState2();
+        drawEnemies2();
 
 
         // checkEnemy3Collision();
