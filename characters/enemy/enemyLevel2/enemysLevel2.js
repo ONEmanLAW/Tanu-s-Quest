@@ -140,9 +140,6 @@ function drawEnemies2() {
   }
 }
 
-
-
-
 // Définir une variable pour le décalage de recul des ennemis 2
 let enemy2RecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
 let enemy2RecoilDuration = 0.5; // Durée du recul en secondes
@@ -154,7 +151,10 @@ function checkEnemy2Collision() {
     if (isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
       if (!enemy2.isHit) {
         enemy2.isHit = true;
-        enemy2.lives--;
+
+        // Déterminer les dégâts en fonction de l'arme
+        let damage = newSword ? 2 : 1;
+        enemy2.lives -= damage;
 
         // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 2
         let direction = xHero > enemy2.position.x ? -1 : 1;
@@ -192,7 +192,6 @@ function checkEnemy2Collision() {
     }
   }
 }
-
 
 function detectPlayer2() {
   // Détecter le joueur et définir l'état de charge des ennemis

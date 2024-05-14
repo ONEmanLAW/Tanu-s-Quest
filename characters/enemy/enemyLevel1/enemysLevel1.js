@@ -9,7 +9,6 @@ let enemyRightImages = [];
 
 const livesGobelin1 = 2;
 
-
 function preloadEnemy1Image() {
   // Left enemy images
   for (let i = 1; i <= 12; i++) {
@@ -22,7 +21,6 @@ function preloadEnemy1Image() {
   }
 }
 
-
 function createEnemiesForet() {
   enemies = [];
   enemies.push({
@@ -30,7 +28,7 @@ function createEnemiesForet() {
     pointA: createVector(9 * worldForetTileSize, 10 * worldForetTileSize),
     pointB: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),
     direction: 1,
-    initialPosition: createVector(14 * worldForetTileSize, 10 * worldForetTileSize),// Enregistrez la position initiale
+    initialPosition: createVector(14 * worldForetTileSize, 10 * worldForetTileSize), // Enregistrez la position initiale
     lives: livesGobelin1 // Initialisez les vies de l'ennemi
   });
 
@@ -45,10 +43,6 @@ function createEnemiesForet() {
   // Add More Ennemies.
 }
 
-
-
-
-
 function resetEnemiesPosition() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
@@ -60,7 +54,6 @@ function resetEnemiesPosition() {
     enemy.lives = livesGobelin1;
   }
 }
-
 
 function moveEnemies() {
   for (let i = 0; i < enemies.length; i++) {
@@ -75,7 +68,6 @@ function moveEnemies() {
   }
 }
 
-
 function drawEnemies() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
@@ -84,7 +76,6 @@ function drawEnemies() {
     image(currentImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
   }
 }
-
 
 // Définir une variable pour le décalage de recul des ennemis
 let enemyRecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
@@ -96,7 +87,10 @@ function checkEnemyCollision() {
     if (isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
       if (!enemy.isHit) {
         enemy.isHit = true;
-        enemy.lives--;
+        
+        // Déterminer les dégâts en fonction de l'arme
+        let damage = newSword ? 2 : 1;
+        enemy.lives -= damage;
 
         // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi
         let direction = xHero > enemy.position.x ? -1 : 1;
@@ -141,7 +135,3 @@ function checkEnemyCollision() {
     }
   }
 }
-
-
-
-

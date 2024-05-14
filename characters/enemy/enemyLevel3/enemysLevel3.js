@@ -141,7 +141,10 @@ function checkEnemy3Collision() {
     if (isAttacking && dist(xHero, yHero, enemy3.position.x, enemy3.position.y) < wHero / 2 + wEnemy3 / 2) {
       if (!enemy3.isHit) {
         enemy3.isHit = true;
-        enemy3.lives--;
+
+        // Déterminer les dégâts en fonction de l'arme
+        let damage = newSword ? 2 : 1;
+        enemy3.lives -= damage;
 
         // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 3
         let direction = xHero > enemy3.position.x ? -1 : 1;

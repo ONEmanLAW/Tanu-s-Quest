@@ -83,7 +83,7 @@ let dialoguesYetiEcorse = [
 
 let yetiDialogActiveEcorse = false;
 let currentYetiIndexQueteEcorse = 0; // Renommage de la variable
-let newSword = false; 
+let newSword = true; 
 
 function gererDialoguesYetiEcorse() {
   if (yetiDialogActiveEcorse && currentYetiIndexQueteEcorse < dialoguesYetiEcorse.length) {
@@ -91,22 +91,24 @@ function gererDialoguesYetiEcorse() {
     let boxType = dialoguesYetiEcorse[currentYetiIndexQueteEcorse].boxType;
     let textWidth = 1100; 
     let textHeight = 250; 
-    let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
-    
+
+    // Positionner le texte juste au-dessus du Yeti
+    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2; // Centrer horizontalement par rapport au Yeti
+    let textY = npcYetiY2 - textHeight - 10; // Juste au-dessus du Yeti avec un petit décalage
+
     let boiteDeDialogue;
     if (boxType === "Yeti") {
       boiteDeDialogue = boiteDeDialogueYeti;
     } else if (boxType === "Hero") {
       boiteDeDialogue = boiteDeDialogueHero;
     }
-    
+
     fill(0);
     image(boiteDeDialogue, textX, textY, textWidth, textHeight);
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
   } else {
     yetiDialogActiveEcorse = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
   }
@@ -155,8 +157,10 @@ function gererDialoguesYetiEcorse2() {
     let boxType = dialoguesYetiEcorse2[currentYetiIndexQueteEcorse2].boxType;
     let textWidth = 1100; 
     let textHeight = 250; 
-    let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
+    
+    // Positionner le texte juste au-dessus du Yeti
+    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2; // Centrer horizontalement par rapport au Yeti
+    let textY = npcYetiY2 - textHeight - 10; // Juste au-dessus du Yeti avec un petit décalage
     
     let boiteDeDialogue;
     if (boxType === "Yeti") {
@@ -170,11 +174,12 @@ function gererDialoguesYetiEcorse2() {
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
   } else {
-    yetiDialogActiveEcorse = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
+    yetiDialogActiveEcorse2 = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
   }
 }
+
 
 
 function checkYetiInteraction2() {
