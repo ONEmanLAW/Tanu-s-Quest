@@ -1,6 +1,7 @@
 let cadreVide;
 let imageEpee1;
 let imageEpee2;
+let imageEpee3;
 let imageFeu1;
 let imageFeu2;
 let imageEau1;
@@ -31,6 +32,7 @@ function preloadHudImages() {
   cadreVide = loadImage('hud/assets/cadreVide.png');
   imageEpee1 = loadImage('hud/assets/imageEpee.png');
   imageEpee2 = loadImage('hud/assets/imageEpee2.png');
+  imageEpee3 = loadImage('hud/assets/imageEpee3.png');
   imageFeu1 = loadImage('hud/assets/imageFeu1.png');
   imageFeu2 = loadImage('hud/assets/imageFeu2.png');
   imageEau1 = loadImage('hud/assets/imageEau1.png');
@@ -172,7 +174,13 @@ function drawHud() {
   image(imageCadreHeart, 30, 5, 350, 125);
 
   image(cadreVide, 30, 850, 600, 150);
-  image(imageEpee2, 44, 861, 100, 100);
+  
+  if (!newSword) {
+    image(imageEpee2, 44, 861, 100, 100);
+  } else {
+    image(imageEpee3, 44, 861, 100, 100);
+  }
+  
   
   if (!alchimisteDialogueFinished) {
     image(imagePotion1, 160, 915, 75, 75);

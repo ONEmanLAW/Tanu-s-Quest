@@ -218,6 +218,7 @@ function keyPressed() {
         yetiDialogActiveEcorse = false;
         // Supprimer les dialogues de l'écorse une fois que le dernier dialogue a été affiché
         dialoguesYetiEcorse.splice(0, dialoguesYetiEcorse.length);
+        newSword = true;
     }
   }
 
