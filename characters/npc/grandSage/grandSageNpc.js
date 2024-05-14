@@ -166,7 +166,7 @@ function gererDialogueForet() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
+    let textY = height - textHeight - 16;
     
     let boiteDeDialogue;
     if (boxType === "Grenouille") {
@@ -207,7 +207,7 @@ function gererDialogueFinishForet() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
+    let textY = height - textHeight - 16;
     
     let boiteDeDialogue;
     if (boxType === "Grenouille") {
