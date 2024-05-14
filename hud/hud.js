@@ -396,7 +396,7 @@ function drawHearts() {
   const heartWidth = 75;
   const heartHeight = 75;
   const spacing = 30;
-  const marginX = 30;
+  const marginX = 53;
   const marginY = 25;
 
   // Déterminer la position absolue des cœurs en tenant compte de la caméra

@@ -83,7 +83,7 @@ let dialoguesYetiEcorse = [
 
 let yetiDialogActiveEcorse = false;
 let currentYetiIndexQueteEcorse = 0; // Renommage de la variable
-let newSword = true; 
+let newSword = false; 
 
 function gererDialoguesYetiEcorse() {
   if (yetiDialogActiveEcorse && currentYetiIndexQueteEcorse < dialoguesYetiEcorse.length) {
