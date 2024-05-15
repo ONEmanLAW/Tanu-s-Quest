@@ -497,26 +497,38 @@ function jump() {
 
 
 function applyGravity() {
-  // Appliquer la gravité
   yVelocity += gravity;
-  
-  // Si le personnage est en train de sauter, mettre à jour sa position verticale
-  if (isJumping) {
-    yHero += yVelocity;
-  }
-  
-  // Vérifier si le personnage va entrer en collision avec le sol lors du prochain déplacement
+
   let nextY = yHero + yVelocity;
+
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld], nextY)) {
-    // Si oui, arrêter le saut 5px avant la collision
     isJumping = false;
     yVelocity = 0;
-    yHero = Math.floor(yHero / 80) * 80; // Arrondir à la tuile la plus proche
+    yHero = Math.floor(yHero / 80) * 80;
+  } else {
+    yHero = nextY
   }
 }
 
 
-
+// function applyGravity() {
+//   // Appliquer la gravité
+//   yVelocity += gravity;
+  
+//   // Si le personnage est en train de sauter, mettre à jour sa position verticale
+//   if (isJumping) {
+//     yHero += yVelocity;
+//   }
+  
+//   // Vérifier si le personnage va entrer en collision avec le sol lors du prochain déplacement
+//   let nextY = yHero + yVelocity;
+//   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld], nextY)) {
+//     // Si oui, arrêter le saut 5px avant la collision
+//     isJumping = false;
+//     yVelocity = 0;
+//     yHero = Math.floor(yHero / 80) * 80; // Arrondir à la tuile la plus proche
+//   }
+// }
 
 
 
