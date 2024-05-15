@@ -115,7 +115,10 @@ function checkEnemyCollision() {
 
         animateRecoil();
 
-        isAttacking = false;
+        // Ajout de ceci pour s'assurer que l'attaque reste active jusqu'à la fin de l'animation
+        setTimeout(() => {
+          isAttacking = false;
+        }, attackDuration);
       }
     } else {
       enemy.isHit = false;
@@ -132,6 +135,7 @@ function checkEnemyCollision() {
     // Si l'ennemi n'a plus de vie, le supprimer
     if (enemy.lives <= 0) {
       enemies.splice(i, 1);
+      i--; // Ajuster l'index après la suppression
     }
   }
 }

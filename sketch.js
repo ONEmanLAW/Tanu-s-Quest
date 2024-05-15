@@ -402,11 +402,11 @@ function drawGame() {
         // drawEnemies2();
 
 
-        // checkEnemy3Collision();
-        // moveEnemies3();
-        // detectPlayer3(); 
-        // updateAnimationState3();
-        // drawEnemies3();
+        checkEnemy3Collision();
+        moveEnemies3();
+        detectPlayer3(); 
+        updateAnimationState3();
+        drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
@@ -564,10 +564,10 @@ function drawGame() {
     }
 
       
-      if (hearts <= 0) {
-        // Si le joueur est mort, afficher l'animation de mort du personnage
-        updateAnimation(myHeroDeath);
-      }
+      // if (hearts <= 0) {
+      //   // Si le joueur est mort, afficher l'animation de mort du personnage
+      //   updateAnimation(myHeroDeath);
+      // }
 
     } else {
       gameOverMenu();

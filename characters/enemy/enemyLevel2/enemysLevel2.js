@@ -145,7 +145,6 @@ let enemy2RecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos be
 let enemy2RecoilDuration = 0.5; // Durée du recul en secondes
 
 function checkEnemy2Collision() {
-  // Vérifier les collisions avec les ennemis et gérer les dégâts
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
     if (isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < wHero / 2 + wEnemy2 / 2) {
@@ -179,7 +178,10 @@ function checkEnemy2Collision() {
 
         animateRecoil();
 
-        isAttacking = false;
+        // Ajouter un délai avant de réinitialiser l'état d'attaque
+        setTimeout(() => {
+          isAttacking = false;
+        }, attackDuration);
       }
     } else {
       enemy2.isHit = false;
@@ -189,9 +191,11 @@ function checkEnemy2Collision() {
     }
     if (enemy2.lives <= 0) {
       enemies2.splice(i, 1);
+      i--; // Ajuster l'index après la suppression
     }
   }
 }
+
 
 function detectPlayer2() {
   // Détecter le joueur et définir l'état de charge des ennemis

@@ -35,6 +35,8 @@ let myHeroVillageIdleTop = [];
 let myHeroIdleRight = [];
 let myHeroIdleLeft = [];
 let myHeroDeath = [];
+let myHeroAttaqueRight = [];
+let myHeroAttaqueLeft = [];
 let currentIndex = 0;
 let currentVillageIndex = 0;
 let movementCounter = 0;
@@ -138,38 +140,23 @@ let movementSpeedBoss = worldBossTileSize / 16;
 
 
 
-let isAttacking = false;
-const attackDuration = 200;
-const attackCooldown = 200;
-let baseWidthHero = 80;
 
-// Fonction pour gérer l'attaque du héros
-function heroAttack() {
-  if (!isAttacking) {
-    isAttacking = true;
 
-    // Calculer la direction de l'attaque en fonction de la direction actuelle du héros
-    let attackDirection;
-    if (lastHorizontalDirection === 'right') {
-      attackDirection = 1; // Attaque vers la droite
-    } else {
-      attackDirection = -1; // Attaque vers la gauche
-    }
-    
-    setTimeout(() => {
-      isAttacking = false;
-    }, attackDuration);
-    
-    setTimeout(() => {
-      isAttacking = false;
-    }, attackCooldown);
-  }
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
 function checkHeroOutOfBounds() {
-  if (yHero > 14 * worldForetTileSize) {
+  if (yHero > 14 * 80) {
     hearts -= 3;
     gameOver = true;
   }
@@ -291,18 +278,44 @@ function preloadHeroImages() {
   myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche11.png'));
   myHeroIdleLeft.push(loadImage('characters/hero/assets/myHeroIdleLeft/hero_plateforme_idle_gauche12.png'));
 
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort1.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort2.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort3.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort4.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort5.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort6.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort7.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort8.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort9.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort10.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort11.png'));
-  myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort12.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort1.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort2.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort3.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort4.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort5.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort6.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort7.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort8.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort9.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort10.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort11.png'));
+  // myHeroDeath.push(loadImage('characters/hero/assets/myHeroDeath/hero_plateforme_mort12.png'));
+
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite1.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite2.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite3.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite4.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite5.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite6.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite7.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite8.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite9.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite10.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite11.png'));
+  myHeroAttaqueRight.push(loadImage('characters/hero/assets/myHeroAttaqueRight/hero_plateforme_attaque_droite12.png'));
+
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche1.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche2.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche3.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche4.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche5.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche6.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche7.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche8.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche9.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche10.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche11.png'));
+  myHeroAttaqueLeft.push(loadImage('characters/hero/assets/myHeroAttaqueLeft/hero_plateforme_attaque_gauche12.png'));
   
  
   currentHeroImage = hero0; // Définition de l'image de héros actuelle
@@ -526,5 +539,61 @@ function applyGravityTemple() {
       isJumping = false;
       yVelocity = 0;
     }
+  }
+}
+
+
+
+
+
+
+
+
+let isAttacking = false;
+const attackDuration = 200;
+const attackCooldown = 200;
+let baseWidthHero = 80;
+
+let attackAnimationFrame = 0;
+let attackAnimationDirection = '';
+let attackTimeout, cooldownTimeout;
+
+function heroAttack() {
+  if (!isAttacking) {
+    isAttacking = true;
+    attackAnimationFrame = 0;
+    attackAnimationDirection = (lastHorizontalDirection === 'right') ? 'right' : 'left';
+
+    // Play attack animation
+    playAttackAnimation();
+
+    // Set timeout to end the attack animation
+    attackTimeout = setTimeout(() => {
+      isAttacking = false;
+      updateIdleAnimation(); // Return to idle animation
+    }, attackDuration);
+
+    // Set cooldown for next attack
+    cooldownTimeout = setTimeout(() => {
+      isAttacking = false;
+    }, attackCooldown);
+  }
+}
+
+function playAttackAnimation() {
+  if (isAttacking) {
+    let animationArray = (attackAnimationDirection === 'right') ? myHeroAttaqueRight : myHeroAttaqueLeft;
+    currentHeroImage = animationArray[attackAnimationFrame];
+    attackAnimationFrame = (attackAnimationFrame + 1) % animationArray.length;
+
+    setTimeout(playAttackAnimation, attackDuration / animationArray.length);
+  }
+}
+
+function updateIdleAnimation() {
+  if (lastHorizontalDirection === 'right') {
+    currentHeroImage = myHeroIdleRight[0];
+  } else {
+    currentHeroImage = myHeroIdleLeft[0];
   }
 }

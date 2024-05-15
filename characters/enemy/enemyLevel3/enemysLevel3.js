@@ -169,7 +169,10 @@ function checkEnemy3Collision() {
 
         animateRecoil();
 
-        isAttacking = false;
+        // Ajouter un délai avant de réinitialiser l'état d'attaque
+        setTimeout(() => {
+          isAttacking = false;
+        }, attackDuration);
       }
     } else {
       enemy3.isHit = false;
@@ -179,6 +182,7 @@ function checkEnemy3Collision() {
     }
     if (enemy3.lives <= 0) {
       enemies3.splice(i, 1);
+      i--; // Ajuster l'index après la suppression
     }
   }
 }

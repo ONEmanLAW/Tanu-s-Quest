@@ -22,6 +22,7 @@ function moveRight() {
 }
 
 
+
 function moveTopVillage() {
   yHero -= heroSpeed;
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld])) {
@@ -84,6 +85,20 @@ function updateAnimationVillage(animationArray) {
     }
     currentHeroVillageImage = animationArray[currentVillageIndex];
     movementCounter = 0;
+  }
+}
+
+function updateAnimation(animationArray) {
+  if (!isAttacking) {
+    movementCounter += 1;
+    if (movementCounter >= 20 / heroSpeed) {
+      currentIndex += 1;
+      if (currentIndex === animationArray.length) {
+        currentIndex = 0;
+      }
+      currentHeroImage = animationArray[currentIndex];
+      movementCounter = 0;
+    }
   }
 }
 
