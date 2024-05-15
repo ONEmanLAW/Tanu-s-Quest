@@ -11,11 +11,10 @@ let videoPlaying = false;
 
 function mainMenuButtons() {
 
-  // Charger les images et les sons ici
   introGif = createImg('mainMenu/images/PageDebutJeu.gif');
-  introGif.hide(); // Masquer le GIF jusqu'à ce qu'il soit nécessaire
+  introGif.hide();
   introVideo = createVideo(['mainMenu/images/Intrologos.mp4']);
-  introVideo.hide(); // Masquer la vidéo jusqu'à ce qu'elle soit nécessaire
+  introVideo.hide();
 
 
   backgroundImage = loadImage('mainMenu/images/menuBackground.jpeg');
@@ -26,15 +25,13 @@ function mainMenuButtons() {
   backgroundSettingsImage = loadImage('mainMenu/images/grosBlocParamètres.png');
   exitButtonParam = loadImage('mainMenu/images/blocQuitterParamètres.png');
 
-  //Music de fond pour le Mainmenu
 
   musiqueFond = loadSound('mainMenu/music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav');
 };
 
 
 function drawIntro() {
-  background(0); // Fond noir pour l'intro
-  // Le GIF est déjà affiché par introGif.show() dans setup()
+  background(0);
   if (videoPlaying) {
     introVideo.show();
     introVideo.play();

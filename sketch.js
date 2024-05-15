@@ -157,7 +157,7 @@ function preload() {
   preloadHudImages(); // hud.js
   preloadGameOverImages();
   // Background Of Worlds.
-  preloadBackgroundImages(); // backgroundImages.js
+  preloadBackgroundImages(); 
 
   loadingGif = loadImage('pageDeChargement.gif');
 }
@@ -166,12 +166,11 @@ function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
 
-  introGif.position(0, 0, windowWidth, windowHeight); // Positionner le GIF au centre
-  introGif.show(); // Afficher le GIF
+  introGif.position(0, 0, windowWidth, windowHeight);
+  introGif.show();
 
-  // Définir la taille et la position de la vidéo pour qu'elle prenne tout le canvas
-  introVideo.size(windowWidth, windowHeight); // Taille de la vidéo (la même que le canvas)
-  introVideo.position(0, 0); // Positionner la vidéo à l'origine (0, 0)
+  introVideo.size(windowWidth, windowHeight);
+  introVideo.position(0, 0); 
 
   introGif.mousePressed(() => {
     introGif.hide();
@@ -230,9 +229,8 @@ function drawGame() {
     if (hearts > 0) {
       if (currentWorld === 0) {
         if (isLoadingScreenActive) {
-          drawLoadingScreen(); // Afficher l'écran de chargement
+          drawLoadingScreen();
 
-          // Charger le nouveau monde après 3 secondes
           setTimeout(function() {
               isLoadingScreenActive = false; // Désactiver l'écran de chargement
           }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
