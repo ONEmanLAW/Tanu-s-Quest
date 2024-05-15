@@ -165,7 +165,6 @@ function preload() {
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
-  musiqueFond.loop();
 
   introGif.position(0, 0, windowWidth, windowHeight); // Positionner le GIF au centre
   introGif.show(); // Afficher le GIF
