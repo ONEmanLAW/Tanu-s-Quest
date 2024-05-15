@@ -208,15 +208,18 @@ function drawLoadingScreen() {
 
 
 function drawGame() {
-  if (scene === 'intro') {
-    drawIntro();
-  } else if (scene === 'menu') {
-    drawMainMenu();
-  } else if (scene === 'parametre') {
-    drawParametrePage();
-  }
-
-  if (gameStart) {
+  if (!gameStart) {
+    if (scene === 'intro') {
+      drawIntro();
+    } else if (scene === 'menu') {
+      drawMainMenu();
+    } else if (scene === 'parametre') {
+      drawParametrePage();
+    }
+  
+  } else if (gameStart && !introImagesEnd) {
+    image(images[currentImageIndex], 0, 0, width, height);
+  } else {
     // Fonction pour le jeu
     checkKeys(currentWorld);
     changeWorldIfNeeded();
