@@ -165,6 +165,7 @@ function preload() {
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
+  frameRate(60);
 
   introGif.position(0, 0, windowWidth, windowHeight);
   introGif.show();
