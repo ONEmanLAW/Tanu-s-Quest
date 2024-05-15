@@ -1,12 +1,23 @@
 let gameStart = false;
-let scene = 'menu';
+let scene = 'Intro';
 
 let jouerButton;
 let parametreButton;
 let exitButton;
 
+let introGif;
+let introVideo;
+let videoPlaying = false;
 
 function mainMenuButtons() {
+
+  // Charger les images et les sons ici
+  introGif = createImg('mainMenu/images/PageDebutJeu.gif');
+  introGif.hide(); // Masquer le GIF jusqu'à ce qu'il soit nécessaire
+  introVideo = createVideo(['mainMenu/images/Intrologos.mp4']);
+  introVideo.hide(); // Masquer la vidéo jusqu'à ce qu'elle soit nécessaire
+
+
   backgroundImage = loadImage('mainMenu/images/menuBackground.jpeg');
   jouerButton = loadImage('mainMenu/images/blocJouer.png');
   parametreButton = loadImage('mainMenu/images/blocParamètres.png');
@@ -19,6 +30,21 @@ function mainMenuButtons() {
 
   musiqueFond = loadSound('mainMenu/music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav');
 };
+
+
+function drawIntro() {
+  background(0); // Fond noir pour l'intro
+  // Le GIF est déjà affiché par introGif.show() dans setup()
+  if (videoPlaying) {
+    introVideo.show();
+    introVideo.play();
+    introVideo.onended(() => {
+      introVideo.hide();
+      scene = 'menu';
+      musiqueFond.loop();
+    });
+  }
+}
 
 
 function drawMainMenu() {

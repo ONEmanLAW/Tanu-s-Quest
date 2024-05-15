@@ -167,6 +167,24 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   musiqueFond.loop();
 
+  introGif.position(0, 0, windowWidth, windowHeight); // Positionner le GIF au centre
+  introGif.show(); // Afficher le GIF
+
+  // Définir la taille et la position de la vidéo pour qu'elle prenne tout le canvas
+  introVideo.size(windowWidth, windowHeight); // Taille de la vidéo (la même que le canvas)
+  introVideo.position(0, 0); // Positionner la vidéo à l'origine (0, 0)
+
+  introGif.mousePressed(() => {
+    introGif.hide();
+    introVideo.show();
+    introVideo.play();
+    introVideo.onended(() => {
+      introVideo.hide();
+      scene = 'menu';
+      musiqueFond.loop();
+    });
+  });
+
   preloadAssets()
     .then(() => {
       drawGame();
@@ -174,6 +192,8 @@ function setup() {
     .catch((error) => {
       console.error('Une erreur est survenue lors du chargement des assets :', error);
     });
+
+    
 };
 
 
@@ -190,20 +210,19 @@ function drawLoadingScreen() {
 
 
 function drawGame() {
-  if (!gameStart) {
-    if (scene === 'menu') {
-      drawMainMenu();
-    } else if (scene === 'parametre') {
-      drawParametrePage();
-    }
-  } else if(gameStart && !introImagesEnd) { 
-    // Start Of Intro With Images.
-    image(images[currentImageIndex], 0, 0, width, height);
-    } else {
+  if (scene === 'intro') {
+    drawIntro();
+  } else if (scene === 'menu') {
+    drawMainMenu();
+  } else if (scene === 'parametre') {
+    drawParametrePage();
+  }
 
-    // Function For The Game.
+  if (gameStart) {
+    // Fonction pour le jeu
     checkKeys(currentWorld);
     changeWorldIfNeeded();
+  
     
     
 
