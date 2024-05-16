@@ -139,6 +139,7 @@ function preload() {
 
   preloadEnemy2Animations(); // enemy2Level.js
   createEnemiesForet2(); // enemy2Level.js
+  createEnemiesGrotte2();
  
   
   preloadEnemy3Animations(); // enemyLevel3.js
@@ -391,16 +392,16 @@ function drawGame() {
         
 
 
-        moveEnemies(); 
-        drawEnemies();
-        checkEnemyCollision(); 
+        // moveEnemies(); 
+        // drawEnemies();
+        // checkEnemyCollision(); 
 
         
-        // checkEnemy2Collision(); 
-        // moveEnemies2();
-        // detectPlayer2();
-        // updateAnimationState2();
-        // drawEnemies2();
+        checkEnemy2Collision(); 
+        moveEnemies2();
+        detectPlayer2();
+        updateAnimationState2();
+        drawEnemies2();
 
 
         // checkEnemy3Collision();
@@ -467,9 +468,15 @@ function drawGame() {
         
         image(currentHeroImage, xHero, yHero, 80, 80);
 
-        moveEnemiesGrotte(); 
-        drawEnemiesGrotte();
-        checkEnemyCollisionGrotte(); 
+        // moveEnemiesGrotte(); 
+        // drawEnemiesGrotte();
+        // checkEnemyCollisionGrotte(); 
+
+        checkEnemy2CollisionGrotte(); 
+        moveEnemies2Grotte();
+        detectPlayer2Grotte();
+        updateAnimationState2Grotte();
+        drawEnemies2Grotte();
 
       
         

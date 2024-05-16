@@ -64,6 +64,7 @@ function gameOverMenu() {
         resetEnemiesPosition();
         resetEnemiesPositionGrotte();
         resetEnemies2Position();
+        resetEnemies2PositionGrotte();
         resetEnemies3Position();
         if (currentWorld === 2) {
           createEnemiesForet();
@@ -71,6 +72,7 @@ function gameOverMenu() {
           createEnemiesForet3();
         } else if (currentWorld === 3) {
           createEnemiesGrotte();
+          createEnemiesGrotte2();
 
         }
       }
