@@ -11,11 +11,11 @@ let npcGrandSageWidth = worldTempleTileSize + 120;
 let npcGrandSageHeight= worldTempleTileSize + 50; 
 
 let dialoguesGrandSage = [
-  "Rends-toi à la forêt enchantée",
-  "Vite tu n'as pas le temps il faut que tu ailles à la forêt enchantée",
-  "Vite tu n'as pas le temps il faut que tu ailles à la forêt enchantée",
-  "Combien de fois doit je te le repeter Tanu va à la forêt enchantée",
-  "TU ME FAIT CHIER!!!!"
+  "Rends-toi au village Tanu.",
+  "Vite tu n'as pas le temps il faut que tu ailles au village.",
+  "Tanu, tout le monde compte sur toi, rends toi au village.",
+  "Combien de fois doit je te le repeter Tanu va au village.",
+  "On vas mourir ..."
 ];
 
 let currentDialogueGrandSageIndex = 0;
@@ -85,26 +85,26 @@ function preloadChatImage() {
 
 
 let dialoguesIntroduction = [
-  { text: "Bienvenue, jeune Tanuki. Qu’est ce qui t'amène en ces temps sombres ?", boxType: "GrandSage" },
+  { text: "Bienvenue, jeune Tanuki. Qu’est-ce qui t'amène en ces temps sombres ?", boxType: "GrandSage" },
   { text: "Grand Sage, quelque chose de terrible est arrivé.\n Le village est détruit et je ne trouve personne ! J’ai besoin de votre aide !", boxType: "Hero" },
-  { text: "Je crois savoir qui est le responsable ...\n Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour,\n et après toutes ces années de haine refoulée il est encore plus puissant que jamais !", boxType: "GrandSage" },
+  { text: "Je crois savoir qui est le responsable... \n Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour,\n et après toutes ces années de haine refoulée, il est encore plus puissant que jamais !", boxType: "GrandSage" },
   { text: "Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?", boxType: "Hero" },
-  { text: "N’étant plus de taille à l’affronter personnellement. Ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" },
+  { text: "Je ne suis plus de taille à l’affronter personnellement. Mais ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" },
   { text: "Appuie sur 'q' pour aller à gauche.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'd' pour aller à droite.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'space' pour sauter.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'e' pour attaquer.", boxType: "GrandSageSansN" },
-  { text: "Quand tu sera dans le village appuie sur 'z' pour aller vers le haut.", boxType: "GrandSageSansN" },
-  { text: "Quand tu sera dans le village appuie sur 's' pour aller vers le bas.", boxType: "GrandSageSansN" },
-  { text: "Parfait mainteant je vais t'expliquer le HUD.", boxType: "GrandSage" },
-  { text: "En haut a gauche sont vos coeurs, attention si tu n'a plus de coeurs tu mourra.", boxType: "GrandSage" },
-  { text: "Ici il y a ta barre qui contiendera ton épée", boxType: "GrandSage" },
-  { text: "Ici tu pourra stocker tes potions", boxType: "GrandSage" },
-  { text: "Ici tu pourra stocker les pierre que tu pourra récupére", boxType: "GrandSage" },
-  { text: "Ici tu pourra voire le nombre de villagiois sauvée.", boxType: "GrandSage" },
-  { text: "Merci Grand Sage tu verra je ramerai tout le monde au village.", boxType: "Hero" },
-  { text: "Tiens! Avant de partir prends cette épée.\n Je te conseille de commencer ta quête en te rendant la forêt enchantée.", boxType: "GrandSage" },
-  { text: "Une fois que tu est prêt appuie sur 'enter' pour commencer ton aventure.", boxType: "GrandSageSansN" },
+  { text: "Quand tu seras dans le village, appuie sur 'z' pour aller vers le haut.", boxType: "GrandSageSansN" },
+  { text: "Quand tu seras dans le village, appuie sur 's' pour aller vers le bas.", boxType: "GrandSageSansN" },
+  { text: "Parfait, maintenant je vais t'expliquer le HUD.", boxType: "GrandSage" },
+  { text: "En haut à gauche sont tes cœurs, attention si tu n'as plus de cœurs, tu mourras.", boxType: "GrandSage" },
+  { text: "Ici, il y a ta barre qui contiendra ton épée.", boxType: "GrandSage" },
+  { text: "Ici, tu pourras stocker tes potions pour te redonner des cœurs.", boxType: "GrandSage" },
+  { text: "Ici, tu pourras stocker les pierres que tu pourras récupérer.", boxType: "GrandSage" },
+  { text: "Ici, tu verra le nombre de villageois sauvés.", boxType: "GrandSage" },
+  { text: "Merci, Grand Sage. Tu verras, je ramènerai tout le monde au village.", boxType: "Hero" },
+  { text: "Attends, prends cette épée et cette grenouille qui nous permettra de communiquer.\n Je te conseille de commencer ta quête en te rendant au village.", boxType: "GrandSage" },
+  { text: "Une fois que tu es prêt pour partir, appuie sur 'enter' récupérer l'épée et la grenouille.", boxType: "GrandSageSansN" },
 ];
 
 let currentIntroductionIndex = 0;
