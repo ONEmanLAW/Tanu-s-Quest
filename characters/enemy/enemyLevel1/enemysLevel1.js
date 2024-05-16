@@ -1,4 +1,5 @@
 let enemies = [];
+let enemiesGrotte = [];
 let enemyImage;
 let speed = 2;
 let wEnemy = 80;
@@ -20,6 +21,8 @@ function preloadEnemy1Image() {
     enemyRightImages.push(loadImage(`characters/enemy/enemyLevel1/assets/right/marche_droite_gobelin1_${i}.png`));
   }
 }
+
+
 
 function createEnemiesForet() {
   enemies = [];
@@ -43,9 +46,35 @@ function createEnemiesForet() {
   // Add More Ennemies.
 }
 
+
+
+function createEnemiesGrotte() {
+  enemiesGrotte = [];
+  enemiesGrotte.push({
+    position: createVector(6 * worldGrotteTileSize, 8 * worldGrotteTileSize),
+    pointA: createVector(6 * worldGrotteTileSize, 8 * worldGrotteTileSize),
+    pointB: createVector(10 * worldGrotteTileSize, 8 * worldGrotteTileSize),
+    direction: 1,
+    initialPosition: createVector(6 * worldGrotteTileSize, 8 * worldGrotteTileSize), // Enregistrez la position initiale
+    lives: livesGobelin1 // Initialisez les vies de l'ennemi
+  });
+}
+
 function resetEnemiesPosition() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
+    // Réinitialise la position de l'ennemi à sa position initiale
+    enemy.position.x = enemy.initialPosition.x;
+    enemy.position.y = enemy.initialPosition.y;
+    // Réinitialise la direction de l'ennemi si nécessaire
+    enemy.direction = 1; // Remettre la direction à sa valeur par défaut, si nécessaire
+    enemy.lives = livesGobelin1;
+  }
+}
+
+function resetEnemiesPositionGrotte() {
+  for (let i = 0; i < enemiesGrotte.length; i++) {
+    let enemy = enemiesGrotte[i];
     // Réinitialise la position de l'ennemi à sa position initiale
     enemy.position.x = enemy.initialPosition.x;
     enemy.position.y = enemy.initialPosition.y;
@@ -68,9 +97,31 @@ function moveEnemies() {
   }
 }
 
+function moveEnemiesGrotte() {
+  for (let i = 0; i < enemiesGrotte.length; i++) {
+    let enemy = enemiesGrotte[i];
+    enemy.position.x += speed * enemy.direction;
+
+    // Inverser la direction si l'ennemi atteint l'un des points de patrouille
+    if ((enemy.direction === 1 && enemy.position.x >= enemy.pointB.x) || 
+        (enemy.direction === -1 && enemy.position.x <= enemy.pointA.x)) {
+      enemy.direction *= -1;
+    }
+  }
+}
+
 function drawEnemies() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
+    let enemyImages = (enemy.direction === 1) ? enemyRightImages : enemyLeftImages;
+    let currentImage = enemyImages[Math.floor(frameCount / 5) % enemyImages.length];
+    image(currentImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
+  }
+}
+
+function drawEnemiesGrotte() {
+  for (let i = 0; i < enemiesGrotte.length; i++) {
+    let enemy = enemiesGrotte[i];
     let enemyImages = (enemy.direction === 1) ? enemyRightImages : enemyLeftImages;
     let currentImage = enemyImages[Math.floor(frameCount / 5) % enemyImages.length];
     image(currentImage, enemy.position.x, enemy.position.y, wEnemy, hEnemy);
@@ -135,6 +186,65 @@ function checkEnemyCollision() {
     // Si l'ennemi n'a plus de vie, le supprimer
     if (enemy.lives <= 0) {
       enemies.splice(i, 1);
+      i--; // Ajuster l'index après la suppression
+    }
+  }
+}
+
+function checkEnemyCollisionGrotte () {
+  for (let i = 0; i < enemiesGrotte.length; i++) {
+    let enemy = enemiesGrotte[i];
+    if (isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
+      if (!enemy.isHit) {
+        enemy.isHit = true;
+        
+        // Déterminer les dégâts en fonction de l'arme
+        let damage = newSword ? 2 : 1;
+        enemy.lives -= damage;
+
+        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi
+        let direction = xHero > enemy.position.x ? -1 : 1;
+
+        // Définir la cible finale du recul
+        let targetX = enemy.position.x + direction * enemyRecoilDistance;
+
+        // Animer le recul de l'ennemi
+        let startTime = Date.now();
+        let endTime = startTime + enemyRecoilDuration * 1000; // Conversion en millisecondes
+
+        function animateRecoil() {
+          let now = Date.now();
+          let progress = (now - startTime) / (endTime - startTime);
+          if (progress < 1) {
+            enemy.position.x = enemy.position.x + (targetX - enemy.position.x) * progress;
+            requestAnimationFrame(animateRecoil);
+          } else {
+            enemy.position.x = targetX;
+          }
+        }
+
+        animateRecoil();
+
+        // Ajout de ceci pour s'assurer que l'attaque reste active jusqu'à la fin de l'animation
+        setTimeout(() => {
+          isAttacking = false;
+        }, attackDuration);
+      }
+    } else {
+      enemy.isHit = false;
+
+      if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
+        // Vérifie la direction du personnage et de l'ennemi
+        if ((enemy.direction === 1 && xHero > enemy.position.x) || 
+            (enemy.direction === -1 && xHero < enemy.position.x)) {
+          loseHeart(); // Vous pouvez retirer cette ligne si vous ne voulez pas que le héros perde de cœur lorsqu'il est touché par un ennemi
+        }
+      }
+    }
+
+    // Si l'ennemi n'a plus de vie, le supprimer
+    if (enemy.lives <= 0) {
+      enemiesGrotte.splice(i, 1);
       i--; // Ajuster l'index après la suppression
     }
   }

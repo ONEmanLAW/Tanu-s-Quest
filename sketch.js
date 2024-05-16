@@ -134,6 +134,7 @@ function preload() {
 
   preloadEnemy1Image(); // enemyLevel1.js
   createEnemiesForet(); // enemyLevel1.js
+  createEnemiesGrotte();
 
 
   preloadEnemy2Animations(); // enemy2Level.js
@@ -390,9 +391,9 @@ function drawGame() {
         
 
 
-        // moveEnemies(); 
-        // drawEnemies();
-        // checkEnemyCollision(); 
+        moveEnemies(); 
+        drawEnemies();
+        checkEnemyCollision(); 
 
         
         // checkEnemy2Collision(); 
@@ -402,11 +403,11 @@ function drawGame() {
         // drawEnemies2();
 
 
-        checkEnemy3Collision();
-        moveEnemies3();
-        detectPlayer3(); 
-        updateAnimationState3();
-        drawEnemies3();
+        // checkEnemy3Collision();
+        // moveEnemies3();
+        // detectPlayer3(); 
+        // updateAnimationState3();
+        // drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, wHero, hHero);
         
@@ -434,6 +435,7 @@ function drawGame() {
             image(cageImage, cagePositions[i].x, cagePositions[i].y, cageWidth, cageHeight);
           }
         }
+
         checkCageInteraction();
         checkForestNpcSaved();
         checkHeroOutOfBounds();
@@ -464,6 +466,10 @@ function drawGame() {
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
         
         image(currentHeroImage, xHero, yHero, wHero, hHero);
+
+        moveEnemiesGrotte(); 
+        drawEnemiesGrotte();
+        checkEnemyCollisionGrotte(); 
 
 
         for (let i = 0; i < cagePositionsGrotte.length; i++) {
