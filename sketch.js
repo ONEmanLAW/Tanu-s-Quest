@@ -144,6 +144,7 @@ function preload() {
   
   preloadEnemy3Animations(); // enemyLevel3.js
   createEnemiesForet3();
+  createEnemiesGrotte3();
   
 
   // Image Of Npc
@@ -397,18 +398,18 @@ function drawGame() {
         // checkEnemyCollision(); 
 
         
-        checkEnemy2Collision(); 
-        moveEnemies2();
-        detectPlayer2();
-        updateAnimationState2();
-        drawEnemies2();
+        // checkEnemy2Collision(); 
+        // moveEnemies2();
+        // detectPlayer2();
+        // updateAnimationState2();
+        // drawEnemies2();
 
 
-        // checkEnemy3Collision();
-        // moveEnemies3();
-        // detectPlayer3(); 
-        // updateAnimationState3();
-        // drawEnemies3();
+        checkEnemy3Collision();
+        moveEnemies3();
+        detectPlayer3(); 
+        updateAnimationState3();
+        drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, 80, 80);
         
@@ -472,11 +473,18 @@ function drawGame() {
         // drawEnemiesGrotte();
         // checkEnemyCollisionGrotte(); 
 
-        checkEnemy2CollisionGrotte(); 
-        moveEnemies2Grotte();
-        detectPlayer2Grotte();
-        updateAnimationState2Grotte();
-        drawEnemies2Grotte();
+        // checkEnemy2CollisionGrotte(); 
+        // moveEnemies2Grotte();
+        // detectPlayer2Grotte();
+        // updateAnimationState2Grotte();
+        // drawEnemies2Grotte();
+
+        checkEnemy3CollisionGrotte();
+        moveEnemies3Grotte();
+        detectPlayer3Grotte(); 
+        updateAnimationState3Grotte();
+        drawEnemies3Grotte();
+
 
       
         
