@@ -453,11 +453,11 @@ function drawGame() {
         
       }
       } else if (currentWorld === 3) {
-        if (!isLoadingScreenActive) {
+        if (isLoadingScreenActive) {
           drawLoadingScreen(); // Afficher l'écran de chargement
           // Charger le nouveau monde après 3 secondes
           setTimeout(function() {
-              isLoadingScreenActive = true; // Désactiver l'écran de chargement
+              isLoadingScreenActive = false; // Désactiver l'écran de chargement
           }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
         } else {
         image(backgroundGrotteImage, 0, 0);
@@ -470,6 +470,9 @@ function drawGame() {
         moveEnemiesGrotte(); 
         drawEnemiesGrotte();
         checkEnemyCollisionGrotte(); 
+
+      
+        
 
 
         for (let i = 0; i < cagePositionsGrotte.length; i++) {
@@ -497,6 +500,8 @@ function drawGame() {
         handleCooldown();
         drawHud();
         drawHearts();
+        applyGravity();
+        checkHeroOutOfBounds();
 
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
@@ -504,11 +509,11 @@ function drawGame() {
         
       }
       } else if (currentWorld === 4) {
-        if (!isLoadingScreenActive) {
+        if (isLoadingScreenActive) {
           drawLoadingScreen();
           
           setTimeout(function() {
-              isLoadingScreenActive = true; 
+              isLoadingScreenActive = false; 
           }, 3000);
         } else {
         if(animationBoss) {
@@ -550,10 +555,10 @@ function drawGame() {
       }
 
       } else if(currentWorld === 5) {
-        if (isLoadingScreenActive) {
+        if (!isLoadingScreenActive) {
           drawLoadingScreen();
           setTimeout(function() {
-              isLoadingScreenActive = false; 
+              isLoadingScreenActive = true; 
           }, 3000);
         } else {
         updateNormalCamera(4704, 2688);

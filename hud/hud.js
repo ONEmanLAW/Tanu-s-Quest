@@ -127,7 +127,7 @@ function checkHeroInStone() {
 
 // Coordonnées et dimensions de l'image de l'eau
 let xEau = 140 * worldGrotteTileSize + 18;
-let yEau = 9 * worldGrotteTileSize + 18;
+let yEau = 7 * worldGrotteTileSize + 18;
 let wEau = 64;
 let hEau = 64;
 let heroInWater = false;
@@ -147,7 +147,7 @@ function checkHeroInWater() {
 
 // Coordonnées et dimensions de l'image du vent
 let xVent = 126 * worldGrotteTileSize + 18;
-let yVent = 9 * worldGrotteTileSize + 18;
+let yVent = 7 * worldGrotteTileSize + 18;
 let wVent = 64;
 let hVent = 64;
 let heroInWind = false;

@@ -43,7 +43,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
         xHero = 2 * worldsTileSizes[currentWorld]; 
         yHero = 8 * worldsTileSizes[currentWorld];
         return true;
-      } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isGrottetNpcSaved && heroHasStoneStone && heroHasFireStone && heroHasWindStone && heroHasWaterStone) {
+      } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isGrottetNpcSaved && heroHasFireStone && heroHasWindStone && heroHasWaterStone) {
         // Code pour le changement de monde vers le village recontruit
           currentWorld = 5;
           xHero = 2 * worldsTileSizes[currentWorld]; 

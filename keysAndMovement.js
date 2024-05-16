@@ -154,7 +154,7 @@ function checkKeys(currentMap) {
     }
     
     // Village
-    if (currentMap === 1 || currentMap === 5) {
+    if (currentMap === 1 || currentMap === 5 || currentMap === 2 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
       }
@@ -349,6 +349,10 @@ function keyPressed() {
       counterGrotte += 3; 
       counterGrotte= min(counterGrotte, 9); 
       cageVisibleGrotte[cageIndexGrotte] = false;
+    }
+
+    if (counterGrotte === 9) {
+      isGrottetNpcSaved = true;
     }
   }
 
