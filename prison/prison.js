@@ -91,9 +91,9 @@ function checkForestNpcSaved() {
 
 let cageImageGrotte;
 let cagePositionsGrotte = [
-  {x: 5 * worldGrotteTileSize, y: 8 * worldGrotteTileSize}, 
-  {x: 8 * worldGrotteTileSize, y: 8 * worldGrotteTileSize},
-  {x: 10 * worldGrotteTileSize, y: 8 * worldGrotteTileSize},
+  {x: 38 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize}, 
+  {x: 87 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize},
+  {x: 182 * worldGrotteTileSize, y: 10.30 * worldGrotteTileSize},
 ];
 
 let cageWidthGrotte = worldGrotteTileSize * 1.60;
