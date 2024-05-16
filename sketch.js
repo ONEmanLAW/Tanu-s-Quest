@@ -409,7 +409,7 @@ function drawGame() {
         // updateAnimationState3();
         // drawEnemies3();
 
-        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        image(currentHeroImage, xHero, yHero, 80, 80);
         
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         
@@ -465,7 +465,7 @@ function drawGame() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         drawFront(decorationWorlds[3], tileDecorationDictionnaries[3], worldsDecorationTileSizes[3]);
         
-        image(currentHeroImage, xHero, yHero, wHero, hHero);
+        image(currentHeroImage, xHero, yHero, 80, 80);
 
         moveEnemiesGrotte(); 
         drawEnemiesGrotte();
