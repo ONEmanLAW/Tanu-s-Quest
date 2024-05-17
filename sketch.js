@@ -605,35 +605,32 @@ function drawGame() {
 
             let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(1, 1);
             enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
-            
-            let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(1, 1);
-            enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
 
             bossPhase = 1;
           } else if (bossPhase === 1) {
-            if (goblinsAreDefeated(1) && goblinsAreDefeated2(1) && goblinsAreDefeated3(1)) {
+            if (goblinsAreDefeated(1) && goblinsAreDefeated2(1)) {
               bossHealth = 80; 
               let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 2);
               enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
 
               let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(2, 2);
-            enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
+              enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
 
-            let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(2, 2);
-            enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
+              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(1, 2);
+              enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
 
               bossPhase = 2;
             }
           } else if (bossPhase === 2) {
-            if (goblinsAreDefeated(2) && goblinsAreDefeated2(2) && goblinsAreDefeated3(2)) { // Vérifie la phase 2
-              bossHealth = 50; // Utilisez "=" pour assigner la valeur
-              let enemiesToSpawn = spawnEnemyAtSpecificTime(3, 3); // 3 ennemis pour la phase 3
+            if (goblinsAreDefeated(2) && goblinsAreDefeated2(2) && goblinsAreDefeated3(2)) {
+              bossHealth = 50;
+              let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 3);
               enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
 
-              let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(3, 3);
+              let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(2, 3);
               enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
 
-              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(3, 3);
+              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(2, 3);
               enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
               bossPhase = 3;
             }

@@ -485,7 +485,7 @@ function drawEnemies3Boss() {
 
   for (let i = 0; i < enemies3Boss.length; i++) {
     let enemy3 = enemies3Boss[i];
-    image(currentAnimation3[frameIndex3], enemy3.position.x, enemy3.position.y, wEnemy3, hEnemy3);
+    image(currentAnimation3[frameIndex3], enemy3.position.x, enemy3.position.y, 96, 96); // Utiliser 96 pour la largeur et la hauteur
   }
 }
 

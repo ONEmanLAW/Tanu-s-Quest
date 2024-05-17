@@ -80,7 +80,7 @@ function gameOverMenu() {
           createEnemiesGrotte2();
           createEnemiesGrotte3();
         } else if (currentWorld === 4) {
-          potions = 3;
+          
         }
       }
     } else if (mouseX > mainMenuX && mouseX < mainMenuX + mainMenuWidth && mouseY > mainMenuY && mouseY < mainMenuY + mainMenuImage.height * imageScale) {
