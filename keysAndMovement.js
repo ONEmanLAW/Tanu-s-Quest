@@ -121,6 +121,10 @@ function checkKeys(currentMap) {
       if (animationVillage) {
         return;
       }
+    } else if (currentMap === 4) {
+      if (animationBoss) {
+        return;
+      }
     }
     // Temple, Foret, Grotte, Boss
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
