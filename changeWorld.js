@@ -40,7 +40,7 @@ function checkWorldChange(worldCollisionBoard, tileSize) {
       } else if (currentTileValue === 304 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize)) {
         // Code pour le changement de monde vers le boss
         currentWorld = 4;
-        xHero = 2 * worldsTileSizes[currentWorld]; 
+        xHero = 31 * worldsTileSizes[currentWorld]; 
         yHero = 8 * worldsTileSizes[currentWorld];
         return true;
       } else if(currentTileValue === 305 && pointIsInRect(xHero -10 + wHero / 2, yHero -15 + hHero, tileSize * x, tileSize * y, tileSize, tileSize) && isGrottetNpcSaved && heroHasFireStone && heroHasWindStone && heroHasWaterStone) {

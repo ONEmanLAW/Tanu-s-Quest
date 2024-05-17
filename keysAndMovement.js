@@ -154,7 +154,7 @@ function checkKeys(currentMap) {
     }
     
     // Village
-    if (currentMap === 1 || currentMap === 5 || currentMap === 2 || currentMap === 4) {
+    if (currentMap === 1 || currentMap === 5 || currentMap === 2) {
       if (keyIsDown(68) && keyIsDown(81)) {
         return;
       }
