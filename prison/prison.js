@@ -1,7 +1,7 @@
 function displayTotalTanukisSaved() {
   translate(cameraX, cameraY);
   fill(255);
-  textSize(30);
+  textSize(27);
   textAlign(CENTER, CENTER);
   text("0/25", 1525, 80);
 }
@@ -9,7 +9,7 @@ function displayTotalTanukisSaved() {
 function displayTotalTanukisSaved2() {
   translate(cameraX, cameraY);
   fill(255);
-  textSize(30);
+  textSize(27);
   textAlign(CENTER, CENTER);
   text("9/25", 1525, 80);
 }
@@ -17,7 +17,7 @@ function displayTotalTanukisSaved2() {
 function displayTotalTanukisSaved3() {
   translate(cameraX, cameraY);
   fill(255);
-  textSize(30);
+  textSize(27);
   textAlign(CENTER, CENTER);
   text("18/25", 1525, 80);
 }
@@ -78,7 +78,7 @@ function checkCageInteraction() {
 function checkForestNpcSaved() {
   translate(cameraX, cameraY);
   fill(255);
-  textSize(30);
+  textSize(27);
   textAlign(CENTER, CENTER);
   text(counterForet + "/9", 1525, 80);
 }
@@ -141,7 +141,7 @@ function checkCageInteractionGrotte() {
 function checkGrotteNpcSaved() {
   translate(cameraX, cameraY);
   fill(255);
-  textSize(30);
+  textSize(27);
   textAlign(CENTER, CENTER);
   text(counterGrotte + "/9", 1525, 80);
 }
