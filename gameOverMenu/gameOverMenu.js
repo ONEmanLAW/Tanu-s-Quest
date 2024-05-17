@@ -68,6 +68,9 @@ function gameOverMenu() {
         resetEnemies2PositionGrotte();
         resetEnemies3Position();
         resetEnemies3PositionGrotte();
+        resetEnemiesPositionBoss();
+        resetEnemies2PositionBoss();
+        resetEnemies3PositionBoss();
         if (currentWorld === 2) {
           createEnemiesForet();
           createEnemiesForet2();
@@ -76,6 +79,8 @@ function gameOverMenu() {
           createEnemiesGrotte();
           createEnemiesGrotte2();
           createEnemiesGrotte3();
+        } else if (currentWorld === 4) {
+          potions = 3;
         }
       }
     } else if (mouseX > mainMenuX && mouseX < mainMenuX + mainMenuWidth && mouseY > mainMenuY && mouseY < mainMenuY + mainMenuImage.height * imageScale) {

@@ -300,8 +300,6 @@ function keyPressed() {
 
 
 
-
-
   if(currentWorld === 3 || currentWorld === 4 || currentWorld === 1 ) {
     if (keyCode === 82) { // Touche R pour le code '82'.
       if (potions > 0 && hearts < 3) {
