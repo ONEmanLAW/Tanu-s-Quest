@@ -571,7 +571,7 @@ function drawGame() {
         // if (!bossIntroActive && !animationBoss && !battleBoss) {
         //   battleBoss = true;
         // }
-
+        
         if (bossDead) {
           image(outroImages[outroImageIndex], 0, 0, width, height);
         }
