@@ -1,5 +1,6 @@
 let enemies2 = [];
 let enemies2Grotte = [];
+let enemies2Boss = [];
 let enemy2Image;
 let speedEnemy2 = 3;
 let wEnemy2 = 80; 
@@ -361,4 +362,202 @@ function detectPlayer2Grotte() {
       enemy2.charging = false;
     }
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function spawnEnemyAtSpecificTime2(numEnemies, phase) {
+  let enemies2Boss = [];
+
+  for (let i = 0; i < numEnemies; i++) {
+    let enemy = {
+      position: createVector(0, 0), 
+      charging: false,
+      origin: createVector(0, 0),
+      distanceToOrigin: 0,
+      lives: livesGobelin2,
+      direction: 'left'
+    };
+
+    switch (phase) {
+      case 1:
+        enemy.position.x = (6 + i * 2) * worldBossTileSize;
+        enemy.position.y = (2 + i * 2) * worldBossTileSize;
+        enemy.origin.x = (6 + i * 2) * worldBossTileSize; 
+        enemy.origin.y = (2 + i * 2) * worldBossTileSize;
+        break;
+      case 2:
+        enemy.position.x = (6 + i * 2) * worldBossTileSize; 
+        enemy.position.y = (3 + i * 2) * worldBossTileSize; 
+        enemy.origin.x = (6 + i * 2) * worldBossTileSize; 
+        enemy.origin.y = (3 + i * 2) * worldBossTileSize;
+        break;
+      case 3:
+        enemy.position.x = (6 + i * 2) * worldBossTileSize; 
+        enemy.position.y = (4 + i * 2) * worldBossTileSize; 
+        enemy.origin.x = (6 + i * 2) * worldBossTileSize;
+        enemy.origin.y = (4 + i * 2) * worldBossTileSize; 
+        break;
+    }
+
+    enemies2Boss.push(enemy);
+  }
+
+  return enemies2Boss;
+}
+
+
+function resetEnemies2PositionBoss() {
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy2 = enemies2Boss[i];
+    enemy2.position.x = enemy2.origin.x;
+    enemy2.position.y = enemy2.origin.y;
+    enemy2.charging = false;
+    enemy2.distanceToOrigin = 0;
+    enemy2.lives = livesGobelin2;
+    enemy2.frameIndex = 0;
+    enemy2.direction = 'left';
+  }
+}
+
+function updateAnimationState2Boss() {
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy2 = enemies2Boss[i];
+    if (enemy2.charging) {
+      if (xHero < enemy2.position.x) {
+        currentAnimation = enemy2AttackLeftImages;
+      } else {
+        currentAnimation = enemy2AttackRightImages;
+      }
+    } else {
+      if (enemy2.direction === 'left') {
+        currentAnimation = enemy2IdleLeftImages;
+      } else {
+        currentAnimation = enemy2IdleRightImages;
+      }
+    }
+  }
+}
+
+
+function moveEnemies2Boss() {
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy2 = enemies2Boss[i];
+    if (enemy2.charging) {
+      let angle = atan2(yHero - enemy2.position.y, xHero - enemy2.position.x);
+      enemy2.position.x += cos(angle) * speedEnemy2;
+      enemy2.position.y += sin(angle) * speedEnemy2;
+      
+      if (xHero < enemy2.position.x) {
+        enemy2.direction = 'left';
+      } else {
+        enemy2.direction = 'right';
+      }
+    } else {
+      let distanceToOrigin = dist(enemy2.position.x, enemy2.position.y, enemy2.origin.x, enemy2.origin.y);
+      enemy2.distanceToOrigin = distanceToOrigin;
+      if (distanceToOrigin > 1) {
+        let angle = atan2(enemy2.origin.y - enemy2.position.y, enemy2.origin.x - enemy2.position.x);
+        enemy2.position.x += cos(angle) * speedEnemy2;
+        enemy2.position.y += sin(angle) * speedEnemy2;
+      }
+    }
+    enemy2.frameIndex++;
+    if (enemy2.frameIndex >= currentAnimation.length) {
+      enemy2.frameIndex = 0;
+    }
+  }
+}
+
+function drawEnemies2Boss() {
+  frameIndex = floor(frameCount * animationSpeed) % currentAnimation.length;
+
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy2 = enemies2Boss[i];
+    image(currentAnimation[frameIndex], enemy2.position.x, enemy2.position.y, wEnemy2, hEnemy2);
+  }
+}
+
+function checkEnemy2CollisionBoss() {
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy2 = enemies2Boss[i];
+    if (isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < 96) { // Utiliser 96 pour la collision
+      if (!enemy2.isHit) {
+        enemy2.isHit = true;
+
+        let damage = newSword ? 2 : 1;
+        enemy2.lives -= damage;
+
+        let direction = xHero > enemy2.position.x ? -1 : 1;
+        let targetX = enemy2.position.x + direction * enemy2RecoilDistance;
+
+        let startTime = Date.now();
+        let endTime = startTime + enemy2RecoilDuration * 1000;
+
+        function animateRecoil() {
+          let now = Date.now();
+          let progress = (now - startTime) / (endTime - startTime);
+          if (progress < 1) {
+            enemy2.position.x = enemy2.position.x + (targetX - enemy2.position.x) * progress;
+            requestAnimationFrame(animateRecoil);
+          } else {
+            enemy2.position.x = targetX;
+          }
+        }
+
+        animateRecoil();
+
+        setTimeout(() => {
+          isAttacking = false;
+        }, attackDuration);
+      }
+    } else {
+      enemy2.isHit = false;
+      if (!isAttacking && dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < 96) { // Utiliser 96 pour la collision
+        loseHeart();
+      }
+    }
+    if (enemy2.lives <= 0) {
+      enemies2Boss.splice(i, 1);
+      i--;
+    }
+  }
+}
+
+function detectPlayer2Boss() {
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy2 = enemies2Boss[i];
+    if (dist(xHero, yHero, enemy2.position.x, enemy2.position.y) < chargeRadius) {
+      enemy2.charging = true;
+    } else {
+      enemy2.charging = false;
+    }
+  }
+}
+
+function goblinsAreDefeated2(phase) {
+  for (let i = 0; i < enemies2Boss.length; i++) {
+    let enemy = enemies2Boss[i];
+    if (enemy.phase === phase && enemy.lives > 0) {
+      return false;
+    }
+  }
+  return true;
 }

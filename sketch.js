@@ -586,27 +586,39 @@ function drawGame() {
         drawEnemiesBoss();
         checkEnemyCollisionBoss(); 
 
+        checkEnemy2CollisionBoss(); 
+        moveEnemies2Boss();
+        detectPlayer2Boss();
+        updateAnimationState2Boss();
+        drawEnemies2Boss();
+
         if (battleBoss) {
           if (bossPhase === 0) {
-            let enemiesToSpawn = spawnEnemyAtSpecificTime(1, 1); // 1 ennemi pour la phase 1
+            let enemiesToSpawn = spawnEnemyAtSpecificTime(1, 1);
             enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
+            let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(1, 1);
+            enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
             bossPhase = 1;
           } else if (bossPhase === 1) {
-            if (goblinsAreDefeated(1)) { // Vérifie la phase 1
-              bossHealth = 80; // Utilisez "=" pour assigner la valeur
-              let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 2); // 2 ennemis pour la phase 2
+            if (goblinsAreDefeated(1) && goblinsAreDefeated2(1)) {
+              bossHealth = 80; 
+              let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 2);
               enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
+              let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(2, 2);
+            enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
               bossPhase = 2;
             }
           } else if (bossPhase === 2) {
-            if (goblinsAreDefeated(2)) { // Vérifie la phase 2
+            if (goblinsAreDefeated(2) && goblinsAreDefeated2(2)) { // Vérifie la phase 2
               bossHealth = 50; // Utilisez "=" pour assigner la valeur
               let enemiesToSpawn = spawnEnemyAtSpecificTime(3, 3); // 3 ennemis pour la phase 3
               enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
+              let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(3, 3);
+              enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
               bossPhase = 3;
             }
           } else if (bossPhase === 3) {
-            if (goblinsAreDefeated(3)) { // Vérifie la phase 3
+            if (goblinsAreDefeated(3) && goblinsAreDefeated2(3)) { // Vérifie la phase 3
               bossHealth = 0; // Utilisez "=" pour assigner la valeur
               // Vous pouvez ajouter une logique ici pour ce qui se passe quand le boss est vaincu
             }

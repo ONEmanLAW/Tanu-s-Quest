@@ -63,9 +63,11 @@ function gameOverMenu() {
         yHero = 6 * worldTempleTileSize;
         resetEnemiesPosition();
         resetEnemiesPositionGrotte();
+        resetEnemiesPositionBoss();
         resetEnemies2Position();
         resetEnemies2PositionGrotte();
         resetEnemies3Position();
+        resetEnemies3PositionGrotte();
         if (currentWorld === 2) {
           createEnemiesForet();
           createEnemiesForet2();
@@ -73,7 +75,7 @@ function gameOverMenu() {
         } else if (currentWorld === 3) {
           createEnemiesGrotte();
           createEnemiesGrotte2();
-
+          createEnemiesGrotte3();
         }
       }
     } else if (mouseX > mainMenuX && mouseX < mainMenuX + mainMenuWidth && mouseY > mainMenuY && mouseY < mainMenuY + mainMenuImage.height * imageScale) {
