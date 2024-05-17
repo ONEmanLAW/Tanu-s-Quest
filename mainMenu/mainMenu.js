@@ -26,7 +26,7 @@ function mainMenuButtons() {
   introVideo = createVideo(['mainMenu/images/Intrologos.mp4']);
   introVideo.hide();
 
-  backgroundImage = loadImage('mainMenu/images/menuBackground.jpeg');
+  backgroundImage = loadImage('mainMenu/images/menuBackground.jpg');
   jouerButton = loadImage('mainMenu/images/blocJouer.png');
   parametreButton = loadImage('mainMenu/images/blocParamètres.png');
   exitButton = loadImage('mainMenu/images/blocQuitter.png');
@@ -67,9 +67,9 @@ function drawMainMenu() {
   let buttonHeight = height * 0.15;  // Increase height proportion to make buttons larger
   let x = (width - buttonWidth) / 2;
 
-  image(jouerButton, x, height * 0.2, buttonWidth, buttonHeight);  // Move higher on Y axis
-  image(parametreButton, x, height * 0.4, buttonWidth, buttonHeight);  // Move higher on Y axis
-  image(exitButton, x, height * 0.6, buttonWidth, buttonHeight);  // Move higher on Y axis
+  image(jouerButton, x, height * 0.4, buttonWidth, buttonHeight);  // Move higher on Y axis
+  image(parametreButton, x, height * 0.55, buttonWidth, buttonHeight);  // Move higher on Y axis
+  image(exitButton, x, height * 0.7, buttonWidth, buttonHeight);  // Move higher on Y axis
 }
 
 function drawParametrePage() {
@@ -89,12 +89,12 @@ function mouseClicked() {
   let x = (width - buttonWidth) / 2;
 
   if (scene === 'menu') {
-    if (!gameStart && isClicked(x, height * 0.2, buttonWidth, buttonHeight)) {  // Move higher on Y axis
+    if (!gameStart && isClicked(x, height * 0.4, buttonWidth, buttonHeight)) {  // Move higher on Y axis
       gameStart = true;
       musiqueFond.stop();
-    } else if (isClicked(x, height * 0.4, buttonWidth, buttonHeight)) {  // Move higher on Y axis
+    } else if (isClicked(x, height * 0.55, buttonWidth, buttonHeight)) {  // Move higher on Y axis
       scene = 'parametre';
-    } else if (isClicked(x, height * 0.6, buttonWidth, buttonHeight)) {  // Move higher on Y axis
+    } else if (isClicked(x, height * 0.7, buttonWidth, buttonHeight)) {  // Move higher on Y axis
       musiqueFond.stop();
       window.close();
     }
