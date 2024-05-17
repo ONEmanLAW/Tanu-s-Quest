@@ -121,6 +121,7 @@ function preload() {
   // For Intro.
   mainMenuButtons();
   introImages();
+  preloadOutroImages();
   
   // Animation Hero.
   preloadHeroImages(); // hero.js
@@ -536,9 +537,9 @@ function drawGame() {
           }, 3000);
         } else {
         if(animationBoss) {
-          updateNormalCamera(3648, 1056);
+          updateNormalCamera(3648, 960);
         } else {
-          updateNormalCamera(1824, 1056);
+          updateNormalCamera(1800, 960);
         }
         image(backgroundBossImage, 0, 0);
         image(currentBossImage, bossX, bossY, bossWidth, bossHeight);
@@ -567,8 +568,12 @@ function drawGame() {
           bossIntroActive = false;
         }
 
-        if (!bossIntroActive && !animationBoss && !battleBoss) {
-          battleBoss = true;
+        // if (!bossIntroActive && !animationBoss && !battleBoss) {
+        //   battleBoss = true;
+        // }
+
+        if (bossDead) {
+          image(outroImages[outroImageIndex], 0, 0, width, height);
         }
         
       }

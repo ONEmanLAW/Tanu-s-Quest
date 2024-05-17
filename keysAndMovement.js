@@ -320,6 +320,10 @@ function keyPressed() {
       bossHealth -= 10;
     }
   }
+
+  if (bossHealth === 0) {
+    bossDead = true;
+  }
   
 
   
@@ -368,6 +372,20 @@ function keyPressed() {
       }
     }
   };
+
+
+  if (bossDead) {
+    if (keyCode === RIGHT_ARROW) {
+      outroImageIndex++;
+      if (outroImageIndex >= outroImages.length) {
+        outroImagesEnd = true;
+      }
+    } else if (keyCode === LEFT_ARROW) {
+      if (outroImageIndex > 0) {
+        outroImageIndex--;
+      }
+    }
+  }
 
   // Intro Tuto.
   if (keyCode === 78 && currentIntroductionIndex >= 5 && currentIntroductionIndex <= 10) {
