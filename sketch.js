@@ -173,11 +173,20 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
 
-  introGif.position(0, 0, windowWidth, windowHeight);
+ 
   introGif.show();
+  introGif.size(windowWidth, windowHeight);
+  introGif.position(0, 0);
+  
 
   introVideo.size(windowWidth, windowHeight);
   introVideo.position(0, 0); 
+  
+
+  outroVideo = createVideo('vidéoFin.mp4');
+  outroVideo.size(windowWidth, windowHeight);
+  outroVideo.position(0, 0);
+  outroVideo.hide();
 
   introGif.mousePressed(() => {
     introGif.hide();
@@ -399,9 +408,9 @@ function drawGame() {
         
 
 
-        // moveEnemies(); 
-        // drawEnemies();
-        // checkEnemyCollision(); 
+        moveEnemies(); 
+        drawEnemies();
+        checkEnemyCollision(); 
 
         
         // checkEnemy2Collision(); 
@@ -411,11 +420,11 @@ function drawGame() {
         // drawEnemies2();
 
 
-        checkEnemy3Collision();
-        moveEnemies3();
-        detectPlayer3(); 
-        updateAnimationState3();
-        drawEnemies3();
+        // checkEnemy3Collision();
+        // moveEnemies3();
+        // detectPlayer3(); 
+        // updateAnimationState3();
+        // drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, 80, 80);
         

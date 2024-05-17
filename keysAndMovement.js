@@ -379,15 +379,27 @@ function keyPressed() {
 
 
   if (bossDead) {
-    if (keyCode === RIGHT_ARROW) {
+    image(outroImages[outroImageIndex], 0, 0, width, height);
+    if (keyIsPressed && keyCode === RIGHT_ARROW) {
       outroImageIndex++;
       if (outroImageIndex >= outroImages.length) {
         outroImagesEnd = true;
+        outroVideo.play();
+        outroVideo.show();
+        videoPlaying = true;
       }
-    } else if (keyCode === LEFT_ARROW) {
+    } else if (keyIsPressed && keyCode === LEFT_ARROW) {
       if (outroImageIndex > 0) {
         outroImageIndex--;
       }
+    }
+  } else if (videoPlaying) {
+    image(outroVideo, 0, 0, width, height);
+    if (outroVideo.elt.ended) {
+      videoPlaying = false;
+      outroVideo.hide();
+      // Ajoutez votre logique de fin, par exemple revenir au menu principal ou redémarrer le jeu
+      // resetGame();
     }
   }
 
