@@ -31,7 +31,7 @@ let cageImage;
 let cagePositions = [
   {x: 28.40 * worldForetTileSize, y: 8.30 * worldForetTileSize}, 
   {x: 132.40 * worldForetTileSize, y: 3.30 * worldForetTileSize},
-  {x: 197.40 * worldForetTileSize, y: 1.30 * worldForetTileSize},
+  {x: 197.40 * worldForetTileSize, y: 5.30 * worldForetTileSize},
 ];
 
 let cageWidth = worldForetTileSize * 1.60;

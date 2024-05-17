@@ -53,13 +53,13 @@ function preloadHudImages() {
 
   imageEcorce1 = loadImage('hud/assets/imageEcorce1.png');
   imageEcorce2 = loadImage('hud/assets/imageEcorce2.png');
-  imageEcorceMagique = loadImage('hud/assets/imageEcorceMagique.png')
+  imageEcorceMagique = loadImage('hud/assets/écorce_anim.gif')
   imageCadreHeart = loadImage('hud/assets/cadreHeart.png');
 
-  imagePierreEau = loadImage('hud/assets/pierreEau.png');
-  imagePierreTerre = loadImage('hud/assets/pierreTerre.png');
-  imagePierreFeu = loadImage('hud/assets/pierreFeu.png');
-  imagePierreVent = loadImage('hud/assets/pierreVent.png');
+  imagePierreEau = loadImage('hud/assets/pierre_eau_anim.gif');
+  imagePierreTerre = loadImage('hud/assets/pierre_terre_anim.gif');
+  imagePierreFeu = loadImage('hud/assets/pierre_feu_anim.gif');
+  imagePierreVent = loadImage('hud/assets/pierre_vent_anim.gif');
 
   imageDialogueObtenuEpeeGrenouille = loadImage('hud/assets/dialogueObtenuEpeeGrenouille.png');
 };

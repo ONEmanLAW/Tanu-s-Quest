@@ -336,6 +336,7 @@ function drawGame() {
 
         // Phase 2 du village aprés la Foret.
         if (isForestNpcSaved && heroHasStoneStone) {
+
           updateAlchimisteAnimation(myAlchimisteIdle);
           image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
           if (checkAlchimisteInteraction()) {
