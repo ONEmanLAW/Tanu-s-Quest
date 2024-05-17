@@ -549,6 +549,7 @@ function drawGame() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
         drawBossHealthBar();
+        applyGravityBoss();
 
         if (animationBoss && animationCounterBoss < 250) {
           xHero -= movementSpeedBoss;
@@ -571,7 +572,7 @@ function drawGame() {
         // if (!bossIntroActive && !animationBoss && !battleBoss) {
         //   battleBoss = true;
         // }
-        
+
         if (bossDead) {
           image(outroImages[outroImageIndex], 0, 0, width, height);
         }

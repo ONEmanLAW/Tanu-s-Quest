@@ -554,6 +554,23 @@ function applyGravityTemple() {
   }
 }
 
+function applyGravityBoss() {
+  if (isJumping || yHero <= 8 * worldBossTileSize) {
+    yVelocity += gravity;
+    yHero += yVelocity;
+    
+    if (yVelocity > 10) {
+      yVelocity = 10;
+    }
+    
+    if (yHero >= 8 * worldBossTileSize) {
+      yHero = 8 * worldBossTileSize;
+      isJumping = false;
+      yVelocity = 0;
+    }
+  }
+}
+
 
 
 
