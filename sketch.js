@@ -107,6 +107,7 @@ function loadTileDictionaries() {
 
 
 let loadingGif;
+let maPolice;
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
@@ -163,6 +164,7 @@ function preload() {
   preloadBackgroundImages(); 
 
   loadingGif = loadImage('pageDeChargement.gif');
+  maPolice = loadFont('Minecraftia-Regular.ttf');
 }
 
 function setup() {
@@ -186,6 +188,8 @@ function setup() {
       musiqueFond.loop();
     });
   });
+
+  textFont(maPolice);
 
   preloadAssets()
     .then(() => {

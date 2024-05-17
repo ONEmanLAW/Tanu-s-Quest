@@ -85,26 +85,26 @@ function preloadChatImage() {
 
 
 let dialoguesIntroduction = [
-  { text: "Bienvenue, jeune Tanuki. Qu’est-ce qui t'amène en ces temps sombres ?", boxType: "GrandSage" },
-  { text: "Grand Sage, quelque chose de terrible est arrivé.\n Le village est détruit et je ne trouve personne ! J’ai besoin de votre aide !", boxType: "Hero" },
-  { text: "Je crois savoir qui est le responsable... \n Il y a bien longtemps, un énorme Gobelin est venu avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour,\n et après toutes ces années de haine refoulée, il est encore plus puissant que jamais !", boxType: "GrandSage" },
-  { text: "Je ne savais pas... Mais comment allons-nous sauver les villageois et vaincre ce monstre ?", boxType: "Hero" },
-  { text: "Je ne suis plus de taille à l’affronter personnellement. Mais ne t’inquiète pas ! Je vais t’entraîner.", boxType: "GrandSage" },
+  { text: "Bienvenue, jeune Tanuki.\n Qu’est-ce qui t'amène en ces temps sombres ?", boxType: "GrandSage" },
+  { text: "Grand Sage, quelque chose de terrible est arrivé.\n Le village est détruit et je ne trouve personne!\n J’ai besoin de votre aide !", boxType: "Hero" },
+  { text: "Il y a bien longtemps, le Gobelin est venu,\n avec l'intention de détruire le village.\n J’ai réussi à le repousser, mais maintenant, il est de retour!", boxType: "GrandSage" },
+  { text: "Je ne savais pas...\n Mais comment allons-nous sauver les villageois et vaincre ce monstre ?", boxType: "Hero" },
+  { text: "Je ne suis plus de taille à l’affronter personnellement.\n Mais ne t’inquiète pas! Je vais t’entraîner.", boxType: "GrandSage" },
   { text: "Appuie sur 'q' pour aller à gauche.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'd' pour aller à droite.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'space' pour sauter.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'e' pour attaquer.", boxType: "GrandSageSansN" },
-  { text: "Quand tu seras dans le village, appuie sur 'z' pour aller vers le haut.", boxType: "GrandSageSansN" },
-  { text: "Quand tu seras dans le village, appuie sur 's' pour aller vers le bas.", boxType: "GrandSageSansN" },
+  { text: "Dans le village, appuie sur 'z' pour aller vers le haut.", boxType: "GrandSageSansN" },
+  { text: "Dans le village, appuie sur 's' pour aller vers le bas.", boxType: "GrandSageSansN" },
   { text: "Parfait, maintenant je vais t'expliquer le HUD.", boxType: "GrandSage" },
-  { text: "En haut à gauche sont tes cœurs, attention si tu n'as plus de cœurs, tu mourras.", boxType: "GrandSage" },
+  { text: "En haut à gauche sont tes cœurs,\n attention si tu n'as plus de cœurs, tu mourras!", boxType: "GrandSage" },
   { text: "Ici, il y a ta barre qui contiendra ton épée.", boxType: "GrandSage" },
-  { text: "Ici, tu pourras stocker tes potions pour te redonner des cœurs.", boxType: "GrandSage" },
-  { text: "Ici, tu pourras stocker les pierres que tu pourras récupérer.", boxType: "GrandSage" },
+  { text: "Ici, tu pourras stocker tes potions,\n pour te redonner des cœurs.", boxType: "GrandSage" },
+  { text: "Ici, tu pourras stocker les pierres,\n que tu pourras récupérer.", boxType: "GrandSage" },
   { text: "Ici, tu verra le nombre de villageois sauvés.", boxType: "GrandSage" },
   { text: "Merci, Grand Sage. Tu verras, je ramènerai tout le monde au village.", boxType: "Hero" },
-  { text: "Attends, prends cette épée et cette grenouille qui nous permettra de communiquer.\n Je te conseille de commencer ta quête en te rendant au village.", boxType: "GrandSage" },
-  { text: "Une fois que tu es prêt pour partir, appuie sur 'enter' récupérer l'épée et la grenouille.", boxType: "GrandSageSansN" },
+  { text: "Attends, prends cette épée,\n et cette grenouille qui nous permettra de communiquer.\n Je te conseille de commencer ta quête en te rendant au village.", boxType: "GrandSage" },
+  { text: "Une fois que tu es prêt pour partir,\n appuie sur 'enter' récupérer l'épée et la grenouille.", boxType: "GrandSageSansN" },
 ];
 
 let currentIntroductionIndex = 0;

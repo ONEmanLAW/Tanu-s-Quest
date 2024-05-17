@@ -354,7 +354,7 @@ function gestionTransitionImage() {
     }
   } else if (imageVisible) { 
     if (displayTimer < displayDuration) { 
-      image(imageDialogueObtenuEpeeGrenouille, 750, 350, 700, 200); 
+      image(imageDialogueObtenuEpeeGrenouille, 715, 250, 1050, 250); 
       displayTimer++; 
     } else {
       imageVisible = false; 
