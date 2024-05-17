@@ -183,7 +183,7 @@ function setup() {
   introVideo.position(0, 0); 
   
 
-  outroVideo = createVideo('vidéoFin.mp4');
+  outroVideo = createVideo('outro/assets/vidéoFin.mp4');
   outroVideo.size(windowWidth, windowHeight);
   outroVideo.position(0, 0);
   outroVideo.hide();
@@ -494,11 +494,11 @@ function drawGame() {
         // updateAnimationState2Grotte();
         // drawEnemies2Grotte();
 
-        checkEnemy3CollisionGrotte();
-        moveEnemies3Grotte();
-        detectPlayer3Grotte(); 
-        updateAnimationState3Grotte();
-        drawEnemies3Grotte();
+        // checkEnemy3CollisionGrotte();
+        // moveEnemies3Grotte();
+        // detectPlayer3Grotte(); 
+        // updateAnimationState3Grotte();
+        // drawEnemies3Grotte();
 
 
       
@@ -546,6 +546,7 @@ function drawGame() {
               isLoadingScreenActive = false; 
           }, 3000);
         } else {
+          potions = 3;
         if(animationBoss) {
           updateNormalCamera(3648, 960);
         } else {
@@ -559,7 +560,8 @@ function drawGame() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
         drawBossHealthBar();
-        applyGravityBoss();
+        
+        //applyGravityBoss();
 
         if (animationBoss && animationCounterBoss < 250) {
           xHero -= movementSpeedBoss;
@@ -577,16 +579,47 @@ function drawGame() {
 
         if (currentBossIntroductionIndex >= bossDialogues.length) {
           bossIntroActive = false;
+          battleBoss = true;
         }
 
-        // if (!bossIntroActive && !animationBoss && !battleBoss) {
-        //   battleBoss = true;
-        // }
+        moveEnemiesBoss(); 
+        drawEnemiesBoss();
+        checkEnemyCollisionBoss(); 
+
+        if (battleBoss) {
+          if (bossPhase === 0) {
+            let enemiesToSpawn = spawnEnemyAtSpecificTime(1, 1); // 1 ennemi pour la phase 1
+            enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
+            bossPhase = 1;
+          } else if (bossPhase === 1) {
+            if (goblinsAreDefeated(1)) { // Vérifie la phase 1
+              bossHealth = 80; // Utilisez "=" pour assigner la valeur
+              let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 2); // 2 ennemis pour la phase 2
+              enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
+              bossPhase = 2;
+            }
+          } else if (bossPhase === 2) {
+            if (goblinsAreDefeated(2)) { // Vérifie la phase 2
+              bossHealth = 50; // Utilisez "=" pour assigner la valeur
+              let enemiesToSpawn = spawnEnemyAtSpecificTime(3, 3); // 3 ennemis pour la phase 3
+              enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
+              bossPhase = 3;
+            }
+          } else if (bossPhase === 3) {
+            if (goblinsAreDefeated(3)) { // Vérifie la phase 3
+              bossHealth = 0; // Utilisez "=" pour assigner la valeur
+              // Vous pouvez ajouter une logique ici pour ce qui se passe quand le boss est vaincu
+            }
+          }
+        }
+
+        handleCooldown();
+        drawHud();
+        drawHearts();
 
         if (bossDead) {
           image(outroImages[outroImageIndex], 0, 0, width, height);
         }
-        
       }
 
       } else if(currentWorld === 5) {

@@ -105,7 +105,9 @@ let bossHealthBarWidth = 600; // Largeur de la barre de santé
 let bossHealthBarHeight = 20; // Hauteur de la barre de santé
 let bossHealthBarX = 500; // Position horizontale de la barre de santé
 let bossHealthBarY = 50; // Position verticale de la barre de santé
+let battleBoss = false;
 let bossDead = false;
+let bossPhase = 0;
 
 function drawBossHealthBar() {
   // Calculer la largeur de la barre de santé en fonction de la santé actuelle du boss
