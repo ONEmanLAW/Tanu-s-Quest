@@ -387,7 +387,7 @@ function spawnEnemyAtSpecificTime2(numEnemies, phase) {
   let enemies2Boss = [];
 
   for (let i = 0; i < numEnemies; i++) {
-    let enemy = {
+    let enemy2 = {
       position: createVector(0, 0), 
       charging: false,
       origin: createVector(0, 0),
@@ -398,26 +398,26 @@ function spawnEnemyAtSpecificTime2(numEnemies, phase) {
 
     switch (phase) {
       case 1:
-        enemy.position.x = (6 + i * 2) * worldBossTileSize;
-        enemy.position.y = (2 + i * 2) * worldBossTileSize;
-        enemy.origin.x = (6 + i * 2) * worldBossTileSize; 
-        enemy.origin.y = (2 + i * 2) * worldBossTileSize;
+        enemy2.position.x = (6 + i * 2) * worldBossTileSize;
+        enemy2.position.y = (2 + i * 2) * worldBossTileSize;
+        enemy2.origin.x = (6 + i * 2) * worldBossTileSize; 
+        enemy2.origin.y = (2 + i * 2) * worldBossTileSize;
         break;
       case 2:
-        enemy.position.x = (6 + i * 2) * worldBossTileSize; 
-        enemy.position.y = (3 + i * 2) * worldBossTileSize; 
-        enemy.origin.x = (6 + i * 2) * worldBossTileSize; 
-        enemy.origin.y = (3 + i * 2) * worldBossTileSize;
+        enemy2.position.x = (6 + i * 2) * worldBossTileSize; 
+        enemy2.position.y = (3 + i * 2) * worldBossTileSize; 
+        enemy2.origin.x = (6 + i * 2) * worldBossTileSize; 
+        enemy2.origin.y = (3 + i * 2) * worldBossTileSize;
         break;
       case 3:
-        enemy.position.x = (6 + i * 2) * worldBossTileSize; 
-        enemy.position.y = (4 + i * 2) * worldBossTileSize; 
-        enemy.origin.x = (6 + i * 2) * worldBossTileSize;
-        enemy.origin.y = (4 + i * 2) * worldBossTileSize; 
+        enemy2.position.x = (6 + i * 2) * worldBossTileSize; 
+        enemy2.position.y = (4 + i * 2) * worldBossTileSize; 
+        enemy2.origin.x = (6 + i * 2) * worldBossTileSize;
+        enemy2.origin.y = (4 + i * 2) * worldBossTileSize; 
         break;
     }
 
-    enemies2Boss.push(enemy);
+    enemies2Boss.push(enemy2);
   }
 
   return enemies2Boss;
@@ -554,8 +554,8 @@ function detectPlayer2Boss() {
 
 function goblinsAreDefeated2(phase) {
   for (let i = 0; i < enemies2Boss.length; i++) {
-    let enemy = enemies2Boss[i];
-    if (enemy.phase === phase && enemy.lives > 0) {
+    let enemy2 = enemies2Boss[i];
+    if (enemy2.phase === phase && enemy2.lives > 0) {
       return false;
     }
   }

@@ -413,18 +413,18 @@ function drawGame() {
         checkEnemyCollision(); 
 
         
-        // checkEnemy2Collision(); 
-        // moveEnemies2();
-        // detectPlayer2();
-        // updateAnimationState2();
-        // drawEnemies2();
+        checkEnemy2Collision(); 
+        moveEnemies2();
+        detectPlayer2();
+        updateAnimationState2();
+        drawEnemies2();
 
 
-        // checkEnemy3Collision();
-        // moveEnemies3();
-        // detectPlayer3(); 
-        // updateAnimationState3();
-        // drawEnemies3();
+        checkEnemy3Collision();
+        moveEnemies3();
+        detectPlayer3(); 
+        updateAnimationState3();
+        drawEnemies3();
 
         image(currentHeroImage, xHero, yHero, 80, 80);
         
@@ -484,21 +484,21 @@ function drawGame() {
         
         image(currentHeroImage, xHero, yHero, 80, 80);
 
-        // moveEnemiesGrotte(); 
-        // drawEnemiesGrotte();
-        // checkEnemyCollisionGrotte(); 
+        moveEnemiesGrotte(); 
+        drawEnemiesGrotte();
+        checkEnemyCollisionGrotte(); 
 
-        // checkEnemy2CollisionGrotte(); 
-        // moveEnemies2Grotte();
-        // detectPlayer2Grotte();
-        // updateAnimationState2Grotte();
-        // drawEnemies2Grotte();
+        checkEnemy2CollisionGrotte(); 
+        moveEnemies2Grotte();
+        detectPlayer2Grotte();
+        updateAnimationState2Grotte();
+        drawEnemies2Grotte();
 
-        // checkEnemy3CollisionGrotte();
-        // moveEnemies3Grotte();
-        // detectPlayer3Grotte(); 
-        // updateAnimationState3Grotte();
-        // drawEnemies3Grotte();
+        checkEnemy3CollisionGrotte();
+        moveEnemies3Grotte();
+        detectPlayer3Grotte(); 
+        updateAnimationState3Grotte();
+        drawEnemies3Grotte();
 
 
       
@@ -605,10 +605,13 @@ function drawGame() {
 
             let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(1, 1);
             enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
+            
+            let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(1, 1);
+              enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
 
             bossPhase = 1;
           } else if (bossPhase === 1) {
-            if (goblinsAreDefeated(1) && goblinsAreDefeated2(1)) {
+            if (goblinsAreDefeated(1) && goblinsAreDefeated2(1) && goblinsAreDefeated3(1)) {
               bossHealth = 80; 
               let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 2);
               enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
@@ -616,7 +619,7 @@ function drawGame() {
               let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(2, 2);
               enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
 
-              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(1, 2);
+              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(2, 2);
               enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
 
               bossPhase = 2;
@@ -624,13 +627,13 @@ function drawGame() {
           } else if (bossPhase === 2) {
             if (goblinsAreDefeated(2) && goblinsAreDefeated2(2) && goblinsAreDefeated3(2)) {
               bossHealth = 50;
-              let enemiesToSpawn = spawnEnemyAtSpecificTime(2, 3);
+              let enemiesToSpawn = spawnEnemyAtSpecificTime(3, 3);
               enemiesBoss = enemiesBoss.concat(enemiesToSpawn);
 
-              let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(2, 3);
+              let enemiesToSpawn2 = spawnEnemyAtSpecificTime2(3, 3);
               enemies2Boss = enemies2Boss.concat(enemiesToSpawn2);
 
-              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(2, 3);
+              let enemiesToSpawn3 = spawnEnemyAtSpecificTime3(3, 3);
               enemies3Boss = enemies3Boss.concat(enemiesToSpawn3);
               bossPhase = 3;
             }

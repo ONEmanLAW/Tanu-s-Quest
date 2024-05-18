@@ -285,7 +285,7 @@ function spawnEnemyAtSpecificTime(numEnemies, phase) {
     switch (phase) {
       case 1:
         enemy.position.x = (6 + i * 2) * worldBossTileSize;
-        enemy.position.y = (2 + i * 2) * worldBossTileSize; 
+        enemy.position.y = (8 + i * 2) * worldBossTileSize; 
         enemy.initialPosition.x = enemy.position.x;
         enemy.initialPosition.y = enemy.position.y;
         enemy.pointA.x = enemy.position.x - 2 * worldBossTileSize; 
@@ -356,7 +356,7 @@ function drawEnemiesBoss() {
 function checkEnemyCollisionBoss() {
   for (let i = 0; i < enemiesBoss.length; i++) {
     let enemy = enemiesBoss[i];
-    if (isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, 96, 96)) {
+    if (isAttacking && dist(xHero, yHero, enemy.position.x, enemy.position.y) < wHero / 2 + wEnemy / 2) {
       if (!enemy.isHit) {
         enemy.isHit = true;
         
@@ -390,7 +390,7 @@ function checkEnemyCollisionBoss() {
     } else {
       enemy.isHit = false;
 
-      if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, 96, 96)) {
+      if (!isAttacking && rectIsInRect(xHero, yHero, enemy.position.x, enemy.position.y) < wHero / 2 + wEnemy / 2) {
         if ((enemy.direction === 1 && xHero > enemy.position.x) || 
             (enemy.direction === -1 && xHero < enemy.position.x)) {
           loseHeart();
