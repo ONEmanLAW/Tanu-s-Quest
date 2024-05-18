@@ -28,6 +28,7 @@ function displayTotalTanukisSaved3() {
 /////////////////////////////////////////////
 
 let cageImage;
+let tImage;
 let cagePositions = [
   {x: 28.40 * worldForetTileSize, y: 8.30 * worldForetTileSize}, 
   {x: 132.40 * worldForetTileSize, y: 3.30 * worldForetTileSize},
@@ -44,6 +45,7 @@ let cageVisible = [];
 
 function preloadCageImage() {
   cageImage = loadImage('prison/prisonFôret.gif');
+  tImage = loadImage('prison/Tcage.png'); // Charger l'image contenant un "T"
   for (let i = 0; i < cagePositions.length; i++) {
     cageVisible.push(true);
   }
@@ -62,17 +64,20 @@ function checkCageInteraction() {
     let maxDistance = cageWidth / 2 + wHero;
     
     if (distance < maxDistance && cageVisible[i]) {
-      fill(255);
-      textSize(20);
-      textAlign(CENTER, CENTER);
+      image(cageImage, cagePositions[i].x, cagePositions[i].y, cageWidth, cageHeight);
       
-      // Afficher le texte à côté de la cage en question
-      text("Appuyez sur 't' pour libérer", cagePositions[i].x + cageWidth / 2, cagePositions[i].y + cageHeight + 20);
       
-      return i; // Retourne l'indice de la cage actuelle
+      let tImageWidth = 34; 
+      let tImageHeight = 34; 
+      
+      let tImageX = cagePositions[i].x + cageWidth / 2 - tImageWidth / 2;
+      let tImageY = cagePositions[i].y + cageHeight - 10; 
+      image(tImage, tImageX, tImageY, tImageWidth, tImageHeight);
+      
+      return i; 
     }
   }
-  return -1; // Aucune cage n'est proche
+  return -1;
 }
 
 function checkForestNpcSaved() {
