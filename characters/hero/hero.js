@@ -484,17 +484,15 @@ let isJumping = false;
 let jumpForce = -10;
 let gravity = 0.5;
 let yVelocity = 0;
+let startY = 0; // Position de départ du saut
 
 function jump() {
   if (!isJumping) {
     isJumping = true;
     yVelocity = jumpForce;
+    startY = yHero; // Enregistrer la position de départ du saut
   }
 }
-
-
-
-
 
 function applyGravity() {
   yVelocity += gravity;
@@ -502,11 +500,15 @@ function applyGravity() {
   let nextY = yHero + yVelocity;
 
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld], nextY)) {
-    isJumping = false;
+    if (yVelocity < 0) { // Collision en montant
+      yHero = startY; // Revenir à la position de départ du saut
+    } else { // Collision en descendant
+      yHero = Math.floor(yHero / 80) * 80; // Ajuster pour être juste au-dessus du bloc
+      isJumping = false; // Arrêter le saut
+    }
     yVelocity = 0;
-    yHero = Math.floor(yHero / 80) * 80;
   } else {
-    yHero = nextY
+    yHero = nextY;
   }
 }
 

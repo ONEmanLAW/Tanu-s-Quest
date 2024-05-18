@@ -40,24 +40,14 @@ function preloadEnemy3Animations() {
 
 function createEnemiesForet3() {
   enemies3.push({
-    position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
+    position: createVector(130 * worldForetTileSize, 10 * worldForetTileSize), 
     detected: false,
-    origin: createVector(15 * worldForetTileSize, 6 * worldForetTileSize),
+    origin: createVector(130 * worldForetTileSize, 10 * worldForetTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin3,
     direction: 'left'
   });
 
-  enemies3.push({
-    position: createVector(20 * worldForetTileSize, 8 * worldForetTileSize), 
-    detected: false,
-    origin: createVector(20 * worldForetTileSize, 8 * worldForetTileSize),
-    distanceToOrigin: 0,
-    lives: livesGobelin3,
-    direction: 'left'
-  });
-
-  // Ajouter plus d'ennemis avec leurs positions respectives et autres propriétés si nécessaire
 }
 
 function createEnemiesGrotte3() {
@@ -215,9 +205,8 @@ function drawEnemies3Grotte() {
 }
 
 
-// Définir une variable pour le décalage de recul des ennemis 3
-let enemy3RecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
-let enemy3RecoilDuration = 0.5; // Durée du recul en secondes
+let enemy3RecoilDistance = 100;
+let enemy3RecoilDuration = 0.5;
 
 function checkEnemy3Collision() {
   for (let i = 0; i < enemies3.length; i++) {
@@ -226,19 +215,15 @@ function checkEnemy3Collision() {
       if (!enemy3.isHit) {
         enemy3.isHit = true;
 
-        // Déterminer les dégâts en fonction de l'arme
         let damage = newSword ? 2 : 1;
         enemy3.lives -= damage;
 
-        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 3
         let direction = xHero > enemy3.position.x ? -1 : 1;
 
-        // Définir la cible finale du recul
         let targetX = enemy3.position.x + direction * enemy3RecoilDistance;
 
-        // Animer le recul de l'ennemi 3
         let startTime = Date.now();
-        let endTime = startTime + enemy3RecoilDuration * 1000; // Conversion en millisecondes
+        let endTime = startTime + enemy3RecoilDuration * 1000;
 
         function animateRecoil() {
           let now = Date.now();
@@ -253,7 +238,6 @@ function checkEnemy3Collision() {
 
         animateRecoil();
 
-        // Ajouter un délai avant de réinitialiser l'état d'attaque
         setTimeout(() => {
           isAttacking = false;
         }, attackDuration);
@@ -266,7 +250,7 @@ function checkEnemy3Collision() {
     }
     if (enemy3.lives <= 0) {
       enemies3.splice(i, 1);
-      i--; // Ajuster l'index après la suppression
+      i--; 
     }
   }
 }
@@ -278,19 +262,15 @@ function checkEnemy3CollisionGrotte() {
       if (!enemy3.isHit) {
         enemy3.isHit = true;
 
-        // Déterminer les dégâts en fonction de l'arme
         let damage = newSword ? 2 : 1;
         enemy3.lives -= damage;
 
-        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 3
         let direction = xHero > enemy3.position.x ? -1 : 1;
 
-        // Définir la cible finale du recul
         let targetX = enemy3.position.x + direction * enemy3RecoilDistance;
 
-        // Animer le recul de l'ennemi 3
         let startTime = Date.now();
-        let endTime = startTime + enemy3RecoilDuration * 1000; // Conversion en millisecondes
+        let endTime = startTime + enemy3RecoilDuration * 1000; 
 
         function animateRecoil() {
           let now = Date.now();
@@ -305,7 +285,7 @@ function checkEnemy3CollisionGrotte() {
 
         animateRecoil();
 
-        // Ajouter un délai avant de réinitialiser l'état d'attaque
+        
         setTimeout(() => {
           isAttacking = false;
         }, attackDuration);
@@ -318,7 +298,7 @@ function checkEnemy3CollisionGrotte() {
     }
     if (enemy3.lives <= 0) {
       enemies3Grotte.splice(i, 1);
-      i--; // Ajuster l'index après la suppression
+      i--; 
     }
   }
 }
@@ -344,16 +324,6 @@ function detectPlayer3Grotte() {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -485,7 +455,7 @@ function drawEnemies3Boss() {
 
   for (let i = 0; i < enemies3Boss.length; i++) {
     let enemy3 = enemies3Boss[i];
-    image(currentAnimation3[frameIndex3], enemy3.position.x, enemy3.position.y, 96, 96); // Utiliser 96 pour la largeur et la hauteur
+    image(currentAnimation3[frameIndex3], enemy3.position.x, enemy3.position.y, 96, 96); 
   }
 }
 
@@ -497,19 +467,15 @@ function checkEnemy3CollisionBoss() {
       if (!enemy3.isHit) {
         enemy3.isHit = true;
 
-        // Déterminer les dégâts en fonction de l'arme
         let damage = newSword ? 2 : 1;
         enemy3.lives -= damage;
 
-        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi 3
         let direction = xHero > enemy3.position.x ? -1 : 1;
 
-        // Définir la cible finale du recul
         let targetX = enemy3.position.x + direction * enemy3RecoilDistance;
 
-        // Animer le recul de l'ennemi 3
         let startTime = Date.now();
-        let endTime = startTime + enemy3RecoilDuration * 1000; // Conversion en millisecondes
+        let endTime = startTime + enemy3RecoilDuration * 1000;
 
         function animateRecoil() {
           let now = Date.now();
@@ -524,7 +490,6 @@ function checkEnemy3CollisionBoss() {
 
         animateRecoil();
 
-        // Ajouter un délai avant de réinitialiser l'état d'attaque
         setTimeout(() => {
           isAttacking = false;
         }, attackDuration);
@@ -537,7 +502,7 @@ function checkEnemy3CollisionBoss() {
     }
     if (enemy3.lives <= 0) {
       enemies3Boss.splice(i, 1);
-      i--; // Ajuster l'index après la suppression
+      i--;
     }
   }
 }

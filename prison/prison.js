@@ -30,9 +30,9 @@ function displayTotalTanukisSaved3() {
 let cageImage;
 let tImage;
 let cagePositions = [
-  {x: 28.40 * worldForetTileSize, y: 8.30 * worldForetTileSize}, 
-  {x: 132.40 * worldForetTileSize, y: 3.30 * worldForetTileSize},
-  {x: 197.40 * worldForetTileSize, y: 5.30 * worldForetTileSize},
+  {x: 29.40 * worldForetTileSize, y: 8.30 * worldForetTileSize}, 
+  {x: 132.40 * worldForetTileSize, y: 5.30 * worldForetTileSize},
+  {x: 188.40 * worldForetTileSize, y: 6.30 * worldForetTileSize},
 ];
 
 let cageWidth = worldForetTileSize * 1.60;
@@ -45,7 +45,7 @@ let cageVisible = [];
 
 function preloadCageImage() {
   cageImage = loadImage('prison/prisonFôret.gif');
-  tImage = loadImage('prison/Tcage.png'); // Charger l'image contenant un "T"
+  tImage = loadImage('prison/Tcage.png');
   for (let i = 0; i < cagePositions.length; i++) {
     cageVisible.push(true);
   }
@@ -97,9 +97,9 @@ function checkForestNpcSaved() {
 let cageImageGrotte;
 let tImageGrotte;
 let cagePositionsGrotte = [
-  {x: 38 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize}, 
-  {x: 87 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize},
-  {x: 182 * worldGrotteTileSize, y: 10.30 * worldGrotteTileSize},
+  {x: 38.40 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize}, 
+  {x: 87.40 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize},
+  {x: 182.40 * worldGrotteTileSize, y: 10.30 * worldGrotteTileSize},
 ];
 
 let cageWidthGrotte = worldGrotteTileSize * 1.60;

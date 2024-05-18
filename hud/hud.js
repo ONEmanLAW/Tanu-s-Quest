@@ -67,8 +67,8 @@ function preloadHudImages() {
 
 
 // Coordonnées et dimensions de l'image de feu
-let xEcorce = 70 * worldForetTileSize + 18;
-let yEcorce = 4 * worldForetTileSize + 18;
+let xEcorce = 63 * worldForetTileSize + 18;
+let yEcorce = 8 * worldForetTileSize + 18;
 let wEcorce = 64;
 let hEcorce = 64;
 let heroInEcorce = false;
@@ -105,8 +105,8 @@ function checkHeroInFire() {
 };
 
 // Coordonnées et dimensions de l'image de feu
-let xTerre = 178 * worldForetTileSize + 18;
-let yTerre = 9 * worldForetTileSize + 18;
+let xTerre = 180 * worldForetTileSize + 18;
+let yTerre = 10 * worldForetTileSize + 18;
 let wTerre = 64;
 let hTerre = 64;
 let heroInStone = false;

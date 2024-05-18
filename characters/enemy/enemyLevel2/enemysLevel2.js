@@ -41,24 +41,23 @@ function preloadEnemy2Animations() {
 
 function createEnemiesForet2() {
   enemies2.push({
-    position: createVector(27 * worldForetTileSize, 6 * worldForetTileSize), 
+    position: createVector(186 * worldForetTileSize, 10 * worldForetTileSize), 
     charging: false,
-    origin: createVector(27 * worldForetTileSize, 6 * worldForetTileSize),
+    origin: createVector(186 * worldForetTileSize, 10 * worldForetTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin2,
-    direction: 'left' // Définir la direction par défaut
+    direction: 'left'
   });
 
   enemies2.push({
-    position: createVector(15 * worldForetTileSize, 6 * worldForetTileSize), 
+    position: createVector(68 * worldForetTileSize, 11 * worldForetTileSize), 
     charging: false,
-    origin: createVector(15 * worldForetTileSize, 6 * worldForetTileSize),
+    origin: createVector(68 * worldForetTileSize, 11 * worldForetTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin2,
-    direction: 'left' // Définir la direction par défaut
+    direction: 'left'
   });
 
-  // Ajouter plus d'ennemis avec leurs positions respectives et autres propriétés si nécessaire
 }
 
 function createEnemiesGrotte2() {
@@ -68,12 +67,11 @@ function createEnemiesGrotte2() {
     origin: createVector(5 * worldGrotteTileSize, 6 * worldGrotteTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin2,
-    direction: 'left' // Définir la direction par défaut
+    direction: 'left' 
   });
 }
 
 function resetEnemies2Position() {
-  // Réinitialiser la position et d'autres propriétés des ennemis
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
     enemy2.position.x = enemy2.origin.x;
@@ -82,12 +80,11 @@ function resetEnemies2Position() {
     enemy2.distanceToOrigin = 0;
     enemy2.lives = livesGobelin2;
     enemy2.frameIndex = 0;
-    enemy2.direction = 'left'; // Réinitialiser la direction
+    enemy2.direction = 'left';
   }
 }
 
 function resetEnemies2PositionGrotte() {
-  // Réinitialiser la position et d'autres propriétés des ennemis
   for (let i = 0; i < enemies2Grotte.length; i++) {
     let enemy2 = enemies2Grotte[i];
     enemy2.position.x = enemy2.origin.x;
@@ -96,12 +93,11 @@ function resetEnemies2PositionGrotte() {
     enemy2.distanceToOrigin = 0;
     enemy2.lives = livesGobelin2;
     enemy2.frameIndex = 0;
-    enemy2.direction = 'left'; // Réinitialiser la direction
+    enemy2.direction = 'left';
   }
 }
 
 function updateAnimationState2() {
-  // Mettre à jour l'animation en fonction de l'état et de la direction
   for (let i = 0; i < enemies2.length; i++) {
     let enemy2 = enemies2[i];
     if (enemy2.charging) {
@@ -121,7 +117,6 @@ function updateAnimationState2() {
 }
 
 function updateAnimationState2Grotte() {
-  // Mettre à jour l'animation en fonction de l'état et de la direction
   for (let i = 0; i < enemies2Grotte.length; i++) {
     let enemy2 = enemies2Grotte[i];
     if (enemy2.charging) {
@@ -145,7 +140,6 @@ function moveEnemies2() {
     let enemy2 = enemies2[i];
     if (enemy2.charging) {
       let angle = atan2(yHero - enemy2.position.y, xHero - enemy2.position.x);
-      // Mettre à jour le mouvement de l'ennemi en fonction de l'angle
       enemy2.position.x += cos(angle) * speedEnemy2;
       enemy2.position.y += sin(angle) * speedEnemy2;
       
@@ -155,12 +149,10 @@ function moveEnemies2() {
         enemy2.direction = 'right';
       }
     } else {
-      // Mettre à jour le mouvement de l'ennemi dans une autre direction (par exemple, vers son origine)
       let distanceToOrigin = dist(enemy2.position.x, enemy2.position.y, enemy2.origin.x, enemy2.origin.y);
       enemy2.distanceToOrigin = distanceToOrigin;
       if (distanceToOrigin > 1) {
         let angle = atan2(enemy2.origin.y - enemy2.position.y, enemy2.origin.x - enemy2.position.x);
-        // Mettre à jour le mouvement de l'ennemi en fonction de l'angle
         enemy2.position.x += cos(angle) * speedEnemy2;
         enemy2.position.y += sin(angle) * speedEnemy2;
       }
