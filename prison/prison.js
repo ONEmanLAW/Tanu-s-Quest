@@ -95,6 +95,7 @@ function checkForestNpcSaved() {
 
 
 let cageImageGrotte;
+let tImageGrotte;
 let cagePositionsGrotte = [
   {x: 38 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize}, 
   {x: 87 * worldGrotteTileSize, y: 6.30 * worldGrotteTileSize},
@@ -111,7 +112,7 @@ let cageVisibleGrotte = [];
 
 function preloadCageImageGrotte() {
   cageImageGrotte = loadImage('prison/prisonGrotte.gif');
-
+  tImageGrotte = loadImage('prison/Tcage.png');
   for (let i = 0; i < cagePositionsGrotte.length; i++) {
     cageVisibleGrotte.push(true);
   }
@@ -130,17 +131,19 @@ function checkCageInteractionGrotte() {
     let maxDistance = cageWidthGrotte / 2 + wHero;
     
     if (distance < maxDistance && cageVisibleGrotte[i]) {
-      fill(255);
-      textSize(20);
-      textAlign(CENTER, CENTER);
+      image(cageImageGrotte, cagePositionsGrotte[i].x, cagePositionsGrotte[i].y, cageWidthGrotte, cageHeightGrotte);
       
-      // Afficher le texte à côté de la cage en question
-      text("Appuyez sur 't' pour libérer", cagePositionsGrotte[i].x + cageWidthGrotte / 2, cagePositionsGrotte[i].y + cageHeightGrotte + 20);
+      let tImageWidthGrotte = 34; 
+      let tImageHeightGrotte = 34; 
       
-      return i; // Retourne l'indice de la cage actuelle
+      let tImageXGrotte = cagePositionsGrotte[i].x + cageWidthGrotte / 2 - tImageWidthGrotte / 2;
+      let tImageYGrotte = cagePositionsGrotte[i].y + cageHeightGrotte - 10;
+      image(tImageGrotte, tImageXGrotte, tImageYGrotte, tImageWidthGrotte, tImageHeightGrotte);
+      
+      return i;
     }
   }
-  return -1; // Aucune cage n'est proche
+  return -1;
 }
 
 function checkGrotteNpcSaved() {
