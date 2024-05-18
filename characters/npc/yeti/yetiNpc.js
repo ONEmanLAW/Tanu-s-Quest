@@ -14,19 +14,19 @@ let npcYetiHeight2 = worldVillageTileSize + 25;
 let conversationYetiFinished = false;
 
 let dialoguesYeti = [
-  { text: "OHHHHHHHHHHHHHHHH", boxType: "Yeti" },
-  { text: "....", boxType: "Hero" },
-  { text: "OH enfin quelqu'un comment, je commencais a croire que le ciel me tombait sur le tête.", boxType: "Yeti" },
-  { text: "Bonjour auriez vous vu des tanuki ce faire kidnapper", boxType: "Hero" },
-  { text: "Non pas du tout je suis la pour vendre des armes.", boxType: "Yeti" },
-  { text: "Je pense me dérigier vers la fôret comme a dit le grand sage", boxType: "Hero" },
-  { text: "OHHHHHHH, tu va dans la Fôret !!!???", boxType: "Yeti" },
-  { text: "Eux oui.... excusez moi mais j'ai vraiment pas le temps...", boxType: "Hero" },
-  { text: "J'ai quelque choses a te proposer, j'ai besoin d'une ecorse, c'est pour cela que je suis venu ici.", boxType: "Yeti" },
+  { text: "OHHHHHHHH !!!", boxType: "Yeti" },
+  { text: "!!!", boxType: "Hero" },
+  { text: "Enfin quelqu'un!\nJe commençais à croire que le ciel me tombait sur la tête.", boxType: "Yeti" },
+  { text: "Bonjour, qui êtes-vous ?", boxType: "Hero" },
+  { text: "Je suis le Yeti.\nMa petite voix me dit que vous aller à la Forêt.", boxType: "Yeti" },
+  { text: "Comment... vous savez?", boxType: "Hero" },
+  { text: "OHHHHHHH, tu vas dans la Forêt !???", boxType: "Yeti" },
+  { text: "Oui je dois sauver ma famille", boxType: "Hero" },
+  { text: "J'ai quelques choses à te proposer,\n j'ai besoin d'une écorce,\n c'est pour cela que je suis venue ici.", boxType: "Yeti" },
   { text: "Une Ecorse ???", boxType: "Hero" },
-  { text: "Oui il y a une ecorse dans le fôret apporte la moi et je te donnerai quel que choses tu ne regrettera pas.", boxType: "Yeti" },
-  { text: "En attandant cette endroit sans le brulée j'aime bien je vais m'y installer.", boxType: "Yeti" },
-  { text: "Une fois que tu a l'ecorsse rejoint moi au sud west du village je t'attenderai OHHHHHH.", boxType: "Yeti" },
+  { text: "Oui il y a une écorce dans la forêt.\n Apporte-la-moi et je te donnerai quelques choses\nqui pourrait t'aider à sauver ta famille.", boxType: "Yeti" },
+  { text: "En attendant cet endroit sans la brulée.\n J'aime bien je vais m'y installer.", boxType: "Yeti" },
+  { text: "Une fois que tu as l'écorce\n rejointe moi au sud west du village dans ma maison.\nJe t'attenterai OHHHHHH.", boxType: "Yeti" },
   // Ajoute d'autres dialogues ici selon le besoin
 ];
 
@@ -37,10 +37,10 @@ function gererDialoguesYeti() {
   if (yetiDialogActive && currentYetiIndexQuete < dialoguesYeti.length) {
     let dialogueActuel = dialoguesYeti[currentYetiIndexQuete].text;
     let boxType = dialoguesYeti[currentYetiIndexQuete].boxType;
-    let textWidth = 1100; 
-    let textHeight = 250; 
-    let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
+    let textWidth = 1150; 
+    let textHeight = 275; 
+    let textX = (width - textWidth) / 2 + 300;
+    let textY = height - textHeight - 20 + 65;
     
     let boiteDeDialogue;
     if (boxType === "Yeti") {

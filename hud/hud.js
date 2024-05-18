@@ -173,44 +173,44 @@ function drawHud() {
 
   image(imageCadreHeart, 30, 5, 350, 125);
 
-  image(cadreVide, 30, 850, 600, 150);
+  image(cadreVide, 30, 900, 600, 150);
   
   if (!newSword) {
-    image(imageEpee2, 44, 861, 100, 100);
+    image(imageEpee2, 44, 901, 100, 100);
   } else {
-    image(imageEpee3, 44, 861, 100, 100);
+    image(imageEpee3, 44, 901, 100, 100);
   }
   
   
   if (!alchimisteDialogueFinished) {
-    image(imagePotion1, 160, 915, 75, 75);
+    image(imagePotion1, 160, 960, 75, 75);
   }
 
   if (!heroInStone) {
-    image(imageTerre1, 250, 915, 65, 65)
+    image(imageTerre1, 250, 960, 65, 65)
   } else {
-    displayImageWithBlinkUniversal(imageTerre2, 250, 915, 65, 65);
+    displayImageWithBlinkUniversal(imageTerre2, 250, 960, 65, 65);
     heroHasStoneStone = true;
   }
 
   if (!heroInFire) {
-    image(imageFeu1, 340, 915, 65, 65);
+    image(imageFeu1, 340, 960, 65, 65);
   } else {
-    displayImageWithBlinkUniversal(imageFeu2, 340, 915, 65, 65);
+    displayImageWithBlinkUniversal(imageFeu2, 340, 960, 65, 65);
     heroHasFireStone = true;
   }
 
   if (!heroInWind) {
-    image(imageVent1, 430, 915, 65, 65);
+    image(imageVent1, 430, 960, 65, 65);
   } else {
-    displayImageWithBlinkUniversal(imageVent2, 430, 915, 65, 65);
+    displayImageWithBlinkUniversal(imageVent2, 430, 960, 65, 65);
     heroHasWindStone = true;
   }
 
   if(!heroInWater) {
-    image(imageEau1, 520, 915, 65, 65);
+    image(imageEau1, 520, 960, 65, 65);
   } else {
-    displayImageWithBlinkUniversal(imageEau2, 520, 915, 65, 65);
+    displayImageWithBlinkUniversal(imageEau2, 520, 960, 65, 65);
     heroHasWaterStone = true;
   }
   
@@ -229,13 +229,13 @@ function drawHud() {
   }
 
   if (alchimisteDialogueFinished && potions === 3) {
-    displayImageWithBlinkUniversal(imagePotion4, 160, 915, 75, 75)
+    displayImageWithBlinkUniversal(imagePotion4, 160, 960, 75, 75)
   } else if (alchimisteDialogueFinished && potions === 2) {
-    displayImageWithBlinkUniversal(imagePotion3, 160, 915, 75, 75)
+    displayImageWithBlinkUniversal(imagePotion3, 160, 960, 75, 75)
   } else if(alchimisteDialogueFinished && potions === 1) {
-    displayImageWithBlinkUniversal(imagePotion2, 160, 915, 75, 75)
+    displayImageWithBlinkUniversal(imagePotion2, 160, 960, 75, 75)
   } else if(alchimisteDialogueFinished && potions === 0) {
-    displayImageWithBlinkUniversal(imagePotion5, 160, 915, 75, 75)
+    displayImageWithBlinkUniversal(imagePotion5, 160, 960, 75, 75)
   } 
 
   pop();

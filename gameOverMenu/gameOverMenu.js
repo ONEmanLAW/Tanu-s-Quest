@@ -59,8 +59,6 @@ function gameOverMenu() {
       if (gameOver) {
         hearts = 3;
         gameOver = false;
-        xHero = 2 * worldTempleTileSize;
-        yHero = 6 * worldTempleTileSize;
         resetEnemiesPosition();
         resetEnemiesPositionGrotte();
         resetEnemiesPositionBoss();
@@ -72,10 +70,14 @@ function gameOverMenu() {
         resetEnemies2PositionBoss();
         resetEnemies3PositionBoss();
         if (currentWorld === 2) {
+          xHero = 2 * worldForetTileSize;
+          yHero = 9 * worldForetTileSize;
           createEnemiesForet();
           createEnemiesForet2();
           createEnemiesForet3();
         } else if (currentWorld === 3) {
+          xHero = 2 * worldGrotteTileSize;
+          yHero = 9 * worldGrotteTileSize;
           createEnemiesGrotte();
           createEnemiesGrotte2();
           createEnemiesGrotte3();

@@ -4,7 +4,7 @@
 
 function preloadBackgroundImages() {
   backgroundTutoImage = loadImage('worlds/assets/temple/fondTemple.jpg',() => {
-      backgroundTutoImage.resize(width, height);
+      backgroundTutoImage.resize(1980, 1152);
   });
 
   backgroundForetImage = loadImage('worlds/assets/foretEnchanter/fondForet.jpg',() => {

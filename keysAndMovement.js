@@ -256,6 +256,7 @@ function keyPressed() {
         currentDialogueFinishForetIndex++;
     } else if (foretFinishDialogActive && currentDialogueFinishForetIndex === dialoguesFinishForet.length - 1) {
         foretFinishDialogActive = false;
+        foretFinishDialogFinish = true;
         // Supprimer les dialogues de fin de la forêt une fois que le dernier dialogue a été affiché
         dialoguesFinishForet.splice(0, dialoguesFinishForet.length);
     }

@@ -33,7 +33,7 @@ function checkGrandSageInteraction() {
   let textWidth = 1100; 
   let textHeight = 250;
   let textX = (width - textWidth) / 2 ;
-  let textY = height - textHeight - 20 + 50;
+  let textY = height - textHeight - 15;
   
   let distance = dist(playerXCenter, playerYCenter, npcGrandSageXCenter, npcGrandSageYCenter); 
   let interactionDistance = wHero / 2 + npcGrandSageWidth / 2 - 10; // Réduire de 10 pixels
@@ -117,7 +117,7 @@ function gererIntroduction() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 20 + 50;
+    let textY = height - textHeight - 15;
     
     let boiteDeDialogue;
     if (boxType === "GrandSage") {
@@ -146,14 +146,20 @@ function gererIntroduction() {
 
 
 let dialoguesInForet = [
-  { text: "LE GRAND SAGE A UN MESSAGE POUR VOUS CRAOOOO", boxType: "Grenouille" },
+  { text: "LE GRAND SAGE A UN MESSAGE POUR VOUS CROAAAA", boxType: "Grenouille" },
   { text: "...", boxType: "Hero" },
-  { text: "ALLooo", boxType: "GrandSage" },
-  { text: "Oui grand Sage", boxType: "Hero" },
-  { text: "ALLoooOOOOOOOOO !!!", boxType: "GrandSage" },
-  { text: "OUIIIIII JE SUIS LAAAA !", boxType: "Hero" },
-  { text: "Hohhh Tanu, oui oui désoler je sais pas bien tuiliser cette grenouille la tecnologie c top enfaite mais c dur", boxType: "GrandSage" },
-  { text: "... ", boxType: "Hero" },
+  { text: "Allooo ?!", boxType: "GrandSage" },
+  { text: "Oui Grand Sage.", boxType: "Hero" },
+  { text: "AlllOOOOLLLLL ??!!", boxType: "GrandSage" },
+  { text: "OUIIII JE SUIS LAAA !!!", boxType: "Hero" },
+  { text: "Hohhh Tanu, oui désolé je sais pas bien utiliser cette grenouille.\nLa technologie c'est est tellement complexe.", boxType: "GrandSage" },
+  { text: "...", boxType: "Hero" },
+  { text: "Bon, il faut que tu sauves les 9 Tanuki qui sont dans la forêt,\ntu peux voir en haut à gauche, combien tu as n'a sauvé.", boxType: "GrandSage" },
+  { text: "Tu pourras pas sortir tant que tu les auras pas sauvé.", boxType: "GrandSage" },
+  { text: "Mais fait attention il y a des gobelins!", boxType: "GrandSage" },
+  { text: "Attention au gobelin Tueur avec les yeux rouges.\n Ce sont les plus dangereux!", boxType: "GrandSage" },
+  { text: "Ne oublie pas la pierre de la terre.\nJe t'expliquerai plus tard à quoi ça sert.", boxType: "GrandSage" },
+  { text: "LE GRAND SAGE A FINIT DE VOUS PARLER CROAAAA", boxType: "Grenouille" },
 ];
 
 let currentDialogueForetIndex = 0;
@@ -166,7 +172,7 @@ function gererDialogueForet() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 16;
+    let textY = height - textHeight - 15;
     
     let boiteDeDialogue;
     if (boxType === "Grenouille") {
@@ -192,13 +198,19 @@ function gererDialogueForet() {
 
 
 let dialoguesFinishForet = [
-  { text: "LE GRAND SAGE A UN MESSAGE POUR VOUS CRAOOOO", boxType: "Grenouille" },
+  { text: "LE GRAND SAGE A UN MESSAGE POUR VOUS CROAAAA", boxType: "Grenouille" },
   { text: "...", boxType: "Hero" },
-  { text: "Tanu je ressens que tu a sauvé tout les villagois et la pierre rends toi de retour au village pour contiuer ta quête.", boxType: "GrandSage" },
+  { text: "Tanu je ressens que tu a sauvé tout les villagois.", boxType: "GrandSage" },
+  { text: "Tu a aussi récupérer la pierre de la terre.", boxType: "GrandSage" },
+  { text: "Je te l'ai pas dit.\n Mais les quatres pierres te permettrons d'ouvrir le portails.\n Tu pourra aller au chateau et vaincre le boss.", boxType: "GrandSage" },
+  { text: "Tu pourras récupérer les autres pierres pendant ta quête", boxType: "GrandSage" },
+  { text: "En revenant au village, va voir l'alchimiste.\nPour qu'il te donne ces fameuses potions pour te soigner.", boxType: "GrandSage" },
+  { text: "LE GRAND SAGE A FINIT DE VOUS PARLER CROAAAA", boxType: "Grenouille" },
 ];
 
 let currentDialogueFinishForetIndex = 0;
 let foretFinishDialogActive = false;
+let foretFinishDialogFinish = false;
 
 function gererDialogueFinishForet() {
   if (foretFinishDialogActive && currentDialogueFinishForetIndex < dialoguesFinishForet.length) {
@@ -207,7 +219,7 @@ function gererDialogueFinishForet() {
     let textWidth = 1100; 
     let textHeight = 250; 
     let textX = (width - textWidth) / 2 ;
-    let textY = height - textHeight - 16;
+    let textY = height - textHeight - 15;
     
     let boiteDeDialogue;
     if (boxType === "Grenouille") {

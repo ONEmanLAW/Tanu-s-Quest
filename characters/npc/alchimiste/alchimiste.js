@@ -42,11 +42,11 @@ function updateAlchimisteAnimation(animationArray) {
 
 // Dialogues de l'alchimiste
 let dialoguesAlchimiste = [
-  { text: " Coucou Tanu ! Merci encore de nous avoir sauvée", boxType: "Alchimiste" },
-  { text: "Pas de souci ces normal", boxType: "Hero" },
+  { text: "Bonjour Alchimiste, le Grand Sage m'a dit de passer vous voire.", boxType: "Hero" },
+  { text: "Bonjour Tanu, Merci encore de nous avoir sauvée.", boxType: "Alchimiste" },
   { text: "J'ai quelque choses pour toi !", boxType: "Alchimiste" },
-  { text: "Voici des potions pour toi , si jamais tu perds trop de coeur tu peut utilier 'r' pour récupérer de la vie.", boxType: "Alchimiste" },
-  { text: "Je te remercie pour ton don.", boxType: "Hero" },
+  { text: "Voici des potions pour toi,\n si jamais tu perds trop de cœurs tu peut utilier 'r' pour récupérer de la vie.", boxType: "Alchimiste" },
+  { text: "Je te remercie pour ton don!", boxType: "Hero" },
   // Ajoutez d'autres dialogues ici
 ];
 
@@ -59,16 +59,14 @@ function gererDialoguesAlchimiste() {
   if (alchimisteDialogActive && currentAlchimisteIndex < dialoguesAlchimiste.length) {
     let dialogueActuel = dialoguesAlchimiste[currentAlchimisteIndex].text;
     let boxType = dialoguesAlchimiste[currentAlchimisteIndex].boxType;
-    let textWidth = 1100; 
-    let textHeight = 250; 
+    let textWidth = 1150; 
+    let textHeight = 275; 
     
-    // Position de la boîte de dialogue à côté de l'alchimiste
-    let boiteDeDialogueX = alchimisteX + alchimisteWidth + 20; // 20 pixels de décalage
-    let boiteDeDialogueY = alchimisteY - 50; // Position au-dessus de l'alchimiste
+    let boiteDeDialogueX = 2200; 
+    let boiteDeDialogueY = 100; 
     
-    // Position du texte à l'intérieur de la boîte de dialogue
-    let textX = boiteDeDialogueX + 50; // 50 pixels de décalage horizontal
-    let textY = boiteDeDialogueY + 50; // 50 pixels de décalage vertical
+    let textX = boiteDeDialogueX + textWidth / 2;
+    let textY = boiteDeDialogueY + textHeight / 2; 
     
     // Sélection de l'image de la boîte de dialogue en fonction du type
     let boiteDeDialogue;
@@ -91,6 +89,7 @@ function gererDialoguesAlchimiste() {
   }
 }
 
+
 function checkAlchimisteInteraction() {
   let playerXCenter = xHero + wHero;
   let playerYCenter = yHero + hHero;
@@ -101,7 +100,7 @@ function checkAlchimisteInteraction() {
   let distance = dist(playerXCenter, playerYCenter, alchimisteXCenter, alchimisteYCenter); 
 
   // Vérifier si le joueur est à au moins 2 blocs de distance de l'alchimiste
-  if (distance < 2 * worldVillageTileSize3) {
+  if (distance < 2 * worldVillageTileSize) {
     // Activer le dialogue de l'alchimiste
     alchimisteDialogActive = true;
     return true;
