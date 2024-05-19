@@ -270,6 +270,7 @@ function keyPressed() {
     } else if (alchimisteDialogActive && currentAlchimisteIndex === dialoguesAlchimiste.length - 1) {
       alchimisteDialogActive = false;
       alchimisteDialogueFinished = true;
+      hearts = 3;
       potions = 3;
       // Supprimez les dialogues de l'alchimiste une fois que le dernier dialogue a été affiché
       dialoguesAlchimiste.splice(0, dialoguesAlchimiste.length);
@@ -301,7 +302,7 @@ function keyPressed() {
 
 
 
-  if(currentWorld === 3 || currentWorld === 4 || currentWorld === 1 ) {
+  if(currentWorld === 3 || currentWorld === 4 || currentWorld === 1 || currentWorld === 2) {
     if (keyCode === 82) { // Touche R pour le code '82'.
       if (potions > 0 && hearts < 3) {
         hearts++;

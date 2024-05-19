@@ -172,6 +172,11 @@ function preload() {
 
   // Sounds and musics :
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
+
+  musiqueBackgroundTemple = loadSound('мистичная тема.mp3');
+  musiqueBackgroundVillage = loadSound('TownTheme.mp3')
+  musiqueBackgroundForest = loadSound('song18.mp3');
+
 }
 
 function setup() {
@@ -223,6 +228,9 @@ function setup() {
 
 
 let isLoadingScreenActive = true;
+let musiqueBackgroundTemple;
+let musiqueBackgroundVillage;
+let musiqueBackgroundForest;
 
 
 function drawLoadingScreen() {
@@ -264,6 +272,9 @@ function drawGame() {
               isLoadingScreenActive = false; // Désactiver l'écran de chargement
           }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
         } else {
+          if (!musiqueBackgroundTemple.isPlaying()) {
+            musiqueBackgroundTemple.loop(); // Jouer la musique en boucle
+          }
           updateNormalCamera(1800, 1056);
           image(backgroundTutoImage, 0, 0);
           drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -315,6 +326,8 @@ function drawGame() {
 
 
       } else if (currentWorld === 1) {
+        musiqueBackgroundTemple.stop();
+        musiqueBackgroundForest.stop();
         noCursor();
         if (!isLoadingScreenActive) {
           drawLoadingScreen();
@@ -322,6 +335,9 @@ function drawGame() {
               isLoadingScreenActive = true;
           }, 3000);
         } else {
+          if (!musiqueBackgroundVillage.isPlaying()) {
+            musiqueBackgroundVillage.loop(); // Jouer la musique en boucle
+          }
 
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -356,6 +372,7 @@ function drawGame() {
 
         // Phase 2 du village aprés la Foret.
         if (isForestNpcSaved && heroHasStoneStone) {
+          musiqueBackgroundVillage.stop();
 
           updateAlchimisteAnimation(myAlchimisteIdle);
           image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
@@ -404,6 +421,7 @@ function drawGame() {
         
       }
       } else if (currentWorld === 2) {
+        musiqueBackgroundVillage.stop();
         noCursor();
         if (isLoadingScreenActive) {
           drawLoadingScreen(); // Afficher l'écran de chargement
@@ -412,6 +430,9 @@ function drawGame() {
               isLoadingScreenActive = false; // Désactiver l'écran de chargement
           }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
         } else {
+          if (!musiqueBackgroundForest.isPlaying()) {
+            musiqueBackgroundForest.loop(); // Jouer la musique en boucle
+          }
           foretDialogActive = true;
           
         image(backgroundForetImage, 0, 0);
