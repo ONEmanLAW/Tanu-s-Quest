@@ -166,6 +166,12 @@ function preload() {
 
   loadingGif = loadImage('pageDeChargement.gif');
   maPolice = loadFont('Minecraftia-Regular.ttf');
+
+
+
+
+  // Sounds and musics :
+  swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
 }
 
 function setup() {

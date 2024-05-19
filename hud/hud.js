@@ -344,6 +344,7 @@ let displayDuration = 5 * 60;
 let displayTimer = 0; 
 let imageVisible = false; 
 let imageDisplayed = false; 
+let swordAndGrenouilleSound;
 
 function gestionTransitionImage() {
   if (!imageVisible && !imageDisplayed) { 
@@ -351,6 +352,7 @@ function gestionTransitionImage() {
       imageVisible = true; 
       imageDisplayed = true; 
       displayTimer = 0; 
+      swordAndGrenouilleSound.play(); // Jouer le son lorsque l'image s'affiche
     }
   } else if (imageVisible) { 
     if (displayTimer < displayDuration) { 
@@ -358,6 +360,7 @@ function gestionTransitionImage() {
       displayTimer++; 
     } else {
       imageVisible = false; 
+      swordAndGrenouilleSound.stop(); // Arrêter le son une fois l'affichage terminé
     }
   }
 }
