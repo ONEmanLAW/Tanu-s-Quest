@@ -1,16 +1,3 @@
-// array assets = [path1, path2, ...]
-// // 
-// worldcandisplay = false
-// fn loadAsset
-
-//   while index < array assets.length
-//     loadImage("path current index of array", counter + 1)
-
-//   canworlddisplay = true
-
-
-
-
 /////////////////////////////////////////////
 //////////////WORLDS VARIABLES///////////////
 /////////////////////////////////////////////
@@ -179,6 +166,8 @@ function preload() {
   musiqueBackgroundForest = loadSound('worlds/music/song18.mp3');
   musiqueBackgroundVillage2 = loadSound('worlds/music/Orbital Colossus.mp3');
   musiqueBackgroundGrotte = loadSound('worlds/music/Woodland Fantasy.mp3');
+  musiqueBackgroundVillage3 = loadSound('worlds/music/Alexander Ehlers - Waking the devil.mp3');
+  musiqueBackgroundBoss = loadSound('worlds/music/Alexander Ehlers - Doomed.mp3');
 }
 
 function setup() {
@@ -236,6 +225,8 @@ let musiqueBackgroundVillage;
 let musiqueBackgroundForest;
 let musiqueBackgroundVillage2;
 let musiqueBackgroundGrotte;
+let musiqueBackgroundVillage3;
+let musiqueBackgroundBoss;
 
 
 function drawLoadingScreen() {
@@ -609,6 +600,7 @@ function drawGame() {
 
       }
       } else if (currentWorld === 4) {
+        musiqueBackgroundVillage3.stop();
         noCursor();
         if (isLoadingScreenActive) {
           drawLoadingScreen();
@@ -617,6 +609,9 @@ function drawGame() {
               isLoadingScreenActive = false; 
           }, 3000);
         } else {
+          if (!musiqueBackgroundBoss.isPlaying()) {
+            musiqueBackgroundBoss.loop(); // Jouer la musique en boucle
+          }
           potions = 3;
         if(animationBoss) {
           updateNormalCamera(3648, 960);
@@ -732,6 +727,9 @@ function drawGame() {
               isLoadingScreenActive = true; 
           }, 3000);
         } else {
+          if (!musiqueBackgroundVillage3.isPlaying()) {
+            musiqueBackgroundVillage3.loop(); // Jouer la musique en boucle
+          }
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         updateYetiAnimation(myYetiIdle);
