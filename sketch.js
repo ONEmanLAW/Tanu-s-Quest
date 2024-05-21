@@ -172,7 +172,7 @@ function setup() {
   introVideo.position(0, 0); 
   
 
-  outroVideo = createVideo('outro/assets/vidéoFin.mp4');
+  outroVideo = createVideo('outro/assets/videoFin.mp4');
   outroVideo.size(windowWidth, windowHeight);
   outroVideo.position(0, 0);
   outroVideo.hide();
@@ -193,7 +193,7 @@ function setup() {
   // Sounds and musics :
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
 
-  musiqueBackgroundTemple = loadSound('worlds/music/мистичная тема.mp3');
+  musiqueBackgroundTemple = loadSound('worlds/music/ok.mp3');
   musiqueBackgroundVillage = loadSound('worlds/music/TownTheme.mp3')
   musiqueBackgroundForest = loadSound('worlds/music/song18.mp3');
   musiqueBackgroundVillage2 = loadSound('worlds/music/Orbital Colossus.mp3');
