@@ -28,6 +28,23 @@ let imageEcorceMagique;
 
 let imageDialogueObtenuEpeeGrenouille;
 
+let ecorceAnimationFinished = false;
+let showAnimationEcorce = false;
+
+let showAnimationPierre = false;
+let pierreAnimationFinished = false;
+
+let showAnimationPierreFeu = false;
+let pierreFeuAnimationFinished = false;
+
+let showAnimationPierreVent = false;
+let pierreVentAnimationFinished = false;
+
+let showAnimationPierreEau = false;
+let pierreEauAnimationFinished = false;
+
+
+
 function preloadHudImages() {
   cadreVide = loadImage('hud/assets/cadreVide.png');
   imageEpee1 = loadImage('hud/assets/imageEpee.png');
@@ -62,9 +79,13 @@ function preloadHudImages() {
   imagePierreVent = loadImage('hud/assets/pierre_vent_anim.gif');
 
   imageDialogueObtenuEpeeGrenouille = loadImage('hud/assets/dialogueObtenuEpeeGrenouille.png');
+
+  animationEcorce = loadImage('hud/assets/ecorce_recup.gif');
+  animationPierreTerre = loadImage('hud/assets/pierre_terre_recup.gif');
+  animationPierreFeu = loadImage('hud/assets/pierre_feu_recup.gif');
+  animationPierreEau = loadImage('hud/assets/pierre_eau_recup.gif');
+  animationPierreVent = loadImage('hud/assets/pierre_vent_recup.gif');
 };
-
-
 
 // Coordonnées et dimensions de l'image de feu
 let xEcorce = 63 * worldForetTileSize + 18;
@@ -81,6 +102,7 @@ function checkHeroInEcorce() {
         yHero + hHero > yEcorce &&
         yHero < yEcorce + hEcorce) {
       heroInEcorce = true;
+      showAnimationEcorce = true;
     }
   }
 };
@@ -100,6 +122,7 @@ function checkHeroInFire() {
         yHero + hHero > yFeu2 &&
         yHero < yFeu2 + hFeu2) {
       heroInFire = true;
+      showAnimationPierreFeu = true;
     }
   }
 };
@@ -119,6 +142,7 @@ function checkHeroInStone() {
         yHero + hHero > yTerre &&
         yHero < yTerre + hTerre) {
       heroInStone = true;
+      showAnimationPierre = true;
     }
   }
 };
@@ -140,6 +164,7 @@ function checkHeroInWater() {
         yHero + hHero > yEau &&
         yHero < yEau + hEau) {
       heroInWater = true;
+      showAnimationPierreEau = true;
     }
   }
 };
@@ -160,6 +185,7 @@ function checkHeroInWind() {
         yHero + hHero > yVent &&
         yHero < yVent + hVent) {
       heroInWind = true;
+      showAnimationPierreVent = true;
     }
   }
 };

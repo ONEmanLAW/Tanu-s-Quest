@@ -471,14 +471,23 @@ function drawGame() {
         applyGravity();
 
         checkHeroInStone();
-       
-        if(!heroInStone) {
+        if (!heroInStone) {
           image(imagePierreTerre, xTerre, yTerre, wTerre, hTerre);
+        } else if (showAnimationPierre && !pierreAnimationFinished) {
+          image(animationPierreTerre, xTerre, yTerre, wTerre, hTerre);
+          setTimeout(() => {
+            pierreAnimationFinished = true;
+          }, 700);
         }
 
         checkHeroInEcorce();
-        if(!heroInEcorce) {
+        if (!heroInEcorce) {
           image(imageEcorceMagique, xEcorce, yEcorce, wEcorce, hEcorce);
+        } else if (showAnimationEcorce && !ecorceAnimationFinished) {
+          image(animationEcorce, xEcorce, yEcorce, wEcorce, hEcorce);
+          setTimeout(() => {
+            ecorceAnimationFinished = true;
+          }, 700);
         }
 
         for (let i = 0; i < cagePositions.length; i++) {
@@ -547,18 +556,33 @@ function drawGame() {
 
 
         checkHeroInFire();
-        if(!heroInFire) {
+        if (!heroInFire) {
           image(imagePierreFeu, xFeu2, yFeu2, wFeu2, hFeu2);
+        } else if (showAnimationPierreFeu && !pierreFeuAnimationFinished) {
+          image(animationPierreFeu, xFeu2, yFeu2, wFeu2, hFeu2);
+          setTimeout(() => {
+            pierreFeuAnimationFinished = true;
+          }, 700);
         }
 
         checkHeroInWind();
         if (!heroInWind) {
           image(imagePierreVent, xVent, yVent, wVent, hVent);
+        } else if (showAnimationPierreVent && !pierreVentAnimationFinished) {
+          image(animationPierreVent, xVent, yVent, wVent, hVent);
+          setTimeout(() => {
+            pierreVentAnimationFinished = true;
+          }, 700);
         }
 
         checkHeroInWater();
         if (!heroInWater) {
           image(imagePierreEau, xEau, yEau, wEau, hEau);
+        } else if (showAnimationPierreEau && !pierreEauAnimationFinished) {
+          image(animationPierreEau, xEau, yEau, wEau, hEau);
+          setTimeout(() => {
+            pierreEauAnimationFinished = true;
+          }, 700); 
         }
 
         handleCooldown();
@@ -739,11 +763,9 @@ function drawGame() {
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
 function draw() {
-  // Dessinez votre jeu ici
-  if (allAssetsLoaded) { //canworlddisplay
+  if (allAssetsLoaded) {
     drawGame();
   } else {
-    // Affichez un message de chargement ou une animation de chargement
     background(0);
     fill(255);
     textAlign(CENTER, CENTER);

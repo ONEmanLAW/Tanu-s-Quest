@@ -133,7 +133,6 @@ function checkKeys(currentMap) {
       }
 
       
-
       if (keyIsDown(68)) {
         moveRight();
         lastHorizontalDirection = 'right';
