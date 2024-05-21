@@ -196,7 +196,6 @@ function setup() {
   musiqueBackgroundTemple = loadSound('worlds/music/temple.mp3');
   musiqueBackgroundVillage = loadSound('worlds/music/village1et2.mp3')
   musiqueBackgroundForest = loadSound('worlds/music/foret.mp3');
-  musiqueBackgroundVillage2 = loadSound('worlds/music/village1et2.mp3');
   musiqueBackgroundGrotte = loadSound('worlds/music/grotte.mp3');
   musiqueBackgroundVillage3 = loadSound('worlds/music/village3.mp3');
   musiqueBackgroundBoss = loadSound('worlds/music/boss.mp3');
@@ -221,7 +220,6 @@ let isLoadingScreenActive = true;
 let musiqueBackgroundTemple;
 let musiqueBackgroundVillage;
 let musiqueBackgroundForest;
-let musiqueBackgroundVillage2;
 let musiqueBackgroundGrotte;
 let musiqueBackgroundVillage3;
 let musiqueBackgroundBoss;
@@ -366,9 +364,8 @@ function drawGame() {
 
         // Phase 2 du village aprés la Foret.
         if (isForestNpcSaved && heroHasStoneStone) {
-          musiqueBackgroundVillage.stop();
-          if (!musiqueBackgroundVillage2.isPlaying()) {
-            musiqueBackgroundVillage2.loop();
+          if (!musiqueBackgroundVillage.isPlaying()) {
+            musiqueBackgroundVillage.loop();
           }
 
           updateAlchimisteAnimation(myAlchimisteIdle);
@@ -509,7 +506,7 @@ function drawGame() {
         
       }
       } else if (currentWorld === 3) {
-        musiqueBackgroundVillage2.stop();
+        musiqueBackgroundVillage.stop();
         noCursor();
         if (isLoadingScreenActive) {
           drawLoadingScreen();
