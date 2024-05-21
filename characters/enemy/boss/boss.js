@@ -58,8 +58,9 @@ function updateBossAnimation(animationArray) {
 
 
 let bossDialogues = [
-  { text: "Je suis le terrifiant Boss Gobelin, et je suis revenu pour réduire ce village en cendres !", boxType: "Boss" },
-  { text: "Tanuki, tu oses te dresser contre moi ? Tu n'as aucune chance !", boxType: "Boss" },
+  { text: "GOBELIN JE VAIS TE TUER !!!", boxType: "Hero" },
+  { text: "HAHA, ENCORE UN TANUKI,\n vient donc me tuer avant que je mange ta famille HAHA!", boxType: "Boss" },
+  { text: "Tu n'a aucune chance!", boxType: "Boss" },
   { text: "TU VAS VOIRE !!!", boxType: "Hero" },
 ];
 
@@ -74,7 +75,7 @@ function gererIntroductionBoss() {
     let textWidth = 1100;
     let textHeight = 250;
     let textX = (width - textWidth) / 2;
-    let textY = height - textHeight - 20 + 50;
+    let textY = height - textHeight - 15;
 
     let boiteDeDialogue;
     if (boxType === "Boss") {
