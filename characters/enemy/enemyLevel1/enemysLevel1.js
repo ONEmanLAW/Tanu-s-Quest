@@ -61,12 +61,30 @@ function createEnemiesForet() {
 function createEnemiesGrotte() {
   enemiesGrotte = [];
   enemiesGrotte.push({
-    position: createVector(6 * worldGrotteTileSize, 8 * worldGrotteTileSize),
-    pointA: createVector(6 * worldGrotteTileSize, 8 * worldGrotteTileSize),
-    pointB: createVector(10 * worldGrotteTileSize, 8 * worldGrotteTileSize),
+    position: createVector(181 * worldGrotteTileSize, 11 * worldGrotteTileSize),
+    pointA: createVector(181 * worldGrotteTileSize, 11 * worldGrotteTileSize),
+    pointB: createVector(184 * worldGrotteTileSize, 11 * worldGrotteTileSize),
     direction: 1,
-    initialPosition: createVector(6 * worldGrotteTileSize, 8 * worldGrotteTileSize), // Enregistrez la position initiale
-    lives: livesGobelin1 // Initialisez les vies de l'ennemi
+    initialPosition: createVector(181 * worldGrotteTileSize, 11 * worldGrotteTileSize),
+    lives: livesGobelin1 
+  });
+
+  enemiesGrotte.push({
+    position: createVector(98 * worldGrotteTileSize, 5 * worldGrotteTileSize),
+    pointA: createVector(98 * worldGrotteTileSize, 5 * worldGrotteTileSize),
+    pointB: createVector(101 * worldGrotteTileSize, 5 * worldGrotteTileSize),
+    direction: 1,
+    initialPosition: createVector(98 * worldGrotteTileSize, 5 * worldGrotteTileSize),
+    lives: livesGobelin1
+  });
+
+  enemiesGrotte.push({
+    position: createVector(35 * worldGrotteTileSize, 7 * worldGrotteTileSize),
+    pointA: createVector(35 * worldGrotteTileSize, 7 * worldGrotteTileSize),
+    pointB: createVector(38 * worldGrotteTileSize, 7 * worldGrotteTileSize),
+    direction: 1,
+    initialPosition: createVector(35 * worldGrotteTileSize, 7 * worldGrotteTileSize),
+    lives: livesGobelin1
   });
 }
 
@@ -75,11 +93,9 @@ function createEnemiesGrotte() {
 function resetEnemiesPosition() {
   for (let i = 0; i < enemies.length; i++) {
     let enemy = enemies[i];
-    // Réinitialise la position de l'ennemi à sa position initiale
     enemy.position.x = enemy.initialPosition.x;
     enemy.position.y = enemy.initialPosition.y;
-    // Réinitialise la direction de l'ennemi si nécessaire
-    enemy.direction = 1; // Remettre la direction à sa valeur par défaut, si nécessaire
+    enemy.direction = 1; 
     enemy.lives = livesGobelin1;
   }
 }

@@ -194,9 +194,6 @@ function gererDialogueForet() {
 
 
 
-
-
-
 let dialoguesFinishForet = [
   { text: "LE GRAND SAGE A UN MESSAGE POUR VOUS CROAAAA", boxType: "Grenouille" },
   { text: "...", boxType: "Hero" },
@@ -238,6 +235,7 @@ function gererDialogueFinishForet() {
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
   }
 }
+
 
 
 

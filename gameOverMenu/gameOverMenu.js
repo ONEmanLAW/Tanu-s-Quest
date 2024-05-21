@@ -81,6 +81,7 @@ function gameOverMenu() {
           createEnemiesGrotte();
           createEnemiesGrotte2();
           createEnemiesGrotte3();
+          potions = 3;
         } else if (currentWorld === 4) {
           
         }

@@ -38,13 +38,11 @@ function preloadBossImages() {
   let boss11 = loadImage('characters/enemy/boss/assets/BossGobelin_idle12.png');
   myBossIdle.push(boss11);
 
-  currentBossImage = boss0; // Définition de l'image de boss actuelle
+  currentBossImage = boss0;
 }
 
 function updateBossAnimation(animationArray) {
   movementCounterBoss += 1;
-  // Réglez la vitesse de l'animation du boss comme vous le souhaitez
-  // Par exemple, 15 frames par image
   if (movementCounterBoss >= 8) {
     currentBossIndex += 1;
     if (currentBossIndex === animationArray.length) {
@@ -99,33 +97,37 @@ function gererIntroductionBoss() {
 
 
 
-let bossHealth = 100; // Santé totale du boss
-let bossMaxHealth = 100; // Santé maximale du boss
-let bossHealthBarWidth = 600; // Largeur de la barre de santé
-let bossHealthBarHeight = 20; // Hauteur de la barre de santé
-let bossHealthBarX = 500; // Position horizontale de la barre de santé
-let bossHealthBarY = 50; // Position verticale de la barre de santé
-let battleBoss = false;
-let bossDead = false;
+let bossHealth = 100;
+let bossMaxHealth = 100; 
 let bossPhase = 0;
+let bossDead = false;
+let battleBoss = false;
 
-function drawBossHealthBar() {
-  // Calculer la largeur de la barre de santé en fonction de la santé actuelle du boss
-  let currentHealthBarWidth = (bossHealth / bossMaxHealth) * bossHealthBarWidth;
+let bossImagePhase0_1, bossImagePhase2, bossImagePhase3, bossImageDead;
 
-  // Définir la couleur de la barre de santé en fonction de la santé actuelle
-  let healthBarColor;
-  if (bossHealth >= 0.7 * bossMaxHealth) {
-    healthBarColor = color(0, 255, 0); // Vert si la santé est élevée
-  } else if (bossHealth >= 0.4 * bossMaxHealth) {
-    healthBarColor = color(255, 255, 0); // Jaune si la santé est moyenne
-  } else {
-    healthBarColor = color(255, 0, 0); // Rouge si la santé est faible
-  }
-
-  // Dessiner la barre de santé
-  fill(healthBarColor);
-  rect(bossHealthBarX, bossHealthBarY, currentHealthBarWidth, bossHealthBarHeight);
+function preloadBarDeVieBoss() {
+  // Charger les images
+  bossImagePhase0_1 = loadImage('characters/enemy/boss/assets/barreVie1.png');
+  bossImagePhase2 = loadImage('characters/enemy/boss/assets/barreVie2.png');
+  bossImagePhase3 = loadImage('characters/enemy/boss/assets/barreVie3.png');
+  bossImageDead = loadImage('characters/enemy/boss/assets/barreVie4.png');
 }
 
+function drawBossHealthBar() {
+  let bossImage;
+
+  if (bossHealth <= 0) {
+    bossImage = bossImageDead;
+  } else if (bossPhase === 0 || bossPhase === 1) {
+    bossImage = bossImagePhase0_1;
+  } else if (bossPhase === 2) {
+    bossImage = bossImagePhase2;
+  } else if (bossPhase === 3) {
+    bossImage = bossImagePhase3;
+  }
+
+  if (bossImage) {
+    image(bossImage, 420, 50);
+  }
+}
 

@@ -52,9 +52,27 @@ function createEnemiesForet3() {
 
 function createEnemiesGrotte3() {
   enemies3Grotte.push({
-    position: createVector(15 * worldGrotteTileSize, 6 * worldGrotteTileSize), 
+    position: createVector(157 * worldGrotteTileSize, 11 * worldGrotteTileSize), 
     detected: false,
-    origin: createVector(15 * worldGrotteTileSize, 6 * worldGrotteTileSize),
+    origin: createVector(157 * worldGrotteTileSize, 11 * worldGrotteTileSize),
+    distanceToOrigin: 0,
+    lives: livesGobelin3,
+    direction: 'left'
+  });
+
+  enemies3Grotte.push({
+    position: createVector(120 * worldGrotteTileSize, 11 * worldGrotteTileSize), 
+    detected: false,
+    origin: createVector(120 * worldGrotteTileSize, 11 * worldGrotteTileSize),
+    distanceToOrigin: 0,
+    lives: livesGobelin3,
+    direction: 'left'
+  });
+
+  enemies3Grotte.push({
+    position: createVector(59 * worldGrotteTileSize, 10 * worldGrotteTileSize), 
+    detected: false,
+    origin: createVector(59 * worldGrotteTileSize, 10 * worldGrotteTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin3,
     direction: 'left'

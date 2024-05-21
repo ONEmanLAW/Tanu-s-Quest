@@ -163,6 +163,7 @@ function preload() {
   preloadGameOverImages();
   // Background Of Worlds.
   preloadBackgroundImages(); 
+  preloadBarDeVieBoss();
 
   loadingGif = loadImage('pageDeChargement.gif');
   maPolice = loadFont('Minecraftia-Regular.ttf');
@@ -505,11 +506,10 @@ function drawGame() {
       } else if (currentWorld === 3) {
         noCursor();
         if (isLoadingScreenActive) {
-          drawLoadingScreen(); // Afficher l'écran de chargement
-          // Charger le nouveau monde après 3 secondes
+          drawLoadingScreen();
           setTimeout(function() {
-              isLoadingScreenActive = false; // Désactiver l'écran de chargement
-          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+              isLoadingScreenActive = false;
+          }, 3000);
         } else {
         image(backgroundGrotteImage, 0, 0);
         updateParallaxCameraGrotte(16000, 1120);
@@ -518,21 +518,21 @@ function drawGame() {
         
         image(currentHeroImage, xHero, yHero, 80, 80);
 
-        // moveEnemiesGrotte(); 
-        // drawEnemiesGrotte();
-        // checkEnemyCollisionGrotte(); 
+        moveEnemiesGrotte(); 
+        drawEnemiesGrotte();
+        checkEnemyCollisionGrotte(); 
 
-        // checkEnemy2CollisionGrotte(); 
-        // moveEnemies2Grotte();
-        // detectPlayer2Grotte();
-        // updateAnimationState2Grotte();
-        // drawEnemies2Grotte();
+        checkEnemy2CollisionGrotte(); 
+        moveEnemies2Grotte();
+        detectPlayer2Grotte();
+        updateAnimationState2Grotte();
+        drawEnemies2Grotte();
 
-        // checkEnemy3CollisionGrotte();
-        // moveEnemies3Grotte();
-        // detectPlayer3Grotte(); 
-        // updateAnimationState3Grotte();
-        // drawEnemies3Grotte();
+        checkEnemy3CollisionGrotte();
+        moveEnemies3Grotte();
+        detectPlayer3Grotte(); 
+        updateAnimationState3Grotte();
+        drawEnemies3Grotte();
 
 
       
@@ -569,8 +569,8 @@ function drawGame() {
 
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
-        
-        
+
+
       }
       } else if (currentWorld === 4) {
         noCursor();
@@ -594,7 +594,6 @@ function drawGame() {
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
-        drawBossHealthBar();
         
         //applyGravityBoss();
 
@@ -617,6 +616,8 @@ function drawGame() {
           battleBoss = true;
         }
 
+
+
         moveEnemiesBoss(); 
         drawEnemiesBoss();
         checkEnemyCollisionBoss(); 
@@ -634,6 +635,7 @@ function drawGame() {
         drawEnemies3Boss();
 
         if (battleBoss) {
+          drawBossHealthBar();
           if (bossPhase === 0) {
             let enemiesToSpawn = spawnEnemyAtSpecificTime(1, 1);
             enemiesBoss = enemiesBoss.concat(enemiesToSpawn);

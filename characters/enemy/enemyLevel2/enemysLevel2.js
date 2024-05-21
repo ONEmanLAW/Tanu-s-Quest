@@ -62,9 +62,18 @@ function createEnemiesForet2() {
 
 function createEnemiesGrotte2() {
   enemies2Grotte.push({
-    position: createVector(5 * worldGrotteTileSize, 6 * worldGrotteTileSize), 
+    position: createVector(80 * worldGrotteTileSize, 9 * worldGrotteTileSize), 
     charging: false,
-    origin: createVector(5 * worldGrotteTileSize, 6 * worldGrotteTileSize),
+    origin: createVector(80 * worldGrotteTileSize, 9 * worldGrotteTileSize),
+    distanceToOrigin: 0,
+    lives: livesGobelin2,
+    direction: 'left' 
+  });
+
+  enemies2Grotte.push({
+    position: createVector(18 * worldGrotteTileSize, 11 * worldGrotteTileSize), 
+    charging: false,
+    origin: createVector(18 * worldGrotteTileSize, 11 * worldGrotteTileSize),
     distanceToOrigin: 0,
     lives: livesGobelin2,
     direction: 'left' 
