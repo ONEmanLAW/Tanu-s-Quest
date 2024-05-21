@@ -154,20 +154,7 @@ function preload() {
 
   loadingGif = loadImage('pageDeChargement.gif');
   maPolice = loadFont('Minecraftia-Regular.ttf');
-
-
-
-
-  // Sounds and musics :
-  swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
-
-  musiqueBackgroundTemple = loadSound('worlds/music/мистичная тема.mp3');
-  musiqueBackgroundVillage = loadSound('worlds/music/TownTheme.mp3')
-  musiqueBackgroundForest = loadSound('worlds/music/song18.mp3');
-  musiqueBackgroundVillage2 = loadSound('worlds/music/Orbital Colossus.mp3');
-  musiqueBackgroundGrotte = loadSound('worlds/music/Woodland Fantasy.mp3');
-  musiqueBackgroundVillage3 = loadSound('worlds/music/Alexander Ehlers - Waking the devil.mp3');
-  musiqueBackgroundBoss = loadSound('worlds/music/Alexander Ehlers - Doomed.mp3');
+  
 }
 
 function setup() {
@@ -202,6 +189,17 @@ function setup() {
   });
 
   textFont(maPolice);
+
+  // Sounds and musics :
+  swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
+
+  musiqueBackgroundTemple = loadSound('worlds/music/мистичная тема.mp3');
+  musiqueBackgroundVillage = loadSound('worlds/music/TownTheme.mp3')
+  musiqueBackgroundForest = loadSound('worlds/music/song18.mp3');
+  musiqueBackgroundVillage2 = loadSound('worlds/music/Orbital Colossus.mp3');
+  musiqueBackgroundGrotte = loadSound('worlds/music/Woodland Fantasy.mp3');
+  musiqueBackgroundVillage3 = loadSound('worlds/music/Alexander Ehlers - Waking the devil.mp3');
+  musiqueBackgroundBoss = loadSound('worlds/music/Alexander Ehlers - Doomed.mp3');
 
   preloadAssets()
     .then(() => {
@@ -520,7 +518,7 @@ function drawGame() {
           }, 3000);
         } else {
           if (!musiqueBackgroundGrotte.isPlaying()) {
-            musiqueBackgroundGrotte.loop(); // Jouer la musique en boucle
+            musiqueBackgroundGrotte.loop();
           }
 
         image(backgroundGrotteImage, 0, 0);
@@ -626,7 +624,7 @@ function drawGame() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
         
-        //applyGravityBoss();
+        applyGravityBoss();
 
         if (animationBoss && animationCounterBoss < 250) {
           xHero -= movementSpeedBoss;
