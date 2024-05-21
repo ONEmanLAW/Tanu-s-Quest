@@ -74,10 +74,14 @@ let conversationYetiFinishedEcorse = false;
 let dialoguesYetiEcorse = [
   { text: "OHHHHHHHHHHHHHHHHHH", boxType: "Yeti" },
   { text: "....", boxType: "Hero" },
-  { text: "TANU, j'ai entendu tes exploi dans la foret, tu a pu ramener l'ecorcsse", boxType: "Yeti" },
+  { text: "TANU, j'ai entendu tes exploi dans la foret,\n tu a pu ramener l'ecorcsse", boxType: "Yeti" },
   { text: "Oui le voici", boxType: "Hero" },
   { text: "INcroyable MERCI", boxType: "Yeti" },
-  { text: "Voici pour toi .", boxType: "Yeti" },
+  { text: "Voici pour toi.", boxType: "Yeti" },
+  { text: "J'ai forgé cette épée avec soin.", boxType: "Yeti" },
+  { text: "Tu ferra deux fois plus de dégats au Gobelin.", boxType: "Yeti" },
+  { text: "Bonne chance.", boxType: "Yeti" },
+  { text: "Merci.", boxType: "Hero" },
   // Ajoute d'autres dialogues ici selon le besoin
 ];
 
@@ -89,11 +93,10 @@ function gererDialoguesYetiEcorse() {
   if (yetiDialogActiveEcorse && currentYetiIndexQueteEcorse < dialoguesYetiEcorse.length) {
     let dialogueActuel = dialoguesYetiEcorse[currentYetiIndexQueteEcorse].text;
     let boxType = dialoguesYetiEcorse[currentYetiIndexQueteEcorse].boxType;
-    let textWidth = 1100; 
-    let textHeight = 250; 
+    let textWidth = 1150; 
+    let textHeight = 275; 
 
-    // Positionner le texte juste au-dessus du Yeti
-    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2; // Centrer horizontalement par rapport au Yeti
+    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2 - 200; // Centrer horizontalement par rapport au Yeti
     let textY = npcYetiY2 - textHeight - 10; // Juste au-dessus du Yeti avec un petit décalage
 
     let boiteDeDialogue;
@@ -108,9 +111,9 @@ function gererDialoguesYetiEcorse() {
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
+    text(dialogueActuel, textX + 60 + textWidth / 2, textY + textHeight / 2);
   } else {
-    yetiDialogActiveEcorse = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
+    yetiDialogActiveEcorse = false;
   }
 }
 
@@ -141,7 +144,7 @@ let conversationYetiFinishedEcorse2 = false;
 let dialoguesYetiEcorse2 = [
   { text: "OHHHHHHHHHHHHHHHHHH", boxType: "Yeti" },
   { text: "....", boxType: "Hero" },
-  { text: "TANU, j'ai entendu tes exploi dans la foret, tu a pu ramener l'ecorcsse", boxType: "Yeti" },
+  { text: "TANU, j'ai entendu tes exploi dans la foret,\n tu a pu ramener l'ecorcsse", boxType: "Yeti" },
   { text: "Non maleresuement... ", boxType: "Hero" },
   { text: "Ah je suis plutot décu...", boxType: "Yeti" },
   { text: "Je pense que tu a plein de choses a faire aurevoir.", boxType: "Yeti" },
@@ -155,11 +158,11 @@ function gererDialoguesYetiEcorse2() {
   if (yetiDialogActiveEcorse2 && currentYetiIndexQueteEcorse2 < dialoguesYetiEcorse2.length) {
     let dialogueActuel = dialoguesYetiEcorse2[currentYetiIndexQueteEcorse2].text;
     let boxType = dialoguesYetiEcorse2[currentYetiIndexQueteEcorse2].boxType;
-    let textWidth = 1100; 
-    let textHeight = 250; 
+    let textWidth = 1150; 
+    let textHeight = 275; 
     
     // Positionner le texte juste au-dessus du Yeti
-    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2; // Centrer horizontalement par rapport au Yeti
+    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2 - 200; // Centrer horizontalement par rapport au Yeti
     let textY = npcYetiY2 - textHeight - 10; // Juste au-dessus du Yeti avec un petit décalage
     
     let boiteDeDialogue;
@@ -174,7 +177,7 @@ function gererDialoguesYetiEcorse2() {
     textSize(20);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(dialogueActuel, textX + textWidth / 2, textY + textHeight / 2);
+    text(dialogueActuel, textX + 60 + textWidth / 2, textY + textHeight / 2);
   } else {
     yetiDialogActiveEcorse2 = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
   }

@@ -42,10 +42,10 @@ function updateAlchimisteAnimation(animationArray) {
 
 // Dialogues de l'alchimiste
 let dialoguesAlchimiste = [
-  { text: "Bonjour Alchimiste, le Grand Sage m'a dit de passer vous voire.", boxType: "Hero" },
+  { text: "Bonjour Alchimiste,\n le Grand Sage m'a dit de passer vous voire.", boxType: "Hero" },
   { text: "Bonjour Tanu, Merci encore de nous avoir sauvée.", boxType: "Alchimiste" },
   { text: "J'ai quelque choses pour toi !", boxType: "Alchimiste" },
-  { text: "Voici des potions pour toi,\n si jamais tu perds trop de cœurs tu peut utilier 'r' pour récupérer de la vie.", boxType: "Alchimiste" },
+  { text: "Voici des potions pour toi,\n si jamais tu perds trop de cœurs,\n tu peut utilier 'r' pour récupérer de la vie.", boxType: "Alchimiste" },
   { text: "Je te remercie pour ton don!", boxType: "Hero" },
   // Ajoutez d'autres dialogues ici
 ];
@@ -62,10 +62,10 @@ function gererDialoguesAlchimiste() {
     let textWidth = 1150; 
     let textHeight = 275; 
     
-    let boiteDeDialogueX = 2200; 
-    let boiteDeDialogueY = 100; 
+    let boiteDeDialogueX = 2480; 
+    let boiteDeDialogueY = 120; 
     
-    let textX = boiteDeDialogueX + textWidth / 2;
+    let textX = boiteDeDialogueX + textWidth / 2 + 60;
     let textY = boiteDeDialogueY + textHeight / 2; 
     
     // Sélection de l'image de la boîte de dialogue en fonction du type

@@ -34,7 +34,7 @@ function mainMenuButtons() {
   backgroundSettingsImage = loadImage('mainMenu/images/grosBlocParametres.png');
   exitButtonParam = loadImage('mainMenu/images/blocQuitterParametres.png');
 
-  musiqueFond = loadSound('mainMenu/music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav');
+  musiqueFond = loadSound('mainMenu/music/mainMenu.mp3');
 }
 
 function draw() {

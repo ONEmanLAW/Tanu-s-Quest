@@ -330,7 +330,7 @@ function drawGame() {
           }, 3000);
         } else {
           if (!musiqueBackgroundVillage.isPlaying()) {
-            musiqueBackgroundVillage.loop(); // Jouer la musique en boucle
+            musiqueBackgroundVillage.loop();
           }
 
         updateNormalCamera(4704, 2688);
@@ -368,7 +368,7 @@ function drawGame() {
         if (isForestNpcSaved && heroHasStoneStone) {
           musiqueBackgroundVillage.stop();
           if (!musiqueBackgroundVillage2.isPlaying()) {
-            musiqueBackgroundVillage2.loop(); // Jouer la musique en boucle
+            musiqueBackgroundVillage2.loop();
           }
 
           updateAlchimisteAnimation(myAlchimisteIdle);
@@ -624,7 +624,7 @@ function drawGame() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
         
-        applyGravityBoss();
+        // applyGravityBoss();
 
         if (animationBoss && animationCounterBoss < 250) {
           xHero -= movementSpeedBoss;
@@ -712,6 +712,7 @@ function drawGame() {
         drawHearts();
 
         if (bossDead) {
+          musiqueBackgroundBoss.stop();
           image(outroImages[outroImageIndex], 0, 0, width, height);
         }
       }
