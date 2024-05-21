@@ -193,13 +193,13 @@ function setup() {
   // Sounds and musics :
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
 
-  musiqueBackgroundTemple = loadSound('worlds/music/ok.mp3');
-  musiqueBackgroundVillage = loadSound('worlds/music/TownTheme.mp3')
-  musiqueBackgroundForest = loadSound('worlds/music/song18.mp3');
-  musiqueBackgroundVillage2 = loadSound('worlds/music/Orbital Colossus.mp3');
-  musiqueBackgroundGrotte = loadSound('worlds/music/Woodland Fantasy.mp3');
-  musiqueBackgroundVillage3 = loadSound('worlds/music/Alexander Ehlers - Waking the devil.mp3');
-  musiqueBackgroundBoss = loadSound('worlds/music/Alexander Ehlers - Doomed.mp3');
+  musiqueBackgroundTemple = loadSound('worlds/music/temple.mp3');
+  musiqueBackgroundVillage = loadSound('worlds/music/village3.mp3')
+  musiqueBackgroundForest = loadSound('worlds/music/foret.mp3');
+  musiqueBackgroundVillage2 = loadSound('worlds/music/village3.mp3');
+  musiqueBackgroundGrotte = loadSound('worlds/music/grotte.mp3');
+  musiqueBackgroundVillage3 = loadSound('worlds/music/village3.mp3');
+  musiqueBackgroundBoss = loadSound('worlds/music/boss.mp3');
 
   preloadAssets()
     .then(() => {
@@ -748,6 +748,9 @@ function drawGame() {
       // }
 
     } else {
+      musiqueBackgroundForest.stop();
+      musiqueBackgroundGrotte.stop();
+      musiqueBackgroundBoss.stop();
       cursor('url(curseurSite.png), auto')
       gameOverMenu();
     }

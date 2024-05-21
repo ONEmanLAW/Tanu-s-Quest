@@ -202,9 +202,9 @@ function drawHud() {
   image(cadreVide, 30, 900, 600, 150);
   
   if (!newSword) {
-    image(imageEpee2, 44, 901, 100, 100);
+    image(imageEpee2, 44, 909, 100, 100);
   } else {
-    image(imageEpee3, 44, 901, 100, 100);
+    image(imageEpee3, 44, 909, 100, 100);
   }
   
   
@@ -272,16 +272,16 @@ function drawHud() {
 function drawHudTemple () {
   push();
   if (currentIntroductionIndex === 12) {
-    image(imageCadreHeart, 5, 100, 350, 125);
+    image(imageCadreHeart, 30, 5, 350, 125);
     drawHearts();
   } else if(currentIntroductionIndex === 13) {
-    image(imageCadreHeart, 5, 100, 350, 125);
+    image(imageCadreHeart, 30, 5, 350, 125);
     drawHearts();
 
     image(cadreVide, 30, 850, 600, 150);
     image(imageEpee1, 44, 861, 100, 100);
   } else if(currentIntroductionIndex === 14) {
-    image(imageCadreHeart, 5, 100, 350, 125);
+    image(imageCadreHeart, 30, 5, 350, 125);
     drawHearts();
 
     image(cadreVide, 30, 850, 600, 150);
@@ -289,7 +289,7 @@ function drawHudTemple () {
     image(imagePotion1, 160, 915, 75, 75);
 
   } else if(currentIntroductionIndex === 15) {
-    image(imageCadreHeart, 5, 100, 350, 125);
+    image(imageCadreHeart, 30, 5, 350, 125);
     drawHearts();
 
     image(cadreVide, 30, 850, 600, 150);
@@ -301,7 +301,7 @@ function drawHudTemple () {
     image(imageVent1, 430, 915, 65, 65);
     image(imageEau1, 520, 915, 65, 65);
   } else if (currentIntroductionIndex === 16) {
-    image(imageCadreHeart, 5, 100, 350, 125);
+    image(imageCadreHeart, 30, 5, 350, 125);
     drawHearts();
 
     image(cadreVide, 30, 850, 600, 150);
