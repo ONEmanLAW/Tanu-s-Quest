@@ -379,16 +379,19 @@ function spawnEnemyAtSpecificTime3(numEnemies, phase) {
 
     switch (phase) {
       case 1:
-        enemy3.position.x = (8 + i * 2) * worldBossTileSize;
-        enemy3.position.y = (2 + i * 2) * worldBossTileSize;
-        enemy3.origin.x = (8 + i * 2) * worldBossTileSize; 
-        enemy3.origin.y = (2 + i * 2) * worldBossTileSize;
+        enemy3.position.x = (5 + i * 2) * worldBossTileSize;
+        enemy3.position.y = (8 + i * 2) * worldBossTileSize;
+        enemy3.origin.x = (5 + i * 2) * worldBossTileSize; 
+        enemy3.origin.y = (8 + i * 2) * worldBossTileSize;
+        enemy3.direction = 'right';
         break;
       case 2:
-        enemy3.position.x = (8 + i * 2) * worldBossTileSize; 
-        enemy3.position.y = (3 + i * 2) * worldBossTileSize; 
-        enemy3.origin.x = (8 + i * 2) * worldBossTileSize; 
-        enemy3.origin.y = (3 + i * 2) * worldBossTileSize;
+        enemy3.position.x = (5 + i * 2) * worldBossTileSize;
+        enemy3.position.y = (8) * worldBossTileSize;
+        enemy3.origin.x = (5 + i * 2) * worldBossTileSize; 
+        enemy3.origin.y = (8) * worldBossTileSize;
+        enemy3.direction = 'right';
+
         break;
       case 3:
         enemy3.position.x = (8 + i * 2) * worldBossTileSize; 

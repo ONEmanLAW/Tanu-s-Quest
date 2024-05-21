@@ -309,23 +309,23 @@ function spawnEnemyAtSpecificTime(numEnemies, phase) {
     
     switch (phase) {
       case 1:
-        enemy.position.x = (6 + i * 2) * worldBossTileSize;
+        enemy.position.x = (3 + i * 2) * worldBossTileSize;
         enemy.position.y = (8 + i * 2) * worldBossTileSize; 
+        enemy.initialPosition.x = enemy.position.x;
+        enemy.initialPosition.y = enemy.position.y;
+        enemy.pointA.x = enemy.position.x - 1 * worldBossTileSize; 
+        enemy.pointA.y = enemy.position.y;
+        enemy.pointB.x = enemy.position.x + 7 * worldBossTileSize;
+        enemy.pointB.y = enemy.position.y;
+        break;
+      case 2:
+        enemy.position.x = (11 + i * 2) * worldBossTileSize;
+        enemy.position.y = (8) * worldBossTileSize;
         enemy.initialPosition.x = enemy.position.x;
         enemy.initialPosition.y = enemy.position.y;
         enemy.pointA.x = enemy.position.x - 2 * worldBossTileSize; 
         enemy.pointA.y = enemy.position.y;
-        enemy.pointB.x = enemy.position.x + 2 * worldBossTileSize;
-        enemy.pointB.y = enemy.position.y;
-        break;
-      case 2:
-        enemy.position.x = (6 + i * 2) * worldBossTileSize;
-        enemy.position.y = (3 + i * 2) * worldBossTileSize;
-        enemy.initialPosition.x = enemy.position.x;
-        enemy.initialPosition.y = enemy.position.y;
-        enemy.pointA.x = enemy.position.x - 3 * worldBossTileSize; 
-        enemy.pointA.y = enemy.position.y;
-        enemy.pointB.x = enemy.position.x + 3 * worldBossTileSize;
+        enemy.pointB.x = enemy.position.x + 1 * worldBossTileSize;
         enemy.pointB.y = enemy.position.y;
         break;
       case 3:

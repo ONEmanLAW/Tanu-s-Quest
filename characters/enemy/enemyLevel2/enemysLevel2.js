@@ -400,21 +400,24 @@ function spawnEnemyAtSpecificTime2(numEnemies, phase) {
     switch (phase) {
       case 1:
         enemy2.position.x = (6 + i * 2) * worldBossTileSize;
-        enemy2.position.y = (2 + i * 2) * worldBossTileSize;
+        enemy2.position.y = (8 + i * 2) * worldBossTileSize;
         enemy2.origin.x = (6 + i * 2) * worldBossTileSize; 
-        enemy2.origin.y = (2 + i * 2) * worldBossTileSize;
+        enemy2.origin.y = (8 + i * 2) * worldBossTileSize;
+        enemy2.direction = 'right';
         break;
       case 2:
-        enemy2.position.x = (6 + i * 2) * worldBossTileSize; 
-        enemy2.position.y = (3 + i * 2) * worldBossTileSize; 
-        enemy2.origin.x = (6 + i * 2) * worldBossTileSize; 
-        enemy2.origin.y = (3 + i * 2) * worldBossTileSize;
+        enemy2.position.x = (11 + i * 2) * worldBossTileSize; 
+        enemy2.position.y = (8) * worldBossTileSize; 
+        enemy2.origin.x = (11+ i * 2) * worldBossTileSize; 
+        enemy2.origin.y = (8) * worldBossTileSize;
+        enemy2.direction = 'right';
         break;
       case 3:
         enemy2.position.x = (6 + i * 2) * worldBossTileSize; 
         enemy2.position.y = (4 + i * 2) * worldBossTileSize; 
         enemy2.origin.x = (6 + i * 2) * worldBossTileSize;
         enemy2.origin.y = (4 + i * 2) * worldBossTileSize; 
+        enemy2.direction = 'right';
         break;
     }
 
@@ -492,7 +495,7 @@ function drawEnemies2Boss() {
 
   for (let i = 0; i < enemies2Boss.length; i++) {
     let enemy2 = enemies2Boss[i];
-    image(currentAnimation[frameIndex], enemy2.position.x, enemy2.position.y, wEnemy2, hEnemy2);
+    image(currentAnimation[frameIndex], enemy2.position.x, enemy2.position.y, 96, 96);
   }
 }
 

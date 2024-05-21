@@ -174,10 +174,11 @@ function preload() {
   // Sounds and musics :
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
 
-  musiqueBackgroundTemple = loadSound('мистичная тема.mp3');
-  musiqueBackgroundVillage = loadSound('TownTheme.mp3')
-  musiqueBackgroundForest = loadSound('song18.mp3');
-
+  musiqueBackgroundTemple = loadSound('worlds/music/мистичная тема.mp3');
+  musiqueBackgroundVillage = loadSound('worlds/music/TownTheme.mp3')
+  musiqueBackgroundForest = loadSound('worlds/music/song18.mp3');
+  musiqueBackgroundVillage2 = loadSound('worlds/music/Orbital Colossus.mp3');
+  musiqueBackgroundGrotte = loadSound('worlds/music/Woodland Fantasy.mp3');
 }
 
 function setup() {
@@ -229,9 +230,12 @@ function setup() {
 
 
 let isLoadingScreenActive = true;
+
 let musiqueBackgroundTemple;
 let musiqueBackgroundVillage;
 let musiqueBackgroundForest;
+let musiqueBackgroundVillage2;
+let musiqueBackgroundGrotte;
 
 
 function drawLoadingScreen() {
@@ -374,6 +378,9 @@ function drawGame() {
         // Phase 2 du village aprés la Foret.
         if (isForestNpcSaved && heroHasStoneStone) {
           musiqueBackgroundVillage.stop();
+          if (!musiqueBackgroundVillage2.isPlaying()) {
+            musiqueBackgroundVillage2.loop(); // Jouer la musique en boucle
+          }
 
           updateAlchimisteAnimation(myAlchimisteIdle);
           image(currentAlchimisteImage, alchimisteX, alchimisteY, alchimisteWidth, alchimisteHeight);
@@ -513,6 +520,7 @@ function drawGame() {
         
       }
       } else if (currentWorld === 3) {
+        musiqueBackgroundVillage2.stop();
         noCursor();
         if (isLoadingScreenActive) {
           drawLoadingScreen();
@@ -520,6 +528,10 @@ function drawGame() {
               isLoadingScreenActive = false;
           }, 3000);
         } else {
+          if (!musiqueBackgroundGrotte.isPlaying()) {
+            musiqueBackgroundGrotte.loop(); // Jouer la musique en boucle
+          }
+
         image(backgroundGrotteImage, 0, 0);
         updateParallaxCameraGrotte(16000, 1120);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -712,6 +724,7 @@ function drawGame() {
       }
 
       } else if(currentWorld === 5) {
+        musiqueBackgroundGrotte.stop();
         noCursor();
         if (!isLoadingScreenActive) {
           drawLoadingScreen();
