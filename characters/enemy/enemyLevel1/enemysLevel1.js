@@ -330,7 +330,7 @@ function spawnEnemyAtSpecificTime(numEnemies, phase) {
         break;
       case 3:
         enemy.position.x = (6 + i * 2) * worldBossTileSize;
-        enemy.position.y = (4 + i * 2) * worldBossTileSize;
+        enemy.position.y = (8) * worldBossTileSize;
         enemy.initialPosition.x = enemy.position.x;
         enemy.initialPosition.y = enemy.position.y;
         enemy.pointA.x = enemy.position.x - 4 * worldBossTileSize;

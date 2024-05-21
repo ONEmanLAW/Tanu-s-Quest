@@ -194,9 +194,9 @@ function setup() {
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
 
   musiqueBackgroundTemple = loadSound('worlds/music/temple.mp3');
-  musiqueBackgroundVillage = loadSound('worlds/music/village3.mp3')
+  musiqueBackgroundVillage = loadSound('worlds/music/village1et2.mp3')
   musiqueBackgroundForest = loadSound('worlds/music/foret.mp3');
-  musiqueBackgroundVillage2 = loadSound('worlds/music/village3.mp3');
+  musiqueBackgroundVillage2 = loadSound('worlds/music/village1et2.mp3');
   musiqueBackgroundGrotte = loadSound('worlds/music/grotte.mp3');
   musiqueBackgroundVillage3 = loadSound('worlds/music/village3.mp3');
   musiqueBackgroundBoss = loadSound('worlds/music/boss.mp3');

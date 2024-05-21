@@ -395,9 +395,9 @@ function spawnEnemyAtSpecificTime3(numEnemies, phase) {
         break;
       case 3:
         enemy3.position.x = (8 + i * 2) * worldBossTileSize; 
-        enemy3.position.y = (4 + i * 2) * worldBossTileSize; 
+        enemy3.position.y = (8) * worldBossTileSize; 
         enemy3.origin.x = (8 + i * 2) * worldBossTileSize;
-        enemy3.origin.y = (4 + i * 2) * worldBossTileSize; 
+        enemy3.origin.y = (8) * worldBossTileSize; 
         break;
     }
 

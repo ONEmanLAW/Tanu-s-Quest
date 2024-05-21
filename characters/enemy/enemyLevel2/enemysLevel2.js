@@ -414,9 +414,9 @@ function spawnEnemyAtSpecificTime2(numEnemies, phase) {
         break;
       case 3:
         enemy2.position.x = (6 + i * 2) * worldBossTileSize; 
-        enemy2.position.y = (4 + i * 2) * worldBossTileSize; 
+        enemy2.position.y = (8) * worldBossTileSize; 
         enemy2.origin.x = (6 + i * 2) * worldBossTileSize;
-        enemy2.origin.y = (4 + i * 2) * worldBossTileSize; 
+        enemy2.origin.y = (8) * worldBossTileSize; 
         enemy2.direction = 'right';
         break;
     }
