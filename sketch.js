@@ -621,7 +621,7 @@ function drawGame() {
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
         
-        // applyGravityBoss();
+        applyGravityBoss();
 
         if (animationBoss && animationCounterBoss < 250) {
           xHero -= movementSpeedBoss;
