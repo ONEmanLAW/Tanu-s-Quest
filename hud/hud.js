@@ -66,11 +66,11 @@ function preloadHudImages() {
 
 
   imageGrenouille = loadImage('hud/assets/Grenouille.png');
-  imagevillageoisSauvés = loadImage('hud/assets/villageoisSauvés.png');
+  imagevillageoisSauves = loadImage('hud/assets/villageoisSauves.png');
 
   imageEcorce1 = loadImage('hud/assets/imageEcorce1.png');
   imageEcorce2 = loadImage('hud/assets/imageEcorce2.png');
-  imageEcorceMagique = loadImage('hud/assets/écorce_anim.gif')
+  imageEcorceMagique = loadImage('hud/assets/ecorce_anim.gif')
   imageCadreHeart = loadImage('hud/assets/cadreHeart.png');
 
   imagePierreEau = loadImage('hud/assets/pierre_eau_anim.gif');
@@ -244,7 +244,7 @@ function drawHud() {
 
 
   image(imageGrenouille, 1650, 30, 110, 110);
-  image(imagevillageoisSauvés, 1400, 30, 200, 100);
+  image(imagevillageoisSauves, 1400, 30, 200, 100);
 
   // Si la conversation avec le Yeti est terminée
   if (conversationYetiFinished && !heroInEcorce) {
@@ -312,7 +312,7 @@ function drawHudTemple () {
     image(imageFeu1, 340, 915, 65, 65);
     image(imageVent1, 430, 915, 65, 65);
     image(imageEau1, 520, 915, 65, 65);
-    image(imagevillageoisSauvés, 1400, 30, 200, 100);
+    image(imagevillageoisSauves, 1400, 30, 200, 100);
   }
   pop();
 }

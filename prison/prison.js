@@ -44,7 +44,7 @@ let cageVisible = [];
 
 
 function preloadCageImage() {
-  cageImage = loadImage('prison/prisonFôret.gif');
+  cageImage = loadImage('prison/prisonForet.gif');
   tImage = loadImage('prison/Tcage.png');
   for (let i = 0; i < cagePositions.length; i++) {
     cageVisible.push(true);

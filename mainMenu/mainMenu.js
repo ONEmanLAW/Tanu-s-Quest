@@ -28,11 +28,11 @@ function mainMenuButtons() {
 
   backgroundImage = loadImage('mainMenu/images/menuBackground.jpg');
   jouerButton = loadImage('mainMenu/images/blocJouer.png');
-  parametreButton = loadImage('mainMenu/images/blocParamètres.png');
+  parametreButton = loadImage('mainMenu/images/blocParametres.png');
   exitButton = loadImage('mainMenu/images/blocQuitter.png');
 
-  backgroundSettingsImage = loadImage('mainMenu/images/grosBlocParamètres.png');
-  exitButtonParam = loadImage('mainMenu/images/blocQuitterParamètres.png');
+  backgroundSettingsImage = loadImage('mainMenu/images/grosBlocParametres.png');
+  exitButtonParam = loadImage('mainMenu/images/blocQuitterParametres.png');
 
   musiqueFond = loadSound('mainMenu/music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav');
 }
