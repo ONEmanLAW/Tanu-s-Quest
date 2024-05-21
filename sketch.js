@@ -640,6 +640,8 @@ function drawGame() {
         if (currentBossIntroductionIndex >= bossDialogues.length) {
           bossIntroActive = false;
           battleBoss = true;
+          drawHud();
+          drawHearts();
         }
 
 
@@ -705,8 +707,7 @@ function drawGame() {
         }
 
         handleCooldown();
-        drawHud();
-        drawHearts();
+        
 
         if (bossDead) {
           musiqueBackgroundBoss.stop();
@@ -728,8 +729,10 @@ function drawGame() {
           }
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
+        updateAlchimisteAnimation(myAlchimisteIdle);
+        image(currentAlchimisteImage, 23 * worldVillageTileSize3, 14 * worldVillageTileSize3, alchimisteWidth, alchimisteHeight);
         updateYetiAnimation(myYetiIdle);
-        image(currentYetiImage, 12 * worldVillageTileSize3, 10 * worldVillageTileSize3, npcYetiWidth, npcYetiHeight);
+        image(currentYetiImage, 27 * worldVillageTileSize3, 13 * worldVillageTileSize3, npcYetiWidth, npcYetiHeight);
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[5], tileDecorationDictionnaries[5], worldsDecorationTileSizes[5]);
         
@@ -748,7 +751,6 @@ function drawGame() {
     } else {
       musiqueBackgroundForest.stop();
       musiqueBackgroundGrotte.stop();
-      musiqueBackgroundBoss.stop();
       cursor('url(curseurSite.png), auto')
       gameOverMenu();
     }
