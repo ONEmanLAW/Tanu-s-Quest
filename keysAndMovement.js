@@ -37,7 +37,7 @@ function moveBottomVillage() {
   if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes  [currentWorld])) {
     yHero -= path;
   }
-  // HERO Bottom Village Animation
+  // HERO Bottom Village Animation.
   updateAnimationVillage(myHeroVillageBottom);
 }
 

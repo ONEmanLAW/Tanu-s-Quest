@@ -605,9 +605,9 @@ function drawGame() {
           }, 3000);
         } else {
           if (!musiqueBackgroundBoss.isPlaying()) {
-            musiqueBackgroundBoss.loop(); // Jouer la musique en boucle
+            musiqueBackgroundBoss.loop();
           }
-          potions = 3;
+
         if(animationBoss) {
           updateNormalCamera(3648, 960);
         } else {
