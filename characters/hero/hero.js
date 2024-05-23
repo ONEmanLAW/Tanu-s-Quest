@@ -498,19 +498,24 @@ function applyGravity() {
   yVelocity += gravity;
 
   let nextY = yHero + yVelocity;
+  let tileSize = worldsTileSizes[currentWorld];
 
-  if (checkCollision(collisonWorlds[currentWorld], worldsTileSizes[currentWorld], nextY)) {
+  // Vérifiez si le personnage va entrer en collision à la prochaine position
+  if (checkCollision(collisonWorlds[currentWorld], tileSize, nextY)) {
     if (yVelocity < 0) { // Collision en montant
       yHero = startY; // Revenir à la position de départ du saut
     } else { // Collision en descendant
-      yHero = Math.floor(yHero / 80) * 80; // Ajuster pour être juste au-dessus du bloc
+      // Ajuster pour être juste au-dessus du bloc avec une marge de tolérance
+      yHero = Math.floor(yHero / tileSize) * tileSize;
       isJumping = false; // Arrêter le saut
     }
-    yVelocity = 0;
+    yVelocity = 0; // Réinitialiser la vélocité verticale
   } else {
-    yHero = nextY;
+    yHero = nextY; // Mettre à jour la position
   }
 }
+
+
 
 
 // function applyGravity() {

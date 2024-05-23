@@ -103,11 +103,11 @@ function resetEnemiesPosition() {
 function resetEnemiesPositionGrotte() {
   for (let i = 0; i < enemiesGrotte.length; i++) {
     let enemy = enemiesGrotte[i];
-    // Réinitialise la position de l'ennemi à sa position initiale
+    
     enemy.position.x = enemy.initialPosition.x;
     enemy.position.y = enemy.initialPosition.y;
-    // Réinitialise la direction de l'ennemi si nécessaire
-    enemy.direction = 1; // Remettre la direction à sa valeur par défaut, si nécessaire
+    
+    enemy.direction = 1; 
     enemy.lives = livesGobelin1;
   }
 }
@@ -117,7 +117,7 @@ function moveEnemies() {
     let enemy = enemies[i];
     enemy.position.x += speed * enemy.direction;
 
-    // Inverser la direction si l'ennemi atteint l'un des points de patrouille
+  
     if ((enemy.direction === 1 && enemy.position.x >= enemy.pointB.x) || 
         (enemy.direction === -1 && enemy.position.x <= enemy.pointA.x)) {
       enemy.direction *= -1;
@@ -130,7 +130,7 @@ function moveEnemiesGrotte() {
     let enemy = enemiesGrotte[i];
     enemy.position.x += speed * enemy.direction;
 
-    // Inverser la direction si l'ennemi atteint l'un des points de patrouille
+    
     if ((enemy.direction === 1 && enemy.position.x >= enemy.pointB.x) || 
         (enemy.direction === -1 && enemy.position.x <= enemy.pointA.x)) {
       enemy.direction *= -1;
@@ -156,9 +156,8 @@ function drawEnemiesGrotte() {
   }
 }
 
-// Définir une variable pour le décalage de recul des ennemis
-let enemyRecoilDistance = 100; // Vous pouvez ajuster cette valeur selon vos besoins
-let enemyRecoilDuration = 0.5; // Durée du recul en secondes
+let enemyRecoilDistance = 100; 
+let enemyRecoilDuration = 0.5; 
 
 function checkEnemyCollision() {
   for (let i = 0; i < enemies.length; i++) {
@@ -167,19 +166,15 @@ function checkEnemyCollision() {
       if (!enemy.isHit) {
         enemy.isHit = true;
         
-        // Déterminer les dégâts en fonction de l'arme
         let damage = newSword ? 2 : 1;
         enemy.lives -= damage;
 
-        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi
         let direction = xHero > enemy.position.x ? -1 : 1;
 
-        // Définir la cible finale du recul
         let targetX = enemy.position.x + direction * enemyRecoilDistance;
 
-        // Animer le recul de l'ennemi
         let startTime = Date.now();
-        let endTime = startTime + enemyRecoilDuration * 1000; // Conversion en millisecondes
+        let endTime = startTime + enemyRecoilDuration * 1000;
 
         function animateRecoil() {
           let now = Date.now();
@@ -194,7 +189,6 @@ function checkEnemyCollision() {
 
         animateRecoil();
 
-        // Ajout de ceci pour s'assurer que l'attaque reste active jusqu'à la fin de l'animation
         setTimeout(() => {
           isAttacking = false;
         }, attackDuration);
@@ -203,18 +197,16 @@ function checkEnemyCollision() {
       enemy.isHit = false;
 
       if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
-        // Vérifie la direction du personnage et de l'ennemi
         if ((enemy.direction === 1 && xHero > enemy.position.x) || 
             (enemy.direction === -1 && xHero < enemy.position.x)) {
-          loseHeart(); // Vous pouvez retirer cette ligne si vous ne voulez pas que le héros perde de cœur lorsqu'il est touché par un ennemi
+          loseHeart();
         }
       }
     }
 
-    // Si l'ennemi n'a plus de vie, le supprimer
     if (enemy.lives <= 0) {
       enemies.splice(i, 1);
-      i--; // Ajuster l'index après la suppression
+      i--;
     }
   }
 }
@@ -225,20 +217,16 @@ function checkEnemyCollisionGrotte () {
     if (isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
       if (!enemy.isHit) {
         enemy.isHit = true;
-        
-        // Déterminer les dégâts en fonction de l'arme
+      
         let damage = newSword ? 2 : 1;
         enemy.lives -= damage;
 
-        // Calculer la direction du recul en fonction de la position du héros par rapport à l'ennemi
         let direction = xHero > enemy.position.x ? -1 : 1;
 
-        // Définir la cible finale du recul
         let targetX = enemy.position.x + direction * enemyRecoilDistance;
 
-        // Animer le recul de l'ennemi
         let startTime = Date.now();
-        let endTime = startTime + enemyRecoilDuration * 1000; // Conversion en millisecondes
+        let endTime = startTime + enemyRecoilDuration * 1000; 
 
         function animateRecoil() {
           let now = Date.now();
@@ -253,7 +241,6 @@ function checkEnemyCollisionGrotte () {
 
         animateRecoil();
 
-        // Ajout de ceci pour s'assurer que l'attaque reste active jusqu'à la fin de l'animation
         setTimeout(() => {
           isAttacking = false;
         }, attackDuration);
@@ -262,18 +249,17 @@ function checkEnemyCollisionGrotte () {
       enemy.isHit = false;
 
       if (!isAttacking && rectIsInRect(xHero, yHero, wHero, hHero, enemy.position.x, enemy.position.y, wEnemy, hEnemy)) {
-        // Vérifie la direction du personnage et de l'ennemi
         if ((enemy.direction === 1 && xHero > enemy.position.x) || 
             (enemy.direction === -1 && xHero < enemy.position.x)) {
-          loseHeart(); // Vous pouvez retirer cette ligne si vous ne voulez pas que le héros perde de cœur lorsqu'il est touché par un ennemi
+          loseHeart();
         }
       }
     }
 
-    // Si l'ennemi n'a plus de vie, le supprimer
+  
     if (enemy.lives <= 0) {
       enemiesGrotte.splice(i, 1);
-      i--; // Ajuster l'index après la suppression
+      i--;
     }
   }
 }
