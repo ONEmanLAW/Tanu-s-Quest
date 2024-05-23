@@ -1,18 +1,19 @@
-# Tanu's Quest
-![Logo du Jeu](logoJeu.png)
+<h1 align="center">Tanu's Quest</h1>
+<p align="center">
+  <img src="logoJeu.png" alt="Logo du Jeu" width="500">
+</p>
 
 ## Sommaire
 1. [Introduction](#introduction)
 2. [Installation](#installation)
-3. [Compatibilité](#compatibilité)
-4. [Utilisation](#utilisation)
-5. [Technologies Utilisées](#technologies-utilisées)
-6. [Équipe](#équipe)
-7. [Personnages](#personnages)
-8. [Photos du Jeu](#photos-du-jeu)
+3. [Utilisation](#utilisation)
+4. [Technologies Utilisées](#technologies-utilisées)
+5. [Équipe](#équipe)
+6. [Personnages](#personnages)
+7. [Photos du Jeu](#photos-du-jeu)
 
 ## Introduction
-Bienvenue dans **Tanu's Quest**! Ce jeu a été entièrement développé from scratch par **ALKH Studio**, une petite équipe passionnée avec de grands projets. Nous nous efforçons de créer des expériences de jeu uniques et mémorables.
+Bienvenue dans **Tanu's Quest**! Ce jeu a été entièrement développé from scratch par **ALKH Studio**.
 
 Nous avons consacré six mois, du 1er janvier au 30 mai, à développer ce jeu 2D avec aucune connaissance préalable en développement de jeux. Nous avons uniquement utilisé du code et des assets graphiques, sans recourir à un moteur de jeu.
 
@@ -25,57 +26,54 @@ Pour installer et lancer le jeu, suivez les étapes suivantes :
 4. Ouvrez le fichier `index.html` dans VSCode.
 5. Faites un clic droit sur `index.html` et sélectionnez **Open with Live Server**.
 
-![Installation des Extensions](chemin/vers/image/installation.png)
-
-## Compatibilité
-Le jeu est compatible avec **Windows** et est optimisé pour une résolution d'écran de **1920x1080p**. Pour une expérience optimale, appuyez sur **F11** pour passer en mode plein écran.
-
 ## Utilisation
 Une fois le serveur en direct lancé via Live Server :
-1. Assurez-vous que votre résolution d'écran est définie sur 1920x1080p pour une qualité maximale.
-2. Appuyez sur **F11** pour passer en mode plein écran et profiter pleinement du jeu.
+1. Assurez-vous d'avoir un PC sous Windows pour une expériences optimal.
+2. Lancer le jeu soit sur Google Crome ou Opera GX.
+3. Assurez-vous que votre résolution d'écran est définie sur 1920x1080p pour une qualité maximale.
+4. Appuyez sur **F11** pour passer en mode plein écran et profiter pleinement du jeu.
 
 ## Technologies Utilisées
 Ce projet a été réalisé en utilisant les technologies suivantes :
-<img src="https://skillicons.dev/icons?i=html,css,p5js,"/><br>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,p5js," width="200" height="auto"/><br>
+</p>
 
 ## Équipe
-Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous sommes des passionnés qui s'efforcent de créer des expériences de jeu uniques et mémorables.
+Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous sommes des passionnés qui s'efforçent de créer des expériences de jeu uniques et mémorables.
 
-![Logo du Studio](logoStudio.png)
+<p align="center">
+  <img src="logoStudio.png" alt="Logo du Studio" width="500">
+</p>
 
 ### Membres de l'équipe :
 - **Aurélia** (Designer)
-  ![Aurélia](aureliaPerso.gif)
+  <p align="center">
+    <img src="aureliaPerso.gif" alt="Aurélia" width="300">
+  </p>
 - **Liséa** (Designer)
-  ![Liséa](liseaPerso.gif)
+  <p align="center">
+    <img src="liseaPerso.gif" alt="Liséa" width="300">
+  </p>
 - **Kévin** (Designer)
-  ![Kévin](kevinPerso.gif)
+  <p align="center">
+    <img src="kevinPerso.gif" alt="Kévin" width="300">
+  </p>
 - **Hugo** (Développeur)
-  ![Hugo](hugoPerso.gif)
+  <p align="center">
+    <img src="hugoPerso.gif" alt="Hugo" width="300">
+  </p>
 
 ## Personnages
 Découvrez les personnages fascinants de **Tanu's Quest** :
 
-- **Le Grand Sage**
-  ![Le Grand Sage](sage.gif)
-  Le Grand Sage est un guide spirituel et une source de sagesse pour Tanu. Il possède une connaissance approfondie de l'histoire et des mystères du monde.
-
-- **L'Alchimiste**
-  ![L'Alchimiste](alchimiste.gif)
-  L'Alchimiste est un mystérieux inventeur qui aide Tanu en lui fournissant des potions magiques et des artefacts pour l'aider dans sa quête.
-
-- **Tanu**
-  ![Tanu](hero.gif)
-  Tanu est le protagoniste du jeu, un jeune aventurier intrépide en quête de vérité et de justice. Il est courageux et déterminé à sauver son monde.
-
-- **Le Yéti**
-  ![Le Yéti](yeti.gif)
-  Le Yéti est une créature mythique des montagnes enneigées, à la fois redoutable et protectrice. Tanu devra négocier avec lui pour avancer dans sa quête.
-
-- **Le Gobelin**
-  ![Le Gobelin](bossGobelin.gif)
-  Le Gobelin est un farceur malicieux qui aime jouer des tours aux voyageurs imprudents. Il peut être un allié surprenant ou un adversaire redoutable pour Tanu.
+<p align="center">
+  <img src="sage.gif" alt="Le Grand Sage" width="180">
+  <img src="alchimiste.gif" alt="L'Alchimiste" width="150" style="vertical-align: bottom;";">
+  <img src="hero.gif" alt="Tanu" width="150">
+  <img src="yeti.gif" alt="Le Yéti" width="100">
+  <img src="bossGobelin.gif" alt="Le Gobelin" width="100">
+</p>
 
 ## Photos du Jeu
 Insérez ici des photos du jeu pour donner un aperçu de son apparence et de son gameplay.
