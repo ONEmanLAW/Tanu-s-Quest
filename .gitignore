@@ -1,14 +1,2 @@
-# Ignore the README file
-README.md
-
-# Ignore the ReadmeImages directory
-ReadmeImages/
-
-# Ignore all JSON files
-*.json
-
 # Ignore .DS_Store (specific to macOS)
 .DS_Store
-
-# Ignore the libraries directory (assuming this is where p5.js libraries are stored)
-libraries/
