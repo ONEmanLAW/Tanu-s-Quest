@@ -152,7 +152,7 @@ function preload() {
   preloadBackgroundImages(); 
   preloadBarDeVieBoss();
 
-  loadingGif = loadImage('pageDeChargement.gif');
+  loadingGif = loadImage('worlds/assets/pageDeChargement/pageDeChargement.gif');
   maPolice = loadFont('font/Minecraftia-Regular.ttf');
   
 }
@@ -751,7 +751,7 @@ function drawGame() {
     } else {
       musiqueBackgroundForest.stop();
       musiqueBackgroundGrotte.stop();
-      cursor('url(curseurSite.png), auto')
+      cursor('url(assets/curseurSite.png), auto')
       gameOverMenu();
     }
   }
