@@ -375,6 +375,9 @@ function keyPressed() {
 
 
   if (bossDead) {
+    if (!musiqueOutro.isPlaying()) {
+      musiqueOutro.loop();
+    }
     image(outroImages[outroImageIndex], 0, 0, width, height);
     if (keyIsPressed && keyCode === RIGHT_ARROW) {
       outroImageIndex++;
@@ -382,6 +385,7 @@ function keyPressed() {
         outroImagesEnd = true;
         outroVideo.play();
         outroVideo.show();
+        musiqueOutro.stop();
         videoPlaying = true;
       }
     } else if (keyIsPressed && keyCode === LEFT_ARROW) {

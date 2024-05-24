@@ -196,6 +196,7 @@ function setup() {
   musiqueBackgroundGrotte = loadSound('worlds/music/grotte.mp3');
   musiqueBackgroundVillage3 = loadSound('worlds/music/village3.mp3');
   musiqueBackgroundBoss = loadSound('worlds/music/boss.mp3');
+  musiqueOutro = loadSound('outro.mp3');
 
   preloadAssets()
     .then(() => {
@@ -677,6 +678,7 @@ function drawGame() {
         
         if (bossDead) {
           musiqueBackgroundBoss.stop();
+          
           image(outroImages[outroImageIndex], 0, 0, width, height);
         }
       }

@@ -38,7 +38,6 @@ function updateNormalCamera(worldWidth, worldHeight) {
 
 
 
-// Fonction générique pour mettre à jour la caméra avec parallaxe
 function updateParallaxCamera(worldWidth, worldHeight, backgroundImg) {
   if (!gameOver) {
     let targetCameraX = xHero - width / 2 + wHero / 2; 

@@ -3,13 +3,12 @@
 /////////////////////////////////////////////
 
 function checkCollision(worldCollisionBoard,tileSize) {
-  const tolerance = 1;
   for (let y = 0; y < worldCollisionBoard.length; y++) {
     const currentLine = worldCollisionBoard[y];
     for (let x = 0; x < currentLine.length; x++) {
       const currentTileValue = currentLine[x];
       if (currentTileValue === 2){
-        if(rectIsInRect(xHero, yHero + tolerance, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
+        if(rectIsInRect(xHero, yHero, wHero, hHero, tileSize * x + 1, tileSize * y + 1, tileSize, tileSize)){
           return true 
         }
       }
