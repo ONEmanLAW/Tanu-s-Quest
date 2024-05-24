@@ -153,7 +153,7 @@ function preload() {
   preloadBarDeVieBoss();
 
   loadingGif = loadImage('pageDeChargement.gif');
-  maPolice = loadFont('Minecraftia-Regular.ttf');
+  maPolice = loadFont('font/Minecraftia-Regular.ttf');
   
 }
 

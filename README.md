@@ -1,6 +1,6 @@
 <h1 align="center">Tanu's Quest</h1>
 <p align="center">
-  <img src="logoJeu.png" alt="Logo du Jeu" width="500">
+  <img src="ReadmeImages/logoJeu.png" alt="Logo du Jeu" width="500">
 </p>
 
 ## Sommaire
@@ -28,8 +28,8 @@ Pour installer et lancer le jeu, suivez les étapes suivantes :
 
 ## Utilisation
 Une fois le serveur en direct lancé via Live Server :
-1. Assurez-vous d'avoir un PC sous Windows pour une expériences optimal.
-2. Lancer le jeu soit sur Google Crome ou Opera GX.
+1. Assurez-vous d'avoir un PC sous Windows pour une expérience optimale.
+2. Lancez le jeu soit sur Google Chrome ou Opera GX.
 3. Assurez-vous que votre résolution d'écran est définie sur 1920x1080p pour une qualité maximale.
 4. Appuyez sur **F11** pour passer en mode plein écran et profiter pleinement du jeu.
 
@@ -40,50 +40,44 @@ Ce projet a été réalisé en utilisant les technologies suivantes :
 </p>
 
 ## Équipe
-Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous sommes des passionnés qui s'efforçent de créer des expériences de jeu uniques et mémorables.
+Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous sommes des passionnés qui s'efforcent de créer des expériences de jeu uniques et mémorables.
 
 <p align="center">
-  <img src="logoStudio.png" alt="Logo du Studio" width="500">
+  <img src="ReadmeImages/logoStudio.png" alt="Logo du Studio" width="500">
 </p>
 
 ### Membres de l'équipe :
-- **Aurélia** (Designer)
-  <p align="center">
-    <img src="aureliaPerso.gif" alt="Aurélia" width="300">
-  </p>
-- **Liséa** (Designer)
-  <p align="center">
-    <img src="liseaPerso.gif" alt="Liséa" width="300">
-  </p>
-- **Kévin** (Designer)
-  <p align="center">
-    <img src="kevinPerso.gif" alt="Kévin" width="300">
-  </p>
-- **Hugo** (Développeur)
-  <p align="center">
-    <img src="hugoPerso.gif" alt="Hugo" width="300">
-  </p>
+<p align="center">
+  <b>Aurélia</b> (Designer) <br>
+  <img src="ReadmeImages/aureliaPerso.gif" alt="Aurélia" width="300"><br>
+  <b>Liséa</b> (Designer) <br>
+  <img src="ReadmeImages/liseaPerso.gif" alt="Liséa" width="300"><br>
+  <b>Kévin</b> (Designer) <br>
+  <img src="ReadmeImages/kevinPerso.gif" alt="Kévin" width="300"><br>
+  <b>Hugo</b> (Développeur) <br>
+  <img src="ReadmeImages/hugoPerso.gif" alt="Hugo" width="300">
+</p>
 
 ## Personnages
 Découvrez les personnages fascinants de **Tanu's Quest** :
 
 <p align="center">
-  <img src="sage.gif" alt="Le Grand Sage" width="180">
-  <img src="alchimiste.gif" alt="L'Alchimiste" width="150" style="vertical-align: bottom;";">
-  <img src="hero.gif" alt="Tanu" width="150">
-  <img src="yeti.gif" alt="Le Yéti" width="100">
-  <img src="bossGobelin.gif" alt="Le Gobelin" width="100">
+  <img src="ReadmeImages/sage.gif" alt="Le Grand Sage" width="180">
+  <img src="ReadmeImages/alchimiste.gif" alt="L'Alchimiste" width="150" style="vertical-align: bottom;">
+  <img src="ReadmeImages/hero.gif" alt="Tanu" width="150">
+  <img src="ReadmeImages/yeti.gif" alt="Le Yéti" width="100">
+  <img src="ReadmeImages/bossGobelin.gif" alt="Le Gobelin" width="100">
 </p>
 
 ## Photos du Jeu
 <p align="center">
-  <img src="image.png" alt="image1" width="300">
-  <img src="image1.png" alt="image2" width="300">
+  <img src="ReadmeImages/image.png" alt="image1" width="300">
+  <img src="ReadmeImages/image1.png" alt="image2" width="300">
 </p>
 <p align="center">
-  <img src="image4.png" alt="image3" width="300">
-  <img src="image3.png" alt="image4" width="300">
+  <img src="ReadmeImages/image4.png" alt="image3" width="300">
+  <img src="ReadmeImages/image3.png" alt="image4" width="300">
 </p>
 <p align="center">
-  <img src="image2.png" alt="image5" width="600">
+  <img src="ReadmeImages/image2.png" alt="image5" width="600">
 </p>
