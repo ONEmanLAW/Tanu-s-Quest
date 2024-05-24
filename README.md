@@ -76,10 +76,14 @@ Découvrez les personnages fascinants de **Tanu's Quest** :
 </p>
 
 ## Photos du Jeu
-<img src="image.png" alt="image1" width="200">
-<img src="image1.png" alt="image1" width="200">
-<img src="image2.png" alt="image1" width="200">
-<img src="image3.png" alt="image1" width="200">
-<img src="image4.png" alt="image1" width="200">
-
-Profitez bien et n'hésitez pas à partager vos retours.
+<p align="center">
+  <img src="image.png" alt="image1" width="300">
+  <img src="image1.png" alt="image2" width="300">
+</p>
+<p align="center">
+  <img src="image4.png" alt="image3" width="300">
+  <img src="image3.png" alt="image4" width="300">
+</p>
+<p align="center">
+  <img src="image2.png" alt="image5" width="600">
+</p>
