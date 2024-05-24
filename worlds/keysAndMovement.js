@@ -324,11 +324,7 @@ function keyPressed() {
   
   
 
-  if (currentWorld === 0 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
-    if (key === 'e') {
-      heroAttack(); 
-    }
-  };
+ 
 
   if (key === 't') {
     let cageIndex = checkCageInteraction();
@@ -435,10 +431,6 @@ function keyPressed() {
       if (keyCode === 13) { // Appuie sur 'enter' pour sauter
         currentIntroductionIndex++;
       }
-    } else if(currentIntroductionIndex === 8) {
-      if(keyCode === 69) {
-        currentIntroductionIndex++;
-      }
     } else if(currentIntroductionIndex === 9) {
       if(keyCode === 90) {
         currentIntroductionIndex++
@@ -450,3 +442,18 @@ function keyPressed() {
     }
   }
 };
+
+function mousePressed() {
+  // Vérifiez si c'est le bouton droit de la souris
+  if (mouseButton === LEFT) {
+    if (currentWorld === 0 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
+      heroAttack(); 
+    }
+  }
+
+  if (mouseButton === LEFT) {
+    if (introDialogActive && currentIntroductionIndex === 8) {
+      currentIntroductionIndex++;
+    }
+  }
+}

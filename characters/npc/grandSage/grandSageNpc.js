@@ -86,7 +86,7 @@ let dialoguesIntroduction = [
   { text: "Appuie sur 'q' pour aller à gauche.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'd' pour aller à droite.", boxType: "GrandSageSansN" },
   { text: "Appuie sur 'space' pour sauter.", boxType: "GrandSageSansN" },
-  { text: "Appuie sur 'e' pour attaquer.", boxType: "GrandSageSansN" },
+  { text: "Appuie sur 'click gauche' de la souris pour attaquer.", boxType: "GrandSageSansN" },
   { text: "Dans le village, appuie sur 'z' pour aller vers le haut.", boxType: "GrandSageSansN" },
   { text: "Dans le village, appuie sur 's' pour aller vers le bas.", boxType: "GrandSageSansN" },
   { text: "Parfait, maintenant je vais t'expliquer le HUD.", boxType: "GrandSage" },
