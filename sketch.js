@@ -5,6 +5,10 @@
 setupWorldVariables(); // setup.js
 
 
+/////////////////////////////////////////////
+////////////PROMISE FOR ASSETS///////////////
+/////////////////////////////////////////////
+
 let allAssetsLoaded = false;
 
 function preloadAssets() {
@@ -12,12 +16,9 @@ function preloadAssets() {
   
     const assetPromises = [];
 
-    
     assetPromises.push(loadTileDictionaries());
     assetPromises.push(loadWorldAssets());
     
-   
-
     Promise.all(assetPromises)
       .then(() => {
         allAssetsLoaded = true;
@@ -27,7 +28,8 @@ function preloadAssets() {
         reject(error);
       });
   });
-}
+};
+
 
 function loadWorldAssets() {
   return new Promise((resolve, reject) => {
@@ -36,7 +38,8 @@ function loadWorldAssets() {
    
     resolve();
   });
-}
+};
+
 
 function loadTileDictionaries() {
   return new Promise((resolve, reject) => {
@@ -65,13 +68,9 @@ function loadTileDictionaries() {
         setupTileDictionariesGrotte(); // worldGrotte.js
         resolve();
       }),
-       // new Promise((resolve, reject) => {
-      //   setupTileDictionariesVillage2(); // worldVillage2.js
-      //   resolve(); 
-      // }),
     ];
     
-    
+
     Promise.all(promises)
       .then(() => {
         
@@ -82,22 +81,15 @@ function loadTileDictionaries() {
         reject(error);
       });
   });
-}
+};
 
 
-
-
-
-
-
-
-
-
-let loadingGif;
-let maPolice;
 /////////////////////////////////////////////
 /////////FUNCTION LAUNCH ON SETUP////////////
 /////////////////////////////////////////////
+
+let loadingGif;
+let maPolice;
 
 // For Canavas.
 function windowResized() {
@@ -105,77 +97,68 @@ function windowResized() {
 }
 
 function preload() {
-  // For Intro.
-  mainMenuButtons();
-  introImages();
-  preloadOutroImages();
-  
-  // Animation Hero.
+  mainMenuButtons(); // mainMenu.js
+  introImages(); // intro.js
+  preloadOutroImages(); // outro.js
+
   preloadHeroImages(); // hero.js
   preloadHeroVillageImages(); // hero.js
 
-  // Animation Yeti.
   preloadYetiImages(); // yetiNpc.js
-  preloadBossImages(); 
-  // Hearts Hero.
-  preloadHeartImage(); // hero.js
+  preloadGrandSageImages(); //grandSageNPC.js
+  preloadBossImages(); // boss.js
+  preloadAlchimisteImages();
+  preloadBabyTanukiImages();
+  preloadNPCImages(); // grandSageNpc.js ( manequin)
+
+  preloadChatImage(); //grandSageNpc.js
 
 
   preloadEnemy1Image(); // enemyLevel1.js
   createEnemiesForet(); // enemyLevel1.js
-  createEnemiesGrotte();
+  createEnemiesGrotte(); // enemyLevel1.js
 
 
   preloadEnemy2Animations(); // enemy2Level.js
   createEnemiesForet2(); // enemy2Level.js
-  createEnemiesGrotte2();
+  createEnemiesGrotte2(); // enemy2Level.js
  
   
   preloadEnemy3Animations(); // enemyLevel3.js
-  createEnemiesForet3();
-  createEnemiesGrotte3();
+  createEnemiesForet3(); // enemyLevel3.js
+  createEnemiesGrotte3(); // enemyLevel3.js
+  
   
 
-  // Image Of Npc
-  preloadNPCImages(); // grandSageNpc.js
-  preloadChatImage(); //grandSageNpc.js
-  preloadGrandSageImages(); //grandSageNPC.js
+  
   preloadCageImage(); // prison.js
-  preloadCageImageGrotte();
-  preloadAlchimisteImages();
-  preloadBabyTanukiImages();
+  preloadCageImageGrotte(); // prison.js
+ 
 
 
   preloadHudImages(); // hud.js
-  preloadGameOverImages();
-  // Background Of Worlds.
-  preloadBackgroundImages(); 
-  preloadBarDeVieBoss();
-
-  loadingGif = loadImage('worlds/assets/pageDeChargement/pageDeChargement.gif');
-  maPolice = loadFont('font/Minecraftia-Regular.ttf');
+  preloadHeartImage(); // hud.js
+  preloadBarDeVieBoss(); // boss.js
+  preloadGameOverImages(); // gameOver.js
+  preloadBackgroundImages(); // backgroundWorldsImages
   
-}
+
+  // Page de Chargenement
+  loadingGif = loadImage('worlds/assets/pageDeChargement/pageDeChargement.gif');
+  // Font du jeu
+  maPolice = loadFont('font/Minecraftia-Regular.ttf');
+};
+
 
 function setup() {
   // Canvas For Story.
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
 
- 
+  // Page Cliquer pour commencer
   introGif.show();
   introGif.size(windowWidth, windowHeight);
   introGif.position(0, 0);
-  
-
-  introVideo.size(windowWidth, windowHeight);
-  introVideo.position(0, 0); 
-  
-
-  outroVideo = createVideo('outro/assets/videoFin.mp4');
-  outroVideo.size(windowWidth, windowHeight);
-  outroVideo.position(0, 0);
-  outroVideo.hide();
 
   introGif.mousePressed(() => {
     introGif.hide();
@@ -188,7 +171,19 @@ function setup() {
     });
   });
 
+  // Vidéo de studio + logo du jeu
+  introVideo.size(windowWidth, windowHeight);
+  introVideo.position(0, 0); 
+  
+  // Crédit du jeu , vidéo de fin
+  outroVideo = createVideo('outro/assets/videoFin.mp4');
+  outroVideo.size(windowWidth, windowHeight);
+  outroVideo.position(0, 0);
+  outroVideo.hide();
+
+  // Font pour le jeu
   textFont(maPolice);
+
 
   // Sounds and musics :
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
@@ -207,13 +202,12 @@ function setup() {
     .catch((error) => {
       console.error('Une erreur est survenue lors du chargement des assets :', error);
     });
-
-    
 };
 
 
-
-
+/////////////////////////////////////////////
+/////////FUNCTION FOR DRAW GAME//////////////
+/////////////////////////////////////////////
 
 let isLoadingScreenActive = true;
 
@@ -226,9 +220,8 @@ let musiqueBackgroundBoss;
 
 
 function drawLoadingScreen() {
-  // Dessiner l'image GIF de chargement
   image(loadingGif, 0, 0, width, height);
-}
+};
 
 
 function drawGame() {
@@ -240,20 +233,14 @@ function drawGame() {
     } else if (scene === 'parametre') {
       drawParametrePage();
     }
-  
+
   } else if (gameStart && !introImagesEnd) {
     noCursor();
     image(images[currentImageIndex], 0, 0, width, height);
   } else {
-    // Fonction pour le jeu
     checkKeys(currentWorld);
     changeWorldIfNeeded();
   
-    
-    
-
-    
-    // If Hero Have Hearts Game is Not Over.
     if (hearts > 0) {
       if (currentWorld === 0) {
         noCursor();
@@ -261,32 +248,24 @@ function drawGame() {
           drawLoadingScreen();
 
           setTimeout(function() {
-              isLoadingScreenActive = false; // Désactiver l'écran de chargement
-          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+              isLoadingScreenActive = false;
+          }, 3000);
         } else {
           if (!musiqueBackgroundTemple.isPlaying()) {
-            musiqueBackgroundTemple.loop(); // Jouer la musique en boucle
+            musiqueBackgroundTemple.loop();
           }
           updateNormalCamera(1800, 1056);
           image(backgroundTutoImage, 0, 0);
           drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
           drawFront(decorationWorlds[0], tileDecorationDictionnaries[0], worldsDecorationTileSizes[0]);
-          
-          // Spawn NPC.
         
           updateGrandSageAnimation(myGrandSageIdle);
-          // Dessinez l'image actuelle du Grand Sage
           image(currentGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
           
           image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
 
-          // Spawn Hero.
           image(currentHeroImage, xHero, yHero, wHero, hHero);
 
-          
-          
-          // Automatic Movement At Start.
-          // One Tile = 16.
           if (animation && animationCounter < 144) {
             xHero -= movementSpeed;
             animationCounter++;
@@ -314,9 +293,6 @@ function drawGame() {
           applyGravityTemple();
         }
 
-
-
-
       } else if (currentWorld === 1) {
         musiqueBackgroundTemple.stop();
         musiqueBackgroundForest.stop();
@@ -335,8 +311,7 @@ function drawGame() {
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
         image(currentHeroVillageImage, xHero, yHero, 96, 96);
         drawFront(decorationWorlds[1], tileDecorationDictionnaries[1], worldsDecorationTileSizes[1]);
-        
-
+    
 
         // Phase 1 du village aprés le temple.
         if (!isForestNpcSaved && !heroHasStoneStone) {
@@ -400,11 +375,6 @@ function drawGame() {
           }
         }
 
-        
-        
-
-        
-        
         drawHud();
         drawHearts();
         if (!isForestNpcSaved && !heroHasStoneStone) {
@@ -412,20 +382,20 @@ function drawGame() {
         } else {
           displayTotalTanukisSaved2();
         }
-        
       }
+      
       } else if (currentWorld === 2) {
         musiqueBackgroundVillage.stop();
         noCursor();
         if (isLoadingScreenActive) {
-          drawLoadingScreen(); // Afficher l'écran de chargement
-          // Charger le nouveau monde après 3 secondes
+          drawLoadingScreen();
+
           setTimeout(function() {
-              isLoadingScreenActive = false; // Désactiver l'écran de chargement
-          }, 3000); // 3000 millisecondes = 3 secondes (temps d'affichage de l'écran de chargement)
+              isLoadingScreenActive = false; 
+          }, 3000);
         } else {
           if (!musiqueBackgroundForest.isPlaying()) {
-            musiqueBackgroundForest.loop(); // Jouer la musique en boucle
+            musiqueBackgroundForest.loop(); 
           }
           foretDialogActive = true;
           
@@ -433,19 +403,15 @@ function drawGame() {
         updateParallaxCameraForet(16000, 1120);
         drawFront(decorationWorlds[2], tileDecorationDictionnaries[2], worldsDecorationTileSizes[2]); 
         
-
-
         moveEnemies(); 
         drawEnemies();
         checkEnemyCollision(); 
 
-        
         checkEnemy2Collision(); 
         moveEnemies2();
         detectPlayer2();
         updateAnimationState2();
         drawEnemies2();
-
 
         checkEnemy3Collision();
         moveEnemies3();
@@ -493,18 +459,17 @@ function drawGame() {
         checkForestNpcSaved();
         checkHeroOutOfBounds();
 
-
         if(foretDialogActive) {
           gererDialogueForet();
         }
         
-
         if(heroHasStoneStone && isForestNpcSaved) {
           foretFinishDialogActive = true;
           gererDialogueFinishForet();
         }
         
       }
+
       } else if (currentWorld === 3) {
         musiqueBackgroundVillage.stop();
         noCursor();
@@ -541,17 +506,11 @@ function drawGame() {
         updateAnimationState3Grotte();
         drawEnemies3Grotte();
 
-
-      
-        
-
-
         for (let i = 0; i < cagePositionsGrotte.length; i++) {
           if (cageVisibleGrotte[i]) {
             image(cageImageGrotte, cagePositionsGrotte[i].x, cagePositionsGrotte[i].y, cageWidthGrotte, cageHeightGrotte);
           }
         }
-
 
         checkHeroInFire();
         if (!heroInFire) {
@@ -591,9 +550,8 @@ function drawGame() {
 
         checkCageInteractionGrotte();
         checkGrotteNpcSaved();
-
-
       }
+
       } else if (currentWorld === 4) {
         musiqueBackgroundVillage3.stop();
         noCursor();
@@ -620,7 +578,6 @@ function drawGame() {
         drawFront(decorationWorlds[4], tileDecorationDictionnaries[4], worldsDecorationTileSizes[4]);
         image(currentHeroImage, xHero, yHero, wHero, hHero);
 
-        
         applyGravityBoss();
 
         if (animationBoss && animationCounterBoss < 250) {
@@ -643,8 +600,6 @@ function drawGame() {
           drawHud();
           drawHearts();
         }
-
-
 
         moveEnemiesBoss(); 
         drawEnemiesBoss();
@@ -708,7 +663,6 @@ function drawGame() {
 
         handleCooldown();
         
-
         if (bossDead) {
           musiqueBackgroundBoss.stop();
           image(outroImages[outroImageIndex], 0, 0, width, height);
@@ -725,7 +679,7 @@ function drawGame() {
           }, 3000);
         } else {
           if (!musiqueBackgroundVillage3.isPlaying()) {
-            musiqueBackgroundVillage3.loop(); // Jouer la musique en boucle
+            musiqueBackgroundVillage3.loop();
           }
         updateNormalCamera(4704, 2688);
         drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -741,8 +695,7 @@ function drawGame() {
         displayTotalTanukisSaved3();
       }
     }
-
-      
+    
       // if (hearts <= 0) {
       //   // Si le joueur est mort, afficher l'animation de mort du personnage
       //   updateAnimation(myHeroDeath);
@@ -755,25 +708,13 @@ function drawGame() {
       gameOverMenu();
     }
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 
 /////////////////////////////////////////////
 ////////////FUNCTIONS FOR DRAW///////////////
 /////////////////////////////////////////////
+
 function draw() {
   if (allAssetsLoaded) {
     drawGame();
@@ -782,6 +723,6 @@ function draw() {
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(24);
-    text("Chargement...", width / 2, height / 2);
+    text("Erreur... Relancer le jeu !", width / 2, height / 2);
   }
-}  
+};
