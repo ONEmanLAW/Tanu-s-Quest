@@ -326,7 +326,7 @@ function keyPressed() {
 
   if (currentWorld === 0 || currentWorld === 2 || currentWorld === 3 || currentWorld === 4) {
     if (key === 'e') {
-      heroAttack();
+      heroAttack(); 
     }
   };
 

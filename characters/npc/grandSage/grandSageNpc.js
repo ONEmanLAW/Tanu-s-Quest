@@ -55,13 +55,6 @@ function checkGrandSageInteraction() {
 
 
 
-
-function preloadNPCImages() {
-  mannequinImage = loadImage('characters/npc/mannequinTuto/mannequinTuto.png');
-}
-
-
-
 function preloadChatImage() {
   boiteDeDialogueGrandSage = loadImage('characters/dialogueBoxe/dialogueGrandSage.png');
   boiteDeDialogueHero = loadImage('characters/dialogueBoxe/dialogueTanu.png');
@@ -272,3 +265,12 @@ function updateGrandSageAnimation(animationArray) {
     movementCounterGrandSage = 0;
   }
 }
+
+
+
+
+
+
+
+
+

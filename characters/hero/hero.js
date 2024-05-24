@@ -633,3 +633,5 @@ function updateIdleAnimation() {
     currentHeroImage = myHeroIdleLeft[0];
   }
 }
+
+

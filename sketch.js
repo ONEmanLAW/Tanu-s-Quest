@@ -188,6 +188,7 @@ function setup() {
 
   // Sounds and musics :
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
+  hitSound = loadSound('test.wav');
 
   musiqueBackgroundTemple = loadSound('worlds/music/temple.mp3');
   musiqueBackgroundVillage = loadSound('worlds/music/village1et2.mp3')
@@ -268,8 +269,12 @@ function drawGame() {
           updateGrandSageAnimation(myGrandSageIdle);
           image(currentGrandSageImage, npcGrandSageX, npcGrandSageY, npcGrandSageWidth, npcGrandSageHeight);
           
-          image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
-
+         
+          if (!isMannequinAnimating) {
+            image(mannequinImage, mannequinX, mannequinY, mannequinWidth, mannequinHeight);
+          }
+          checkCollisionWithMannequin();
+          
           image(currentHeroImage, xHero, yHero, wHero, hHero);
 
           if (animation && animationCounter < 144) {
@@ -297,6 +302,7 @@ function drawGame() {
           
           drawHudTemple ();
           applyGravityTemple();
+          
         }
 
       } else if (currentWorld === 1) {
