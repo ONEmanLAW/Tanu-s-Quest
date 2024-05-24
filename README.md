@@ -43,6 +43,10 @@ Ce projet a été réalisé en utilisant les technologies suivantes :
 Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous sommes des passionnés qui s'efforcent de créer des expériences de jeu uniques et mémorables.
 
 <p align="center">
+  <a href="https://readymag.website/u3839283887/ALKHStudio/" target="_blank">Visitez notre site web !</a>
+</p>
+
+<p align="center">
   <img src="ReadmeImages/logoStudio.png" alt="Logo du Studio" width="500">
 </p>
 
