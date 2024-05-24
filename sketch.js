@@ -98,7 +98,7 @@ function windowResized() {
 
 function preload() {
   mainMenuButtons(); // mainMenu.js
-  introImages(); // intro.js
+  introImagesAndSounds(); // intro.js
   preloadOutroImages(); // outro.js
 
   preloadHeroImages(); // hero.js
@@ -181,6 +181,7 @@ function setup() {
   outroVideo.position(0, 0);
   outroVideo.hide();
 
+
   // Font pour le jeu
   textFont(maPolice);
 
@@ -236,7 +237,12 @@ function drawGame() {
 
   } else if (gameStart && !introImagesEnd) {
     noCursor();
+   
     image(images[currentImageIndex], 0, 0, width, height);
+    if (!soundPlaying) {
+      playCurrentSound();
+      soundPlaying = true;
+    }
   } else {
     checkKeys(currentWorld);
     changeWorldIfNeeded();

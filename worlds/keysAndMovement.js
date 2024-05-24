@@ -358,16 +358,20 @@ function keyPressed() {
 
   if (gameStart) {
     if (keyCode === RIGHT_ARROW) {
-      currentImageIndex++;
-      if (currentImageIndex >= images.length) {
+      if (currentImageIndex < images.length - 1) {
+        currentImageIndex++;
+        playCurrentSound();
+      } else {
         introImagesEnd = true;
+        stopCurrentSound();
       }
     } else if (keyCode === LEFT_ARROW) {
       if (currentImageIndex > 0) {
         currentImageIndex--;
+        playCurrentSound();
       }
     }
-  };
+  }
 
 
   if (bossDead) {
