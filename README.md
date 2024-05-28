@@ -50,17 +50,26 @@ Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous som
   <img src="ReadmeImages/logoStudio.png" alt="Logo du Studio" width="500">
 </p>
 
-### Membres de l'équipe :
-<p align="center">
-  <b>Aurélia</b> (Designer) <br>
-  <img src="ReadmeImages/aureliaPerso.gif" alt="Aurélia" width="300"><br>
-  <b>Liséa</b> (Designer) <br>
-  <img src="ReadmeImages/liseaPerso.gif" alt="Liséa" width="300"><br>
-  <b>Kévin</b> (Designer) <br>
-  <img src="ReadmeImages/kevinPerso.gif" alt="Kévin" width="300"><br>
-  <b>Hugo</b> (Développeur) <br>
-  <img src="ReadmeImages/hugoPerso.gif" alt="Hugo" width="300">
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>Aurélia</b> (Designer) <br>
+      <img src="ReadmeImages/aureliaPerso.gif" alt="Aurélia" width="200">
+    </td>
+    <td align="center">
+      <b>Liséa</b> (Designer) <br>
+      <img src="ReadmeImages/liseaPerso.gif" alt="Liséa" width="200">
+    </td>
+    <td align="center">
+      <b>Kévin</b> (Designer) <br>
+      <img src="ReadmeImages/kevinPerso.gif" alt="Kévin" width="200">
+    </td>
+    <td align="center">
+      <b>Hugo</b> (Développeur) <br>
+      <img src="ReadmeImages/hugoPerso.gif" alt="Hugo" width="200">
+    </td>
+  </tr>
+</table>
 
 ## Personnages
 Découvrez les personnages fascinants de **Tanu's Quest** :
