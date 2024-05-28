@@ -39,6 +39,7 @@ function playCurrentSound() {
   if (soundIndex !== currentSoundIndex) {
     stopCurrentSound();
     currentSound = sounds[soundIndex];
+    currentSound.setVolume(musicVolumeSlider.value()); // Ajustez le volume avant de jouer
     currentSound.play();
     currentSoundIndex = soundIndex;
   }

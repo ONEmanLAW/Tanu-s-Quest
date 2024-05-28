@@ -256,6 +256,8 @@ function drawGame() {
     } else if (scene === 'parametre') {
       drawParametrePage();
     }
+
+    // Crée une function aprés
     musiqueBackgroundTemple.setVolume(musicVolumeSlider.value());
     musiqueBackgroundVillage.setVolume(musicVolumeSlider.value());
     musiqueBackgroundVillageBird.setVolume(musicVolumeSlider.value());
@@ -264,7 +266,8 @@ function drawGame() {
     musiqueBackgroundBoss.setVolume(musicVolumeSlider.value());
     musiqueBackgroundVillage3.setVolume(musicVolumeSlider.value());
     musiqueFond.setVolume(musicVolumeSlider.value());
-    musiqueFond.setVolume(musicVolumeSlider.value());
+    sounds.forEach(sound => sound.setVolume(musicVolumeSlider.value()));
+    
     //soundEffect.setVolume(soundVolumeSlider.value());
 
   } else if (gameStart && !introImagesEnd) {
