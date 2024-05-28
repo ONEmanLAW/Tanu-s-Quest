@@ -194,6 +194,15 @@ function setup() {
   soundHero = loadSound('hero.mp3');
   soundGrenouille = loadSound('frog.wav');
 
+  for (let i = 0; i < 2; i++) {
+    snowSounds[i] = loadSound(`snowSounds/stepsnow_${i + 1}.wav`); // Replace with the path to your snow sound files
+  }
+
+  for (let i = 0; i < 8; i++) {
+    dirtSounds[i] = loadSound(`dirtSounds/stepdirt_${i + 1}.wav`); // Replace with the path to your snow sound files
+    stoneSounds[i] = loadSound(`stoneSounds/stepstone_${i + 1}.wav`); // Replace with the path to your snow sound files
+  }
+
   musiqueBackgroundVillageBird = loadSound('birdSound.mp3');
   musiqueBackgroundTempleWind = loadSound('wind.wav');
 
@@ -231,6 +240,10 @@ let musiqueBackgroundBoss;
 
 function drawLoadingScreen() {
   image(loadingGif, 0, 0, width, height);
+  if (walkingSoundPlaying) {
+    currentWalkingSound.stop();
+    walkingSoundPlaying = false;
+  }
 };
 
 
