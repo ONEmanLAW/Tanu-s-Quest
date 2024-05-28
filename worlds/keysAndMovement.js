@@ -110,11 +110,6 @@ function updateAnimation(animationArray) {
 
 let lastDirection = 'down';
 let lastHorizontalDirection = 'left';
-let snowSounds = [];
-let dirtSounds = [];
-let stoneSounds = [];
-let currentWalkingSound;
-let walkingSoundPlaying = false;
 
 function checkKeys(currentMap) {
   if (!gameOver) {
@@ -132,46 +127,21 @@ function checkKeys(currentMap) {
       }
     }
 
-    // Function to handle playing a random walking sound based on the current world
-    function playRandomWalkingSound() {
-      if (!walkingSoundPlaying) {
-        let soundArray;
-        if (currentWorld === 0) {
-          soundArray = snowSounds;
-        } else if (currentWorld === 1 || currentWorld === 5) {
-          soundArray = dirtSounds;
-        }
-        currentWalkingSound = random(soundArray);
-        currentWalkingSound.loop();
-        walkingSoundPlaying = true;
-      }
-    }
-
-    // Function to handle stopping the current walking sound
-    function stopWalkingSound() {
-      if (walkingSoundPlaying) {
-        currentWalkingSound.stop();
-        walkingSoundPlaying = false;
-      }
-    }
+   
 
     // Temple, Foret, Grotte, Boss
     if (currentMap === 0 || currentMap === 2 || currentMap === 3 || currentMap === 4) {
       if (keyIsDown(68) && keyIsDown(81)) {
-        stopWalkingSound();
         return;
       }
 
       if (keyIsDown(68)) {
         moveRight();
         lastHorizontalDirection = 'right';
-        playRandomWalkingSound();
       } else if (keyIsDown(81)) {
         moveLeft();
         lastHorizontalDirection = 'left';
-        playRandomWalkingSound();
       } else {
-        stopWalkingSound();
       }
 
       if (keyIsDown(32)) {
@@ -190,38 +160,33 @@ function checkKeys(currentMap) {
     // Village
     if (currentMap === 1 || currentMap === 5) {
       if (keyIsDown(68) && keyIsDown(81)) {
-        stopWalkingSound();
         return;
       }
 
       if (keyIsDown(90) && keyIsDown(83)) {
-        stopWalkingSound();
         return;
       }
 
       if (keyIsDown(68)) {
         moveRightVillage();
         lastDirection = 'right';
-        playRandomWalkingSound();
+ 
       } else if (keyIsDown(81)) {
         moveLeftVillage();
         lastDirection = 'left';
-        playRandomWalkingSound();
+      
       } else if (keyIsDown(90)) {
         moveTopVillage();
         lastDirection = 'up';
-        playRandomWalkingSound();
+        
       } else if (keyIsDown(83)) {
         moveBottomVillage();
         lastDirection = 'down';
-        playRandomWalkingSound();
       } else {
-        stopWalkingSound();
       }
     }
 
     if (!keyIsDown(68) && !keyIsDown(81) && !keyIsDown(90) && !keyIsDown(83)) {
-      stopWalkingSound();
 
       if (lastDirection === 'up') {
         updateAnimationVillage(myHeroVillageIdleTop);
