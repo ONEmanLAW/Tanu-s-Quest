@@ -15,10 +15,6 @@ let backgroundImage;
 let backgroundSettingsImage;
 let exitButtonParam;
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  mainMenuButtons();
-}
 
 function mainMenuButtons() {
   introGif = createImg('mainMenu/images/PageDebutJeu.gif');
@@ -37,15 +33,24 @@ function mainMenuButtons() {
   musiqueFond = loadSound('mainMenu/music/mainMenu.mp3');
 }
 
-function draw() {
-  if (scene === 'Intro') {
-    drawIntro();
-  } else if (scene === 'menu') {
-    drawMainMenu();
-  } else if (scene === 'parametre') {
-    drawParametrePage();
-  }
+function parametreSliderPreload() {
+  musicVolumeSlider = createSlider(0, 1, 0.5, 0.01);
+  musicVolumeSlider.position(1000, 1000,(width - 600) / 2, height * 0.3);
+  musicVolumeSlider.style('width', '600px');
+  musicVolumeSlider.hide();
+
+  soundVolumeSlider = createSlider(0, 1, 0.5, 0.01);
+  soundVolumeSlider.position(1000, 800,(width - 600) / 2, height * 0.4);
+  soundVolumeSlider.style('width', '600px');
+  soundVolumeSlider.hide();
+
+  soundVolumeSliderAntiBug = createSlider(0, 1, 0.5, 0.01);
+  soundVolumeSliderAntiBug.position((width - 600) / 2, height * 0.4);
+  soundVolumeSliderAntiBug.style('width', '600px');
+  soundVolumeSliderAntiBug.hide();
 }
+
+
 
 function drawIntro() {
   background(0);
@@ -70,6 +75,10 @@ function drawMainMenu() {
   image(jouerButton, x, height * 0.4, buttonWidth, buttonHeight);  // Move higher on Y axis
   image(parametreButton, x, height * 0.55, buttonWidth, buttonHeight);  // Move higher on Y axis
   image(exitButton, x, height * 0.7, buttonWidth, buttonHeight);  // Move higher on Y axis
+
+  // Hide sliders
+  musicVolumeSlider.hide();
+  soundVolumeSlider.hide();
 }
 
 function drawParametrePage() {
@@ -81,6 +90,9 @@ function drawParametrePage() {
 
   image(backgroundSettingsImage, width * 0.2, 0, width * 0.6, height);
   image(exitButtonParam, x, height * 0.7, buttonWidth, buttonHeight);  // Move lower on Y axis
+
+  musicVolumeSlider.show();
+  soundVolumeSlider.show();
 }
 
 function mouseClicked() {
@@ -109,6 +121,3 @@ function isClicked(x, y, buttonWidth, buttonHeight) {
   return mouseX > x && mouseX < x + buttonWidth && mouseY > y && mouseY < y + buttonHeight;
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}

@@ -138,10 +138,8 @@ function checkKeys(currentMap) {
         let soundArray;
         if (currentWorld === 0) {
           soundArray = snowSounds;
-        } else if (currentWorld === 1 || currentWorld === 2 || currentWorld === 5) {
+        } else if (currentWorld === 1 || currentWorld === 5) {
           soundArray = dirtSounds;
-        } else if (currentWorld === 3 || currentWorld === 4) {
-          soundArray = stoneSounds;
         }
         currentWalkingSound = random(soundArray);
         currentWalkingSound.loop();

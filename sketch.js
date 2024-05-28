@@ -98,6 +98,7 @@ function windowResized() {
 
 function preload() {
   mainMenuButtons(); // mainMenu.js
+  parametreSliderPreload();
   introImagesAndSounds(); // intro.js
   preloadOutroImages(); // outro.js
 
@@ -200,11 +201,10 @@ function setup() {
 
   for (let i = 0; i < 8; i++) {
     dirtSounds[i] = loadSound(`dirtSounds/stepdirt_${i + 1}.wav`); // Replace with the path to your snow sound files
-    stoneSounds[i] = loadSound(`stoneSounds/stepstone_${i + 1}.wav`); // Replace with the path to your snow sound files
   }
 
   musiqueBackgroundVillageBird = loadSound('birdSound.mp3');
-  musiqueBackgroundTempleWind = loadSound('wind.wav');
+ 
 
   musiqueBackgroundTemple = loadSound('worlds/music/temple.mp3');
   musiqueBackgroundVillage = loadSound('worlds/music/village1et2.mp3');
@@ -256,6 +256,16 @@ function drawGame() {
     } else if (scene === 'parametre') {
       drawParametrePage();
     }
+    musiqueBackgroundTemple.setVolume(musicVolumeSlider.value());
+    musiqueBackgroundVillage.setVolume(musicVolumeSlider.value());
+    musiqueBackgroundVillageBird.setVolume(musicVolumeSlider.value());
+    musiqueBackgroundForest.setVolume(musicVolumeSlider.value());
+    musiqueBackgroundGrotte.setVolume(musicVolumeSlider.value());
+    musiqueBackgroundBoss.setVolume(musicVolumeSlider.value());
+    musiqueBackgroundVillage3.setVolume(musicVolumeSlider.value());
+    musiqueFond.setVolume(musicVolumeSlider.value());
+    musiqueFond.setVolume(musicVolumeSlider.value());
+    //soundEffect.setVolume(soundVolumeSlider.value());
 
   } else if (gameStart && !introImagesEnd) {
     noCursor();
@@ -281,10 +291,6 @@ function drawGame() {
         } else {
           if (!musiqueBackgroundTemple.isPlaying()) {
             musiqueBackgroundTemple.loop();
-          }
-          
-          if (!musiqueBackgroundTempleWind.isPlaying()) {
-            musiqueBackgroundTempleWind.loop();
           }
           updateNormalCamera(1800, 1056);
           image(backgroundTutoImage, 0, 0);
@@ -332,7 +338,6 @@ function drawGame() {
 
       } else if (currentWorld === 1) {
         musiqueBackgroundTemple.stop();
-        musiqueBackgroundTempleWind.stop();
         musiqueBackgroundForest.stop();
         noCursor();
         if (!isLoadingScreenActive) {
