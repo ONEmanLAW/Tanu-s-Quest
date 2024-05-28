@@ -76,7 +76,7 @@ Découvrez les personnages fascinants de **Tanu's Quest** :
 
 <p align="center">
   <img src="ReadmeImages/sage.gif" alt="Le Grand Sage" width="180">
-  <img src="ReadmeImages/alchimiste.gif" alt="L'Alchimiste" width="150" style="vertical-align: bottom;">
+  <img src="ReadmeImages/alchimiste.gif" alt="L'Alchimiste" width="90" style="vertical-align: bottom;">
   <img src="ReadmeImages/hero.gif" alt="Tanu" width="150">
   <img src="ReadmeImages/yeti.gif" alt="Le Yéti" width="100">
   <img src="ReadmeImages/bossGobelin.gif" alt="Le Gobelin" width="100">
