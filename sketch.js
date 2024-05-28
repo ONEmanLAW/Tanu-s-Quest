@@ -190,8 +190,15 @@ function setup() {
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
   hitSound = loadSound('test.wav');
 
+  soundGrandSage = loadSound('grandSage.wav');
+  soundHero = loadSound('hero.mp3');
+  soundGrenouille = loadSound('frog.wav');
+
+  musiqueBackgroundVillageBird = loadSound('birdSound.mp3');
+  musiqueBackgroundTempleWind = loadSound('wind.wav');
+
   musiqueBackgroundTemple = loadSound('worlds/music/temple.mp3');
-  musiqueBackgroundVillage = loadSound('worlds/music/village1et2.mp3')
+  musiqueBackgroundVillage = loadSound('worlds/music/village1et2.mp3');
   musiqueBackgroundForest = loadSound('worlds/music/foret.mp3');
   musiqueBackgroundGrotte = loadSound('worlds/music/grotte.mp3');
   musiqueBackgroundVillage3 = loadSound('worlds/music/village3.mp3');
@@ -262,6 +269,10 @@ function drawGame() {
           if (!musiqueBackgroundTemple.isPlaying()) {
             musiqueBackgroundTemple.loop();
           }
+          
+          if (!musiqueBackgroundTempleWind.isPlaying()) {
+            musiqueBackgroundTempleWind.loop();
+          }
           updateNormalCamera(1800, 1056);
           image(backgroundTutoImage, 0, 0);
           drawWorld(worlds[currentWorld], tileDictionnaries[currentWorld], worldsTileSizes[currentWorld]);
@@ -308,6 +319,7 @@ function drawGame() {
 
       } else if (currentWorld === 1) {
         musiqueBackgroundTemple.stop();
+        musiqueBackgroundTempleWind.stop();
         musiqueBackgroundForest.stop();
         noCursor();
         if (!isLoadingScreenActive) {
@@ -318,6 +330,9 @@ function drawGame() {
         } else {
           if (!musiqueBackgroundVillage.isPlaying()) {
             musiqueBackgroundVillage.loop();
+          }
+          if (!musiqueBackgroundVillageBird.isPlaying()) {
+            musiqueBackgroundVillageBird.loop();
           }
 
         updateNormalCamera(4704, 2688);
@@ -354,6 +369,9 @@ function drawGame() {
         if (isForestNpcSaved && heroHasStoneStone) {
           if (!musiqueBackgroundVillage.isPlaying()) {
             musiqueBackgroundVillage.loop();
+          }
+          if (!musiqueBackgroundVillageBird.isPlaying()) {
+            musiqueBackgroundVillageBird.loop();
           }
 
           updateAlchimisteAnimation(myAlchimisteIdle);
@@ -399,6 +417,7 @@ function drawGame() {
       
       } else if (currentWorld === 2) {
         musiqueBackgroundVillage.stop();
+        musiqueBackgroundVillageBird.stop();
         noCursor();
         if (isLoadingScreenActive) {
           drawLoadingScreen();
@@ -485,6 +504,7 @@ function drawGame() {
 
       } else if (currentWorld === 3) {
         musiqueBackgroundVillage.stop();
+        musiqueBackgroundVillageBird.stop();
         noCursor();
         if (isLoadingScreenActive) {
           drawLoadingScreen();

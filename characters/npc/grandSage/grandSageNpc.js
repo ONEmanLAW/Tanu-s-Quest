@@ -8,7 +8,7 @@ let boiteDeDialogue;
 let npcGrandSageX = 5 * worldTempleTileSize; 
 let npcGrandSageY = 6.50 * worldTempleTileSize ; 
 let npcGrandSageWidth = worldTempleTileSize + 120; 
-let npcGrandSageHeight= worldTempleTileSize + 50; 
+let npcGrandSageHeight= worldTempleTileSize + 50;
 
 let dialoguesGrandSage = [
   "Rends-toi au village Tanu.",
@@ -102,6 +102,17 @@ let dialoguesIntroduction = [
 
 let currentIntroductionIndex = 0;
 let introDialogActive = false;
+let lastPlayedIndex = -1;
+
+function playCharacterSound(boxType) {
+  if (boxType === "GrandSage" || boxType === "GrandSageSansN") {
+    soundHero.stop();
+    soundGrandSage.play();
+  } else if (boxType === "Hero") {
+    soundGrandSage.stop();
+    soundHero.play();
+  }
+}
 
 function gererIntroduction() {
   if (introDialogActive && currentIntroductionIndex < dialoguesIntroduction.length) {
@@ -109,7 +120,7 @@ function gererIntroduction() {
     let boxType = dialoguesIntroduction[currentIntroductionIndex].boxType;
     let textWidth = 1100; 
     let textHeight = 250; 
-    let textX = (width - textWidth) / 2 ;
+    let textX = (width - textWidth) / 2;
     let textY = height - textHeight - 15;
     
     let boiteDeDialogue;
@@ -118,7 +129,7 @@ function gererIntroduction() {
     } else if (boxType === "Hero") {
       boiteDeDialogue = boiteDeDialogueHeroTuto;
     } else if (boxType === "GrandSageSansN") {
-      boiteDeDialogue = boiteDeDialogueGrandSageSansN
+      boiteDeDialogue = boiteDeDialogueGrandSageSansN;
     }
     
     fill(0);
@@ -127,10 +138,14 @@ function gererIntroduction() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+
+    // Jouer le son approprié si l'index a changé
+    if (currentIntroductionIndex !== lastPlayedIndex) {
+      playCharacterSound(boxType);
+      lastPlayedIndex = currentIntroductionIndex;
+    }
   }
 }
-
-
 
 
 
@@ -157,6 +172,23 @@ let dialoguesInForet = [
 
 let currentDialogueForetIndex = 0;
 let foretDialogActive = false;
+let lastPlayedForetIndex = -1;
+
+function playCharacterSound(boxType) {
+  if (boxType === "GrandSage") {
+    soundGrandSage.play();
+    soundHero.stop();
+    soundGrenouille.stop();
+  } else if (boxType === "Hero") {
+    soundHero.play();
+    soundGrandSage.stop();
+    soundGrenouille.stop();
+  } else if (boxType === "Grenouille") {
+    soundGrenouille.play();
+    soundHero.stop();
+    soundGrandSage.stop();
+  }
+}
 
 function gererDialogueForet() {
   if (foretDialogActive && currentDialogueForetIndex < dialoguesInForet.length) {
@@ -182,6 +214,11 @@ function gererDialogueForet() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+
+    if (currentDialogueForetIndex !== lastPlayedForetIndex) {
+      playCharacterSound(boxType);
+      lastPlayedForetIndex = currentDialogueForetIndex;
+    }
   }
 }
 
@@ -201,6 +238,7 @@ let dialoguesFinishForet = [
 let currentDialogueFinishForetIndex = 0;
 let foretFinishDialogActive = false;
 let foretFinishDialogFinish = false;
+let lastPlayedFinishForetIndex = -1;
 
 function gererDialogueFinishForet() {
   if (foretFinishDialogActive && currentDialogueFinishForetIndex < dialoguesFinishForet.length) {
@@ -226,6 +264,11 @@ function gererDialogueFinishForet() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+
+    if (currentDialogueFinishForetIndex !== lastPlayedFinishForetIndex) {
+      playCharacterSound(boxType);
+      lastPlayedFinishForetIndex = currentDialogueFinishForetIndex;
+    }
   }
 }
 
@@ -265,12 +308,4 @@ function updateGrandSageAnimation(animationArray) {
     movementCounterGrandSage = 0;
   }
 }
-
-
-
-
-
-
-
-
 
