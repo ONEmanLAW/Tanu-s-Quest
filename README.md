@@ -54,19 +54,19 @@ Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous som
   <tr>
     <td align="center">
       <b>Aurélia</b> (Designer) <br>
-      <img src="ReadmeImages/aureliaPerso.gif" alt="Aurélia" width="200">
+      <img src="ReadmeImages/aureliaPerso.gif" alt="Aurélia" width="180">
     </td>
     <td align="center">
       <b>Liséa</b> (Designer) <br>
-      <img src="ReadmeImages/liseaPerso.gif" alt="Liséa" width="200">
+      <img src="ReadmeImages/liseaPerso.gif" alt="Liséa" width="180">
     </td>
     <td align="center">
       <b>Kévin</b> (Designer) <br>
-      <img src="ReadmeImages/kevinPerso.gif" alt="Kévin" width="200">
+      <img src="ReadmeImages/kevinPerso.gif" alt="Kévin" width="180">
     </td>
     <td align="center">
       <b>Hugo</b> (Développeur) <br>
-      <img src="ReadmeImages/hugoPerso.gif" alt="Hugo" width="200">
+      <img src="ReadmeImages/hugoPerso.gif" alt="Hugo" width="180">
     </td>
   </tr>
 </table>
