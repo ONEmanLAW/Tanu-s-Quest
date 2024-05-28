@@ -36,8 +36,28 @@ Une fois le serveur en direct lancé via Live Server :
 ## Technologies Utilisées
 Ce projet a été réalisé en utilisant les technologies suivantes :
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,p5js," width="200" height="auto"/><br>
+  <table align="center">
+    <tr>
+      <td align="center"><img src="https://skillicons.dev/icons?i=html" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=css" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=js" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=p5js" width="50" height="50"/></td>
+    </tr>
+    <tr>
+      <td align="center"><img src="https://skillicons.dev/icons?i=windows" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=vscode" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=github" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=git" width="50" height="50"/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=ae" width="50" height="50"/></td>
+      <td align="center"><img src="https://skillicons.dev/icons?i=ai" width="50" height="50"/></td>
+      <td></td>
+    </tr>
+  </table>
 </p>
+
 
 ## Équipe
 Nous sommes **ALKH Studio**, une petite équipe avec de grands projets. Nous sommes des passionnés qui s'efforcent de créer des expériences de jeu uniques et mémorables.
