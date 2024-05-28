@@ -268,7 +268,13 @@ function drawGame() {
     musiqueFond.setVolume(musicVolumeSlider.value());
     sounds.forEach(sound => sound.setVolume(musicVolumeSlider.value()));
     
-    //soundEffect.setVolume(soundVolumeSlider.value());
+    snowSounds.forEach(snowSounds => snowSounds.setVolume(soundVolumeSlider.value()));
+    dirtSounds.forEach(dirtSounds => dirtSounds.setVolume(soundVolumeSlider.value()));
+    swordAndGrenouilleSound.setVolume(soundVolumeSlider.value());
+    hitSound.setVolume(soundVolumeSlider.value());
+    soundGrandSage.setVolume(soundVolumeSlider.value());
+    soundHero.setVolume(soundVolumeSlider.value());
+    soundGrenouille.setVolume(soundVolumeSlider.value());
 
   } else if (gameStart && !introImagesEnd) {
     noCursor();

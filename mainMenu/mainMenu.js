@@ -35,12 +35,12 @@ function mainMenuButtons() {
 
 function parametreSliderPreload() {
   musicVolumeSlider = createSlider(0, 1, 0.5, 0.01);
-  musicVolumeSlider.position(1000, 1000,(width - 600) / 2, height * 0.3);
+  musicVolumeSlider.position(800, 700,(width - 600) / 2, height * 0.3);
   musicVolumeSlider.style('width', '600px');
   musicVolumeSlider.hide();
 
   soundVolumeSlider = createSlider(0, 1, 0.5, 0.01);
-  soundVolumeSlider.position(1000, 800,(width - 600) / 2, height * 0.4);
+  soundVolumeSlider.position(800, 450,(width - 600) / 2, height * 0.4);
   soundVolumeSlider.style('width', '600px');
   soundVolumeSlider.hide();
 
