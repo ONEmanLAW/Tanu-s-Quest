@@ -36,7 +36,7 @@ function checkGrandSageInteraction() {
   let textY = height - textHeight - 15;
   
   let distance = dist(playerXCenter, playerYCenter, npcGrandSageXCenter, npcGrandSageYCenter); 
-  let interactionDistance = wHero / 2 + npcGrandSageWidth / 2 - 10; // Réduire de 10 pixels
+  let interactionDistance = wHero / 2 + npcGrandSageWidth / 2 - 10;
 
   if (distance < interactionDistance) {
     fill(0);
@@ -45,7 +45,6 @@ function checkGrandSageInteraction() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialoguesGrandSage[currentDialogueGrandSageIndex], textX + textWidth / 2 + 100, textY + textHeight / 2);
-
     return true;
   }
 
@@ -108,10 +107,18 @@ function playCharacterSound(boxType) {
   if (boxType === "GrandSage" || boxType === "GrandSageSansN") {
     soundHero.stop();
     soundGrandSage.play();
+    soundYeti.stop();
   } else if (boxType === "Hero") {
     soundGrandSage.stop();
     soundHero.play();
-  }
+    soundYeti.stop();
+  } else if (boxType === "Yeti") {
+    if (!soundYeti.isPlaying()) {
+      soundYeti.play();
+      soundHero.stop();
+      soundGrandSage.stop();
+    }
+  }  
 }
 
 function gererIntroduction() {

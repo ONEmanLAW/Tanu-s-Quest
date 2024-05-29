@@ -11,7 +11,7 @@ let npcYetiHeight2 = worldVillageTileSize + 25;
 
 
 
-let conversationYetiFinished = false;
+
 
 let dialoguesYeti = [
   { text: "OHHHHHHHH !!!", boxType: "Yeti" },
@@ -31,7 +31,21 @@ let dialoguesYeti = [
 ];
 
 let yetiDialogActive = false;
+let conversationYetiFinished = false;
 let currentYetiIndexQuete = 0; // Renommage de la variable
+let lastPlayedYetiIndex = -1;
+
+function playCharacterSoundYetiPart(boxType) {
+  if (boxType === "Hero") {
+    soundHero.play();
+    soundYeti.stop();
+  } else if (boxType === "Yeti") {
+    if (!soundYeti.isPlaying()) {
+      soundYeti.play();
+      soundHero.stop();
+    }
+  }  
+}
 
 function gererDialoguesYeti() {
   if (yetiDialogActive && currentYetiIndexQuete < dialoguesYeti.length) {
@@ -55,6 +69,12 @@ function gererDialoguesYeti() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+
+    // Jouer le son approprié si l'index a changé
+    if (currentYetiIndexQuete !== lastPlayedYetiIndex) {
+      playCharacterSoundYetiPart(boxType);
+      lastPlayedYetiIndex = currentYetiIndexQuete;
+    }
   } else {
     yetiDialogActive = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
   }

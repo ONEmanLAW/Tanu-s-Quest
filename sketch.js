@@ -191,9 +191,13 @@ function setup() {
   swordAndGrenouilleSound = loadSound('hud/sounds/swordAndGrenouilleSound.mp3');
   hitSound = loadSound('test.wav');
 
-  soundGrandSage = loadSound('grandSage.wav');
+  soundGrandSage = loadSound('grandSage.mp3');
   soundHero = loadSound('hero.mp3');
+  soundYeti = loadSound('yeti.mp3');
+  soundAlchimiste = loadSound('alchimiste.mp3');
+  soundGobein = loadSound('gobelin.mp3');
   soundGrenouille = loadSound('frog.wav');
+
 
   // for (let i = 0; i < 2; i++) {
   //   snowSounds[i] = loadSound(`snowSounds/stepsnow_${i + 1}.wav`); // Replace with the path to your snow sound files
@@ -271,6 +275,9 @@ function drawGame() {
     soundGrandSage.setVolume(soundVolumeSlider.value());
     soundHero.setVolume(soundVolumeSlider.value());
     soundGrenouille.setVolume(soundVolumeSlider.value());
+    soundYeti.setVolume(soundVolumeSlider.value());
+    soundAlchimiste.setVolume(soundVolumeSlider.value());
+    soundGobein.setVolume(soundVolumeSlider.value());
 
   } else if (gameStart && !introImagesEnd) {
     noCursor();
