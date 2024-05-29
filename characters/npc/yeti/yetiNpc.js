@@ -106,7 +106,8 @@ let dialoguesYetiEcorse = [
 ];
 
 let yetiDialogActiveEcorse = false;
-let currentYetiIndexQueteEcorse = 0; // Renommage de la variable
+let currentYetiIndexQueteEcorse = 0;
+let lastPlayedYetiEcorseIndex = -1;
 let newSword = false; 
 
 function gererDialoguesYetiEcorse() {
@@ -116,8 +117,8 @@ function gererDialoguesYetiEcorse() {
     let textWidth = 1150; 
     let textHeight = 275; 
 
-    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2 - 200; // Centrer horizontalement par rapport au Yeti
-    let textY = npcYetiY2 - textHeight - 10; // Juste au-dessus du Yeti avec un petit décalage
+    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2 - 200;
+    let textY = npcYetiY2 - textHeight - 10; 
 
     let boiteDeDialogue;
     if (boxType === "Yeti") {
@@ -132,6 +133,11 @@ function gererDialoguesYetiEcorse() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + 60 + textWidth / 2, textY + textHeight / 2);
+
+    if (currentYetiIndexQueteEcorse !== lastPlayedYetiEcorseIndex) {
+      playCharacterSoundYetiPart(boxType);
+      lastPlayedYetiEcorseIndex = currentYetiIndexQueteEcorse;
+    }
   } else {
     yetiDialogActiveEcorse = false;
   }
@@ -173,6 +179,7 @@ let dialoguesYetiEcorse2 = [
 
 let yetiDialogActiveEcorse2 = false;
 let currentYetiIndexQueteEcorse2 = 0; // Renommage de la variable
+let lastPlayedYetiEcorse2Index = -1;
 
 function gererDialoguesYetiEcorse2() {
   if (yetiDialogActiveEcorse2 && currentYetiIndexQueteEcorse2 < dialoguesYetiEcorse2.length) {
@@ -198,6 +205,13 @@ function gererDialoguesYetiEcorse2() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + 60 + textWidth / 2, textY + textHeight / 2);
+
+       // Jouer le son approprié si l'index a changé
+       if (currentYetiIndexQueteEcorse2 !== lastPlayedYetiEcorse2Index) {
+        playCharacterSound(boxType);
+        lastPlayedYetiEcorse2Index = currentYetiIndexQueteEcorse2;
+      }
+    
   } else {
     yetiDialogActiveEcorse2 = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
   }

@@ -181,7 +181,7 @@ let currentDialogueForetIndex = 0;
 let foretDialogActive = false;
 let lastPlayedForetIndex = -1;
 
-function playCharacterSound(boxType) {
+function playCharacterSoundInForet(boxType) {
   if (boxType === "GrandSage") {
     soundGrandSage.play();
     soundHero.stop();
@@ -223,7 +223,7 @@ function gererDialogueForet() {
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
 
     if (currentDialogueForetIndex !== lastPlayedForetIndex) {
-      playCharacterSound(boxType);
+      playCharacterSoundInForet(boxType);
       lastPlayedForetIndex = currentDialogueForetIndex;
     }
   }
