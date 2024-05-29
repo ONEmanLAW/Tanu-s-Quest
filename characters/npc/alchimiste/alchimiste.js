@@ -53,6 +53,20 @@ let dialoguesAlchimiste = [
 let currentAlchimisteIndex = 0;
 let alchimisteDialogActive = false;
 let alchimisteDialogueFinished = false;
+let lastPlayedAlchimisteIndex = -1;
+
+function playCharacterSoundHearts(boxType) {
+
+  if (boxType === "Hero") {
+    if (!soundHero.isPlaying()) {
+      soundHero.play();
+    }
+  } else if (boxType === "Alchimiste") {
+    if (!soundAlchimiste.isPlaying()) {
+      soundAlchimiste.play();
+    }
+  }
+}
 
 // Fonction pour gérer le dialogue de l'alchimiste
 function gererDialoguesAlchimiste() {
@@ -83,6 +97,12 @@ function gererDialoguesAlchimiste() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX, textY);
+
+    // Jouer le son approprié si l'index a changé
+    if (currentAlchimisteIndex !== lastPlayedAlchimisteIndex) {
+      playCharacterSoundHearts(boxType);
+      lastPlayedAlchimisteIndex = currentAlchimisteIndex;
+    }
   } else {
     // Si tous les dialogues ont été affichés, le dialogue de l'alchimiste est terminé
     

@@ -195,7 +195,7 @@ function setup() {
   soundHero = loadSound('hero.mp3');
   soundYeti = loadSound('yeti.mp3');
   soundAlchimiste = loadSound('alchimiste.mp3');
-  soundGobein = loadSound('gobelin.mp3');
+  soundBoss = loadSound('gobelin.mp3');
   soundGrenouille = loadSound('frog.wav');
 
 
@@ -277,7 +277,7 @@ function drawGame() {
     soundGrenouille.setVolume(soundVolumeSlider.value());
     soundYeti.setVolume(soundVolumeSlider.value());
     soundAlchimiste.setVolume(soundVolumeSlider.value());
-    soundGobein.setVolume(soundVolumeSlider.value());
+    soundBoss.setVolume(soundVolumeSlider.value());
 
   } else if (gameStart && !introImagesEnd) {
     noCursor();

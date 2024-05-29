@@ -188,9 +188,8 @@ function gererDialoguesYetiEcorse2() {
     let textWidth = 1150; 
     let textHeight = 275; 
     
-    // Positionner le texte juste au-dessus du Yeti
-    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2 - 200; // Centrer horizontalement par rapport au Yeti
-    let textY = npcYetiY2 - textHeight - 10; // Juste au-dessus du Yeti avec un petit décalage
+    let textX = npcYetiX2 + (npcYetiWidth2 - textWidth) / 2 - 200; 
+    let textY = npcYetiY2 - textHeight - 10;
     
     let boiteDeDialogue;
     if (boxType === "Yeti") {
@@ -206,14 +205,13 @@ function gererDialoguesYetiEcorse2() {
     fill(255);
     text(dialogueActuel, textX + 60 + textWidth / 2, textY + textHeight / 2);
 
-       // Jouer le son approprié si l'index a changé
        if (currentYetiIndexQueteEcorse2 !== lastPlayedYetiEcorse2Index) {
-        playCharacterSound(boxType);
+        playCharacterSoundYetiPart(boxType);
         lastPlayedYetiEcorse2Index = currentYetiIndexQueteEcorse2;
       }
     
   } else {
-    yetiDialogActiveEcorse2 = false; // Désactive le dialogue du Yeti une fois que tous les dialogues ont été affichés
+    yetiDialogActiveEcorse2 = false;
   }
 }
 

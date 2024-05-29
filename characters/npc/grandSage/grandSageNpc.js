@@ -104,7 +104,7 @@ let introDialogActive = false;
 let lastPlayedIndex = -1;
 
 function playCharacterSound(boxType) {
-  if (boxType === "GrandSage" || boxType === "GrandSageSansN") {
+  if (boxType === "GrandSage") {
     soundHero.stop();
     soundGrandSage.play();
     soundYeti.stop();
@@ -112,13 +112,7 @@ function playCharacterSound(boxType) {
     soundGrandSage.stop();
     soundHero.play();
     soundYeti.stop();
-  } else if (boxType === "Yeti") {
-    if (!soundYeti.isPlaying()) {
-      soundYeti.play();
-      soundHero.stop();
-      soundGrandSage.stop();
-    }
-  }  
+  } 
 }
 
 function gererIntroduction() {

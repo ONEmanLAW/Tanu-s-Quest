@@ -67,6 +67,22 @@ let bossDialogues = [
 let currentBossIntroductionIndex = 0;
 let bossIntroActive = false;
 let bossIntroFinish = false;
+let lastPlayedBossIndex = -1;
+
+function playCharacterSoundBoss(boxType) {
+  if (boxType === "Hero") {
+    if (!soundHero.isPlaying()) {
+      soundHero.play();
+      soundBoss.stop();
+    }
+  } else if (boxType === "Boss") {
+    if (!soundBoss.isPlaying()) {
+      soundBoss.play();
+      soundHero.stop();
+    }
+  }
+}
+
 
 function gererIntroductionBoss() {
   if (bossIntroActive && currentBossIntroductionIndex < bossDialogues.length) {
@@ -90,6 +106,12 @@ function gererIntroductionBoss() {
     textAlign(CENTER, CENTER);
     fill(255);
     text(dialogueActuel, textX + textWidth / 2 + 100, textY + textHeight / 2);
+
+     // Jouer le son approprié si l'index a changé
+     if (currentBossIntroductionIndex !== lastPlayedBossIndex) {
+      playCharacterSoundBoss(boxType);
+      lastPlayedBossIndex = currentBossIntroductionIndex;
+    }
   }
 }
 
