@@ -23,7 +23,7 @@ let dialoguesYeti = [
   { text: "OHHHHHHH, tu vas dans la Forêt !???", boxType: "Yeti" },
   { text: "Oui je dois sauver ma famille", boxType: "Hero" },
   { text: "J'ai quelques choses à te proposer,\n j'ai besoin d'une écorce,\n c'est pour cela que je suis venue ici.", boxType: "Yeti" },
-  { text: "Une Ecorse ???", boxType: "Hero" },
+  { text: "Une Ecorce ???", boxType: "Hero" },
   { text: "Oui il y a une écorce dans la forêt.\n Apporte-la-moi et je te donnerai quelques choses\nqui pourrait t'aider à sauver ta famille.", boxType: "Yeti" },
   { text: "En attendant cet endroit sans la brulée.\n J'aime bien je vais m'y installer.", boxType: "Yeti" },
   { text: "Une fois que tu as l'écorce\n rejointe moi au sud west du village dans ma maison.\nJe t'attenterai OHHHHHH.", boxType: "Yeti" },
@@ -94,12 +94,12 @@ let conversationYetiFinishedEcorse = false;
 let dialoguesYetiEcorse = [
   { text: "OHHHHHHHHHHHHHHHHHH", boxType: "Yeti" },
   { text: "....", boxType: "Hero" },
-  { text: "TANU, j'ai entendu tes exploi dans la foret,\n tu a pu ramener l'ecorcsse", boxType: "Yeti" },
+  { text: "TANU, j'ai entendu tes exploi dans la foret,\n tu a pu ramener l'ecorce", boxType: "Yeti" },
   { text: "Oui le voici", boxType: "Hero" },
   { text: "INcroyable MERCI", boxType: "Yeti" },
   { text: "Voici pour toi.", boxType: "Yeti" },
   { text: "J'ai forgé cette épée avec soin.", boxType: "Yeti" },
-  { text: "Tu ferra deux fois plus de dégats au Gobelin.", boxType: "Yeti" },
+  { text: "Tu feras deux fois plus de dégats au Gobelin.", boxType: "Yeti" },
   { text: "Bonne chance.", boxType: "Yeti" },
   { text: "Merci.", boxType: "Hero" },
   // Ajoute d'autres dialogues ici selon le besoin
@@ -170,15 +170,14 @@ let conversationYetiFinishedEcorse2 = false;
 let dialoguesYetiEcorse2 = [
   { text: "OHHHHHHHHHHHHHHHHHH", boxType: "Yeti" },
   { text: "....", boxType: "Hero" },
-  { text: "TANU, j'ai entendu tes exploi dans la foret,\n tu a pu ramener l'ecorcsse", boxType: "Yeti" },
-  { text: "Non maleresuement... ", boxType: "Hero" },
+  { text: "TANU, j'ai entendu tes explois dans la foret,\n tu a pu ramener l'ecorce", boxType: "Yeti" },
+  { text: "Non malheureusement... ", boxType: "Hero" },
   { text: "Ah je suis plutot décu...", boxType: "Yeti" },
-  { text: "Je pense que tu a plein de choses a faire aurevoir.", boxType: "Yeti" },
-  // Ajoute d'autres dialogues ici selon le besoin
+  { text: "Je pense que tu as plein de choses a faire au revoir.", boxType: "Yeti" },
 ];
 
 let yetiDialogActiveEcorse2 = false;
-let currentYetiIndexQueteEcorse2 = 0; // Renommage de la variable
+let currentYetiIndexQueteEcorse2 = 0;
 let lastPlayedYetiEcorse2Index = -1;
 
 function gererDialoguesYetiEcorse2() {
@@ -279,8 +278,6 @@ function preloadYetiImages() {
 
 function updateYetiAnimation(animationArray) {
   movementCounterYeti += 1;
-  // Réglez la vitesse de l'animation du Yeti comme vous le souhaitez
-  // Par exemple, 20 frames par image
   if (movementCounterYeti >= 15) {
     currentYetiIndex += 1;
     if (currentYetiIndex === animationArray.length) {

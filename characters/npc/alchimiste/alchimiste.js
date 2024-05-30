@@ -42,7 +42,7 @@ function updateAlchimisteAnimation(animationArray) {
 
 // Dialogues de l'alchimiste
 let dialoguesAlchimiste = [
-  { text: "Bonjour Alchimiste,\n le Grand Sage m'a dit de passer vous voire.", boxType: "Hero" },
+  { text: "Bonjour Alchimiste,\n le Grand Sage m'a dit de passer vous voir.", boxType: "Hero" },
   { text: "Bonjour Tanu, Merci encore de nous avoir sauvée.", boxType: "Alchimiste" },
   { text: "J'ai quelque choses pour toi !", boxType: "Alchimiste" },
   { text: "Voici des potions pour toi,\n si jamais tu perds trop de cœurs,\n tu peut utilier 'r' pour récupérer de la vie.", boxType: "Alchimiste" },

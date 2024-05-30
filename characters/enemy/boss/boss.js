@@ -60,8 +60,8 @@ function updateBossAnimation(animationArray) {
 let bossDialogues = [
   { text: "GOBELIN JE VAIS TE TUER !!!", boxType: "Hero" },
   { text: "HAHA, ENCORE UN TANUKI,\n vient donc me tuer avant que je mange ta famille HAHA!", boxType: "Boss" },
-  { text: "Tu n'a aucune chance!", boxType: "Boss" },
-  { text: "TU VAS VOIRE !!!", boxType: "Hero" },
+  { text: "Tu n'as aucune chance !", boxType: "Boss" },
+  { text: "TU VAS VOIR !!!", boxType: "Hero" },
 ];
 
 let currentBossIntroductionIndex = 0;
