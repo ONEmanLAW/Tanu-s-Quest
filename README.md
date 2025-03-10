@@ -32,6 +32,7 @@ Une fois le serveur en direct lancé via Live Server :
 2. Lancez le jeu soit sur Google Chrome ou Opera GX.
 3. Assurez-vous que votre résolution d'écran est définie sur 1920x1080p pour une qualité maximale.
 4. Appuyez sur **F11** pour passer en mode plein écran et profiter pleinement du jeu.
+5. Appuyer sur **ctrl + r** pour rafraîchir la page et être en plein écran.
 
 ## Technologies Utilisées
 Ce projet a été réalisé en utilisant les technologies suivantes :
